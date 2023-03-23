@@ -29,17 +29,17 @@
         - [InfoQ](https://www.infoq.cn/u/kaliarch/publish)
 
 
-## 其他笔记
+## 其他参考笔记
 
 !!!info
+
+        - [Linux 101 Docs](https://github.com/ustclug/Linux101-docs)
 
         - [awesome-kubernetes-notes](https://github.com/overnote/awesome-kubernetes-notes)
     
         - [kubectl-img](https://github.com/redhatxl/kubectl-img)
     
         - [shell-scripts](https://github.com/daily-scripts/shell-scripts)
-
-
 
 ## Blog
 
