@@ -1,0 +1,227 @@
+site_name: DevOps运维开发手记
+site_url: https://hujianli94.github.io
+site_author: hujainli94
+site_description: >-
+  stay hungry,stay foolish
+
+# Repository
+repo_name: hujianli94.github.io
+repo_url: https://github.com/hujianli94/hujianli94.github.io
+edit_uri: ""
+
+# Copyright
+copyright: Copyright &copy; 2023 - 2024 hujainli94
+
+
+# Plugins
+plugins:
+  - search
+  - redirects:
+      redirect_maps:
+        changelog/insiders.md: insiders/changelog.md
+        reference/meta-tags.md: reference/index.md
+        reference/variables.md: https://mkdocs-macros-plugin.readthedocs.io/
+        sponsorship.md: insiders/index.md
+        upgrading.md: upgrade.md
+  - minify:
+      minify_html: true
+
+
+# Customization
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/hujianli94
+    - icon: fontawesome/brands/weixin
+      link: https://kaliarch-bucket-1251990360.cos.ap-beijing.myqcloud.com/blog_img/20220125122524.png
+
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >-
+            Thanks for your feedback! Help us improve this page by
+            using our <a href="https://github.com/hujianli94/hujianli94.github.io/issues/new/?title=[Feedback]+{title}+-+{url}" target=_blank>feedback form</a>.
+# Extensions
+markdown_extensions:
+  - tables
+  - admonition
+  - abbr
+  - pymdownx.snippets
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - codehilite:
+      guess_lang: false
+      linenums: false
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+theme:
+  name: material
+  highlightjs: true
+
+  # Static files
+  static_templates:
+    - 404.html
+
+  # Don't include MkDocs' JavaScript
+  include_search_page: false
+  search_index_only: true
+
+    # Default values, taken from mkdocs_theme.yml
+  language: zh
+  features:
+    - content.code.annotate
+    # - content.tabs.link
+    # - header.autohide
+    # - navigation.expand
+    - navigation.indexes
+    # - navigation.instant
+    # - navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    # - toc.integrate
+
+
+  palette:
+    - scheme: default
+      primary: teal
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - scheme: slate
+      primary: light blue
+      accent: purple
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/images/favicon.png
+  logo: assets/images/logo.png
+
+
+
+
+
+
+
+
+
+
+
+# Page tree
+nav:
+  - 首页: index.md
+  - Kubernetes全栈架构师实战:
+      - 0.学习线路:
+        - Kubernetes/0.学习线路/0.Kubernetes全栈架构师实战.md
+      - 1.安装篇:
+        - Kubernetes/1.安装篇/1.Kubeadm安装高可用K8s集群.md
+        - Kubernetes/1.安装篇/2.二进制安装高可用K8s集群.md
+      - 2.基础篇:
+        - Kubernetes/2.基础篇/3.Docker基础.md
+        - Kubernetes/2.基础篇/4.Kubernetes的基础概念.md
+        - Kubernetes/2.基础篇/5.Kubernetes调度基础.md
+        - Kubernetes/2.基础篇/6.Kubernetes服务发布基础.md
+        - Kubernetes/2.基础篇/7.Kubernetes配置管理.md
+      - 3.进阶篇:
+        - Kubernetes/3.进阶篇/8.Kubernetes存储入门.md
+        - Kubernetes/3.进阶篇/9.Kubernetes高级调度.md
+      - 4.高级篇:
+        - Kubernetes/4.高级篇/12.云原生存储Rook.md
+      - 5.运维篇:
+        - Kubernetes/5.运维篇/14.Kubernetes日志收集.md
+        - Kubernetes/5.运维篇/15.Kubernetes监控告警.md
+        - Kubernetes/5.运维篇/16.服务发布Ingress进阶.md
+      - 6.DevOps篇:
+        - Kubernetes/6.DevOps篇/17.DevOps实践.md
+  - Python工匠:
+      - 0.学习线路:
+          - Python/0.学习线路/0.Python工匠.md
+      - 1.变量与注释:
+          - Python/1.变量与注释/1.基础知识.md
+          - Python/1.变量与注释/2.编程建议.md
+  - Linux:
+    - 系统相关:
+      - Linux/system/Linux内核引导详解.md
+      - Linux/system/Linux系统安全加固最佳实践.md
+      - Linux/system/virtio详解.md
+      - Linux/system/数据库压测.md
+      - Linux/system/红旗系统操作.md
+    - Shell:
+      - Linux/shell/Shell简介.md
+      - Linux/shell/1.第一个shell程序.md
+      - Linux/shell/2.Shell变量.md
+      - Linux/shell/3.Shell参数.md
+      - Linux/shell/4.Shell数组.md
+      - Linux/shell/5.Shell运算符.md
+      - Linux/shell/6.Shell echo_printf命令.md
+      - Linux/shell/7.Shell test命令.md
+      - Linux/shell/8.Shell流程控制.md
+      - Linux/shell/9.Shell函数.md
+      - Linux/shell/10.Shell输入_输出重定向.md
+      - Linux/shell/11.Shell 正则表达式.md
+      - Linux/shell/12.Shell 三剑客之grep.md
+      - Linux/shell/13.Shell三剑客之sed.md
+      - Linux/shell/14.Shell三剑客之awk.md
+      - Linux/shell/15.Shell常用工具.md
+      - Linux/shell/16.Shell实战项目.md
+
