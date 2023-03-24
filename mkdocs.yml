@@ -12,15 +12,32 @@ edit_uri: ""
 # Copyright
 copyright: Copyright &copy; 2023 - 2024 hujainli94
 
+
 # Click to enlarge the image
 extra_css:
-    - stylesheets/extra.css
+  - stylesheets/extra.css
+  - https://file.cdn.shafish.cn/blog/css/vssue.css
+  - https://file.cdn.shafish.cn/blog/css/video-js.min.css
+  - https://file.cdn.shafish.cn/blog/css/video.css
+
+
 extra_javascript:
-    - javascripts/extra.js
+  - javascripts/extra.js
+  - https://file.cdn.shafish.cn/blog/js/video.min.js
+
 
 # Plugins
 plugins:
-  - search
+  - search:
+      separator: '[\s\u200b\-]'
+  - tags
+  # Display the last modification time of the file
+  - git-revision-date-localized:
+      type: datetime
+      timezone: Asia/Shanghai
+      enable_creation_date: true
+      exclude:
+        - comments.md
   - redirects:
       redirect_maps:
         changelog/insiders.md: insiders/changelog.md
@@ -31,11 +48,6 @@ plugins:
   - minify:
       minify_html: true
 
-  # Display the last modification time of the file
-  - git-revision-date-localized:
-      type: datetime
-      #fallback_to_build_date: true
-      enable_creation_date: true
 
 
 # Customization
@@ -45,6 +57,12 @@ extra:
       link: https://github.com/hujianli94
     - icon: fontawesome/brands/weixin
       link: https://kaliarch-bucket-1251990360.cos.ap-beijing.myqcloud.com/blog_img/20220125122524.png
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:<1879324764@qq.com>
+      name: 发送邮件
+
+
+
 
   consent:
     title: Cookie consent
@@ -77,28 +95,35 @@ markdown_extensions:
   - abbr
   - pymdownx.details
   - pymdownx.superfences
-  - pymdownx.snippets
-  - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.inlinehilite
   - pymdownx.keys
   - markdown.extensions.def_list
   - attr_list
-  - def_list
   - footnotes
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
   - meta
+  - def_list
   - md_in_html
+  - pymdownx.snippets:
+      auto_append:
+        - english/phonetic_note.md # 英语单词注解统一放在该文件中
+      base_path: ["docs/"]
+      #check_paths: true
   - codehilite:
       guess_lang: false
       linenums: false
   - toc:
       permalink: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify {kwds: {case: lower}}
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:
       smart_enable: all
-  - pymdownx.caret
-  - pymdownx.critic
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
@@ -118,11 +143,26 @@ markdown_extensions:
       alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
-  - pymdownx.tilde
 
 theme:
   name: 'material'
   language: 'zh'
+
+  icon:
+    repo: fontawesome/brands/github
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
 
   # Static files
   static_templates:
@@ -175,20 +215,7 @@ theme:
     code: Roboto Mono
   favicon: assets/images/favicon.png
   logo: assets/images/logo.png
-  icon:
-    admonition:
-      note: octicons/tag-16
-      abstract: octicons/checklist-16
-      info: octicons/info-16
-      tip: octicons/squirrel-16
-      success: octicons/check-16
-      question: octicons/question-16
-      warning: octicons/alert-16
-      failure: octicons/x-circle-16
-      danger: octicons/zap-16
-      bug: octicons/bug-16
-      example: octicons/beaker-16
-      quote: octicons/quote-16
+
 
 
 

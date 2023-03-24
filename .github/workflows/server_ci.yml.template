@@ -1,0 +1,51 @@
+name: Built and pushed to the server
+on:
+  push:
+    branches:
+      - master
+      - main
+
+env:
+  TZ: Asia/Shanghai
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master 
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          
+      - name: Set up Python3.x
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: pip install mkdocs-material mkdocs-git-revision-date-localized-plugin jieba
+
+      - name: Build
+        run: |
+          mkdocs build
+          tar -zcvf ./site.tar.gz ./site
+      - name: upload build file to my host
+        uses: AEnterprise/rsync-deploy@v1.0
+        env:
+          DEPLOY_KEY: ${{ secrets.SERVER_KEY }}
+          ARGS: -avz --delete --exclude='.user.ini'
+          SERVER_PORT: ${{ secrets.SERVER_PORT }}
+          FOLDER: ./site.tar.gz
+          SERVER_IP: ${{ secrets.SERVER_HOST }}
+          USERNAME: ${{ secrets.SERVER_USERNAME }}
+          SERVER_DESTINATION: /home/rsync
+
+      - name: execute script 
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SERVER_KEY }}
+          script: |
+            cd /www/wwwroot/shafish.cn/ && rm -rf ./*
+            tar -zxvf /home/rsync/site.tar.gz -C ./ && mv site/* ./
