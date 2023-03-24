@@ -28,8 +28,7 @@ jobs:
           path: .cache
 
       - name: Install dependencies
-        run: pip install --upgrade pip && \
-             pip install mkdocs-material \
+        run: pip install mkdocs-material \
              mkdocs-minify-plugin>=0.3 mkdocs-redirects>=1.0 \
              mkdocs-rss-plugin>=0.17 \
              mkdocs-git-revision-date-localized-plugin
