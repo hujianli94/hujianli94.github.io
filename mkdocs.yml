@@ -228,9 +228,9 @@ theme:
 # Page tree
 nav:
   - 首页: index.md
-  - Kubernetes全栈架构师实战:
+  - Kubernetes:
       - 0.学习线路:
-        - Kubernetes/0.学习线路/0.Kubernetes全栈架构师实战.md
+        - Kubernetes/0.学习线路/0.Kubernetes.md
       - 1.安装篇:
         - Kubernetes/1.安装篇/1.Kubeadm安装高可用K8s集群.md
         - Kubernetes/1.安装篇/2.二进制安装高可用K8s集群.md
@@ -258,12 +258,14 @@ nav:
           - Python/1.变量与注释/1.基础知识.md
           - Python/1.变量与注释/2.编程建议.md
   - Linux:
-    - 系统相关:
+    - system:
       - Linux/system/Linux内核引导详解.md
       - Linux/system/Linux系统安全加固最佳实践.md
       - Linux/system/virtio详解.md
       - Linux/system/数据库压测.md
       - Linux/system/红旗系统操作.md
+    - serveices:
+      - Linux/serveices/1.操作系统下载.md
     - Shell:
       - Linux/shell/Shell简介.md
       - Linux/shell/1.第一个shell程序.md

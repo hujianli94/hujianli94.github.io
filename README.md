@@ -41,6 +41,7 @@
     
         - [shell-scripts](https://github.com/daily-scripts/shell-scripts)
 
+        - [MkDocs 文档开发教程](https://mkdocs-like-code.readthedocs.io/zh_CN/latest/）
 ## Blog
 
 ![](https://kaliarch-bucket-1251990360.cos.ap-beijing.myqcloud.com/blog_img/20220204194001.png)

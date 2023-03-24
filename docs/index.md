@@ -313,6 +313,59 @@ Linux 的知识结构呈非线性，仅有单线的正文是不足的。请广�
 
 
 
+
+
+
+## 其他参考笔记
+
+!!! info "Mkdocs 教程"
+
+        - [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/getting-started/)
+        
+        - [Mkdocs Material使用记录](https://shafish.cn/blog/mkdocs/)
+
+        - [MkDocs 文档开发教程](https://mkdocs-like-code.readthedocs.io/zh_CN/latest/)
+        
+        - [mkdocs 教程](https://emma-ssq.github.io/blog/tools/mkdocs/)
+
+        - [Markdown语法学习 精简版](https://wcowin.work/develop/Markdown/markdown/)
+
+        - [利用mkdocs部署静态网页至GitHub pages](https://segmentfault.com/a/1190000043501934?utm_source=sf-similar-article)
+
+        - [MkDocs: 构建你自己的知识库 ](https://www.cnblogs.com/brt2/p/13950073.html)
+    
+        - [快来美化你的MKDocs吧](https://juejin.cn/post/7066641709198737416)
+
+
+
+!!!info "他人 mkdocs示例"
+
+
+
+        - [Linux 101 Docs](https://github.com/ustclug/Linux101-docs)
+
+        - [CS自学指南](https://csdiy.wiki/)
+
+        - [Mkdocs Material使用记录](https://shafish.cn/blog/mkdocs/)
+
+        - [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/getting-started/)
+
+
+
+
+
+!!! info "一些项目"
+
+        - [awesome-kubernetes-notes](https://github.com/overnote/awesome-kubernetes-notes)
+    
+        - [kubectl-img](https://github.com/redhatxl/kubectl-img)
+    
+        - [shell-scripts](https://github.com/daily-scripts/shell-scripts)
+
+
+
+
+
 ## Blog
 
 ![](https://kaliarch-bucket-1251990360.cos.ap-beijing.myqcloud.com/blog_img/20220204194001.png)
