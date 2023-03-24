@@ -6,7 +6,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Kubernetes/0.%E5%AD%A6%E4%B9%A0%E7%BA%BF%E8%B7%AF/0.Kubernetes%E5%85%A8%E6%A0%88%E6%9E%B6%E6%9E%84%E5%B8%88%E5%AE%9E%E6%88%98/</loc>
+         <loc>https://hujianli94.github.io/Kubernetes/0.%E5%AD%A6%E4%B9%A0%E7%BA%BF%E8%B7%AF/0.Kubernetes/</loc>
          <lastmod>2023-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -77,6 +77,11 @@
     </url>
     <url>
          <loc>https://hujianli94.github.io/Kubernetes/6.DevOps%E7%AF%87/17.DevOps%E5%AE%9E%E8%B7%B5/</loc>
+         <lastmod>2023-03-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hujianli94.github.io/Linux/serveices/1.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8B%E8%BD%BD/</loc>
          <lastmod>2023-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
