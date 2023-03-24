@@ -12,12 +12,19 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: 3.x
+          # 默认为1,表示只拉去最新commit信息，会导致当前文件显示的创建时间、更新时间都为commit的时间
+          fetch-depth: 0
       - uses: actions/cache@v2
         with:
           key: ${{ github.ref }}
           path: .cache
-      - run: pip install mkdocs-material mkdocs-minify-plugin>=0.3 mkdocs-redirects>=1.0 mkdocs-rss-plugin>=0.17 -i https://mirrors.aliyun.com/pypi/simple
+      - run: pip install mkdocs-material \
+                         mkdocs-minify-plugin>=0.3 \
+                         mkdocs-redirects>=1.0 \
+                         mkdocs-rss-plugin>=0.17 \
+                         mkdocs-git-revision-date-localized-plugin -i https://mirrors.aliyun.com/pypi/simple
       - name: Deploy
         env:
+          TZ: Asia/Shanghai
           GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
         run: mkdocs gh-deploy --force
