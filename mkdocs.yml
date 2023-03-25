@@ -251,12 +251,42 @@ nav:
         - Kubernetes/5.运维篇/16.服务发布Ingress进阶.md
       - 6.DevOps篇:
         - Kubernetes/6.DevOps篇/17.DevOps实践.md
-  - Python工匠:
+
+  - Python-vs-Go:
       - 0.学习线路:
-          - Python/0.学习线路/0.Python工匠.md
-      - 1.变量与注释:
-          - Python/1.变量与注释/1.基础知识.md
-          - Python/1.变量与注释/2.编程建议.md
+        - Python-vs-Go/0.学习线路/1.Python-vs-Go.md
+      - 1.对比学习:
+        - Python-vs-Go/1.对比学习/1.Hello-World.md
+        - Python-vs-Go/1.对比学习/2.Print.md
+        - Python-vs-Go/1.对比学习/3.注释.md
+        - Python-vs-Go/1.对比学习/4.多行字符串.md
+        - Python-vs-Go/1.对比学习/5.Lists-切片.md
+        - Python-vs-Go/1.对比学习/6.Map-字典.md
+        - Python-vs-Go/1.对比学习/7.布尔值-Booleans.md
+        - Python-vs-Go/1.对比学习/8.Forloop-循环语句.md
+        - Python-vs-Go/1.对比学习/9.Range-序列范围.md
+        - Python-vs-Go/1.对比学习/10.Switch多条件判断.md
+        - Python-vs-Go/1.对比学习/11.可变参数函数.md
+        - Python-vs-Go/1.对比学习/12.时间计算.md
+        - Python-vs-Go/1.对比学习/13.函数的闭包.md
+        - Python-vs-Go/1.对比学习/14.退出处理.md
+        - Python-vs-Go/1.对比学习/15.异常捕获.md
+        - Python-vs-Go/1.对比学习/16.可变项.md
+        - Python-vs-Go/1.对比学习/17.类.md
+        - Python-vs-Go/1.对比学习/18.方法.md
+        - Python-vs-Go/1.对比学习/19.并发.md
+        - Python-vs-Go/1.对比学习/20.Args.md
+        - Python-vs-Go/1.对比学习/21.导入模块别名.md
+        - Python-vs-Go/1.对比学习/22.字符串格式化.md
+        - Python-vs-Go/1.对比学习/23.去重.md
+        - Python-vs-Go/1.对比学习/24.带颜色打印.md
+      - 2.进阶:
+        - Python-vs-Go/2.进阶/1.使用RPC.md
+        - Python-vs-Go/2.进阶/2.使用MySQL.md
+        - Python-vs-Go/2.进阶/3.使用Redis.md
+        - Python-vs-Go/2.进阶/4.使用MongoDB.md
+
+
   - Linux:
     - system:
       - Linux/system/Linux内核引导详解.md
