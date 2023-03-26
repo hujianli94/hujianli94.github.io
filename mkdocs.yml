@@ -260,12 +260,12 @@ nav:
         - Python-vs-Go/1.对比学习/2.Print.md
         - Python-vs-Go/1.对比学习/3.注释.md
         - Python-vs-Go/1.对比学习/4.多行字符串.md
-        - Python-vs-Go/1.对比学习/5.Lists-切片.md
-        - Python-vs-Go/1.对比学习/6.Map-字典.md
-        - Python-vs-Go/1.对比学习/7.布尔值-Booleans.md
-        - Python-vs-Go/1.对比学习/8.Forloop-循环语句.md
-        - Python-vs-Go/1.对比学习/9.Range-序列范围.md
-        - Python-vs-Go/1.对比学习/10.Switch多条件判断.md
+        - Python-vs-Go/1.对比学习/5.Lists.md
+        - Python-vs-Go/1.对比学习/6.Map.md
+        - Python-vs-Go/1.对比学习/7.Booleans.md
+        - Python-vs-Go/1.对比学习/8.Forloop.md
+        - Python-vs-Go/1.对比学习/9.Range.md
+        - Python-vs-Go/1.对比学习/10.Switch.md
         - Python-vs-Go/1.对比学习/11.可变参数函数.md
         - Python-vs-Go/1.对比学习/12.时间计算.md
         - Python-vs-Go/1.对比学习/13.函数的闭包.md
