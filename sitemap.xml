@@ -196,6 +196,26 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hujianli94.github.io/Python/0.%E5%AD%A6%E4%B9%A0%E7%BA%BF%E8%B7%AF/0.Pythjon-auto-ops/</loc>
+         <lastmod>2023-03-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hujianli94.github.io/Python/1.%E5%9F%BA%E7%A1%80%E7%AF%87/1.Python%E5%86%85%E7%BD%AE%E5%B0%8F%E5%B7%A5%E5%85%B7/</loc>
+         <lastmod>2023-03-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hujianli94.github.io/Python/1.%E5%9F%BA%E7%A1%80%E7%AF%87/2.pip%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/</loc>
+         <lastmod>2023-03-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hujianli94.github.io/Python/1.%E5%9F%BA%E7%A1%80%E7%AF%87/3.Python%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/</loc>
+         <lastmod>2023-03-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hujianli94.github.io/Python-vs-Go/0.%E5%AD%A6%E4%B9%A0%E7%BA%BF%E8%B7%AF/1.Python-vs-Go/</loc>
          <lastmod>2023-03-26</lastmod>
          <changefreq>daily</changefreq>
@@ -342,26 +362,6 @@
     </url>
     <url>
          <loc>https://hujianli94.github.io/docker/1.confcenter-docker/</loc>
-         <lastmod>2023-03-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://hujianli94.github.io/python/0.%E5%AD%A6%E4%B9%A0%E7%BA%BF%E8%B7%AF/0.Pythjon-auto-ops/</loc>
-         <lastmod>2023-03-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://hujianli94.github.io/python/1.%E5%9F%BA%E7%A1%80%E7%AF%87/1.Python%E5%86%85%E7%BD%AE%E5%B0%8F%E5%B7%A5%E5%85%B7/</loc>
-         <lastmod>2023-03-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://hujianli94.github.io/python/1.%E5%9F%BA%E7%A1%80%E7%AF%87/2.pip%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/</loc>
-         <lastmod>2023-03-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://hujianli94.github.io/python/1.%E5%9F%BA%E7%A1%80%E7%AF%87/3.Python%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/</loc>
          <lastmod>2023-03-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
