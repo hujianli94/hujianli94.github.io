@@ -257,7 +257,7 @@ nav:
         - Python/0.学习线路/0.Pythjon-auto-ops.md
       - 1.基础篇:
         - Python/1.基础篇/1.Python内置小工具.md
-        - Python/1.基础篇/2.pip高级用法.md
+        - Python/1.基础篇/2.Python第三方库安装.md
         - Python/1.基础篇/3.Python工作环境管理.md
 
   - Python-vs-Go:
