@@ -26,6 +26,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hujianli94.github.io/Docker/1.Devops/4.docker%E9%95%9C%E5%83%8F%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%E8%84%9A%E6%9C%AC/</loc>
+         <lastmod>2023-03-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hujianli94.github.io/Kubernetes/0.%E5%AD%A6%E4%B9%A0%E7%BA%BF%E8%B7%AF/0.Kubernetes/</loc>
          <lastmod>2023-03-27</lastmod>
          <changefreq>daily</changefreq>
