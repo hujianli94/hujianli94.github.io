@@ -260,6 +260,7 @@ nav:
         - Docker/1.Devops/1.ConfCenter.md
         - Docker/1.Devops/2.CoreDNS.md
         - Docker/1.Devops/3.Harbor.md
+        - Docker/1.Devops/4.docker镜像上传下载脚本.md
 
   - Python:
       - 0.学习线路:
