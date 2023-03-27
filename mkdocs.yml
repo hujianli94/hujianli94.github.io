@@ -245,6 +245,7 @@ nav:
         - Kubernetes/3.进阶篇/9.Kubernetes高级调度.md
       - 4.高级篇:
         - Kubernetes/4.高级篇/12.云原生存储Rook.md
+        - Kubernetes/4.高级篇/13.中间件容器化.md
       - 5.运维篇:
         - Kubernetes/5.运维篇/14.Kubernetes日志收集.md
         - Kubernetes/5.运维篇/15.Kubernetes监控告警.md
