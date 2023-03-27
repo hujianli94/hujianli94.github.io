@@ -253,6 +253,14 @@ nav:
       - 6.DevOps篇:
         - Kubernetes/6.DevOps篇/17.DevOps实践.md
 
+  - Docker:
+      - 0.学习线路:
+        - Docker/0.学习线路/0.Docker.md
+      - 1.Devops:
+        - Docker/1.Devops/1.ConfCenter.md
+        - Docker/1.Devops/2.CoreDNS.md
+        - Docker/1.Devops/3.Harbor.md
+
   - Python:
       - 0.学习线路:
         - Python/0.学习线路/0.Pythjon-auto-ops.md
@@ -303,7 +311,7 @@ nav:
       - Linux/system/数据库压测.md
       - Linux/system/红旗系统操作.md
     - serveices:
-      - Linux/serveices/1.操作系统下载.md
+      - Linux/serveices/1.系统下载.md
     - Shell:
       - Linux/shell/Shell简介.md
       - Linux/shell/1.第一个shell程序.md
