@@ -256,11 +256,15 @@ nav:
   - Docker:
       - 0.学习线路:
         - Docker/0.学习线路/0.Docker.md
-      - 1.Devops:
-        - Docker/1.Devops/1.ConfCenter.md
-        - Docker/1.Devops/2.CoreDNS.md
-        - Docker/1.Devops/3.Harbor.md
-        - Docker/1.Devops/4.docker镜像上传下载脚本.md
+      - 1.Docker基础:
+        - Docker/1.Docker基础/1.安装.md
+        - Docker/1.Docker基础/2.Docker相关脚本.md
+        - Docker/1.Docker基础/3.docker-compose示例.md
+
+      - 2.Devops:
+        - Docker/2.Devops/1.ConfCenter.md
+        - Docker/2.Devops/2.CoreDNS.md
+        - Docker/2.Devops/3.Harbor.md
 
   - Python:
       - 0.学习线路:
@@ -312,7 +316,7 @@ nav:
       - Linux/system/数据库压测.md
       - Linux/system/红旗系统操作.md
     - serveices:
-      - Linux/serveices/1.系统下载.md
+      - Linux/serveices/1.Linux操作系统镜像下载.md
     - Shell:
       - Linux/shell/Shell简介.md
       - Linux/shell/1.第一个shell程序.md
