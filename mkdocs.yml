@@ -273,8 +273,8 @@ nav:
         - Python/1.基础篇/1.Python内置小工具.md
         - Python/1.基础篇/2.Python第三方库安装.md
         - Python/1.基础篇/3.Python工作环境管理.md
-      - 2.命令行相关:
-        - Python/2.命令行相关/1.打造命令行工具.md
+      - 2.高级篇:
+        - Python/2.高级篇/1.打造命令行工具.md
   - Python-vs-Go:
       - 0.学习线路:
         - Python-vs-Go/0.学习线路/1.Python-vs-Go.md
