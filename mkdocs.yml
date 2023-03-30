@@ -261,6 +261,7 @@ nav:
         - Docker/1.Docker基础/2.Docker相关脚本.md
         - Docker/1.Docker基础/3.docker-compose示例.md
         - Docker/1.Docker基础/4.Dockerfile编写优化.md
+        - Docker/1.Docker基础/5.Python操作Docker.md
 
       - 2.Devops:
         - Docker/2.Devops/1.ConfCenter.md
@@ -274,6 +275,7 @@ nav:
         - Python/1.基础篇/1.Python内置小工具.md
         - Python/1.基础篇/2.Python第三方库安装.md
         - Python/1.基础篇/3.Python工作环境管理.md
+        - Python/1.基础篇/4.VSCode中Python环境配置.md
       - 2.高级篇:
         - Python/2.高级篇/1.打造命令行工具.md
   - Python-vs-Go:
