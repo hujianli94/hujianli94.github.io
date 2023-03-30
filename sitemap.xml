@@ -31,6 +31,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hujianli94.github.io/Docker/1.Docker%E5%9F%BA%E7%A1%80/5.Python%E6%93%8D%E4%BD%9CDocker/</loc>
+         <lastmod>2023-03-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hujianli94.github.io/Docker/2.Devops/1.ConfCenter/</loc>
          <lastmod>2023-03-30</lastmod>
          <changefreq>daily</changefreq>
@@ -257,6 +262,11 @@
     </url>
     <url>
          <loc>https://hujianli94.github.io/Python/1.%E5%9F%BA%E7%A1%80%E7%AF%87/3.Python%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/</loc>
+         <lastmod>2023-03-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hujianli94.github.io/Python/1.%E5%9F%BA%E7%A1%80%E7%AF%87/4.VSCode%E4%B8%ADPython%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
          <lastmod>2023-03-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
