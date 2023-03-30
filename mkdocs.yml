@@ -260,6 +260,7 @@ nav:
         - Docker/1.Docker基础/1.安装.md
         - Docker/1.Docker基础/2.Docker相关脚本.md
         - Docker/1.Docker基础/3.docker-compose示例.md
+        - Docker/1.Docker基础/4.Dockerfile编写优化.md
 
       - 2.Devops:
         - Docker/2.Devops/1.ConfCenter.md
