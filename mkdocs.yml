@@ -112,7 +112,7 @@ markdown_extensions:
       auto_append:
         - english/phonetic_note.md # 英语单词注解统一放在该文件中
       base_path: ["docs/"]
-      check_paths: true
+#      check_paths: true
   - codehilite:
       guess_lang: false
       linenums: false
