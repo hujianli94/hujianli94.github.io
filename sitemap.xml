@@ -141,6 +141,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hujianli94.github.io/Linux/Ansible/2.%E7%AE%A1%E7%90%86windows%E4%B8%BB%E6%9C%BA/</loc>
+         <lastmod>2023-04-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hujianli94.github.io/Linux/Ansible/3.Ansible%E8%BF%9B%E9%98%B6/</loc>
+         <lastmod>2023-04-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hujianli94.github.io/Linux/serveices/0.ubuntu-desktop-vmware/</loc>
          <lastmod>2023-04-10</lastmod>
          <changefreq>daily</changefreq>
