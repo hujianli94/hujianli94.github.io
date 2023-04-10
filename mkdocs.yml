@@ -319,6 +319,8 @@ nav:
     - Ansible:
         - Linux/Ansible/0.Ansible入门.md
         - Linux/Ansible/1.Ansible扩展阅读.md
+        - Linux/Ansible/2.管理windows主机.md
+        - Linux/Ansible/3.Ansible进阶.md
     - Shell:
       - Linux/shell/Shell简介.md
       - Linux/shell/1.第一个shell程序.md
