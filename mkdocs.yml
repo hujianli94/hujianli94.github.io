@@ -266,6 +266,14 @@ nav:
         - Docker/2.Devops/2.CoreDNS.md
         - Docker/2.Devops/3.Harbor.md
 
+  - Golang:
+      - 0.学习线路:
+        - Golang/0.学习线路/0.Go Web开发实战.md
+      - 1.Go基础入门:
+        - Golang/1.Go基础入门/1.安装Go.md
+        - Golang/1.Go基础入门/2.开启Go的第一个程序.md
+        - Golang/1.Go基础入门/3.Go基础语法与使用.md
+        - Golang/1.Go基础入门/4.Go Module教程.md
   - Python:
       - 0.学习线路:
         - Python/0.学习线路/0.Pythjon-auto-ops.md
