@@ -274,6 +274,7 @@ nav:
         - Python/1.基础篇/2.Python第三方库安装.md
         - Python/1.基础篇/3.Python工作环境管理.md
         - Python/1.基础篇/4.VSCode中Python环境配置.md
+        - Python/1.基础篇/5.开发工具.md
       - 2.高级篇:
         - Python/2.高级篇/1.打造命令行工具.md
 
