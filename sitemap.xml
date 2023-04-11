@@ -51,6 +51,31 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hujianli94.github.io/Golang/0.%E5%AD%A6%E4%B9%A0%E7%BA%BF%E8%B7%AF/0.Go%20Web%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/</loc>
+         <lastmod>2023-04-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hujianli94.github.io/Golang/1.Go%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/1.%E5%AE%89%E8%A3%85Go/</loc>
+         <lastmod>2023-04-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hujianli94.github.io/Golang/1.Go%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/2.%E5%BC%80%E5%90%AFGo%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F/</loc>
+         <lastmod>2023-04-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hujianli94.github.io/Golang/1.Go%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/3.Go%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E4%B8%8E%E4%BD%BF%E7%94%A8/</loc>
+         <lastmod>2023-04-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hujianli94.github.io/Golang/1.Go%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/4.Go%20Module%E6%95%99%E7%A8%8B/</loc>
+         <lastmod>2023-04-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hujianli94.github.io/Kubernetes/0.%E5%AD%A6%E4%B9%A0%E7%BA%BF%E8%B7%AF/0.Kubernetes/</loc>
          <lastmod>2023-04-11</lastmod>
          <changefreq>daily</changefreq>
