@@ -274,6 +274,39 @@ nav:
         - Golang/1.Go基础入门/2.开启Go的第一个程序.md
         - Golang/1.Go基础入门/3.Go基础语法与使用.md
         - Golang/1.Go基础入门/4.Go Module教程.md
+      - 2.Go-Web开发基础:
+        - Golang/2.Go-Web开发基础/5.hello World Web.md
+        - Golang/2.Go-Web开发基础/6.Web程序运行原理简介.md
+        - Golang/2.Go-Web开发基础/7.net-http包.md
+        - Golang/2.Go-Web开发基础/8.html-template包.md
+      - 3.接收和处理Go Web请求:
+        - Golang/3.接收和处理Go Web请求/9.简单Go Web服务器.md
+        - Golang/3.接收和处理Go Web请求/10.处理请求.md
+        - Golang/3.接收和处理Go Web请求/11.了解session和cookie.md
+      - 4.使用Go访问数据库:
+        - Golang/4.使用Go访问数据库/12.MySQL的安装与使用.md
+        - Golang/4.使用Go访问数据库/13.Redis的安装及使用.md
+        - Golang/4.使用Go访问数据库/14.MongoDB的安装及使用.md
+        - Golang/4.使用Go访问数据库/15.Go的常见ORM库.md
+        - Golang/4.使用Go访问数据库/16.SQLite的安装及使用.md
+      - 5.Go高级网络编程:
+        - Golang/5.Go高级网络编程/17.Go Socket编程.md
+        - Golang/5.Go高级网络编程/18.Go RPC编程.md
+        - Golang/5.Go高级网络编程/19.微服务.md
+      - 6.Go文件处理:
+        - Golang/6.Go文件处理/20.处理目录与文件.md
+        - Golang/6.Go文件处理/21.处理XML文件.md
+        - Golang/6.Go文件处理/22.处理JSON文件.md
+        - Golang/6.Go文件处理/23.处理CSV文件.md
+        - Golang/6.Go文件处理/24.处理日志记录.md
+        - Golang/6.Go文件处理/25.处理正则表达式.md
+      - 7.Go并发编程:
+        - Golang/7.Go并发编程/26.并发与并行.md
+        - Golang/7.Go并发编程/27.进程 线程和协程.md
+        - Golang/7.Go并发编程/28.Go并发模型简介.md
+        - Golang/7.Go并发编程/29.gogoroutine和channel实现并发.md
+        - Golang/7.Go并发编程/30.sync实现并发.md
+        - Golang/7.Go并发编程/31.Go并发的Web应用.md
   - Python:
       - 0.学习线路:
         - Python/0.学习线路/0.Pythjon-auto-ops.md
