@@ -274,6 +274,7 @@ nav:
         - Docker/3.Devops/2.CoreDNS.md
         - Docker/3.Devops/3.Harbor.md
         - Docker/3.Devops/4.Python操作Docker.md
+        - Docker/3.Devops/5.Haproxy.md
 
   - Golang:
       - 0.学习线路:
