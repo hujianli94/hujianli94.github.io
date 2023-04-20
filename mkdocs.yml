@@ -275,6 +275,7 @@ nav:
         - Docker/3.Devops/3.Harbor.md
         - Docker/3.Devops/4.Python操作Docker.md
         - Docker/3.Devops/5.Haproxy.md
+        - Docker/3.Devops/6.Nexus.md
 
   - Golang:
       - 0.学习线路:
@@ -289,16 +290,16 @@ nav:
         - Golang/2.Go-Web开发基础/6.Web程序运行原理简介.md
         - Golang/2.Go-Web开发基础/7.net-http包.md
         - Golang/2.Go-Web开发基础/8.html-template包.md
-      - 3.接收和处理Go Web请求:
-        - Golang/3.接收和处理Go Web请求/9.简单Go Web服务器.md
-        - Golang/3.接收和处理Go Web请求/10.处理请求.md
-        - Golang/3.接收和处理Go Web请求/11.了解session和cookie.md
-      - 4.使用Go访问数据库:
-        - Golang/4.使用Go访问数据库/12.MySQL的安装与使用.md
-        - Golang/4.使用Go访问数据库/13.Redis的安装及使用.md
-        - Golang/4.使用Go访问数据库/14.MongoDB的安装及使用.md
-        - Golang/4.使用Go访问数据库/15.Go的常见ORM库.md
-        - Golang/4.使用Go访问数据库/16.SQLite的安装及使用.md
+      - 3.Go-Web请求处理:
+        - Golang/3.Go-Web请求处理/9.简单Go Web服务器.md
+        - Golang/3.Go-Web请求处理/10.处理请求.md
+        - Golang/3.Go-Web请求处理/11.了解session和cookie.md
+      - 4.Go访问数据库:
+        - Golang/4.Go访问数据库/12.MySQL的安装与使用.md
+        - Golang/4.Go访问数据库/13.Redis的安装及使用.md
+        - Golang/4.Go访问数据库/14.MongoDB的安装及使用.md
+        - Golang/4.Go访问数据库/15.Go的常见ORM库.md
+        - Golang/4.Go访问数据库/16.SQLite的安装及使用.md
       - 5.Go高级网络编程:
         - Golang/5.Go高级网络编程/17.Go Socket编程.md
         - Golang/5.Go高级网络编程/18.Go RPC编程.md
