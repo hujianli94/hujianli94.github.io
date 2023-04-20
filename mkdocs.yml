@@ -216,13 +216,6 @@ theme:
 
 
 
-
-
-
-
-
-
-
 # Page tree
 nav:
   - 首页: index.md
@@ -367,6 +360,7 @@ nav:
     - system:
       - Linux/system/0.Linux操作系统镜像下载.md
       - Linux/system/1.Linux系统安全加固最佳实践.md
+      - Linux/system/2.systemd.md
     - serveices:
       - Linux/serveices/0.ubuntu-desktop-vmware.md
     - Ansible:
