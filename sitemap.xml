@@ -471,6 +471,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hujianli94.github.io/Linux/system/2.systemd/</loc>
+         <lastmod>2023-04-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hujianli94.github.io/Python/0.%E5%AD%A6%E4%B9%A0%E7%BA%BF%E8%B7%AF/0.Pythjon-auto-ops/</loc>
          <lastmod>2023-04-20</lastmod>
          <changefreq>daily</changefreq>
