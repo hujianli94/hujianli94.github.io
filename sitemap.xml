@@ -166,17 +166,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Golang/4.Go%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE%E5%BA%93/12.MySQL%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</loc>
+         <loc>https://hujianli94.github.io/Golang/4.Go%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE%E5%BA%93/12.Go%E6%93%8D%E4%BD%9CMySQL/</loc>
          <lastmod>2023-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Golang/4.Go%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE%E5%BA%93/13.Redis%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</loc>
+         <loc>https://hujianli94.github.io/Golang/4.Go%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE%E5%BA%93/13.Go%E6%93%8D%E4%BD%9CRedis/</loc>
          <lastmod>2023-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Golang/4.Go%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE%E5%BA%93/14.MongoDB%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</loc>
+         <loc>https://hujianli94.github.io/Golang/4.Go%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE%E5%BA%93/14.Go%E6%93%8D%E4%BD%9CMongoDB/</loc>
          <lastmod>2023-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -186,7 +186,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Golang/4.Go%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE%E5%BA%93/16.SQLite%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</loc>
+         <loc>https://hujianli94.github.io/Golang/4.Go%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE%E5%BA%93/16.Go%E6%93%8D%E4%BD%9CSQLite/</loc>
          <lastmod>2023-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -196,7 +196,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Golang/5.Go%E9%AB%98%E7%BA%A7%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/18.Go%20RPC%E7%BC%96%E7%A8%8B/</loc>
+         <loc>https://hujianli94.github.io/Golang/5.Go%E9%AB%98%E7%BA%A7%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/17.Go-Socket%E7%BC%96%E7%A8%8B/</loc>
+         <lastmod>2023-07-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hujianli94.github.io/Golang/5.Go%E9%AB%98%E7%BA%A7%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/18.Go-RPC%E7%BC%96%E7%A8%8B/</loc>
          <lastmod>2023-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
