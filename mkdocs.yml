@@ -288,14 +288,14 @@ nav:
         - Golang/3.Go-Web请求处理/10.处理请求.md
         - Golang/3.Go-Web请求处理/11.了解session和cookie.md
       - 4.Go访问数据库:
-        - Golang/4.Go访问数据库/12.MySQL的安装与使用.md
-        - Golang/4.Go访问数据库/13.Redis的安装及使用.md
-        - Golang/4.Go访问数据库/14.MongoDB的安装及使用.md
+        - Golang/4.Go访问数据库/12.Go操作MySQL.md
+        - Golang/4.Go访问数据库/13.Go操作Redis.md
+        - Golang/4.Go访问数据库/14.Go操作MongoDB.md
         - Golang/4.Go访问数据库/15.Go的常见ORM库.md
-        - Golang/4.Go访问数据库/16.SQLite的安装及使用.md
+        - Golang/4.Go访问数据库/16.Go操作SQLite.md
       - 5.Go高级网络编程:
-        - Golang/5.Go高级网络编程/17.Go Socket编程.md
-        - Golang/5.Go高级网络编程/18.Go RPC编程.md
+        - Golang/5.Go高级网络编程/17.Go-Socket编程.md
+        - Golang/5.Go高级网络编程/18.Go-RPC编程.md
         - Golang/5.Go高级网络编程/19.微服务.md
       - 6.Go文件处理:
         - Golang/6.Go文件处理/20.处理目录与文件.md
