@@ -296,7 +296,7 @@ nav:
       - 5.Go高级网络编程:
         - Golang/5.Go高级网络编程/17.Go-Socket编程.md
         - Golang/5.Go高级网络编程/18.Go-RPC编程.md
-        - Golang/5.Go高级网络编程/19.微服务.md
+        - Golang/5.Go高级网络编程/19.Go-微服务.md
       - 6.Go文件处理:
         - Golang/6.Go文件处理/20.处理目录与文件.md
         - Golang/6.Go文件处理/21.处理XML文件.md
@@ -312,6 +312,25 @@ nav:
         - Golang/7.Go并发编程/29.gogoroutine和channel实现并发.md
         - Golang/7.Go并发编程/30.sync实现并发.md
         - Golang/7.Go并发编程/31.Go并发的Web应用.md
+      - 8.Go标准库:
+        - Golang/8.Go标准库/32.time.md
+        - Golang/8.Go标准库/33.strings.md
+        - Golang/8.Go标准库/34.bytes.md
+        - Golang/8.Go标准库/35.json.md
+        - Golang/8.Go标准库/36.io-bufio.md
+        - Golang/8.Go标准库/37.fmt.md
+        - Golang/8.Go标准库/38.strconv.md
+        - Golang/8.Go标准库/39.regexp.md
+        - Golang/8.Go标准库/40.log.md
+        - Golang/8.Go标准库/41.reflect-unsafe.md
+        - Golang/8.Go标准库/42.os-path-filepath.md
+        - Golang/8.Go标准库/43.unicode.md
+        - Golang/8.Go标准库/44.flag.md
+        - Golang/8.Go标准库/45.net-url.md
+        - Golang/8.Go标准库/46.net-http.md
+        - Golang/8.Go标准库/47.sort.md
+        - Golang/8.Go标准库/48.errors.md
+  
   - Python:
       - 0.学习线路:
         - Python/0.学习线路/0.Pythjon-auto-ops.md
