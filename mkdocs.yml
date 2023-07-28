@@ -273,16 +273,16 @@ nav:
   - Golang:
       - 0.学习线路:
         - Golang/0.学习线路/0.Go-Web开发实战.md
-      - 1.Go基础入门:
-        - Golang/1.Go基础入门/1.安装Go.md
-        - Golang/1.Go基础入门/2.开启Go的第一个程序.md
-        - Golang/1.Go基础入门/3.Go基础语法与使用.md
-        - Golang/1.Go基础入门/4.Go-Module教程.md
-      - 2.Go-Web开发基础:
-        - Golang/2.Go-Web开发基础/5.开启Go-Web的第一个程序.md
-        - Golang/2.Go-Web开发基础/6.Web程序运行原理简介.md
-        - Golang/2.Go-Web开发基础/7.net-http包.md
-        - Golang/2.Go-Web开发基础/8.html-template包.md
+      - 1.Go基础:
+        - Golang/1.Go基础/1.安装Go.md
+        - Golang/1.Go基础/2.开启Go的第一个程序.md
+        - Golang/1.Go基础/3.Go基础语法与使用.md
+        - Golang/1.Go基础/4.Go-Module教程.md
+      - 2.Go-Web基础:
+        - Golang/2.Go-Web基础/5.Go-Web的第一个程序.md
+        - Golang/2.Go-Web基础/6.Web程序运行原理简介.md
+        - Golang/2.Go-Web基础/7.net-http包.md
+        - Golang/2.Go-Web基础/8.html-template包.md
       - 3.Go-Web请求处理:
         - Golang/3.Go-Web请求处理/9.简单Go-Web服务器.md
         - Golang/3.Go-Web请求处理/10.处理请求.md
