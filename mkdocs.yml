@@ -249,8 +249,8 @@ nav:
         - Docker/0.学习线路/0.Docker.md
       - 1.Docker基础:
         - Docker/1.Docker基础/1.安装Docker.md
-        - Docker/1.Docker基础/2.使用Docker镜像.md
-        - Docker/1.Docker基础/3.操作Docker容器.md
+        - Docker/1.Docker基础/2.Docker镜像.md
+        - Docker/1.Docker基础/3.Docker容器.md
         - Docker/1.Docker基础/4.搭建本地私有仓库.md
         - Docker/1.Docker基础/5.Docker数据管理.md
         - Docker/1.Docker基础/6.Docker使用网络.md
