@@ -331,9 +331,11 @@ nav:
         - Golang/8.Go标准库/47.sort.md
         - Golang/8.Go标准库/48.errors.md
       - 9.Go三方库:
+        - Golang/9.Go三方库/0.开源自己的Go库.md
         - Golang/9.Go三方库/1.cobra.md
         - Golang/9.Go三方库/2.viper.md
         - Golang/9.Go三方库/3.mahonia.md
+        - Golang/9.Go三方库/4.ssh.md
   - Python:
       - 0.学习线路:
         - Python/0.学习线路/0.Pythjon-auto-ops.md
