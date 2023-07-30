@@ -275,8 +275,8 @@ nav:
         - Golang/0.学习线路/0.Go-Web开发实战.md
       - 1.Go基础:
         - Golang/1.Go基础/1.安装Go.md
-        - Golang/1.Go基础/2.开启Go的第一个程序.md
-        - Golang/1.Go基础/3.Go基础语法与使用.md
+        - Golang/1.Go基础/2.第一个Go程序.md
+        - Golang/1.Go基础/3.Go基础语法.md
         - Golang/1.Go基础/4.Go-Module教程.md
       - 2.Go-Web基础:
         - Golang/2.Go-Web基础/5.Go-Web的第一个程序.md
@@ -336,6 +336,10 @@ nav:
         - Golang/9.Go三方库/2.viper.md
         - Golang/9.Go三方库/3.mahonia.md
         - Golang/9.Go三方库/4.ssh.md
+        - Golang/9.Go三方库/5.fsnotify.md
+        - Golang/9.Go三方库/6.yaml.md
+        - Golang/9.Go三方库/7.tail.md
+        - Golang/9.Go三方库/8.gopsutil.md
   - Python:
       - 0.学习线路:
         - Python/0.学习线路/0.Pythjon-auto-ops.md
