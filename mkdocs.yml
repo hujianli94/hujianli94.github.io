@@ -279,14 +279,14 @@ nav:
         - Golang/1.Go基础/3.Go基础语法.md
         - Golang/1.Go基础/4.Go-Module教程.md
       - 2.Go-Web基础:
-        - Golang/2.Go-Web基础/5.第一个Go Web程序.md
+        - Golang/2.Go-Web基础/5.第一个Go-Web程序.md
         - Golang/2.Go-Web基础/6.Web程序运行原理简介.md
         - Golang/2.Go-Web基础/7.net-http包.md
         - Golang/2.Go-Web基础/8.html-template包.md
       - 3.Go-Web请求处理:
-        - Golang/3.Go-Web请求处理/9.简单Go-Web服务器.md
+        - Golang/3.Go-Web请求处理/9.简单Web服务器.md
         - Golang/3.Go-Web请求处理/10.处理请求.md
-        - Golang/3.Go-Web请求处理/11.了解session和cookie.md
+        - Golang/3.Go-Web请求处理/11.session和cookie.md
       - 4.Go访问数据库:
         - Golang/4.Go访问数据库/12.Go操作MySQL.md
         - Golang/4.Go访问数据库/13.Go操作Redis.md
