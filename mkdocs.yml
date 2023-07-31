@@ -279,7 +279,7 @@ nav:
         - Golang/1.Go基础/3.Go基础语法.md
         - Golang/1.Go基础/4.Go-Module教程.md
       - 2.Go-Web基础:
-        - Golang/2.Go-Web基础/5.Go-Web的第一个程序.md
+        - Golang/2.Go-Web基础/5.第一个Go Web程序.md
         - Golang/2.Go-Web基础/6.Web程序运行原理简介.md
         - Golang/2.Go-Web基础/7.net-http包.md
         - Golang/2.Go-Web基础/8.html-template包.md
