@@ -225,6 +225,7 @@ nav:
       - 1.安装篇:
         - Kubernetes/1.安装篇/1.Kubeadm安装高可用K8s集群.md
         - Kubernetes/1.安装篇/2.二进制安装高可用K8s集群.md
+        - Kubernetes/1.安装篇/3.安装常用工具.md
       - 2.基础篇:
         - Kubernetes/2.基础篇/3.Docker基础.md
         - Kubernetes/2.基础篇/4.Kubernetes的基础概念.md
@@ -386,15 +387,6 @@ nav:
         - Python-vs-Go/2.进阶/3.使用Redis.md
         - Python-vs-Go/2.进阶/4.使用MongoDB.md
   - Linux:
-    - system:
-      - Linux/system/0.Linux操作系统镜像下载.md
-      - Linux/system/1.Linux系统安全加固最佳实践.md
-      - Linux/system/2.Systemd.md
-      - Linux/system/3.Superivisor.md
-    - serveices:
-      - Linux/serveices/0.ubuntu-desktop-vmware.md
-    - Ansible:
-        - Linux/Ansible/Ansible-wiki.md
     - Shell:
       - Linux/shell/Shell简介.md
       - Linux/shell/1.第一个shell程序.md
@@ -414,4 +406,14 @@ nav:
       - Linux/shell/15.Shell常用工具.md
       - Linux/shell/16.Shell实战项目.md
       - Linux/shell/17.Shell脚本示例.md
-
+      - Linux/shell/18.Shell脚本的参数解析工具.md
+      - Linux/shell/19.10个实用Linux-Shell脚本案例.md
+    - system:
+      - Linux/system/0.Linux操作系统镜像下载.md
+      - Linux/system/1.Linux系统安全加固最佳实践.md
+      - Linux/system/2.Systemd.md
+      - Linux/system/3.Superivisor.md
+    - serveices:
+      - Linux/serveices/0.ubuntu-desktop-vmware.md
+    - Ansible:
+        - Linux/Ansible/Ansible-wiki.md
