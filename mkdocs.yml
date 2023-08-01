@@ -252,12 +252,13 @@ nav:
         - Docker/1.Docker基础/1.安装Docker.md
         - Docker/1.Docker基础/2.Docker镜像.md
         - Docker/1.Docker基础/3.Docker容器.md
-        - Docker/1.Docker基础/4.搭建本地私有仓库.md
-        - Docker/1.Docker基础/5.Docker数据管理.md
-        - Docker/1.Docker基础/6.Docker使用网络.md
+        - Docker/1.Docker基础/4.企业私有仓库harbor.md
+        - Docker/1.Docker基础/5.Docker数据.md
+        - Docker/1.Docker基础/6.Docker网络.md
         - Docker/1.Docker基础/7.Dockerfile.md
         - Docker/1.Docker基础/8.docker-compose.md
         - Docker/1.Docker基础/9.Docker相关脚本.md
+        - Docker/1.Docker基础/10.Docker常用命令.md
       - 2.实战案例:
         - Docker/2.实战案例/1.操作系统.md
         - Docker/2.实战案例/2.Web服务与应用.md
