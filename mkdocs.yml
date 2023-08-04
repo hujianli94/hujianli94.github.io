@@ -248,7 +248,7 @@ nav:
   - Docker:
       - 0.学习线路:
         - Docker/0.学习线路/0.Docker.md
-      - 1.Docker基础:
+      - 1.基础:
         - Docker/1.Docker基础/1.安装Docker.md
         - Docker/1.Docker基础/2.Docker镜像.md
         - Docker/1.Docker基础/3.Docker容器.md
@@ -346,11 +346,11 @@ nav:
       - 0.学习线路:
         - Python/0.学习线路/0.Pythjon-auto-ops.md
       - 1.基础篇:
-        - Python/1.基础篇/1.Python内置小工具.md
+        - Python/1.基础篇/1.Python生态工具.md
         - Python/1.基础篇/2.Python第三方库安装.md
         - Python/1.基础篇/3.Python工作环境管理.md
         - Python/1.基础篇/4.VSCode中Python环境配置.md
-        - Python/1.基础篇/5.开发工具.md
+        - Python/1.基础篇/5.其他开发工具.md
       - 2.高级篇:
         - Python/2.高级篇/1.打造命令行工具.md
 
