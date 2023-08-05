@@ -249,16 +249,16 @@ nav:
       - 0.学习线路:
         - Docker/0.学习线路/0.Docker.md
       - 1.基础:
-        - Docker/1.Docker基础/1.安装Docker.md
-        - Docker/1.Docker基础/2.Docker镜像.md
-        - Docker/1.Docker基础/3.Docker容器.md
-        - Docker/1.Docker基础/4.企业私有仓库harbor.md
-        - Docker/1.Docker基础/5.Docker数据.md
-        - Docker/1.Docker基础/6.Docker网络.md
-        - Docker/1.Docker基础/7.Dockerfile.md
-        - Docker/1.Docker基础/8.docker-compose.md
-        - Docker/1.Docker基础/9.Docker相关脚本.md
-        - Docker/1.Docker基础/10.Docker常用命令.md
+        - Docker/1.基础/1.安装Docker.md
+        - Docker/1.基础/2.Docker镜像.md
+        - Docker/1.基础/3.Docker容器.md
+        - Docker/1.基础/4.企业私有仓库harbor.md
+        - Docker/1.基础/5.Docker数据.md
+        - Docker/1.基础/6.Docker网络.md
+        - Docker/1.基础/7.Dockerfile.md
+        - Docker/1.基础/8.docker-compose.md
+        - Docker/1.基础/9.Docker相关脚本.md
+        - Docker/1.基础/10.Docker常用命令.md
       - 2.实战案例:
         - Docker/2.实战案例/1.操作系统.md
         - Docker/2.实战案例/2.Web服务与应用.md
@@ -352,7 +352,8 @@ nav:
         - Python/1.基础篇/4.VSCode中Python环境配置.md
         - Python/1.基础篇/5.其他开发工具.md
       - 2.高级篇:
-        - Python/2.高级篇/1.打造命令行工具.md
+        - Python/2.高级篇/6.打造命令行工具.md
+        - Python/2.高级篇/7.文本处理.md
 
   - Python-vs-Go:
       - 0.学习线路:
