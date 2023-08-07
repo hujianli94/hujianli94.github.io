@@ -355,6 +355,7 @@ nav:
         - Python/2.高级篇/6.打造命令行工具.md
         - Python/2.高级篇/7.文本处理.md
         - Python/2.高级篇/8.Linux系统管理.md
+        - Python/2.高级篇/9.监控Linux.md
 
 
   - Python-vs-Go:
@@ -413,7 +414,7 @@ nav:
       - Linux/shell/18.Shell脚本的参数解析工具.md
       - Linux/shell/19.10个实用Linux-Shell脚本案例.md
       - Linux/shell/20.Shell脚本的规范.md
-      - Linux/shell/21.Shell脚本在DevOps下的应用.md
+      - Linux/shell/21.DevOps下的Shell脚本.md
     - system:
       - Linux/system/0.Linux操作系统镜像下载.md
       - Linux/system/1.Linux系统安全加固最佳实践.md
