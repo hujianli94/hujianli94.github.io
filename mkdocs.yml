@@ -304,13 +304,13 @@ nav:
         - Golang/6.Go文件处理/21.处理XML文件.md
         - Golang/6.Go文件处理/22.处理JSON文件.md
         - Golang/6.Go文件处理/23.处理CSV文件.md
-        - Golang/6.Go文件处理/24.处理日志记录.md
+        - Golang/6.Go文件处理/24.处理Go日志记录.md
         - Golang/6.Go文件处理/25.处理正则表达式.md
         - Golang/6.Go文件处理/26.处理Excel文件.md
       - 7.Go并发编程:
-        - Golang/7.Go并发编程/26.并发与并行.md
-        - Golang/7.Go并发编程/27.进程 线程和协程.md
-        - Golang/7.Go并发编程/28.Go并发模型简介.md
+        - Golang/7.Go并发编程/26.并发-并行.md
+        - Golang/7.Go并发编程/27.进程-线程-协程.md
+        - Golang/7.Go并发编程/28.Go并发模型.md
         - Golang/7.Go并发编程/29.gogoroutine和channel实现并发.md
         - Golang/7.Go并发编程/30.sync实现并发.md
         - Golang/7.Go并发编程/31.Go并发的Web应用.md
