@@ -415,6 +415,10 @@ nav:
       - Linux/shell/19.10个实用Linux-Shell脚本案例.md
       - Linux/shell/20.Shell脚本的规范.md
       - Linux/shell/21.DevOps下的Shell脚本.md
+    - Ansible:
+        - Linux/Ansible/Ansible-wiki.md
+    - git:
+        - Linux/git/1.GitHub的高级搜索.md
     - system:
       - Linux/system/0.Linux操作系统镜像下载.md
       - Linux/system/1.Linux系统安全加固最佳实践.md
@@ -422,5 +426,4 @@ nav:
       - Linux/system/3.Superivisor.md
     - serveices:
       - Linux/serveices/0.ubuntu-desktop-vmware.md
-    - Ansible:
-        - Linux/Ansible/Ansible-wiki.md
+
