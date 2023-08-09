@@ -311,7 +311,7 @@ nav:
         - Golang/7.Go并发编程/26.并发-并行.md
         - Golang/7.Go并发编程/27.进程-线程-协程.md
         - Golang/7.Go并发编程/28.Go并发模型.md
-        - Golang/7.Go并发编程/29.gogoroutine和channel实现并发.md
+        - Golang/7.Go并发编程/29.goroutine和channel.md
         - Golang/7.Go并发编程/30.sync实现并发.md
         - Golang/7.Go并发编程/31.Go并发的Web应用.md
       - 8.Go标准库:
