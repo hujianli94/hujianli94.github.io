@@ -417,7 +417,8 @@ nav:
       - Linux/shell/20.Shell脚本的规范.md
       - Linux/shell/21.DevOps下的Shell脚本.md
     - Ansible:
-        - Linux/Ansible/Ansible-wiki.md
+        - Linux/Ansible/1.Ansible入门和实践.md
+        - Linux/Ansible/2.Ansible-wiki.md
     - git:
         - Linux/git/1.GitHub的高级搜索.md
     - system:
