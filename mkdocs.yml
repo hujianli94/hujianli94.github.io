@@ -419,11 +419,11 @@ nav:
     - Ansible:
         - Linux/Ansible/1.Ansible入门和实践.md
         - Linux/Ansible/2.Ansible-wiki.md
-    - git:
-        - Linux/git/1.GitHub的高级搜索.md
+    - Git:
+        - Linux/Git/1.GitHub的高级搜索.md
     - system:
-      - Linux/system/0.Linux操作系统镜像下载.md
-      - Linux/system/1.Linux系统安全加固最佳实践.md
+      - Linux/system/0.Linux系统镜像下载.md
+      - Linux/system/1.Linux安全加固.md
       - Linux/system/2.Systemd.md
       - Linux/system/3.Superivisor.md
     - serveices:
