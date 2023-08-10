@@ -350,7 +350,7 @@ nav:
         - Python/1.基础篇/2.Python第三方库安装.md
         - Python/1.基础篇/3.Python工作环境管理.md
         - Python/1.基础篇/4.VSCode中Python环境配置.md
-        - Python/1.基础篇/5.其他开发工具.md
+        - Python/1.基础篇/5.Python开发工具.md
       - 2.高级篇:
         - Python/2.高级篇/6.打造命令行工具.md
         - Python/2.高级篇/7.文本处理.md
@@ -400,13 +400,13 @@ nav:
       - Linux/shell/3.Shell参数.md
       - Linux/shell/4.Shell数组.md
       - Linux/shell/5.Shell运算符.md
-      - Linux/shell/6.Shell echo_printf命令.md
-      - Linux/shell/7.Shell test命令.md
+      - Linux/shell/6.Shell-echo_printf命令.md
+      - Linux/shell/7.Shell-test命令.md
       - Linux/shell/8.Shell流程控制.md
       - Linux/shell/9.Shell函数.md
       - Linux/shell/10.Shell输入_输出重定向.md
-      - Linux/shell/11.Shell 正则表达式.md
-      - Linux/shell/12.Shell 三剑客之grep.md
+      - Linux/shell/11.Shell正则表达式.md
+      - Linux/shell/12.Shell三剑客之grep.md
       - Linux/shell/13.Shell三剑客之sed.md
       - Linux/shell/14.Shell三剑客之awk.md
       - Linux/shell/15.Shell常用工具.md
@@ -428,4 +428,6 @@ nav:
       - Linux/system/3.Superivisor.md
     - serveices:
       - Linux/serveices/0.ubuntu-desktop-vmware.md
-
+  - other:
+      - tools:
+        - other/tools/1.PicGo图床.md
