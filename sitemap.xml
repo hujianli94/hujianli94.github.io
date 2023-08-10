@@ -651,6 +651,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hujianli94.github.io/Other/tools/1.PicGo%E5%9B%BE%E5%BA%8A/</loc>
+         <lastmod>2023-08-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hujianli94.github.io/Python/0.%E5%AD%A6%E4%B9%A0%E7%BA%BF%E8%B7%AF/0.Pythjon-auto-ops/</loc>
          <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
@@ -676,7 +681,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Python/1.%E5%9F%BA%E7%A1%80%E7%AF%87/5.Python%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/</loc>
+         <loc>https://hujianli94.github.io/Python/1.%E5%9F%BA%E7%A1%80%E7%AF%87/5.Python%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</loc>
          <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -847,11 +852,6 @@
     </url>
     <url>
          <loc>https://hujianli94.github.io/Python-vs-Go/2.%E8%BF%9B%E9%98%B6/4.%E4%BD%BF%E7%94%A8MongoDB/</loc>
-         <lastmod>2023-08-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://hujianli94.github.io/other/tools/1.PicGo%E5%9B%BE%E5%BA%8A/</loc>
          <lastmod>2023-08-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
