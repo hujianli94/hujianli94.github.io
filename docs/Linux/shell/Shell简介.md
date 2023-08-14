@@ -56,6 +56,8 @@ Linux 作为服务器端，运行桌面环境非常消耗资源，因此 CLI She
 
 学习 Shell 脚本非常简单，需要有一台 Linux 系统，系统类型可以是 CentOS/RedHat 或 Ubuntu，由于不同的系统使用的 Shell 类型可能存在异常，建议使用 CentOS 7 系统来学习本示例。
 
+
+
 ## 5. 链接
 
 - https://github.com/fengyuhetao/shell
