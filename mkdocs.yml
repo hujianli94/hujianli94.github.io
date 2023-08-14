@@ -426,6 +426,9 @@ nav:
       - Linux/system/1.Linux安全加固.md
       - Linux/system/2.Systemd.md
       - Linux/system/3.Superivisor.md
+      - Linux/system/4.Linux系统使用SSH登录之前显示横幅.md
+      - Linux/system/5.Linux中端口占用排查.md
+      - Linux/system/6.使用curl发送REST-API请求.md
     - serveices:
       - Linux/serveices/0.ubuntu-desktop-vmware.md
   - Other:
