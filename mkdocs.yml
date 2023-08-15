@@ -351,6 +351,8 @@ nav:
         - Python/1.基础篇/3.Python工作环境管理.md
         - Python/1.基础篇/4.VSCode中Python环境配置.md
         - Python/1.基础篇/5.Python开发环境.md
+        - Python/1.基础篇/6.建立大型数据结构.md
+        - Python/1.基础篇/7.Python项目结构.md
       - 2.高级篇:
         - Python/2.高级篇/6.打造命令行工具.md
         - Python/2.高级篇/7.文本处理.md
@@ -429,6 +431,7 @@ nav:
       - Linux/system/4.Linux系统使用SSH登录之前显示横幅.md
       - Linux/system/5.Linux中端口占用排查.md
       - Linux/system/6.使用curl发送REST-API请求.md
+      - Linux/system/7.命令行模糊查找器fzf.md
     - serveices:
       - Linux/serveices/0.ubuntu-desktop-vmware.md
   - Other:
