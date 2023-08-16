@@ -264,32 +264,32 @@ nav:
         - Docker/2.实战案例/2.Web服务与应用.md
         - Docker/2.实战案例/3.持续开发与管理.md
         - Docker/2.实战案例/4.数据库应用.md
-      - 3.Devops:
-        - Docker/3.Devops/1.confcenter-docker.md
-        - Docker/3.Devops/2.simaple-jenkins.md
-        - Docker/3.Devops/3.docker-nginx-spa.md
-        - Docker/3.Devops/4.fileserver-docker.md
-        - Docker/3.Devops/5.haproxy-docker.md
-        - Docker/3.Devops/6.mysql-docker.md
-        - Docker/3.Devops/7.frp-docker.md
-        - Docker/3.Devops/8.coredns-docker.md
-        - Docker/3.Devops/9.simple-harbor.md
-        - Docker/3.Devops/10.redis-docker.md
-        - Docker/3.Devops/11.nexus3-docker.md
-        - Docker/3.Devops/12.openvpn-docker.md
-        - Docker/3.Devops/13.nfs-docker.md
-        - Docker/3.Devops/14.jumpserver-docker.md
-        - Docker/3.Devops/15.ansible-docker.md
-        - Docker/3.Devops/16.minio-docker.md
-        - Docker/3.Devops/17.vaultwarden-docker.md
-        - Docker/3.Devops/18.kasm-docker.md
-        - Docker/3.Devops/19.nginx-docker.md
-        - Docker/3.Devops/20.kafka-docker.md
-        - Docker/3.Devops/21.golang-docker.md
-        - Docker/3.Devops/22.postgres-docker.md
-        - Docker/3.Devops/23.nginx-download-docker.md
-        - Docker/3.Devops/24.helm部署常用服务.md
-        - Docker/3.Devops/25.Python操作Docker.md
+      # - 3.Devops:
+      #   - Docker/3.Devops/1.confcenter-docker.md
+      #   - Docker/3.Devops/2.simaple-jenkins.md
+      #   - Docker/3.Devops/3.docker-nginx-spa.md
+      #   - Docker/3.Devops/4.fileserver-docker.md
+      #   - Docker/3.Devops/5.haproxy-docker.md
+      #   - Docker/3.Devops/6.mysql-docker.md
+      #   - Docker/3.Devops/7.frp-docker.md
+      #   - Docker/3.Devops/8.coredns-docker.md
+      #   - Docker/3.Devops/9.simple-harbor.md
+      #   - Docker/3.Devops/10.redis-docker.md
+      #   - Docker/3.Devops/11.nexus3-docker.md
+      #   - Docker/3.Devops/12.openvpn-docker.md
+      #   - Docker/3.Devops/13.nfs-docker.md
+      #   - Docker/3.Devops/14.jumpserver-docker.md
+      #   - Docker/3.Devops/15.ansible-docker.md
+      #   - Docker/3.Devops/16.minio-docker.md
+      #   - Docker/3.Devops/17.vaultwarden-docker.md
+      #   - Docker/3.Devops/18.kasm-docker.md
+      #   - Docker/3.Devops/19.nginx-docker.md
+      #   - Docker/3.Devops/20.kafka-docker.md
+      #   - Docker/3.Devops/21.golang-docker.md
+      #   - Docker/3.Devops/22.postgres-docker.md
+      #   - Docker/3.Devops/23.nginx-download-docker.md
+      #   - Docker/3.Devops/24.helm部署常用服务.md
+      #   - Docker/3.Devops/25.Python操作Docker.md
   - Golang:
       - 0.学习线路:
         - Golang/0.学习线路/0.Go-Web开发实战.md
