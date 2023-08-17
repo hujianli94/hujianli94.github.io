@@ -442,7 +442,11 @@ nav:
       - Linux/Ansible/1.Ansible入门和实践.md
       - Linux/Ansible/2.Ansible-wiki.md
     - Git:
-      - Linux/Git/1.GitHub的高级搜索.md
+      - Linux/Git/1.Git基础.md
+      - Linux/Git/2.远程仓库.md
+      - Linux/Git/3.分支管理.md
+      - Linux/Git/4.分支管理策略.md
+      - Linux/Git/7.使用Github.md
     - system:
       - Linux/system/0.Linux系统镜像下载.md
       - Linux/system/1.Linux安全加固.md
