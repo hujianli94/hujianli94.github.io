@@ -447,6 +447,8 @@ nav:
       - Linux/Git/3.分支管理.md
       - Linux/Git/4.分支管理策略.md
       - Linux/Git/7.使用Github.md
+      - Linux/Git/8.实践GitHub-Flow.md
+      - Linux/Git/9.实践Git-Flow.md
     - system:
       - Linux/system/0.Linux系统镜像下载.md
       - Linux/system/1.Linux安全加固.md
