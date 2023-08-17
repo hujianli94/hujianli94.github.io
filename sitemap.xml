@@ -616,7 +616,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hujianli94.github.io/Linux/Git/5.%E6%A0%87%E7%AD%BE%E7%AE%A1%E7%90%86/</loc>
+         <lastmod>2023-08-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hujianli94.github.io/Linux/Git/6.%E4%BD%BF%E7%94%A8Gitee/</loc>
+         <lastmod>2023-08-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hujianli94.github.io/Linux/Git/7.%E4%BD%BF%E7%94%A8Github/</loc>
+         <lastmod>2023-08-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hujianli94.github.io/Linux/Git/8.%E5%AE%9E%E8%B7%B5GitHub-Flow/</loc>
+         <lastmod>2023-08-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hujianli94.github.io/Linux/Git/9.%E5%AE%9E%E8%B7%B5Git-Flow/</loc>
          <lastmod>2023-08-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
