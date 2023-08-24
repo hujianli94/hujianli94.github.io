@@ -756,12 +756,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Linux/system/0.Linux%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F%E4%B8%8B%E8%BD%BD/</loc>
+         <loc>https://hujianli94.github.io/Linux/system/0.%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F%E5%92%8C%E8%BD%AF%E4%BB%B6%E6%BA%90/</loc>
          <lastmod>2023-08-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hujianli94.github.io/Linux/system/1.Linux%E5%AE%89%E5%85%A8%E5%8A%A0%E5%9B%BA/</loc>
+         <lastmod>2023-08-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hujianli94.github.io/Linux/system/10.rsync-ssh/</loc>
          <lastmod>2023-08-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
