@@ -450,7 +450,7 @@ nav:
       - Linux/Git/8.实践GitHub-Flow.md
       - Linux/Git/9.实践Git-Flow.md
     - system:
-      - Linux/system/0.Linux系统镜像下载.md
+      - Linux/system/0.系统镜像和软件源.md
       - Linux/system/1.Linux安全加固.md
       - Linux/system/2.Systemd.md
       - Linux/system/3.Superivisor.md
@@ -460,6 +460,7 @@ nav:
       - Linux/system/7.命令行模糊查找器fzf.md
       - Linux/system/8.Centos7.9系统盘扩容.md
       - Linux/system/9.Centos在线-离线安装依赖.md
+      - Linux/system/10.rsync-ssh.md
     - serveices:
       - Linux/serveices/0.ubuntu-desktop-vmware.md
   - Other:
