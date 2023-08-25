@@ -290,6 +290,7 @@ nav:
       - Docker/3.Devops/23.nginx-download-docker.md
       - Docker/3.Devops/24.helm部署常用服务.md
       - Docker/3.Devops/25.Python操作Docker.md
+      - Docker/3.Devops/26.docker-compose-devops.md
 
 
   - Golang:
