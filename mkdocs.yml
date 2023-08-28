@@ -291,7 +291,8 @@ nav:
       - Docker/3.Devops/24.helm部署常用服务.md
       - Docker/3.Devops/25.Python操作Docker.md
       - Docker/3.Devops/26.docker-compose-devops.md
-
+      - Docker/3.Devops/27.DevOps下的Shell脚本.md
+      - Docker/3.Devops/28.Devops下的Python脚本.md
 
   - Golang:
     - 0.学习线路:
@@ -438,7 +439,6 @@ nav:
       - Linux/shell/18.Shell脚本的参数解析工具.md
       - Linux/shell/19.实用Linux-Shell脚本案例.md
       - Linux/shell/20.Shell脚本的规范.md
-      - Linux/shell/21.DevOps下的Shell脚本.md
     - Ansible:
       - Linux/Ansible/1.Ansible入门和实践.md
       - Linux/Ansible/2.Ansible-wiki.md
