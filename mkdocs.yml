@@ -455,17 +455,17 @@ nav:
       - Linux/Git/9.实践Git-Flow.md
       - Linux/Git/10.项目规范.md
     - system:
-      - Linux/system/0.系统镜像和软件源.md
-      - Linux/system/1.Linux安全加固.md
-      - Linux/system/2.Systemd.md
-      - Linux/system/3.Superivisor.md
-      - Linux/system/4.Linux系统使用SSH登录之前显示横幅.md
-      - Linux/system/5.Linux中端口占用排查.md
-      - Linux/system/6.使用curl发送REST-API请求.md
-      - Linux/system/7.命令行模糊查找器fzf.md
-      - Linux/system/8.Centos7.9系统盘扩容.md
-      - Linux/system/9.Centos在线-离线安装依赖.md
-      - Linux/system/10.rsync-ssh.md
+      - Linux/system/1.系统镜像和软件源.md
+      - Linux/system/2.Linux安全加固.md
+      - Linux/system/3.Systemd.md
+      - Linux/system/4.Superivisor.md
+      - Linux/system/5.SSH登录Linux显示横幅.md
+      - Linux/system/6.Linux中端口占用排查.md
+      - Linux/system/7.使用curl发送REST-API请求.md
+      - Linux/system/8.命令行模糊查找器fzf.md
+      - Linux/system/9.Centos7.9系统盘扩容.md
+      - Linux/system/10.Centos在线-离线安装依赖.md
+      - Linux/system/11.rsync-ssh.md
     - serveices:
       - Linux/serveices/0.ubuntu-desktop-vmware.md
   - Other:
