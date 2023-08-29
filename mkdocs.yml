@@ -381,6 +381,9 @@ nav:
       - Python/2.高级篇/8.Linux系统管理.md
       - Python/2.高级篇/9.监控Linux.md
       - Python/2.高级篇/10.文档与报告.md
+    - 3.深入理解Flask:
+      - Python/3.深入理解Flask/1.入门.md
+      - Python/3.深入理解Flask/2.使用SQLAlchemy创建数据模型.md
 
 
   - Python-vs-Go:
@@ -450,6 +453,7 @@ nav:
       - Linux/Git/7.使用Github.md
       - Linux/Git/8.实践GitHub-Flow.md
       - Linux/Git/9.实践Git-Flow.md
+      - Linux/Git/10.项目规范.md
     - system:
       - Linux/system/0.系统镜像和软件源.md
       - Linux/system/1.Linux安全加固.md
