@@ -771,57 +771,57 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Linux/system/0.%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F%E5%92%8C%E8%BD%AF%E4%BB%B6%E6%BA%90/</loc>
+         <loc>https://hujianli94.github.io/Linux/system/1.%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F%E5%92%8C%E8%BD%AF%E4%BB%B6%E6%BA%90/</loc>
          <lastmod>2023-08-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Linux/system/1.Linux%E5%AE%89%E5%85%A8%E5%8A%A0%E5%9B%BA/</loc>
+         <loc>https://hujianli94.github.io/Linux/system/10.Centos%E5%9C%A8%E7%BA%BF-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96/</loc>
          <lastmod>2023-08-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Linux/system/10.rsync-ssh/</loc>
+         <loc>https://hujianli94.github.io/Linux/system/11.rsync-ssh/</loc>
          <lastmod>2023-08-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Linux/system/2.Systemd/</loc>
+         <loc>https://hujianli94.github.io/Linux/system/2.Linux%E5%AE%89%E5%85%A8%E5%8A%A0%E5%9B%BA/</loc>
          <lastmod>2023-08-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Linux/system/3.Superivisor/</loc>
+         <loc>https://hujianli94.github.io/Linux/system/3.Systemd/</loc>
          <lastmod>2023-08-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Linux/system/4.Linux%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8SSH%E7%99%BB%E5%BD%95%E4%B9%8B%E5%89%8D%E6%98%BE%E7%A4%BA%E6%A8%AA%E5%B9%85/</loc>
+         <loc>https://hujianli94.github.io/Linux/system/4.Superivisor/</loc>
          <lastmod>2023-08-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Linux/system/5.Linux%E4%B8%AD%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E6%8E%92%E6%9F%A5/</loc>
+         <loc>https://hujianli94.github.io/Linux/system/5.SSH%E7%99%BB%E5%BD%95Linux%E6%98%BE%E7%A4%BA%E6%A8%AA%E5%B9%85/</loc>
          <lastmod>2023-08-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Linux/system/6.%E4%BD%BF%E7%94%A8curl%E5%8F%91%E9%80%81REST-API%E8%AF%B7%E6%B1%82/</loc>
+         <loc>https://hujianli94.github.io/Linux/system/6.Linux%E4%B8%AD%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E6%8E%92%E6%9F%A5/</loc>
          <lastmod>2023-08-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Linux/system/7.%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%A8%A1%E7%B3%8A%E6%9F%A5%E6%89%BE%E5%99%A8fzf/</loc>
+         <loc>https://hujianli94.github.io/Linux/system/7.%E4%BD%BF%E7%94%A8curl%E5%8F%91%E9%80%81REST-API%E8%AF%B7%E6%B1%82/</loc>
          <lastmod>2023-08-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Linux/system/8.Centos7.9%E7%B3%BB%E7%BB%9F%E7%9B%98%E6%89%A9%E5%AE%B9/</loc>
+         <loc>https://hujianli94.github.io/Linux/system/8.%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%A8%A1%E7%B3%8A%E6%9F%A5%E6%89%BE%E5%99%A8fzf/</loc>
          <lastmod>2023-08-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Linux/system/9.Centos%E5%9C%A8%E7%BA%BF-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96/</loc>
+         <loc>https://hujianli94.github.io/Linux/system/9.Centos7.9%E7%B3%BB%E7%BB%9F%E7%9B%98%E6%89%A9%E5%AE%B9/</loc>
          <lastmod>2023-08-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
