@@ -383,8 +383,19 @@ nav:
       - Python/2.高级篇/10.文档与报告.md
     - 3.深入理解Flask:
       - Python/3.深入理解Flask/1.入门.md
-      - Python/3.深入理解Flask/2.使用SQLAlchemy创建数据模型.md
-
+      - Python/3.深入理解Flask/2.创建数据模型.md
+    - 4.Flask-Web全栈开发:
+      - Python/4.Flask-Web全栈开发/1.Flask前奏.md
+      - Python/4.Flask-Web全栈开发/2.项目配置.md
+      - Python/4.Flask-Web全栈开发/3.URL与视图.md
+      - Python/4.Flask-Web全栈开发/4.Jinja2模板.md
+      - Python/4.Flask-Web全栈开发/5.数据库.md
+      - Python/4.Flask-Web全栈开发/6.表单.md
+      - Python/4.Flask-Web全栈开发/7.Flask进阶.md
+      - Python/4.Flask-Web全栈开发/8.缓存系统.md
+      - Python/4.Flask-Web全栈开发/9.项目实战.md
+      - Python/4.Flask-Web全栈开发/10.WebSock实战.md
+      - Python/4.Flask-Web全栈开发/11.Flask异步编程.md
 
   - Python-vs-Go:
     - 0.学习线路:
