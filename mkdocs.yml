@@ -364,6 +364,9 @@ nav:
       - Golang/9.Go三方库/6.yaml.md
       - Golang/9.Go三方库/7.tail.md
       - Golang/9.Go三方库/8.gopsutil.md
+    - 10.Go-RESTful-API接口开发:
+      - Golang/10.Go-RESTful-API接口开发/1.什么是RESTful-API.md
+      - Golang/10.Go-RESTful-API接口开发/2.Go-流行Web框架的使用.md
   - Python:
     - 0.学习线路:
       - Python/0.学习线路/0.Pythjon-auto-ops.md
