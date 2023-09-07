@@ -367,6 +367,8 @@ nav:
     - 10.Go-RESTful-API接口开发:
       - Golang/10.Go-RESTful-API接口开发/1.什么是RESTful-API.md
       - Golang/10.Go-RESTful-API接口开发/2.Go-流行Web框架的使用.md
+      - Golang/10.Go-RESTful-API接口开发/3.GORMv2.md
+      - Golang/10.Go-RESTful-API接口开发/4.图书管理系统.md
   - Python:
     - 0.学习线路:
       - Python/0.学习线路/0.Pythjon-auto-ops.md
