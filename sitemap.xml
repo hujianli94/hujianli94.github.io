@@ -251,12 +251,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Golang/10.Go-RESTful-API%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91/2.Go-%E6%B5%81%E8%A1%8CWeb%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
+         <loc>https://hujianli94.github.io/Golang/10.Go-RESTful-API%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91/2.GORMv2/</loc>
          <lastmod>2023-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Golang/10.Go-RESTful-API%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91/3.GORMv2/</loc>
+         <loc>https://hujianli94.github.io/Golang/10.Go-RESTful-API%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91/3.Gin%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
          <lastmod>2023-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
