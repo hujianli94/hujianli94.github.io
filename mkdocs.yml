@@ -370,25 +370,25 @@ nav:
       - Golang/10.Go-RESTful-API接口开发/3.Gin框架的使用.md
       - Golang/10.Go-RESTful-API接口开发/4.图书管理系统.md
   - Python:
-    - 0.学习线路:
-      - Python/0.学习线路/0.Pythjon-auto-ops.md
-    - 1.基础篇:
-      - Python/1.基础篇/1.Python生态工具.md
-      - Python/1.基础篇/2.Python第三方库安装.md
-      - Python/1.基础篇/3.Python工作环境管理.md
-      - Python/1.基础篇/4.Python开发环境.md
-      - Python/1.基础篇/5.Python数据结构.md
-      - Python/1.基础篇/6.Python项目结构.md
-      - Python/1.基础篇/7.Python内置函数.md
-    - 2.高级篇:
-      - Python/2.高级篇/6.打造命令行工具.md
-      - Python/2.高级篇/7.文本处理.md
-      - Python/2.高级篇/8.Linux系统管理.md
-      - Python/2.高级篇/9.监控Linux.md
-      - Python/2.高级篇/10.文档与报告.md
-    - 3.深入理解Flask:
-      - Python/3.深入理解Flask/1.入门.md
-      - Python/3.深入理解Flask/2.创建数据模型.md
+    - 0.Python学习线路:
+      - Python/0.Python学习线路/0.Pythjon-auto-ops.md
+    - 1.Python基础篇:
+      - Python/1.Python基础篇/1.Python生态工具.md
+      - Python/1.Python基础篇/2.Python第三方库安装.md
+      - Python/1.Python基础篇/3.Python工作环境管理.md
+      - Python/1.Python基础篇/4.Python开发环境.md
+      - Python/1.Python基础篇/5.Python数据结构.md
+      - Python/1.Python基础篇/6.Python项目结构.md
+      - Python/1.Python基础篇/7.Python内置函数.md
+    - 2.Python运维开发:
+      - Python/2.Python运维开发/1.打造命令行工具.md
+      - Python/2.Python运维开发/2.文本处理.md
+      - Python/2.Python运维开发/3.Linux系统管理.md
+      - Python/2.Python运维开发/4.监控Linux.md
+      - Python/2.Python运维开发/5.文档与报告.md
+    - 3.Python测试开发:
+      - Python/3.Python测试开发/1.Python进阶.md
+      - Python/3.Python测试开发/2.常用库实践.md
     - 4.Flask-Web全栈开发:
       - Python/4.Flask-Web全栈开发/1.Flask前奏.md
       - Python/4.Flask-Web全栈开发/2.项目配置.md
@@ -401,6 +401,7 @@ nav:
       - Python/4.Flask-Web全栈开发/9.项目实战.md
       - Python/4.Flask-Web全栈开发/10.WebSock实战.md
       - Python/4.Flask-Web全栈开发/11.Flask异步编程.md
+      - Python/4.Flask-Web全栈开发/附-Flask数据模型.md
 
   - Python-vs-Go:
     - 0.学习线路:
