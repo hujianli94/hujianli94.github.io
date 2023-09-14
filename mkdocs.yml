@@ -488,5 +488,6 @@ nav:
   - Other:
     - tools:
       - Other/tools/1.PicGo图床.md
-      - Other/tools/2.Markdown基础语法.md
-      - Other/tools/3.KeyManager.md
+      - Other/tools/2.PicX图床.md
+      - Other/tools/3.Markdown基础语法.md
+      - Other/tools/4.KeyManager.md
