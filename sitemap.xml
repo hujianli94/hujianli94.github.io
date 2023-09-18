@@ -291,6 +291,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hujianli94.github.io/Golang/12.Vue%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/1.%E8%AE%A4%E8%AF%86Vue.js/</loc>
+         <lastmod>2023-09-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hujianli94.github.io/Golang/13.K8s%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/1.%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/</loc>
          <lastmod>2023-09-18</lastmod>
          <changefreq>daily</changefreq>
