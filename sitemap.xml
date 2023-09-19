@@ -311,6 +311,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hujianli94.github.io/Golang/12.Vue%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/5.Vue%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/</loc>
+         <lastmod>2023-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hujianli94.github.io/Golang/13.K8s%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/1.%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/</loc>
          <lastmod>2023-09-19</lastmod>
          <changefreq>daily</changefreq>
@@ -1007,6 +1012,11 @@
     </url>
     <url>
          <loc>https://hujianli94.github.io/Other/windows/1.windows%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8/</loc>
+         <lastmod>2023-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hujianli94.github.io/Other/windows/2.Win11%E9%95%9C%E5%83%8F%E4%B8%8B%E8%BD%BD%E3%80%81%E5%A3%81%E7%BA%B8%E5%8F%8AKMS%E6%BF%80%E6%B4%BB/</loc>
          <lastmod>2023-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
