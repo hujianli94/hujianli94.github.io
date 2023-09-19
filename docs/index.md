@@ -7,13 +7,33 @@
 
 >  包含知识且不仅限于 
 > 
-- 云原生
+
 - Devops
 - Golang
 - Python
 - Shell
-- 云架构
 - kubernetes
+- 云原生
+- 云架构
+
+
+
+技术栈掌握程度如下所示：
+
+```python
+import matplotlib.pyplot as plt
+
+# 统计数据
+labels = ['Devops', 'Golang', 'Python', 'Shell', 'Javascript', 'Kubernetes']
+values = [70, 60, 70, 80, 60, 80]
+
+# 绘制饼图
+plt.pie(values, labels=labels, autopct='%1.1f%%')
+plt.axis('equal')
+plt.show()
+```
+
+
 
 
 ## 个人信息：
@@ -52,8 +72,6 @@
 !!! info "Mkdocs 教程"
 
         - [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/getting-started/)
-        
-        - [Mkdocs Material使用记录](https://shafish.cn/blog/mkdocs/)
 
         - [MkDocs 文档开发教程](https://mkdocs-like-code.readthedocs.io/zh_CN/latest/)
         
@@ -80,6 +98,8 @@
         - [Mkdocs Material使用记录](https://shafish.cn/blog/mkdocs/)
 
         - [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/getting-started/)
+
+        - [基于mkdocs-material实现的帮助中心(markdown + 中文搜索 + 图片放大)](https://segmentfault.com/a/1190000018592279)
 
 
 
