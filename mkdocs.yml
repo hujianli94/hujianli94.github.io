@@ -375,7 +375,14 @@ nav:
       - Golang/11.Web前端/2.CSS样式语言.md
       - Golang/11.Web前端/3.JavaScript客户端脚本语言.md
       - Golang/11.Web前端/4.JavaScript库-JQuery.md
-      
+    - 12.Vue前端开发:
+      - Golang/12.Vue前端开发/1.认识Vue.js.md
+      - Golang/12.Vue前端开发/2.Vue常用指令.md
+      - Golang/12.Vue前端开发/3.Vue常用属性.md
+    - 13.K8s管理系统项目实战:
+      - Golang/13.K8s管理系统项目实战/1.前端开发.md
+      - Golang/13.K8s管理系统项目实战/2.后端API开发.md
+
   - Python:
     - 0.Python学习线路:
       - Python/0.Python学习线路/0.Pythjon-auto-ops.md
