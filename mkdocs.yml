@@ -30,6 +30,11 @@ extra_javascript:
 plugins:
   - search:
       separator: '[\s\u200b\-]'
+  - mkdocs-matplotlib
+  - material-extensions:
+      markdown-figures:
+        enable_svg: true    # 如果需要支持 SVG 格式，请设置为 true
+        enable_math: false  # 如果需要支持数学公式，请设置为 true
   - tags
   # Display the last modification time of the file
   - git-revision-date-localized:

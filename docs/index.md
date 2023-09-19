@@ -18,25 +18,22 @@
 
 
 
-技术栈掌握程度如下所示：
 
 
-```python
-# 通过利用 matplotlib 和 mpl_interactions，可以在 mkdocs-material 中创建百分比图表
-import matplotlib.pyplot as plt
+!!! figure "技术栈掌握程度"
+    ```python
+    # 统计百分比图表
+    import matplotlib.pyplot as plt
 
-labels = ['Devops', 'Golang', 'Python', 'Shell', 'Javascript', 'Kubernetes']
-sizes = [60, 60, 60, 60, 60, 60]
+    labels = ['A', 'B', 'C', 'D']
+    sizes = [30, 20, 25, 15]
 
-fig, ax = plt.subplots()
-ax.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90)
-ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+    fig, ax = plt.subplots()
+    ax.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90)
+    ax.axis('equal')  # 确保饼图绘制为圆形
 
-plt.show()
-```
-
-
-
+    plt.show()
+    ```
 
 
 
