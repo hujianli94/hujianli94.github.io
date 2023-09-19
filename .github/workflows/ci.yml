@@ -32,7 +32,7 @@ jobs:
              mkdocs-minify-plugin>=0.3 mkdocs-redirects>=1.0 \
              mkdocs-rss-plugin>=0.17 \
              mkdocs-git-revision-date-localized-plugin \
-             mkdocs-matplotlib-plugin
+             mkdocs-pyecharts-plugin
 
       - name: Deploy
         env:

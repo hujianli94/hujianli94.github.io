@@ -20,20 +20,19 @@
 
 技术栈掌握程度如下所示：
 
-```python
-import matplotlib.pyplot as plt
+```pyecharts
+import pyecharts.options as opts
+from pyecharts.charts import Pie
 
-# 统计数据
-labels = ['Devops', 'Golang', 'Python', 'Shell', 'Javascript', 'Kubernetes']
-values = [70, 60, 70, 80, 60, 80]
-
-# 绘制饼图
-plt.pie(values, labels=labels, autopct='%1.1f%%')
-plt.axis('equal')
-plt.show()
+data = [("Devops", 60), ("Golang", 60), ("Python", 70), ("Shell", 80), ("Javascript",60),("Kubernetes",70)]
+pie = (
+    Pie()
+    .add("", data)
+    .set_colors(["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0","#4BC0C0","#FF6384FF6384","#FFCE56"])
+    .set_global_opts(title_opts=opts.TitleOpts(title="Statistics"))
+)
+pie.render_notebook()
 ```
-
-
 
 
 ## 个人信息：

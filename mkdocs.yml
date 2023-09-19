@@ -28,6 +28,7 @@ extra_javascript:
 
 # Plugins
 plugins:
+  - pyecharts
   - search:
       separator: '[\s\u200b\-]'
   - tags
