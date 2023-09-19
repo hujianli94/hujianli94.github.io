@@ -20,19 +20,24 @@
 
 技术栈掌握程度如下所示：
 
-```pyecharts
-import pyecharts.options as opts
-from pyecharts.charts import Pie
 
-data = [("Devops", 60), ("Golang", 60), ("Python", 70), ("Shell", 80), ("Javascript",60),("Kubernetes",70)]
-pie = (
-    Pie()
-    .add("", data)
-    .set_colors(["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0","#4BC0C0","#FF6384FF6384","#FFCE56"])
-    .set_global_opts(title_opts=opts.TitleOpts(title="Statistics"))
-)
-pie.render_notebook()
+```python
+# 通过利用 matplotlib 和 mpl_interactions，可以在 mkdocs-material 中创建百分比图表
+import matplotlib.pyplot as plt
+
+labels = ['Devops', 'Golang', 'Python', 'Shell', 'Javascript', 'Kubernetes']
+sizes = [60, 60, 60, 60, 60, 60]
+
+fig, ax = plt.subplots()
+ax.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90)
+ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+plt.show()
 ```
+
+
+
+
 
 
 ## 个人信息：

@@ -32,7 +32,7 @@ jobs:
              mkdocs-minify-plugin>=0.3 mkdocs-redirects>=1.0 \
              mkdocs-rss-plugin>=0.17 \
              mkdocs-git-revision-date-localized-plugin \
-             mkdocs-pyecharts-plugin
+             matplotlib mpl_interactions
 
       - name: Deploy
         env:
