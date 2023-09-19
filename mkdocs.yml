@@ -200,6 +200,8 @@ theme:
       accent: indigo
       toggle:
         icon: material/weather-night
+        # icon: material/brightness-7
+        # icon: material/lightbulb
         name: 切换至深色模式
     - scheme: slate
       media: "(prefers-color-scheme: dark)"
@@ -207,6 +209,8 @@ theme:
       accent: blue
       toggle:
         icon: material/weather-sunny
+        # icon: material/brightness-4
+        # icon: material/lightbulb-outline
         name: 切换至浅色模式
   font:
     text: Roboto
@@ -505,3 +509,4 @@ nav:
       - Other/tools/2.PicX图床.md
       - Other/tools/3.Markdown基础语法.md
       - Other/tools/4.KeyManager.md
+      - Other/tools/5.基于mkdocs-material搭建个人静态博客.md
