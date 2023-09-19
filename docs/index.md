@@ -17,30 +17,14 @@
 - 云架构
 
 
+// todo  技能展示图
 
-
-
-!!! figure "技术栈掌握程度"
-    ```python
-    # 统计百分比图表
-    import matplotlib.pyplot as plt
-
-    labels = ['A', 'B', 'C', 'D']
-    sizes = [30, 20, 25, 15]
-
-    fig, ax = plt.subplots()
-    ax.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90)
-    ax.axis('equal')  # 确保饼图绘制为圆形
-
-    plt.show()
-    ```
 
 
 
 ## 个人信息：
 
 !!!info
-
 
         - [GitHub](https://github.com/redhatxl)
     
@@ -64,7 +48,6 @@
         - [kubectl-img](https://github.com/redhatxl/kubectl-img)
     
         - [shell-scripts](https://github.com/daily-scripts/shell-scripts)
-
 
 
 
@@ -113,7 +96,6 @@
         - [kubectl-img](https://github.com/redhatxl/kubectl-img)
     
         - [shell-scripts](https://github.com/daily-scripts/shell-scripts)
-
 
 
 
