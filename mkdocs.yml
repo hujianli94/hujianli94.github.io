@@ -248,7 +248,8 @@ nav:
       - Kubernetes/5.运维篇/16.服务发布Ingress进阶.md
     - 6.DevOps篇:
       - Kubernetes/6.DevOps篇/17.DevOps实践.md
-
+  - Cloud:
+  - Devops:
   - Docker:
     - 0.学习线路:
       - Docker/0.学习线路/0.Docker.md
@@ -385,10 +386,11 @@ nav:
       - Golang/12.Vue前端开发/3.Vue常用属性.md
       - Golang/12.Vue前端开发/4.Vue常用指令之流程控制.md
       - Golang/12.Vue前端开发/5.Vue常用指令之数据双向绑定.md
+      - Golang/12.Vue前端开发/6.Vue生命周期钩子.md
+      - Golang/12.Vue前端开发/7.VueCli脚手架.md
     - 13.K8s管理系统项目实战:
       - Golang/13.K8s管理系统项目实战/1.前端开发.md
       - Golang/13.K8s管理系统项目实战/2.后端API开发.md
-
   - Python:
     - 0.Python学习线路:
       - Python/0.Python学习线路/0.Pythjon-auto-ops.md
@@ -422,7 +424,6 @@ nav:
       - Python/4.Flask-Web全栈开发/10.WebSock实战.md
       - Python/4.Flask-Web全栈开发/11.Flask异步编程.md
       - Python/4.Flask-Web全栈开发/附-Flask数据模型.md
-
   - Python-vs-Go:
     - 0.学习线路:
       - Python-vs-Go/0.学习线路/0.Python-vs-Go.md
@@ -512,6 +513,8 @@ nav:
       - Other/tools/3.Markdown基础语法.md
       - Other/tools/4.KeyManager.md
       - Other/tools/5.mkdocs-material搭建静态博客.md
+      - Other/tools/6.利用sphinx构建个人博客.md
+      - Other/tools/7.企业级远程办公VPN软件AnyLink.md
     - windows:
       - Other/windows/1.windows查看端口占用.md
       - Other/windows/2.Win11镜像下载、壁纸及KMS激活.md

@@ -8,6 +8,8 @@
 >  包含知识且不仅限于 
 > 
 
+- 云计算Openstack
+- KVM
 - Devops
 - Golang
 - Python
