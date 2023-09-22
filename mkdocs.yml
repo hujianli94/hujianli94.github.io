@@ -12,7 +12,6 @@ edit_uri: ""
 # Copyright
 copyright: Copyright &copy; 2023 - 2024 hujainli94
 
-
 # Click to enlarge the image
 extra_css:
   - stylesheets/extra.css
@@ -248,8 +247,6 @@ nav:
       - Kubernetes/5.运维篇/16.服务发布Ingress进阶.md
     - 6.DevOps篇:
       - Kubernetes/6.DevOps篇/17.DevOps实践.md
-  - Cloud:
-  - Devops:
   - Docker:
     - 0.学习线路:
       - Docker/0.学习线路/0.Docker.md
