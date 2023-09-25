@@ -8,7 +8,7 @@
 >  包含知识且不仅限于 
 > 
 
-- 云计算Openstack
+- 云计算
 - KVM
 - Devops
 - Golang
@@ -17,6 +17,10 @@
 - kubernetes
 - 云原生
 - 云架构
+
+
+
+
 
 
 // todo  技能展示图

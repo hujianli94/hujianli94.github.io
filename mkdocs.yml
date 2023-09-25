@@ -456,28 +456,28 @@ nav:
       - Python-vs-Go/2.进阶/3.使用Redis.md
       - Python-vs-Go/2.进阶/4.使用MongoDB.md
   - Linux:
-    - shell:
-      - Linux/shell/Shell简介.md
-      - Linux/shell/1.第一个shell程序.md
-      - Linux/shell/2.Shell变量.md
-      - Linux/shell/3.Shell参数.md
-      - Linux/shell/4.Shell数组.md
-      - Linux/shell/5.Shell运算符.md
-      - Linux/shell/6.Shell-echo_printf命令.md
-      - Linux/shell/7.Shell-test命令.md
-      - Linux/shell/8.Shell流程控制.md
-      - Linux/shell/9.Shell函数.md
-      - Linux/shell/10.Shell输入_输出重定向.md
-      - Linux/shell/11.Shell正则表达式.md
-      - Linux/shell/12.Shell三剑客之grep.md
-      - Linux/shell/13.Shell三剑客之sed.md
-      - Linux/shell/14.Shell三剑客之awk.md
-      - Linux/shell/15.Shell常用工具.md
-      - Linux/shell/16.Shell实战项目.md
-      - Linux/shell/17.Shell脚本示例.md
-      - Linux/shell/18.Shell脚本的参数解析工具.md
-      - Linux/shell/19.实用Linux-Shell脚本案例.md
-      - Linux/shell/20.Shell脚本的规范.md
+    - Shell:
+      - Linux/Shell/Shell简介.md
+      - Linux/Shell/1.第一个shell程序.md
+      - Linux/Shell/2.Shell变量.md
+      - Linux/Shell/3.Shell参数.md
+      - Linux/Shell/4.Shell数组.md
+      - Linux/Shell/5.Shell运算符.md
+      - Linux/Shell/6.Shell-echo_printf命令.md
+      - Linux/Shell/7.Shell-test命令.md
+      - Linux/Shell/8.Shell流程控制.md
+      - Linux/Shell/9.Shell函数.md
+      - Linux/Shell/10.Shell输入_输出重定向.md
+      - Linux/Shell/11.Shell正则表达式.md
+      - Linux/Shell/12.Shell三剑客之grep.md
+      - Linux/Shell/13.Shell三剑客之sed.md
+      - Linux/Shell/14.Shell三剑客之awk.md
+      - Linux/Shell/15.Shell常用工具.md
+      - Linux/Shell/16.Shell实战项目.md
+      - Linux/Shell/17.Shell脚本示例.md
+      - Linux/Shell/18.Shell脚本的参数解析工具.md
+      - Linux/Shell/19.实用Linux-Shell脚本案例.md
+      - Linux/Shell/20.Shell脚本的规范.md
     - Ansible:
       - Linux/Ansible/1.Ansible入门和实践.md
       - Linux/Ansible/2.Ansible-wiki.md
@@ -490,6 +490,10 @@ nav:
       - Linux/Git/8.实践GitHub-Flow.md
       - Linux/Git/9.实践Git-Flow.md
       - Linux/Git/10.项目规范.md
+    - KVM:
+      - Linux/KVM/1.kvm相关命令.md
+      - Linux/KVM/2.kvm虚拟机创建.md
+      - Linux/KVM/3.kvm网络配置.md
     - system:
       - Linux/system/1.系统镜像和软件源.md
       - Linux/system/2.Linux安全加固.md
