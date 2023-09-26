@@ -494,20 +494,20 @@ nav:
       - Linux/KVM/1.kvm相关命令.md
       - Linux/KVM/2.kvm虚拟机创建.md
       - Linux/KVM/3.kvm网络配置.md
-    - system:
-      - Linux/system/1.系统镜像和软件源.md
-      - Linux/system/2.Linux安全加固.md
-      - Linux/system/3.Systemd.md
-      - Linux/system/4.Superivisor.md
-      - Linux/system/5.SSH登录Linux显示横幅.md
-      - Linux/system/6.Linux中端口占用排查.md
-      - Linux/system/7.使用curl发送REST-API请求.md
-      - Linux/system/8.命令行模糊查找器fzf.md
-      - Linux/system/9.Centos7.9系统盘扩容.md
-      - Linux/system/10.Centos在线-离线安装依赖.md
-      - Linux/system/11.rsync-ssh.md
-    - serveices:
-      - Linux/serveices/0.ubuntu-desktop-vmware.md
+    - System:
+      - Linux/System/1.系统镜像和软件源.md
+      - Linux/System/2.Linux安全加固.md
+      - Linux/System/3.Systemd.md
+      - Linux/System/4.Superivisor.md
+      - Linux/System/5.SSH登录Linux显示横幅.md
+      - Linux/System/6.Linux中端口占用排查.md
+      - Linux/System/7.使用curl发送REST-API请求.md
+      - Linux/System/8.命令行模糊查找器fzf.md
+      - Linux/System/9.Centos7.9系统盘扩容.md
+      - Linux/System/10.Centos在线-离线安装依赖.md
+      - Linux/System/11.rsync-ssh.md
+    - Serveices:
+      - Linux/Serveices/0.ubuntu-desktop-vmware.md
   - Other:
     - tools:
       - Other/tools/1.PicGo图床.md
