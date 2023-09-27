@@ -459,7 +459,7 @@ nav:
     - Shell:
       - Linux/Shell/Shell简介.md
       - Linux/Shell/1.第一个shell程序.md
-      - Linux/Shell/2.Shell变量.md
+      - Linux/Shell/2.Shell变量和字符串.md
       - Linux/Shell/3.Shell参数.md
       - Linux/Shell/4.Shell数组.md
       - Linux/Shell/5.Shell运算符.md
