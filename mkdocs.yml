@@ -390,8 +390,8 @@ nav:
       - Golang/13.K8s管理系统项目实战/1.前端开发.md
       - Golang/13.K8s管理系统项目实战/2.后端API开发.md
   - Python:
-    - 0.Python学习线路:
-      - Python/0.Python学习线路/0.Pythjon-auto-ops.md
+    - 0.学习线路:
+      - Python/0.学习线路/0.Pythjon-auto-ops.md
     - 1.Python基础篇:
       - Python/1.Python基础篇/1.Python生态工具.md
       - Python/1.Python基础篇/2.Python第三方库安装.md
@@ -478,6 +478,7 @@ nav:
       - Linux/Shell/18.Shell脚本的参数解析工具.md
       - Linux/Shell/19.实用Linux-Shell脚本案例.md
       - Linux/Shell/20.Shell脚本的规范.md
+      - Linux/Shell/21.Shell多进程并发.md
     - Ansible:
       - Linux/Ansible/1.Ansible入门和实践.md
       - Linux/Ansible/2.Ansible-wiki.md
