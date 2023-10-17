@@ -386,6 +386,7 @@ nav:
       - Golang/12.Vue前端开发/6.Vue生命周期钩子.md
       - Golang/12.Vue前端开发/7.VueCli脚手架.md
       - Golang/12.Vue前端开发/8.Vue组件.md
+      - Golang/12.Vue前端开发/9.前后端数据交互-Axios.md
     - 13.K8s管理系统项目实战:
       - Golang/13.K8s管理系统项目实战/1.前端开发.md
       - Golang/13.K8s管理系统项目实战/2.后端API开发.md
