@@ -523,5 +523,6 @@ nav:
       - Other/tools/6.利用sphinx构建个人博客.md
       - Other/tools/7.企业级远程办公VPN软件AnyLink.md
     - windows:
-      - Other/windows/1.windows查看端口占用.md
-      - Other/windows/2.Win11镜像下载、壁纸及KMS激活.md
+      - Other/windows/1.常用软件下载.md
+      - Other/windows/2.windows查看端口占用.md
+      - Other/windows/3.Win11镜像下载、壁纸及KMS激活.md
