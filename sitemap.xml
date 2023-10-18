@@ -1066,12 +1066,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Other/windows/1.windows%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8/</loc>
+         <loc>https://hujianli94.github.io/Other/windows/1.%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/</loc>
          <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Other/windows/2.Win11%E9%95%9C%E5%83%8F%E4%B8%8B%E8%BD%BD%E3%80%81%E5%A3%81%E7%BA%B8%E5%8F%8AKMS%E6%BF%80%E6%B4%BB/</loc>
+         <loc>https://hujianli94.github.io/Other/windows/2.windows%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8/</loc>
+         <lastmod>2023-10-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hujianli94.github.io/Other/windows/3.Win11%E9%95%9C%E5%83%8F%E4%B8%8B%E8%BD%BD%E3%80%81%E5%A3%81%E7%BA%B8%E5%8F%8AKMS%E6%BF%80%E6%B4%BB/</loc>
          <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
