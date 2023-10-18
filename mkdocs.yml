@@ -497,6 +497,8 @@ nav:
       - Linux/KVM/1.kvm相关命令.md
       - Linux/KVM/2.kvm虚拟机创建.md
       - Linux/KVM/3.kvm网络配置.md
+    - Nginx:
+      - Linux/Nginx/1.Nginx简介.md
     - System:
       - Linux/System/1.系统镜像和软件源.md
       - Linux/System/2.Linux安全加固.md
