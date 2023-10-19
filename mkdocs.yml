@@ -388,6 +388,8 @@ nav:
       - Golang/12.Vue前端开发/8.Vue组件.md
       - Golang/12.Vue前端开发/9.前后端数据交互-Axios.md
       - Golang/12.Vue前端开发/10.Vue路由.md
+      - Golang/12.Vue前端开发/11.Vuex状态管理.md
+      - Golang/12.Vue前端开发/12.Element-Plus.md
     - 13.K8s管理系统项目实战:
       - Golang/13.K8s管理系统项目实战/1.前端开发.md
       - Golang/13.K8s管理系统项目实战/2.后端API开发.md
@@ -526,3 +528,4 @@ nav:
       - Other/windows/1.常用软件下载.md
       - Other/windows/2.windows查看端口占用.md
       - Other/windows/3.Win11镜像下载、壁纸及KMS激活.md
+      - Other/windows/4.windows下netcat安装.md
