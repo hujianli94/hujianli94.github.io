@@ -519,11 +519,11 @@ nav:
     - tools:
       - Other/tools/1.PicGo图床.md
       - Other/tools/2.PicX图床.md
-      - Other/tools/3.Markdown基础语法.md
+      - Other/tools/3.Markdown语法.md
       - Other/tools/4.KeyManager.md
-      - Other/tools/5.mkdocs-material搭建静态博客.md
-      - Other/tools/6.利用sphinx构建个人博客.md
-      - Other/tools/7.企业级远程办公VPN软件AnyLink.md
+      - Other/tools/5.mkdocs-material搭建博客.md
+      - Other/tools/6.sphinx构建博客.md
+      - Other/tools/7.企业级VPN软件AnyLink.md
     - windows:
       - Other/windows/1.常用软件下载.md
       - Other/windows/2.windows查看端口占用.md
