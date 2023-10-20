@@ -501,6 +501,20 @@ nav:
       - Linux/KVM/3.kvm网络配置.md
     - Nginx:
       - Linux/Nginx/1.Nginx简介.md
+      - Linux/Nginx/2.Nginx安装及启动.md
+      - Linux/Nginx/3.Nginx配置.md
+      - Linux/Nginx/4.Nginx配置下载站点.md
+      - Linux/Nginx/5.Nginx访问控制.md
+      - Linux/Nginx/6.Nginx虚拟主机.md
+      - Linux/Nginx/7.Nginx静态资源.md
+      - Linux/Nginx/8.Nginx缓存配置.md
+      - Linux/Nginx/9.Nginx正反代理.md
+      - Linux/Nginx/10.Nginx防盗链.md
+      - Linux/Nginx/11.Nginx负载均衡.md
+      - Linux/Nginx/12.Nginx动静分离.md
+      - Linux/Nginx/13.Nginx跨域配置.md
+      - Linux/Nginx/14.Nginx重定向.md
+      - Linux/Nginx/15.Nginx-HTTPS.md
     - System:
       - Linux/System/1.系统镜像和软件源.md
       - Linux/System/2.Linux安全加固.md
