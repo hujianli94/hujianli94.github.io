@@ -351,12 +351,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Golang/13.K8s%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/1.%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/</loc>
+         <loc>https://hujianli94.github.io/Golang/13.K8s%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/1.K8s%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F-%E5%90%8E%E7%AB%AFAPI%E5%BC%80%E5%8F%91/</loc>
          <lastmod>2023-10-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Golang/13.K8s%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/2.%E5%90%8E%E7%AB%AFAPI%E5%BC%80%E5%8F%91/</loc>
+         <loc>https://hujianli94.github.io/Golang/13.K8s%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/2.K8s%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/</loc>
          <lastmod>2023-10-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1167,6 +1167,11 @@
     </url>
     <url>
          <loc>https://hujianli94.github.io/Python/2.Python%E8%BF%90%E7%BB%B4%E5%BC%80%E5%8F%91/6.%E7%BD%91%E7%BB%9C/</loc>
+         <lastmod>2023-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hujianli94.github.io/Python/2.Python%E8%BF%90%E7%BB%B4%E5%BC%80%E5%8F%91/7.Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%AE%A1%E7%90%86/</loc>
          <lastmod>2023-10-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
