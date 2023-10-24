@@ -405,7 +405,7 @@ nav:
       - Python/1.Python基础篇/6.Python项目结构.md
       - Python/1.Python基础篇/7.Python内置函数.md
     - 2.Python运维开发:
-      - Python/2.Python运维开发/1.打造命令行工具.md
+      - Python/2.Python运维开发/1.命令行工具.md
       - Python/2.Python运维开发/2.文本处理.md
       - Python/2.Python运维开发/3.Linux系统管理.md
       - Python/2.Python运维开发/4.监控Linux.md
