@@ -391,8 +391,8 @@ nav:
       - Golang/12.Vue前端开发/11.前后端数据交互-Axios.md
       - Golang/12.Vue前端开发/12.Element-Plus.md
     - 13.K8s管理系统项目实战:
-      - Golang/13.K8s管理系统项目实战/1.前端开发.md
-      - Golang/13.K8s管理系统项目实战/2.后端API开发.md
+      - Golang/13.K8s管理系统项目实战/1.K8s管理系统-后端API开发.md
+      - Golang/13.K8s管理系统项目实战/2.K8s管理系统-前端开发.md
   - Python:
     - 0.学习线路:
       - Python/0.学习线路/0.Pythjon-auto-ops.md
@@ -411,6 +411,7 @@ nav:
       - Python/2.Python运维开发/4.监控Linux.md
       - Python/2.Python运维开发/5.文档与报告.md
       - Python/2.Python运维开发/6.网络.md
+      - Python/2.Python运维开发/7.Python自动化管理.md
     - 3.Python测试开发:
       - Python/3.Python测试开发/1.Python进阶.md
       - Python/3.Python测试开发/2.常用库实践.md
