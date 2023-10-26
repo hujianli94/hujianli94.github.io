@@ -82,24 +82,31 @@ request.post("http://127.0.0.1:8000/api/",data=json.dumps(res))
 
 ```python
 import paramiko
-#创建SSH对象
-ssh paramiko.SSHClient()
-#允许连接不在know_hosts.文件中的主机
+import requests
+ 
+# 创建SSH对象
+ssh = paramiko.SSHClient()
+ 
+# 允许连接不在know_hosts文件中的主机
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-#连接服务器
-ssh.connect(hostname='c1.salt.com',port=22,username='root',password='123')
-
-#执行命令
-stdin,stdout,stderr  = ssh.exec_command('df')
-#获取命令结果
+ 
+# 连接服务器
+ssh.connect(hostname='192.168.11.126', port=8888, username='root', password='密码')
+ 
+# 执行命令
+stdin, stdout, stderr = ssh.exec_command('ls')
+# 获取命令输出结果
 result = stdout.read()
-#关闭连接
+ 
+# 关闭连接
 ssh.close()
-
-#将结果返回给api
-import request
-import json
-request.post("http://127.0.0.1:8000/api/",data=json.dumps(result))
+ 
+print(result.decode())  # 把字节数据转换
+ 
+# 发送给API
+url = 'http://127.0.0.1:8000/asset.html'
+response = requests.post(url, data={'k1': result})  # 使用request模块进行post进行访问
+print(response.text)
 ```
 
 
@@ -214,3 +221,14 @@ for host, output in result.items():
 
 
 该方法的思路是每隔30分钟，通过RPC消息队列将执行的结果返回给用户。
+
+
+
+## 3.小结
+
+- 采集资产信息有四种不同的形式（但puppet是基于ruby开发的）
+- API提供相关处理的接口
+- 管理平台为用户提供可视化操作
+ 
+
+前三种是用Python开发的，目标是兼容三种采集方式的软件
