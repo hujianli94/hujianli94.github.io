@@ -403,7 +403,8 @@ nav:
       - Python/1.Python基础篇/4.Python开发环境.md
       - Python/1.Python基础篇/5.Python数据结构.md
       - Python/1.Python基础篇/6.Python项目结构.md
-      - Python/1.Python基础篇/7.Python内置函数.md
+      - Python/1.Python基础篇/7.Python代码规范.md
+      - Python/1.Python基础篇/8.Python内置函数.md
     - 2.Python运维开发:
       - Python/2.Python运维开发/1.命令行工具.md
       - Python/2.Python运维开发/2.文本处理.md
@@ -412,6 +413,7 @@ nav:
       - Python/2.Python运维开发/5.文档与报告.md
       - Python/2.Python运维开发/6.网络.md
       - Python/2.Python运维开发/7.Python自动化管理.md
+      - Python/2.Python运维开发/附-CMDB.md
     - 3.Python测试开发:
       - Python/3.Python测试开发/1.Python进阶.md
       - Python/3.Python测试开发/2.常用库实践.md
