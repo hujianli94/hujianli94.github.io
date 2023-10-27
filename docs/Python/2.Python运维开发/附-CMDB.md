@@ -44,10 +44,11 @@ CMDB最主要的一环节就是采集资源，有了资源后续的所有功能�
 伪代码如下：
 
 ```python
-#执行linux命令，得到结果
+# 执行linux命令，得到结果
 import subprocess
-res subprocess.getoutput("hostname")
-#将结果返回给ap
+res = subprocess.getoutput("hostname")
+
+# 将结果返回给api
 import request
 import json
 request.post("http://127.0.0.1:8000/api/",data=json.dumps(res))
