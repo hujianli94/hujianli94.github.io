@@ -420,7 +420,7 @@ nav:
     - 3.Python测试开发:
       - Python/3.Python测试开发/1.Python2与Python3区别.md
       - Python/3.Python测试开发/2.Windows环境安装Python.md
-      - Python/3.Python测试开发/3.Linux环境多版本Python环境安装.md
+      - Python/3.Python测试开发/3.Linux多版本Python安装.md
       - Python/3.Python测试开发/4.Python虚拟环境安装.md
       - Python/3.Python测试开发/5.Pycharm安装与使用.md
       - Python/3.Python测试开发/6.Python间接定义常量.md
