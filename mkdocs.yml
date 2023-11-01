@@ -433,6 +433,7 @@ nav:
       - Python/3.Python测试开发/13.异常捕获与处理.md
       - Python/3.Python测试开发/14.并发编程.md
       - Python/3.Python测试开发/15.标准库和三方库.md
+      - Python/3.Python测试开发/16.vue-cli脚手架.md
     - 4.Flask-Web全栈开发:
       - Python/4.Flask-Web全栈开发/1.Flask前奏.md
       - Python/4.Flask-Web全栈开发/2.项目配置.md
