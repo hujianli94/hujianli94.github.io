@@ -42,7 +42,7 @@ pip install flask-migrate
 SQLite用户可以跳过这一步：
 ```shell
 # MySQL
-pip install PyMySoL
+pip install pymysql
 
 # Postgres
 pip install psycopg2
