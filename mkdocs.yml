@@ -444,10 +444,17 @@ nav:
       - Python/4.Flask-Web全栈开发/6.表单.md
       - Python/4.Flask-Web全栈开发/7.Flask进阶.md
       - Python/4.Flask-Web全栈开发/8.缓存系统.md
-      - Python/4.Flask-Web全栈开发/9.项目实战.md
+      - Python/4.Flask-Web全栈开发/9.Flask项目实战.md
       - Python/4.Flask-Web全栈开发/10.WebSock实战.md
       - Python/4.Flask-Web全栈开发/11.Flask异步编程.md
+      - Python/4.Flask-Web全栈开发/附-使用Pytest测试Flask.md
+      - Python/4.Flask-Web全栈开发/附-Flask常用扩展.md
+      - Python/4.Flask-Web全栈开发/附-Flask和Redis队列的异步任务.md
+      - Python/4.Flask-Web全栈开发/附-Flask和Vue.js开发单页应用.md
+      - Python/4.Flask-Web全栈开发/附-Flask容器化实践.md
       - Python/4.Flask-Web全栈开发/附-Flask数据模型.md
+
+
   - Python-vs-Go:
     - 0.学习线路:
       - Python-vs-Go/0.学习线路/0.Python-vs-Go.md
