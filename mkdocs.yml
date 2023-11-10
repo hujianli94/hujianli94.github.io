@@ -295,6 +295,9 @@ nav:
       - Docker/3.Devops/26.docker-compose-devops.md
       - Docker/3.Devops/27.DevOps下的Shell脚本.md
       - Docker/3.Devops/28.Devops下的Python脚本.md
+      - Docker/3.Devops/29.Vagrant虚拟机.md
+      - Docker/3.Devops/30.VMware-workstation.md
+      - Docker/3.Devops/31.VirtualBox.md
 
   - Golang:
     - 0.学习线路:
