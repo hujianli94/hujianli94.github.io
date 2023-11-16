@@ -229,6 +229,7 @@ nav:
       - Kubernetes/1.安装篇/1.Kubeadm安装高可用K8s集群.md
       - Kubernetes/1.安装篇/2.二进制安装高可用K8s集群.md
       - Kubernetes/1.安装篇/3.安装常用工具.md
+      - Kubernetes/1.安装篇/4.Kubeadm安装开发环境.md
     - 2.基础篇:
       - Kubernetes/2.基础篇/3.Docker基础.md
       - Kubernetes/2.基础篇/4.Kubernetes的基础概念.md
@@ -459,33 +460,33 @@ nav:
 
 
   - Python-vs-Go:
-    - 0.学习线路:
+    - 0.线路:
       - Python-vs-Go/0.学习线路/0.Python-vs-Go.md
-    - 1.对比学习:
-      - Python-vs-Go/1.对比学习/1.Hello-World.md
-      - Python-vs-Go/1.对比学习/2.Print.md
-      - Python-vs-Go/1.对比学习/3.注释.md
-      - Python-vs-Go/1.对比学习/4.多行字符串.md
-      - Python-vs-Go/1.对比学习/5.Lists.md
-      - Python-vs-Go/1.对比学习/6.Map.md
-      - Python-vs-Go/1.对比学习/7.Booleans.md
-      - Python-vs-Go/1.对比学习/8.Forloop.md
-      - Python-vs-Go/1.对比学习/9.Range.md
-      - Python-vs-Go/1.对比学习/10.Switch.md
-      - Python-vs-Go/1.对比学习/11.可变参数函数.md
-      - Python-vs-Go/1.对比学习/12.时间计算.md
-      - Python-vs-Go/1.对比学习/13.函数的闭包.md
-      - Python-vs-Go/1.对比学习/14.退出处理.md
-      - Python-vs-Go/1.对比学习/15.异常捕获.md
-      - Python-vs-Go/1.对比学习/16.可变项.md
-      - Python-vs-Go/1.对比学习/17.类.md
-      - Python-vs-Go/1.对比学习/18.方法.md
-      - Python-vs-Go/1.对比学习/19.并发.md
-      - Python-vs-Go/1.对比学习/20.Args.md
-      - Python-vs-Go/1.对比学习/21.导入模块别名.md
-      - Python-vs-Go/1.对比学习/22.字符串格式化.md
-      - Python-vs-Go/1.对比学习/23.去重.md
-      - Python-vs-Go/1.对比学习/24.带颜色打印.md
+    - 1.对比:
+      - Python-vs-Go/1.对比/1.Hello-World.md
+      - Python-vs-Go/1.对比/2.Print.md
+      - Python-vs-Go/1.对比/3.注释.md
+      - Python-vs-Go/1.对比/4.多行字符串.md
+      - Python-vs-Go/1.对比/5.Lists.md
+      - Python-vs-Go/1.对比/6.Map.md
+      - Python-vs-Go/1.对比/7.Booleans.md
+      - Python-vs-Go/1.对比/8.Forloop.md
+      - Python-vs-Go/1.对比/9.Range.md
+      - Python-vs-Go/1.对比/10.Switch.md
+      - Python-vs-Go/1.对比/11.可变参数函数.md
+      - Python-vs-Go/1.对比/12.时间计算.md
+      - Python-vs-Go/1.对比/13.函数的闭包.md
+      - Python-vs-Go/1.对比/14.退出处理.md
+      - Python-vs-Go/1.对比/15.异常捕获.md
+      - Python-vs-Go/1.对比/16.可变项.md
+      - Python-vs-Go/1.对比/17.类.md
+      - Python-vs-Go/1.对比/18.方法.md
+      - Python-vs-Go/1.对比/19.并发.md
+      - Python-vs-Go/1.对比/20.Args.md
+      - Python-vs-Go/1.对比/21.导入模块别名.md
+      - Python-vs-Go/1.对比/22.字符串格式化.md
+      - Python-vs-Go/1.对比/23.去重.md
+      - Python-vs-Go/1.对比/24.带颜色打印.md
     - 2.进阶:
       - Python-vs-Go/2.进阶/1.使用RPC.md
       - Python-vs-Go/2.进阶/2.使用MySQL.md

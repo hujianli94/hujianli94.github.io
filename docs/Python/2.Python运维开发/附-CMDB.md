@@ -220,6 +220,8 @@ for host, output in result.items():
 
 该方式目前很少使用，主要是使用puppet的企业不多。
 
+使用facter收集服务器系统信息。
+
 每隔30分钟，通过RPC消息队列将执行的结果返回给用户
 
 不常用，不做解释
