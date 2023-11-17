@@ -230,6 +230,7 @@ nav:
       - Kubernetes/1.安装篇/2.二进制安装高可用K8s集群.md
       - Kubernetes/1.安装篇/3.安装常用工具.md
       - Kubernetes/1.安装篇/4.Kubeadm安装开发环境.md
+      - Kubernetes/1.安装篇/5.K3s和Minikube.md
     - 2.基础篇:
       - Kubernetes/2.基础篇/3.Docker基础.md
       - Kubernetes/2.基础篇/4.Kubernetes的基础概念.md
