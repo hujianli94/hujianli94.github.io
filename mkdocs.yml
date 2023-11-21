@@ -421,7 +421,7 @@ nav:
       - Python/2.Python运维开发/8.常用模块.md
       - Python/2.Python运维开发/9.Python打造MySQL专家系统.md
       - Python/2.Python运维开发/附-CMDB.md
-      - Python/2.Python运维开发/附-DRF.md
+      - Python/2.Python运维开发/附-Django-web开发.md
     - 3.Python测试开发:
       - Python/3.Python测试开发/1.Python2与Python3区别.md
       - Python/3.Python测试开发/2.Windows环境安装Python.md
