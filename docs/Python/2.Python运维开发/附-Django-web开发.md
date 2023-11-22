@@ -310,6 +310,9 @@ API返回的数据为：
 
 我们现在要做的，首先是到数据库中的UserProfile表中，将用户admin的money从0修改回10，不然API只能返回提醒充值的数据。
 
+
+##### 1.定义
+
 在 users/Serializer.py 中，写book的ModelSerializer序列化类：
 
 ```python
@@ -424,6 +427,9 @@ http://127.0.0.1:8000/apibook2/?apikey=abcdefghigklmn&isbn=777777
 
 可以看出，对于一条有很多字段的数据记录来说，使用ModelSerializer的序列化方式，可以一句话将所有字段序列化，非常方便。
 
+
+##### 2.指定字段
+
 当然，ModelSerializer也可以像Serializer一样对某几个特定字段进行序列化，写法也很简单，只需要对原本的BookModelSerializer修改一行代码：
 
 
@@ -434,6 +440,7 @@ class BookModelSerializer(serializers.ModelSerializer):
         # fields = "__all__"  # 将整个表的所有字段都序列化
         fields = ('title', 'isbn', 'author')  # 指定序列化某些字段
 ```
+
 
 
 
@@ -454,6 +461,28 @@ http://127.0.0.1:8000/apibook2/?apikey=abcdefghigklmn&isbn=777777
 ]
 ```
 
+##### 3.添加额外参数
+
+我们可以使用 extra_kwargs 参数为 ModelSerializer 添加或修改原有的选项参数
+
+```python
+class BookInfoSerializer(serializers.ModelSerializer):
+    """图书数据序列化器"""
+    class Meta:
+        model = BookInfo
+        fields = ('id', 'btitle', 'bpub_date', 'bread', 'bcomment')
+        extra_kwargs = {
+            'bread': {'min_value': 0, 'required': True},
+            'bcomment': {'min_value': 0, 'required': True},
+        }
+
+# BookInfoSerializer():
+#    id = IntegerField(label='ID', read_only=True)
+#    btitle = CharField(label='名称', max_length=20)
+#    bpub_date = DateField(allow_null=True, label='发布日期', required=False)
+#    bread = IntegerField(label='阅读量', max_value=2147483647, min_value=0, required=True)
+#    bcomment = IntegerField(label='评论量', max_value=2147483647, min_value=0, required=True)
+```
 
 
 
@@ -465,7 +494,7 @@ Serializer和ModelSerializer两种序列化方式中，前者比较容易理解�
 
 许多教材中都将Django REST framework的Serializer和ModelSerializer,与Django的Form和ModelForm做对比，虽然二者相似，在优劣选择上却是不同的。Form虽然没有ModelForm效率高，但是ModelForm的使用增加了项目的耦合度，不符合项目解耦原则，所以Form比ModelForm更优（除了字段量过大的情况）；
 
-而ModelSerializer有Serializer所有的优点，同时并没有比Serializer明显的不足之外，所以ModelSerializer比Serializer更优。
+而ModelSerializer有Serializer所有的优点，同时并没有比Serializer明显的不足之外，**所以ModelSerializer比Serializer更优。**
 
 ModelSerializer与常规的Serializer相同，但提供了：
 
@@ -509,7 +538,31 @@ https://www.cuiliangblog.cn/detail/article/13
 
 
 
-### 1.3 Django REST framework视图三层封装
+### 1.3 Django 视图
+
+
+#### 1.3.1 使用Django开发REST 接口
+
+我们以在Django框架中使用的图书英雄案例来写一套支持图书数据增删改查的REST API接口，来理解REST API的开发。
+
+在此案例中，前后端均发送JSON格式数据。
+
+
+
+
+
+#### 1.3.2 明确REST接口开发的核心任务
+
+
+
+
+
+
+
+
+
+
+![1700648982801](https://cdn.jsdelivr.net/gh/hujianli94/Picgo-atlas@main/img/1700648982801.3vua8iq84hu0.png){: .zoom}
 
 
 
@@ -537,9 +590,9 @@ https://www.cuiliangblog.cn/detail/article/13
 
 
 
+## 参考文献
 
-
-
+[django rest framework学习](https://www.cnblogs.com/Slience-me/p/14456752.html)
 
 
 [Django REST Framework](https://www.yuque.com/wslynn/python/ouh3zo)
