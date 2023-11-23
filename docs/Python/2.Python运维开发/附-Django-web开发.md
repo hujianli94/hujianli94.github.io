@@ -1,17 +1,1539 @@
 # 附-Django-web开发
 
 
+## 1. MVC/MTV
+
+### 1.1 MVC框架
+
+- controllers:处理用户请求
+- views：放置html模板
+- modals：操作数据库
+
+### 1.2 MTV框架
+
+- views：处理用户请求
+- template：放置html模板
+- modals：操作数据库
 
 
-## 1. 用Django REST framework实现豆瓣API应用
+## 2. 模型与数据库
+
+Django对各种数据库提供了很好的支持，包括：PostgreSQL、MySQL、SQLite和Oracle，而且为这些数据库提供了统一的调用API，这些API统称为ORM框架。
+
+通过使用Django内置的ORM框架可以实现数据库连接和读写操作。
 
 
-在Python的Web业内广为流传一句话“使用Python进行Web全栈开发者必会Django，使用Django开发前后端分离项目者必会Django REST framework”。
 
-使用Python进行Web全栈开发的框架，主流的就有4个，但是大家除了使用Django以外，其他的都很少使用。
+### 2.1 构建模型
 
-Django本身也拥有一些模块，可以用于完成前后端分离项目的需求，但是大家除了使用Django REST framework以外，也很少使用其他模块。
+ORM框架是一种程序技术，用于实现面向对象编程语言中不同类型系统的数据之间的转换。从效果上说，其实是创建了一个可在编程语言中使用的"虚拟对象数据库"，通过对虚拟对象数据库操作从而实现对目标数控的操作，虚拟对象数据库与模板数据库是相互对应的。在Django中，虚拟对象数据库也成为模型。通过模型先对模板数据库的读写操作，实现如下：
 
+
+1. 配置模板数据库信息，主要在setting.py中设置数据库信息
+2. 构建虚拟对象数据库，在App的models.py文件中以类的形式定义模型。
+3. 通过模型在模板数据库中创建相应的数据表
+4. 在视图函数中通过对模型操作实现目标数据库的读写操作。
+
+以 MyDjango 项目为例，创建项目并配置
+
+
+=== "python2"
+
+
+    ```sh
+    pip install virtualenv
+    cd MyDjango
+    virtualenv venv
+    source ./venv/bin/activate
+
+    # 创建项目
+    (venv)# pip install django==4.2.7
+    (venv)# django-admin startproject MyDjango
+    # 创建app
+    (venv)# python manage.py startapp index
+    ```
+
+  
+=== "python3"
+
+
+    ```sh
+    #创建虚拟环境
+    python -m venv MyDjango
+    cd MyDjango
+
+    # 激活虚拟环境
+    source bin/activite
+    # 此时就可以在虚拟环境中使用pip install <package_name>来安装python包了
+
+    # 创建项目
+    (venv)# pip install django==4.2.7
+    (venv)# django-admin startproject MyDjango
+    # 创建app
+    (venv)# python manage.py startapp index
+
+    # 退出虚拟环境
+    deactivate
+    ```
+
+
+
+settings.py文件里面的INSTALLED_APPS。注册你的app
+
+```python
+
+# 设置时区
+LANGUAGE_CODE = 'zh-hans'
+TIME_ZONE = 'Asia/Shanghai'
+USE_I18N = True
+USE_L10N = True
+USE_TZ = False
+
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'index.apps.IndexConfig',   # 注册app
+]
+```
+不注册它，你的数据库就不知道该给哪个 app 创建表。
+
+若想将模型转为mysql数据库中的表，需要在settings中配置：
+
+```python
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',   # 数据库引擎mysql
+        'NAME': 'mydjango',       # 你要存储数据的库名，事先要创建之
+        'USER': 'root',      # 数据库用户名
+        'PASSWORD': 'oschina',      # 密码
+        'HOST': '127.0.0.1', # 主机
+        'PORT': '3306',      # 数据库使用的端口
+    }
+}
+```
+
+
+
+由于ORM不能创建数据库，需要手动创建 mydjango 数据库。
+
+```sql
+CREATE DATABASE mydjango CHARACTER SET utf8;
+```
+
+django连接MySQL，使用的是pymysql模块，必须得安装pymysql模块。否则后面会创建表不成功！
+
+```sh
+pip install pymysql
+```
+
+在 `book/user/__init__.py` 文件中加入代码：
+```python
+from pymysql import install_as_MySQLdb
+
+install_as_MySQLdb()
+```
+
+
+在项目index的models.py文件中定义模型如下：
+
+```python
+from django.db import models
+
+
+# Create your models here.
+# 创建产品分类表
+class Type(models.Model):
+    id = models.AutoField(primary_key=True)
+    type_name = models.CharField(max_length=20)
+
+
+# 创建产品信息表
+class Product(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=50)
+    weight = models.CharField(max_length=20)
+    size = models.CharField(max_length=20)
+    type = models.ForeignKey(Type, on_delete=models.CASCADE)
+```
+
+
+接下来要在pycharm的teminal中通过命令创建数据库的表了。有2条命令，分别是：
+
+```sh
+python manage.py makemigrations
+python manage.py migrate
+```
+
+
+
+
+#### 表字段数据类型及说明
+
+| 字段类型       | 用途         | 示例                                             |
+| ------------ | ----------- | ------------------------------------------------- |
+| `AutoField`  | 自增长整数字段 | ```id = models.AutoField(primary_key=True)```    |
+| `CharField`  | 字符串字段    | ```title = models.CharField(max_length=100)```    |
+| `BooleanField` | 布尔类型字段  | ```is_published = models.BooleanField(default=False)``` |
+| `DateField`  | 日期字段      | ```published_date = models.DateField()```          |
+| `DateTimeField` | 日期时间字段  | ```created_at = models.DateTimeField(auto_now_add=True)``` |
+| `DecimalField` | 十进制数值字段 | ```price = models.DecimalField(max_digits=6, decimal_places=2)``` |
+| `EmailField` | 电子邮件地址字段 | ```email = models.EmailField()```                  |
+| `FileField`  | 文件上传字段   | ```photo = models.FileField(upload_to='photos/')``` |
+| `FloatField` | 浮点数字段    | ```rating = models.FloatField()```                 |
+| `ForeignKey` | 外键字段      | ```author = models.ForeignKey(User, on_delete=models.CASCADE)``` |
+| `ImageField` | 图片上传字段   | ```avatar = models.ImageField(upload_to='avatars/')``` |
+| `IntegerField` | 整数字段     | ```views = models.IntegerField(default=0)```      |
+| `ManyToManyField` | 多对多关系字段 | ```tags = models.ManyToManyField(Tag)```           |
+| `OneToOneField` | 一对一关系字段 | ```profile = models.OneToOneField(Profile, on_delete=models.CASCADE)``` |
+| `TextField`  | 大文本字段    | ```content = models.TextField()```                 |
+| `TimeField`  | 时间字段      | ```published_time = models.TimeField()```          |
+
+
+
+```python
+from django.db import models
+
+class UserGroup(models.Model):
+    uid = models.AutoField(primary_key=True)
+
+    name = models.CharField(max_length=32,null=True, blank=True)
+    email = models.EmailField(max_length=32)
+    text = models.TextField()
+
+    ctime = models.DateTimeField(auto_now_add=True)      # 只有添加时才会更新时间
+    uptime = models.DateTimeField(auto_now=True)         # 只要修改就会更新时间
+
+    ip1 = models.IPAddressField()                  # 字符串类型，Django Admin以及ModelForm中提供验证 IPV4 机制
+    ip2 = models.GenericIPAddressField()           # 字符串类型，Django Admin以及ModelForm中提供验证 Ipv4和Ipv6
+
+    active = models.BooleanField(default=True)
+
+    data01 = models.DateTimeField()              # 日期+时间格式 YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ
+    data02 = models.DateField()                 # 日期格式      YYYY-MM-DD
+    data03 = models.TimeField()                 # 时间格式      HH:MM[:ss[.uuuuuu]]
+
+    age = models.PositiveIntegerField()           # 正小整数 0 ～ 32767
+    balance = models.SmallIntegerField()          # 小整数 -32768 ～ 32767
+    money = models.PositiveIntegerField()         # 正整数 0 ～ 2147483647
+    bignum = models.BigIntegerField()           # 长整型(有符号的) -9223372036854775808 ～ 9223372036854775807
+    
+    user_type_choices = (
+        (1, "超级用户"),
+        (2, "普通用户"),
+        (3, "普普通用户"),
+    )
+    user_type_id = models.IntegerField(choices=user_type_choices, default=1)
+```
+
+
+#### 表字段参数及说明
+
+| 字段属性                   | 用途                       | 示例                                             |
+| ------------------------ | ------------------------- | ------------------------------------------------- |
+| `null`                   | 是否可以为空               | ```name = models.CharField(max_length=100, null=True)``` |
+| `blank`                  | 是否可以为空白             | ```description = models.TextField(blank=True)``` |
+| `default`                | 默认值                     | ```is_published = models.BooleanField(default=False)``` |
+| `primary_key`            | 是否为主键                 | ```id = models.AutoField(primary_key=True)```    |
+| `db_column`              | 字段在数据库中的列名       | ```first_name = models.CharField(max_length=50, db_column='first')``` |
+| `unique`                 | 是否唯一                   | ```email = models.EmailField(unique=True)```      |
+| `db_index`               | 是否在数据库中创建索引     | ```name = models.CharField(max_length=100, db_index=True)``` |
+| `verbose_name`           | 字段的可读名称             | ```title = models.CharField(max_length=100, verbose_name='文章标题')``` |
+| `related_name`           | 关联模型的反向引用名称     | ```author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')``` |
+| `max_length`             | 最大长度限制               | ```title = models.CharField(max_length=100)```    |
+| `choices`                | 选项列表                   | ```status = models.CharField(choices=STATUS_CHOICES, max_length=20)``` |
+| `on_delete`              | 级联删除行为               | ```author = models.ForeignKey(User, on_delete=models.CASCADE)``` |
+| `upload_to`              | 上传文件保存路径           | ```photo = models.FileField(upload_to='photos/')``` |
+| `auto_now`               | 自动更新为当前时间         | ```modified_at = models.DateTimeField(auto_now=True)``` |
+| `auto_now_add`           | 创建时自动设置为当前时间   | ```created_at = models.DateTimeField(auto_now_add=True)``` |
+| `editable`               | 是否可编辑                 | ```views = models.IntegerField(default=0, editable=False)``` |
+| `help_text`              | 字段的帮助文本             | ```content = models.TextField(help_text='请输入文章内容')``` |
+| `db_table`               | 指定表名                   | ```class Meta: db_table = 'my_table'```           |
+| `unique_together`        | 多个字段组合唯一           | ```class Meta: unique_together = [['field1', 'field2']]``` |
+| `db_constraint`          | 是否在数据库中创建约束     | ```author = models.ForeignKey(User, on_delete=models.CASCADE, db_constraint=False)``` |
+
+
+### 2.2 数据表的关系
+
+一个模型对应目标数据库的一个数据表，但我们知道，每个数据表之间是可以存在关联的，表与表之间有三种关系：
+
+- 一对一
+- 一对多
+- 多对多
+
+
+#### 一对一
+
+
+一对一的关系，就很简单了，彼此唯一。 
+
+##### 如何建立关联
+
+**一对一的关系 ： 创建关联字段(任意一张表创建都可以), 一般情况下，在重要的表创建关联字段**
+
+一对一存在于在两个数据表中，第一个表的某一行数据只与第二个表的某一行数据相关，同时第二个表的某一行数据也只与第一个表的某一行数据相关，这种表关系被称为一对一关系，以下列为例：
+
+比如 Performer 和 Performer_info 是一对一的关系。
+
+```python
+from django.db import models
+
+
+# 一对一关系
+class Performer(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=20)
+    nationality = models.CharField(max_length=20)
+    masterpiece = models.CharField(max_length=50)
+
+
+class Performer_info(models.Model):
+    id = models.IntegerField(primary_key=True)
+    performer = models.OneToOneField(to=Performer,to_field="id", on_delete=models.CASCADE)
+    birth = models.CharField(max_length=20)
+    elapse = models.CharField(max_length=20)
+```
+
+- OneToOneField 表示创建一对一关系。
+- to 表示需要和哪张表创建关系
+- to_field 表示关联字段
+- on_delete=models.CASCADE 表示级联删除。假设a表删除了一条记录，b表也还会删除对应的记录。
+
+performer 表示关联字段，但是ORM创建表的时候，会自动添加_id后缀。那么关联字段为performer_id
+
+
+> 注意：创建一对一关系，会将关联字添加唯一属性。比如：performer_id
+
+
+使用DJango的管理工具manage.py创建数据表Performer和Performer_info,创建数据表前最好先删除0001_initial.py文件并清空数据库里的数据表。
+
+然后重新执行数据迁移。如下
+
+
+```sh
+python manage.py makemigrations --empty index
+python manage.py makemigrations
+python manage.py migrate
+```
+
+
+#### 一对多
+
+比如 book 和 publish 。一本书不能对应多个出版社(常规是这样的,否则就盗版了),那么不成立。
+
+一个出版社可以对应多本书，关系线成立。所以 book 和 publish 表的关系是一对多的关系。
+
+##### 如何建立关联
+
+
+**一对多：一旦确定一对多的关系：在多的表中创建关联字段**
+
+
+示例：
+
+```python
+class Publish(models.Model):
+    name=models.CharField(max_length=32)
+    email=models.CharField(max_length=32)
+    addr=models.CharField(max_length=32)
+
+class Book(models.Model):
+    title=models.CharField(max_length=32,unique=True)
+    price=models.DecimalField(max_digits=8,decimal_places=2,null=True)
+    pub_date=models.DateField()
+    # 与Publish建立一对多的关系,外键字段建立在多的一方
+    publish=models.ForeignKey(to="Publish",to_field="id",on_delete=models.CASCADE)
+    # 与Author表建立多对多的关系,ManyToManyField可以建在两个模型中的任意一个，自动创建关系表book_authors
+    authors=models.ManyToManyField(to="Author")
+```
+
+- ForeignKey 表示建立外键
+- to 表示需要和哪张表创建关系
+- to_field 表示关联字段
+- on_delete=models.CASCADE 表示级联删除。使用ForeignKey必须要加on_delete。否则报错。这是2.x规
+
+一对多存在于两个或两个以上的数据表中，第一个表的数据可以与第二个表的一道多行数据进行关联，但是第二个表的每一行数据只能与第一个表的某一行进行管理，以下列表为例：
+
+
+```python
+#一对多关系
+class Performer(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=20)
+    nationality = models.CharField(max_length=20)
+    masterpiece = models.CharField(max_length=50)
+
+class Program(models.Model):
+    id = models.IntegerField(primary_key=True)
+    performer = models.ForeignKey(Performer,on_delete=models.CASCADE)
+    name = models.CharField(max_length=20)
+```
+
+使用Django的管理工具manage.py创建数据表 Performer 和 Program，创建数据表前最好先删除0001_initial.py文件并清空数据库里的数据表。数据表的表关系如图：
+
+然后重新执行数据迁移。如下
+```sh
+python manage.py makemigrations --empty index
+python manage.py makemigrations
+python manage.py migrate
+```
+
+
+#### 多对多
+
+多对多存在于两个或两个以上的数据表中，第一个表的某一行数据可以与第二个表的一到多行数据进行关联，同时在第二个表中的某一行数据也可以与第一个表的一到多行数据进行关联。
+
+多对多关系会在两张表的基础之上，新增一个映射表。
+
+
+##### 如何建立关联
+
+**多对多：一旦确定多对多的关系：创建第三张关系表**
+
+```python
+#多对多
+class Performer(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=20)
+    nationality = models.CharField(max_length=20)
+    masterpiece = models.CharField(max_length=50)
+
+class Manytomany(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=20)
+    performer = models.ManyToManyField(Performer)
+```
+
+
+```python
+from django.db import models
+
+# Create your models here.
+
+class Book(models.Model):
+    title=models.CharField(max_length=32,unique=True)
+    price=models.DecimalField(max_digits=8,decimal_places=2,null=True)
+    pub_date=models.DateField()
+    # 与Publish建立一对多的关系,外键字段建立在多的一方
+    publish=models.ForeignKey(to="Publish",to_field="id",on_delete=models.CASCADE)
+    # 与Author表建立多对多的关系,ManyToManyField可以建在两个模型中的任意一个，自动创建关系表book_authors
+    authors=models.ManyToManyField(to="Author")
+
+class Publish(models.Model):
+    name=models.CharField(max_length=32)
+    email=models.CharField(max_length=32)
+    addr=models.CharField(max_length=32)
+
+
+class Author(models.Model):
+    name=models.CharField(max_length=32)
+    age=models.IntegerField()
+    # 与AuthorDetail建立一对一的关系
+    # ad=models.ForeignKey(to="AuthorDetail",to_field="id",on_delete=models.CASCADE,unique=True)
+    ad=models.OneToOneField(to="AuthorDetail",to_field="id",on_delete=models.CASCADE,)
+
+
+class AuthorDetail(models.Model):
+    gf=models.CharField(max_length=32)
+    tel=models.CharField(max_length=32)
+```
+
+
+
+### 2.3 数据表的CRUD
+
+index的models.py文件中定义模型如下：
+
+```python
+from django.db import models
+
+
+# Create your models here.
+# 创建产品分类表
+class Type(models.Model):
+    id = models.AutoField(primary_key=True)
+    type_name = models.CharField(max_length=20)
+
+
+# 创建产品信息表
+class Product(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=50)
+    weight = models.CharField(max_length=20)
+    size = models.CharField(max_length=20)
+    type = models.ForeignKey(Type, on_delete=models.CASCADE)
+```
+
+
+首先插入测试数据
+
+```sql
+INSERT INTO `index_type` VALUES (1, '手机');
+INSERT INTO `index_type` VALUES (2, '平板电脑');
+INSERT INTO `index_type` VALUES (3, '智能穿戴');
+INSERT INTO `index_type` VALUES (4, '其他配置');
+
+INSERT INTO `index_product` VALUES (1, 'Pluots', 'g', 'M', 3);
+INSERT INTO `index_product` VALUES (2, 'Huawei v1', 'g', 'XXL', 2);
+INSERT INTO `index_product` VALUES (3, 'Khwi plus', 'g', 'XL', 2);
+INSERT INTO `index_product` VALUES (4, 'omni-Mango', 'g', 'S', 1);
+INSERT INTO `index_product` VALUES (5, 'Apfle', 'g', 'XXL', 2);
+INSERT INTO `index_product` VALUES (6, 'aluots plus', 'g', 'XXL', 3);
+INSERT INTO `index_product` VALUES (7, 'Orange', 'g', 'XS', 3);
+INSERT INTO `index_product` VALUES (8, 'Rhspberry', 'g', 'XS', 3);
+INSERT INTO `index_product` VALUES (9, '华为荣耀 v9', 'g', 'XS', 3);
+INSERT INTO `index_product` VALUES (10, 'Cheory', 'g', 'XL', 3);
+INSERT INTO `index_product` VALUES (11, '荣耀V9', '111g', '120*75*7mm', 1);
+INSERT INTO `index_product` VALUES (13, '荣耀V9', '111g', '120*75*7mm', 1);
+```
+
+在MyDjango项目中使用shell模式(启动命令行和执行脚本)进行讲述，该模式主要为方便开发人员开发和调式程序。在PyCharm的Terminal下开启shell模式，输入python manage.py shell指令即可开启。
+
+```sh
+(venv) PS D:\coder\python-project\MyDjango> python manage.py shell
+>>> from index.models import *
+>>> p = Product()
+>>> p.name = "荣耀V9" 
+>>> p.weight = "111g" 
+>>> p.size = "120*75*7mm" 
+>>> p.type_id = 1
+>>> p.save()
+```
+
+#### create
+
+```sh
+#方法一
+#通过Django的ORM框架提供的API实现，使用create方法实现数据插入
+from index.models import *
+Product.objects.create(name='荣耀V9',weight='119g',size='120*75*7mm',type_id=1)
+
+
+#方法二
+#在实例化时直接设置属性值
+p = Product(name='荣耀V9',weight='111g',size='120*75*7mm',type_id=1)
+p.save()
+```
+
+#### update
+
+```sh
+p = Product.objects.get(id=9)
+p.name = "华为荣耀 v9"
+p.save()
+```
+
+除此之外，还可以使用update方法实现单条和多条数据的更新，使用方法如下：
+
+```sh
+#通过Django的ORM框架提供的API实现
+#更新单条数据，查询条件filter使用于查询单条数据
+Product.objects.filter(id=9).update(name='华为荣耀V10')
+#更新多条数据，查询条件filter以列表格式返回，查询结果可能是一条或多条数据
+Product.objects.filter(name='荣耀V9').update(name='华为荣耀V9')
+#全表数据更新，不使用查询条件，默认对全表的数据进行更新
+Product.objects.update(name='华为荣耀V9')
+```
+
+#### delete
+
+
+删除一条数据
+
+```sh
+#删除一条id为1的数据
+Product.objects.get(id=1).delete()
+```
+
+删除多条数据
+
+```sh
+Product.objects.filter(weight='119g').delete()
+```
+
+删除表中全部数据
+
+```sh
+Product.objects.all().delete()
+```
+
+数据删除有ORM框架的delete方法实现。从数据的删除和更新可以看到这两种数据操作都使用查询条件get和filter，查询条件get和filter的区别如下：
+
+|方法|说明|
+|----|-----|
+|get|查询字段必须是主键或者唯一约束的字段，并且查询的数据必须存在，如果查询的字段有重复值或者查询的数据不存在，程序都会抛出异常信息。|
+|filter|查询字段没有限制，只要该字段是数据表的某一字段即可。查询结果以列表的形式返回，如果查询结果为空（查询的数据在数据库中找不到），就返回空列表。|
+
+
+#### Read
+
+数据查询是数据库操作中最为复杂并且内容最多的部分，我们以代码的形式来讲述如何通过ORM框架提供的API实现数据查询，代码如下：
+
+```sh
+In [39]: from index.models import *
+#全表查询，等同于SQL语句Select * from index_product,数据以类不形式返回
+In [40]: p = Product.objects.all()
+
+In [41]: p[1].name
+Out[41]: '华为荣耀V9'
+
+#查询前5条数据，等同于SQL语句Select * from index_product LIMIT 5
+#SQL语句里面的LIMIT方法，在Django中使用Python的列表截取分解即可实现
+In [43]: p = Product.objects.all()[:5]
+
+In [44]: p
+
+
+#查询某个字段，等同于SQL语句Select  name from index_product
+#values方法，以列表形式返回数据，列表元素以字典格式表示
+In [45]: p = Product.objects.values('name')
+
+In [46]: p[1]['name']
+Out[46]: '华为荣耀V9'
+
+#values_list方法，以列表表示返回数据，列表元素以元组格式表示
+In [47]: p = Product.objects.values_list('name')[:3]
+
+In [48]: p
+Out[48]: <QuerySet [('华为荣耀V9',), ('华为荣耀V9',), ('华为荣耀V9',)]>
+
+#使用get方法查询数据，等于同SQL语句Select * from index_product where id=2
+In [49]: p = Product.objects.get(id = 2)
+
+In [50]: p.name
+Out[50]: '华为荣耀V9'
+
+#使用filter方法查询数据，注意区分get和filter的差异
+In [51]: p = Product.objects.filter(id = 2)
+
+In [52]: p[0].name
+Out[52]: '华为荣耀V9'
+
+
+#SQL的 and查询主要在filter里面添加多个查询条件
+In [53]: p = Product.objects.filter(name='华为荣耀V9',id=9)
+
+In [54]: p
+Out[54]: <QuerySet [<Product: Product object (9)>]>
+
+
+#SQL的or查询，需要引入Q，编写格式Q(field=value)|Q(field=value)
+#等同于SQL语句Select * from index_product where name='华为荣耀V9‘ or id=9
+In [55]: from django.db.models import Q
+
+In [57]: p = Product.objects.filter(Q(name='华为荣耀V')|Q(id=9))
+
+In [58]: p
+Out[58]: <QuerySet [<Product: Product object (9)>]>
+
+#使用count方法统计查询数据的数据量
+In [63]: p = Product.objects.filter(name='华为荣耀V9').count()
+
+In [64]: p
+Out[64]: 8
+
+#去重查询，distinct方法无需设置参数，去重方式根据values设置的字段执行
+#等同SQL语句Select DISTINCT name from index_product where name='华为荣耀V9’
+In [65]: p = Product.objects.values('name').filter(name='华为荣耀V9').distinct()
+
+In [66]: p
+Out[66]: <QuerySet [{'name': '华为荣耀V9'}]>
+
+
+#根据字段id降序排列，降序只要在order_by里面的字段前面加"-即可"
+#order_by可设置多字段排序，如Product.objects.order_by('-id', 'name')
+In [67]: p = Product.objects.order_by('-id')
+
+In [68]: p
+Out[68]: <QuerySet [<Product: Product object (11)>, <Product: Product object (9)>, <Product: Product object (8)>, <Product: Product object (7)>, <Product: Product object (5)>, <Product: Product object (4)>, <Product: Product object (3)>, <Product: Product object (2)>]>
+
+#聚合查询，实现对数据值求和、求平均值等。Django提供annotate和aggregate方法实现
+#annotate类似于SQL里面的GROUP BY方法，如果不设置values，就会默认对主键进行GROUP BY分组
+#等同于SQL语句Select name,SUM(id) AS 'id_sum' from index_product GROUP BY NAME ORDER BY NULL
+In [69]: from django.db.models import Sum, Count
+
+In [70]: p = Product.objects.values('name').annotate(Sum('id'))
+In [71]: print(p.query)
+SELECT "index_product"."name", SUM("index_product"."id") AS "id__sum" FROM "index_product" GROUP BY "index_product"."name"
+
+#aggregate是将某个字段的值进行计算并置返回技术结果
+#等同于SQL语句Select COUNT(id) AS 'id_count' from index_product
+In [72]: from django.db.models import Count
+
+In [73]: p = Product.objects.aggregate(id_count=Count('id'))
+
+In [74]: p
+Out[74]: {'id_count': 8}
+```
+
+上述代码将是了日常开发中常用的数据查询方法，但又时候需要设置不同的查询条件来满足多方面的查询要求。上述例子中，查询条件filter和get使用等值的方法来匹配结果。若想使用大于、不等于和模糊查询的匹配方法，则可以使用如下表所以的匹配附实现：
+
+
+| 匹配符 | 使用                           | 说明                         |
+| ------ | ------------------------------ | ---------------------------- |
+| `__exact` | `filter(name__exact='荣耀')` | 精确等于，如 SQL 的 like ‘荣耀’ |
+| `__iexact` | `filter(name__iexact='荣耀')` | 精确等于并忽略大小写 |
+| `__contains` | `filter(name__contains='荣耀')` | 模糊匹配，如 SQL 的 like '%荣耀%' |
+| `__icontains` | `filter(name__icontains='荣耀')` | 模糊匹配，忽略大小写 |
+| `__gt` | `filter(id__gt=5)` | 大于 |
+| `__gte` | `filter(id__gte=5)` | 大于等于 |
+| `__lt` | `filter(id__lt=5)` | 小于 |
+| `__lte` | `filter(id__lte=5)` | 小于等于 |
+| `__in` | `filter(id__in=[1,2,3])` | 判断是否在列表内 |
+| `__startswith` | `filter(name__startswith='荣耀')` | 以...开头 |
+| `__istartswith` | `filter(name__istartswith='荣耀')` | 以...开头并忽略大小写 |
+| `__endswith` | `filter(name__endswith='荣耀')` | 以...结尾 |
+| `__iendswith` | `filter(name__iendswith='荣耀')` | 以...结尾并忽略大小写 |
+| `__range` | `filter(name__range='荣耀')` | 在...范围内 |
+| `__year` | `filter(date__year=2018)` | 日期字段的年份 |
+| `__month` | `filter(date__month=12)` | 日期字段的月份 |
+| `__day` | `filter(date__day='')` | 日期字段的天数 |
+| `__isnull` | `filter(name__isnull=True/False)` | 判断是否为空 |
+
+从表中可以看到，只要在查询的字段后添加相应的匹配符，就能实现多种不同的数据查询，如`filter(id__gt=9)`用于获取字段id大于9的数据，在shell模式下使用该匹配符进行数据查询，代码如下：
+
+```sh
+In [75]: from index.models import *
+
+In [76]: p = Product.objects.filter(id__gt=9)
+
+In [77]: p
+Out[77]: <QuerySet [<Product: Product object (10)>, <Product: Product object (11)>, <Product: Product object (13)>]>
+
+>>> for product in p:
+...     print(f"Product: {product.name}, {product.weight}, {product.size}") 
+...
+Product: Cheory, g, XL
+Product: 荣耀V9, 111g, 120*75*7mm
+Product: 荣耀V9, 111g, 120*75*7mm
+```
+
+#### 多表查询
+
+
+一对多或一对一的表关系是通过外键实现关联的，而多表查询分为正向查询和反向查询。以模型Product和Type为例：
+
+　　　　1、如果查询对象的主体是模型Type，要查询模型Type的数据，那么该查询成为正向查询。
+
+
+　　　　2、如果查询对象的主体是模型Type，要通过模型Type查询模型Product的数据，那么该查询称为反向查询。
+
+
+无论是正向查询还是反向查询，两者的实现方法大致相同，代码如下：
+
+```sh
+(venv) PS D:\coder\python-project\MyDjango> python manage.py shell
+>>> from index.models import *              
+# 正向查询                                
+>>> t = Type.objects.filter(product__id=9)
+>>> t
+<QuerySet [<Type: Type object (3)>]>
+>>> t[0].type_name
+'智能穿戴'
+
+# 反向查询
+>>> t[0].product_set.values('name')
+<QuerySet [{'name': 'Pluots'}, {'name': 'aluots plus'}, {'name': 'Orange'}, {'name': 'Rhspberry'}, {'name': '华为荣耀 v9'}, {'name': 'Cheory'}]>
+```
+
+从上面的代码分析，因为正向查询的查询对象主体和查询的数据都来自于模型Type,因此正向查询在数据库中只执行了一次SQL查询。
+
+而反向查询通过 `t[0].product_set.values('name')` 来获取模型Product的数据，因此反向查询执行了两次SQL查询，首先查询模型Type的数据，然后根据第一次查询的结果再查询与模型
+Product相互关联的数据。
+
+
+为了减少反向查询的查询次数，我们可以使用 select_related 方法实现，该方法只执行一次SQL查询就能达到反向查询的效果。select_related 使用方法如下：
+
+
+查询模型 Product 的字段 name 和模型 Type 的字段 type_name
+```sh        
+# >>> p = Product.objects.select_related('type').values('name','type__type_name') 
+# >>> print(p.query) 
+# SELECT `index_product`.`name`, `index_type`.`type_name` FROM `index_product` INNER JOIN `index_type` ON (`index_product`.`type_id` = `index_type`.`id`)
+
+>>> from index.models import *                   
+>>> Product.objects.select_related('type').values('name','type__type_name')
+<QuerySet [{'name': 'omni-Mango', 'type__type_name': '手机'}, {'name': '荣耀V9', 'type__type_name': '手机'}, {'name': '荣耀V9', 'type__type_name': '手机'}, {'name': 'Huawei v1', 'type__type_name':
+ '平板电脑'}, {'name': 'Khwi plus', 'type__type_name': '平板电脑'}, {'name': 'Apfle', 'type__type_name': '平板电脑'}, {'name': 'Pluots', 'type__type_name': '智能穿戴'}, {'name': 'aluots plus', 'ty
+pe__type_name': '智能穿戴'}, {'name': 'Orange', 'type__type_name': '智能穿戴'}, {'name': 'Rhspberry', 'type__type_name': '智能穿戴'}, {'name': '华为荣耀 v9', 'type__type_name': '智能穿戴'}, {'name': 'Cheory', 'type__type_name': '智能穿戴'}]>
+```
+
+
+查询两个模型的全部数据
+
+```sh
+# >>> p = Product.objects.select_related('type').all()                            
+# >>> print(p.query)                                   
+# SELECT `index_product`.`id`, `index_product`.`name`, `index_product`.`weight`, `index_product`.`size`, `index_product`.`type_id`, `index_type`.`id`, `index_type`.`type_name` FROM `index_product` INNER JOIN `index_type` ON (`index_product`.`type_id` = `index_type`.`id`)
+>>> from index.models import *  
+>>> Product.objects.select_related('type').all()    
+<QuerySet [<Product: Product object (4)>, <Product: Product object (11)>, <Product: Product object (13)>, <Product: Product object (2)>, <Product: Product object (3)>, <Product: Product object (5)>, <Product: Product object (1)>, <Product: Product object (6)>, <Product: Product object (7)>, <Product: Product object (8)>, <Product: Product object (9)>, <Product: Product object (10)>]>
+```
+
+获取两个模型的数据，以模型Product的id大于8为查询条件
+```sh
+# >> p = Product.objects.select_related('type').filter(id__gt=8)
+# #输出SQL查询语句
+# >>> print(p.query)
+# SELECT `index_product`.`id`, `index_product`.`name`, `index_product`.`weight`, `index_product`.`size`, `index_product`.`type_id`, `index_type`.`id`, `index_type`.`type_name` FROM `index_product` INNER JOIN `index_type` ON (`index_product`.`type_id` = `index_type`.`id`) WHERE `index_product`.`id` > 8
+
+>>> Product.objects.select_related('type').filter(id__gt=8)     
+<QuerySet [<Product: Product object (9)>, <Product: Product object (10)>, <Product: Product object (11)>, <Product: Product object (13)>]>
+```
+
+获取两模型数据，以模型Type的type_name字段等于手机为查询条件
+```sh
+# >>> p = Product.objects.select_related('type').filter(type__type_name='手机').all()
+# >>> print(p.query) 
+# SELECT `index_product`.`id`, `index_product`.`name`, `index_product`.`weight`, `index_product`.`size`, `index_product`.`type_id`, `index_type`.`id`, `index_type`.`type_name` FROM `index_product` INNER JOIN `index_type` ON (`index_product`.`type_id` = `index_type`.`id`) WHERE `index_type`.`type_name` = 手机
+>>> Product.objects.select_related('type').filter(type__type_name='手机').all()     
+<QuerySet [<Product: Product object (4)>, <Product: Product object (11)>, <Product: Product object (13)>]>
+>>> p = Product.objects.select_related('type').filter(type__type_name='手机').all()
+#输出模型Product信息
+>>> p[0]
+<Product:Product object (1)>
+#输出模型Product所关联模型Type的信息
+>> p[0].type
+<Type:Type object (1)>
+>> p[0].type.type_name
+手机·
+```
+
+
+select related的使用说明如下：
+
+- 以模型Product作为查询对象主体，当然也可以使用模型Type,只要两表之间有外键关联即可。
+- 设置 select_related 的参数值为“type”,该参数值是模型Product定义的type字段。
+- 如果在查询过程中需要使用另一个数据表的字段，可以使用 `"外键__字段名"` 来指向该表的字段。如 `type__type_name` 代表由模型Product的外键type指向模型 Type 的字段 type_name ,type代表模型Product的外键 type,双下画线“_”代表连接符，type_name是模型Type的字段。
+
+
+除此之外，select_related 还可以支持三个或三个以上的数据表同时查询，以下面的例子进行说明。
+
+
+```python
+from django.db import models
+
+
+# 省份信息表
+class Province(models.Model):
+    name = models.CharField(max_length=10)
+
+
+# 城市信息表
+class City(models.Model):
+    name = models.CharField(max_length=5)
+    province = models.ForeignKey(Province, on_delete=models.CASCADE)
+
+
+# 人物信息表
+class Person(models.Model):
+    name = models.CharField(max_length=10)
+    living = models.ForeignKey(City, on_delete=models.CASCADE)
+```
+
+
+然后重新执行数据迁移。如下
+```sh
+python manage.py makemigrations
+python manage.py migrate
+```
+
+在上述模型中，模型Person通过外键living关联模型City，模型City通过外键province关联模型Province，从而使三个模型形成一种递进关系。
+
+　　例如查询张三现在所居住的省份，首先通过模型Person和模型City查出张三所居住的城市，然后通过模型City和模型Province查询当前城市所属的省份。因此，select_related的实现方法如下：
+
+首先生成测试数据
+```sql
+INSERT INTO `mydjango`.`index_province` (`id`, `name`) VALUES (11, '湖北省');
+INSERT INTO `mydjango`.`index_province` (`id`, `name`) VALUES (12, '广东省');
+INSERT INTO `mydjango`.`index_city` (`id`, `name`, `province_id`) VALUES (1, '武汉', 11);
+INSERT INTO `mydjango`.`index_city` (`id`, `name`, `province_id`) VALUES (2, '深圳', 12);
+INSERT INTO `mydjango`.`index_person` (`id`, `name`, `living_id`) VALUES (1, '胡建力', 1);
+INSERT INTO `mydjango`.`index_person` (`id`, `name`, `living_id`) VALUES (2, '胡小建', 2);
+```
+
+```sh
+(venv) PS D:\coder\python-project\MyDjango> python manage.py shell
+>>> from index.models import *     
+>>> p = Person.objects.select_related('living__province').get(name='胡建力')
+>>> p.living.province
+<Province: Province object (11)>
+>>> p.living.province.name
+'湖北省'
+```
+
+　在上述例子可以发现，通过设置 select_related 的参数值即可实现三个或三个以上的多表查询。例子中的参数值为 `living__province`, 参数值说明如下：
+
+　　　　1、living是模型Person的字段，该字段指向模型City。
+
+　　　　2、province是模型City的字段，该字段指向模型Province
+
+　　　　3、两个字段之间使用双下划线连接并且两个字段都是指向另一个模型的，这说明在查询过程中，模型Person的字段living指向模型City，再从模型City的字段province指向模型Province，从而实现两个或三个以上的多表查询。
+
+
+
+
+## 3. 使用Django开发REST 接口
+
+我们以在Django框架中使用的图书英雄案例来写一套支持图书数据增删改查的REST API接口，来理解REST API的开发。
+
+在此案例中，前后端均发送JSON格式数据。
+
+##### 基本配置
+
+```sh
+#创建虚拟环境
+python -m venv bookv1
+cd bookv1
+
+# 激活虚拟环境
+source bin/activite
+# 此时就可以在虚拟环境中使用pip install <package_name>来安装python包了
+
+# 创建项目
+(venv)# pip install django==4.2.7
+(venv)# django-admin startproject bookv1
+# 创建app
+(venv)# python manage.py startapp app
+```
+
+
+`bookv1/settings.py`
+
+```python
+# 设置时区
+LANGUAGE_CODE = 'zh-hans'
+TIME_ZONE = 'Asia/Shanghai'
+USE_I18N = True
+USE_L10N = True
+USE_TZ = False
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'app.apps.AppConfig',
+]
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'book_demo',
+        'HOST': '127.0.0.1',
+        'USER': 'root',
+        'PASSWORD': 'oschina',
+        'PORT': '3306',
+        "OPTIONS": {"init_command": "SET default_storage_engine=INNODB;"}
+    }
+}
+```
+
+##### 模型数据库
+
+`app/models.py`
+
+```python
+from django.db import models
+
+
+# Create your models here.
+# 定义图书模型类BookInfo
+class BookInfo(models.Model):
+    btitle = models.CharField(max_length=20, verbose_name='名称')
+    bpub_date = models.DateField(verbose_name='发布日期')
+    bread = models.IntegerField(default=0, verbose_name='阅读量')
+    bcomment = models.IntegerField(default=0, verbose_name='评论量')
+    is_delete = models.BooleanField(default=False, verbose_name='逻辑删除')
+    # 注意,如果模型已经迁移建表并且表中如果已经有数据了,那么后新增的字段,必须给默认值或可以为空,不然迁移就报错
+    # upload_to 指定上传到media_root配置项的目录中再创建booktest里面
+    image = models.ImageField(upload_to='booktest', verbose_name='图片', null=True)
+
+
+    class Meta:
+        db_table = 'tb_books'  # 指明数据库表名
+        verbose_name = '图书'  # 在admin站点中显示的名称
+        verbose_name_plural = verbose_name  # 显示的复数名称
+
+    def __str__(self):
+        """定义每个数据对象的显示信息"""
+        return self.btitle
+
+    def pub_date_format(self):
+        return self.bpub_date.strftime('%Y-%m-%d')
+    # 修改方法名在列表界面的展示
+    pub_date_format.short_description = '发布日期'
+    # 指定自定义方法的排序依据
+    pub_date_format.admin_order_field = 'bpub_date'
+
+
+# 定义英雄模型类HeroInfo
+class HeroInfo(models.Model):
+    GENDER_CHOICES = (
+        (0, 'female'),
+        (1, 'male')
+    )
+    hname = models.CharField(max_length=20, verbose_name='名称')
+    hgender = models.SmallIntegerField(choices=GENDER_CHOICES, default=0, verbose_name='性别')
+    hcomment = models.CharField(max_length=200, null=True, verbose_name='描述信息')
+    hbook = models.ForeignKey(BookInfo, on_delete=models.CASCADE, verbose_name='图书')  # 外键
+    is_delete = models.BooleanField(default=False, verbose_name='逻辑删除')
+
+    class Meta:
+        db_table = 'tb_heros'
+        verbose_name = '英雄'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.hname
+
+    def read(self):
+        return self.hbook.bread
+    read.short_description = '阅读量'
+    read.admin_order_field = 'hbook__bread'
+    # HeroInfo.objects.filter(hbook__bread=xx)
+```
+
+
+迁移数据库命令，如下
+
+```sh
+python manage.py makemigrations
+python manage.py migrate
+```
+
+
+
+首先插入一些测试数据,如下
+
+```sql
+insert into tb_books(btitle,bpub_date,bread,bcomment,is_delete) values
+('射雕英雄传','1980-05-01',12,34,0),
+('天龙八部','1986-07-24',36,40,0),
+('笑傲江湖','1995-12-24',20,80,0),
+('雪山飞狐','1987-11-11',58,24,0);
+```
+
+
+
+
+```sql
+insert into tb_heros(hname,hgender,hbook_id,hcomment,is_delete) values
+('郭靖',1,1,'降龙十八掌',0),
+('黄蓉',0,1,'打狗棍法',0),
+('黄药师',1,1,'弹指神通',0),
+('欧阳锋',1,1,'蛤蟆功',0),
+('梅超风',0,1,'九阴白骨爪',0),
+('乔峰',1,2,'降龙十八掌',0),
+('段誉',1,2,'六脉神剑',0),
+('虚竹',1,2,'天山六阳掌',0),
+('王语嫣',0,2,'神仙姐姐',0),
+('令狐冲',1,3,'独孤九剑',0),
+('任盈盈',0,3,'弹琴',0),
+('岳不群',1,3,'华山剑法',0),
+('东方不败',0,3,'葵花宝典',0),
+('胡斐',1,4,'胡家刀法',0),
+('苗若兰',0,4,'黄衣',0),
+('程灵素',0,4,'医术',0),
+('袁紫衣',0,4,'六合拳',0);
+```
+
+
+##### 视图
+
+`app/views.py`
+
+```python
+import json
+from datetime import datetime
+from django.http import JsonResponse, HttpResponse
+from django.views import View
+from .models import BookInfo, HeroInfo
+
+"""
+
+# 书籍信息
+GET         /api/books/
+POST        /api/books/
+GET         /api/books/<pk>/
+PUT         /api/books/<pk>/
+DELETE      /api/books/<pk>/
+
+# 人物信息
+GET         /api/heros/
+POST        /api/heros/
+GET         /api/heros/<pk>/
+PUT         /api/heros/<pk>/
+DELETE      /api/heros/<pk>/
+
+
+响应数据  JSON
+# 列表视图: 路由后边没有 pk/ID
+# 详情视图: 路由后面   pk/ID
+"""
+
+
+class BooksAPIVIew(View):
+    """
+    查询所有图书、增加图书
+    """
+
+    def get(self, request):
+        """
+        查询所有图书
+        路由：GET /api/books/
+        """
+        # 1. 查询出所有图书模型
+        queryset = BookInfo.objects.all()
+        # 2. 遍历查询集，去除里边的每个书籍模型对象，把模型对象转换成字典
+        # 定义一个列表保存所有字典
+        book_list = []
+        for book in queryset:
+            book_dict = {
+                'id': book.id,
+                'btitle': book.btitle,
+                'bput_date': book.bpub_date,
+                'bread': book.bcomment,
+                'image': book.image.url if book.image else '',
+            }
+            book_list.append(book_dict)  # 将转换好的字典添加到列表中
+        # 3. 响应给前端
+        # 如果book_list 不是一个字典的话就需要将safe设置成False.
+        return JsonResponse(book_list, safe=False)
+
+    def post(self, request):
+        """
+        新增图书
+        路由：POST /api/books/
+        """
+        # 获取前端传入的请求体数据(json) request.body
+        json_bytes = request.body
+        # 把bytes类型的json字符串转换成json_str
+        json_str = json_bytes.decode()
+        # 利用json.loads将json字符串转换为json（字典/列表）
+        book_dict = json.loads(json_str)
+
+        # 此处详细的校验参数省略
+        # 创建模型对象并保存（把字典转换成模型并储存）
+        book = BookInfo(
+            btitle=book_dict['btitle'],
+            bpub_date=book_dict['bpub_date'],
+
+        )
+        book.save()
+
+        # 把新增的模型转换成字典
+        json_dict = {
+            'id': book.id,
+            'btitle': book.btitle,
+            'bput_date': book.bpub_date,
+            'bread': book.bread,
+            'bcomment': book.bcomment,
+            'image': book.image.url if book.image else '',
+        }
+        # 响应（把新增的数据再响应回去，201）
+        return JsonResponse(json_dict, status=201)
+
+
+class BookAPIView(View):
+    """详情视图"""
+
+    def get(self, request, pk):
+        """
+        获取单个图书信息
+        路由： GET  /api/books/<pk>/
+        """
+        try:
+            book = BookInfo.objects.get(id=pk)
+        except BookInfo.DoesNotExist:
+            return JsonResponse({'message': '查询的数据不存在'}, status=404)
+        # 2. 模型对象转字典
+        book_dict = {
+            'id': book.id,
+            'btitle': book.btitle,
+            'bput_date': book.bpub_date,
+            'bread': book.bread,
+            'bcomment': book.bcomment,
+            'image': book.image.url if book.image else '',
+        }
+        # 3. 响应
+        return JsonResponse(book_dict)
+
+    def put(self, request, pk):
+        """
+        修改图书信息
+        路由： PUT  /api/books/<pk>
+        """
+        try:
+            book = BookInfo.objects.get(id=pk)
+        except BookInfo.DoesNotExist:
+            return JsonResponse({'message': '修改的数据不存在'}, status=404)
+
+        # 获取前端传入的新数据（把数据转换成字典）
+        # json_str_bytes = request.body
+        # json_str = json_str_bytes.decode()
+        # book_dict = json.loads(json_str)
+
+        # 此处详细的校验参数省略
+        book_dict = json.loads(request.body.decode())
+        # 重新给模型指定的属性赋值
+        book.btitle = book_dict['btitle']
+        book.bpub_date = book_dict['bpub_date']
+        # 调用save方法进行修改操作
+        book.save()
+        # 把修改后的模型再转换成字典
+        json_dict = {
+            'id': book.id,
+            'btitle': book.btitle,
+            'bput_date': book.bpub_date,
+            'bread': book.bread,
+            'bcomment': book.bcomment,
+            'image': book.image.url if book.image else '',
+        }
+        # 响应
+        return JsonResponse(json_dict)
+
+    def delete(self, request, pk):
+        """
+        删除图书
+        路由： DELETE /api/books/<pk>/
+        """
+        # 获取要删除的模型对象
+        try:
+            book = BookInfo.objects.get(id=pk)
+        except BookInfo.DoesNotExist:
+            return JsonResponse({'message': '删除的数据不存在'}, status=404)
+        # 删除指定模型对象
+        # book.delete()  # 物理删除（真正从数据库删除）
+        book.is_delete = True
+        book.save()  # （逻辑删除）
+        # 响应：删除时不需要有响应体但要指定状态码为 204
+        return HttpResponse(status=204)
+
+
+class HerosAPIVIew(View):
+    """
+    查询所有人物信息，新增人物
+    """
+
+    def get(self, request):
+        """
+        查询所有人物
+        路由：GET /api/heros/
+        """
+        queryset = HeroInfo.objects.all()
+        heros_list = []
+        for hero in queryset:
+            book_dict = {
+                'id': hero.id,
+                'hname': hero.hname,
+                'hgender': hero.hgender,
+                'hcomment': hero.hcomment,
+                "hbookid": hero.hbook.id,
+                "hbookBtitle": hero.hbook.btitle,
+                "hbookBread": hero.hbook.bread
+            }
+            heros_list.append(book_dict)
+        return JsonResponse(heros_list, safe=False)
+
+    def post(self, request):
+        """
+        新增人物
+        路由：POST /api/heros/
+        """
+        json_bytes = request.body
+        json_str = json_bytes.decode()
+        heros_dict = json.loads(json_str)
+
+        # 获取关联的图书对象
+        book_id = heros_dict['hbook']
+        book = BookInfo.objects.get(id=book_id)
+
+        # 创建英雄对象并保存到数据库
+        hero = HeroInfo(
+            hname=heros_dict['hname'],
+            hgender=heros_dict['hgender'],
+            hcomment=heros_dict['hcomment'],
+            hbook=book,  # 将关联的图书对象赋值给外键属性
+        )
+        hero.save()
+        json_dict = {
+            'id': hero.id,
+            'hname': hero.hname,
+            'hgender': hero.hgender,
+            'hcomment': hero.hcomment,
+            'hbook': hero.hbook.btitle
+        }
+        return JsonResponse(json_dict, status=201)
+
+
+class HeroAPIView(View):
+    """详情视图"""
+
+    def get(self, request, pk):
+        """
+        获取单个人物信息
+        路由： GET  /api/heros/<pk>/
+        """
+        try:
+            hero = HeroInfo.objects.get(id=pk)
+        except BookInfo.DoesNotExist:
+            return JsonResponse({'message': '查询的数据不存在'}, status=404)
+        book_dict = {
+            'id': hero.id,
+            'hname': hero.hname,
+            'hgender': hero.hgender,
+            'hcomment': hero.hcomment,
+            "hbookid": hero.hbook.id,
+            "hbookBtitle": hero.hbook.btitle,
+            "hbookBread": hero.hbook.bread
+        }
+        return JsonResponse(book_dict)
+
+    def put(self, request, pk):
+        """
+        更新人物信息
+        路由： PUT  /api/heros/<pk>
+        """
+        json_bytes = request.body
+        json_str = json_bytes.decode()
+        heros_dict = json.loads(json_str)
+
+        try:
+            # 获取需要更新的英雄对象
+            hero = HeroInfo.objects.get(id=pk)
+        except HeroInfo.DoesNotExist:
+            return JsonResponse({'message': '修改的数据不存在'}, status=404)
+
+        # 更新英雄信息
+        hero.hname = heros_dict['hname']
+        hero.hgender = heros_dict['hgender']
+        hero.hcomment = heros_dict['hcomment']
+
+        # 获取关联的图书对象
+        book_id = heros_dict['hbook']
+        book = BookInfo.objects.get(id=book_id)
+        # 更新外键关联属性
+        hero.hbook = book
+        # 保存更新后的英雄对象
+        hero.save()
+
+        # 构造响应数据并返回
+        json_dict = {
+            'id': hero.id,
+            'hname': hero.hname,
+            'hgender': hero.hgender,
+            'hcomment': hero.hcomment,
+            'hbook': hero.hbook.btitle  # 将外键关联对象的名称进行序列化
+        }
+        return JsonResponse(json_dict, status=200)
+
+    def delete(self, request, pk):
+        """
+        删除人物
+        路由： DELETE /api/heros/<pk>/
+        """
+        try:
+            hero = HeroInfo.objects.get(id=pk)
+        except BookInfo.DoesNotExist:
+            return JsonResponse({'message': '删除的数据不存在'}, status=404)
+        # hero.delete()  # 物理删除（真正从数据库删除）
+        hero.is_delete = True
+        hero.save()  # （逻辑删除）
+        # 响应：删除时不需要有响应体但要指定状态码为 204
+        return HttpResponse(status=204)
+
+```
+
+##### controller
+
+`bookv1/urls.py`
+
+```python
+from django.contrib import admin
+from django.urls import include, re_path, path
+from app import urls
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    re_path('api/', include(urls)),
+]
+```
+
+`app/urls.py`
+
+```python
+from django.urls import re_path
+from . import views
+
+urlpatterns = [
+    # 书籍
+    re_path(r'^books/$', views.BooksAPIVIew.as_view()),
+    re_path(r'^books/(?P<pk>\d+)/$', views.BookAPIView.as_view()),
+    # 人物
+    re_path(r'^heros/$', views.HerosAPIVIew.as_view()),
+    re_path(r'^heros/(?P<pk>\d+)/$', views.HeroAPIView.as_view()),
+
+]
+```
+
+
+##### 启动应用
+
+```sh
+python manage.py runserver 0.0.0.0:8000
+```
+
+
+##### 使用postman测试接口
+
+
+
+
+|分类|方法|详细|接口是否可用|
+|----|----|----|------|
+|图书|GET<br>POST<br>PUT<br>DELETE|获取图书列表<br>获取单个图书详细<br>修改图书信息<br>删除图书|√<br>√<br>√<br>√<br>|
+|人物|GET<br>POST<br>PUT<br>DELETE|获取人物列表<br>获取单个人物详细<br>修改人物信息<br>删除人物|√<br>√<br>√<br>√<br>|
+
+
+
+Postman发送请求示例
+
+```sh
+# GET 获取所有图书数据
+http://127.0.0.1:8000/api/books
+
+# GET 获取单一图书数据
+http://127.0.0.1:8000/api/books/1
+
+# POST 新增读书数据
+http://127.0.0.1:8000/api/books/
+
+# Body - raw json
+{
+    "btitle": "三国演义",
+    "bpub_date": "1990-02-03"
+}
+
+# PUT 修改图书数据
+http://127.0.0.1:8000/api/books/5/
+
+# Body - raw json
+{
+    "btitle": "射雕英雄传2",
+    "bpub_date": "1990-02-03"
+}
+
+# DELETE 删除图书数据
+http://127.0.0.1:8000/api/books/5/
+
+# ......
+```
+
+
+## 4. 明确REST接口开发的核心任务
+
+
+
+分析一下上节的案例，可以发现，在开发REST API接口时，视图中做的最主要有三件事：
+
+1.将请求的数据（如JSON格式）转换为模型类对象
+
+2.操作数据库
+
+3.将模型类对象转换为响应的数据（如JSON格式）
+
+
+### 4.1 序列化Serialization
+
+简而言之，我们可以将序列化理解为：
+
+将程序中的一个数据结构类型转换为其他格式（字典、JSON、XML等），例如将Django中的模型类对象装换为JSON字符串，这个转换过程我们称为序列化。
+
+```python
+queryset = BookInfo.objects.all()
+book_list = []
+# 序列化
+for book in queryset:
+    book_list.append({
+        'id': book.id,
+        'btitle': book.btitle,
+        'bpub_date': book.bpub_date,
+        'bread': book.bread,
+        'bcomment': book.bcomment,
+        'image': book.image.url if book.image else ''
+    })
+return JsonResponse(book_list, safe=False)
+```
+
+反之，将其他格式（字典、JSON、XML等）转换为程序中的数据，例如将JSON字符串转换为Django中的模型类对象，这个过程我们称为反序列化。
+
+```python
+json_bytes = request.body
+json_str = json_bytes.decode()
+```
+
+### 4.2 反序列化
+
+```python
+book_dict = json.loads(json_str)
+book = BookInfo.objects.create(
+    btitle=book_dict.get('btitle'),
+    bpub_date=datetime.strptime(book_dict.get('bpub_date'), '%Y-%m-%d').date()
+)
+```
+
+我们可以看到，在开发REST API时，视图中要频繁的进行序列化与反序列化的编写。
+
+总结 在开发REST API接口时，我们在视图中需要做的最核心的事是：
+
+- 将数据库数据序列化为前端所需要的格式，并返回；
+- 将前端发送的数据反序列化为模型类对象，并保存到数据库中
+
+
+## 5. Django REST framework 简介
+
+在序列化与反序列化时，虽然操作的数据不尽相同，但是执行的过程却是相似的，也就是说这部分代码是可以复用简化编写的。
+
+在开发RESTAPI的视图中，虽然每个视图具体操作的数据不同，但增、删、改、查的实现流程基本套路化，所以这部分代码也是可以复用简化编写的：
+
+1. 增：校验请求数据 -> 执行反序列化过程 -> 保存数据库 -> 将保存的对象序列化并返回
+2. 删：判断要删除的数据是否存在 ->执行数据库删除
+3. 改：判断要修改的数据是否存在 -> 校验请求的数据 -> 执行反序列化过程 -> 保存数据库 -> 将保存的对象序列化并返回
+4. 查：查询数据库 -> 将数据序列化并返回
+
+Django REST framework可以帮助我们简化上述两部分的代码编写，大大提高REST API的开发速度。
+
+
+### 5.1 认识Django REST framework
+
+Django REST framework 框架是一个用于构建Web API 的强大而又灵活的工具。
+
+通常简称为DRF框架 或 REST framework。
+
+
+DRF框架是建立在Django框架基础之上，由Tom Christie大牛二次开发的开源项目。
+
+特点
+
+- 提供了定义序列化器Serializer的方法，可以快速根据 Django ORM 或者其它库自动序列化/反序列化；
+- 提供了丰富的类视图、Mixin扩展类，简化视图的编写；
+- 丰富的定制层级：函数视图、类视图、视图集合到自动生成 API， 满足各种需要；
+- 多种身份认证和权限认证方式的支持；
+- 内置了限流系统；
+- 直观的 API web 界面；
+- 可扩展性，插件丰富
+
+
+
+### 5.2 Django REST framework常用组件
 
 可以毫不夸张地说，如果可以将Django REST framework的10个常用组件融会贯通，那么使用Django开发前后端分离的项目中有可能遇到的绝大部分需求，都能得到高效的解决。
 
@@ -28,8 +1550,12 @@ Django REST framework的10个常用组件如下：
 - 渲染器组件；
 - 版本组件。
 
+Django REST framework官方文档的地址是  https://www.django-rest-framework.org/
 
-Django REST framework官方文档的地址是  https://www.django-rest-framework.org/ 。
+
+
+## 6. 用Django REST framework实现豆瓣API应用
+
 
 新建一个Django项目，命名为book，作为贯穿本书的演示项目。
 
@@ -37,10 +1563,7 @@ Django REST framework官方文档的地址是  https://www.django-rest-framework
 
 
 
-
-
-
-### 1.1 豆瓣API功能介绍
+### 6.1 豆瓣API功能介绍
 
 
 豆瓣图书的API功能原理是用户通过输入图书的ISBN号（书号）、书名、作者、出版社等部分信息，就可获取到该图书在豆瓣上的所有信息。
@@ -51,7 +1574,7 @@ Django REST framework官方文档的地址是  https://www.django-rest-framework
 
 
 
-### 1.2 Django REST framework序列化
+### 6.2 Django REST framework序列化
 
 
 序列化（Serialization）是指将对象的状态信息转换为可以存储或传输形式的过程。在客户端与服务端传输的数据形式主要分为两种：XML和JSON。
@@ -63,7 +1586,7 @@ Django REST framework官方文档的地址是  https://www.django-rest-framework
 
 
 
-#### 1.2.1 Postman的使用
+#### 6.2.1 Postman的使用
 
 Postman是一款非常流行的API调试工具，其使用简单、方便，而且功能强大。
 
@@ -79,7 +1602,7 @@ Postman的下载地址是 https://www.getpostman.com/apps 。
 
 
 
-#### 1.2.2 用serializers.Serializer方式序列化
+#### 6.2.2 用serializers.Serializer方式序列化
 
 
 （1）打开项目book。
@@ -141,7 +1664,6 @@ AUTH_USER_MODEL='users.UserProfile'
 
 （6）在users的models.py文件中新建书籍信息表book，为了演示方便，我们姑且将作者字段并入书籍信息表，读者在实际项目中可根据业务模式灵活设计数据表model：
 
-
 ```python
 class Book(models.Model):
     """
@@ -163,7 +1685,6 @@ class Book(models.Model):
 
 ```
 
-
 （7）执行数据更新命令：
 
 ```sh
@@ -177,13 +1698,9 @@ python manage.py migrate
 
 ```sh
 python manage.py createsuperuser
-
 Username: admin
-
 邮箱: 1@1.com
-
 Password:
-
 Password (again):
 ```
 
@@ -207,6 +1724,11 @@ class BookSerializer(serializers.Serializer):
     rate = serializers.FloatField(default=0)
 
 ```
+
+其他Serializer字段与选项
+
+[参考](https://q1mi.github.io/Django-REST-framework-documentation/api-guide/fields_zh/)
+
 
 
 （11）在users/views中编写视图代码：
@@ -304,7 +1826,7 @@ API返回的数据为：
 所以，这里使用Serializer进行序列化，目的是让大家通过这种序列化方式更加轻松地理解Django REST framework的序列化原理。在实际生产环境中，更加被广泛应用的序列化方式是采用了Django REST framework的ModelSerializer。
 
 
-#### 1.2.3 用serializers.ModelSerializer方式序列化
+#### 6.2.3 用serializers.ModelSerializer方式序列化
 
 我们将要使用Django REST framework的ModelSerializer来实现这个功能。因为都是在book项目中，所以上一节中介绍的很多步骤我们没有必要重复。
 
@@ -486,7 +2008,7 @@ class BookInfoSerializer(serializers.ModelSerializer):
 
 
 
-#### 1.2.4 Serializer和ModelSerializer序列化选择
+#### 6.2.4 Serializer和ModelSerializer序列化选择
 
 我们对Django REST framework的两种序列化方式做一个总结：
 
@@ -508,7 +2030,7 @@ ModelSerializer与常规的Serializer相同，但提供了：
 
 
 
-#### 1.2.5 HyperlinkedModelSerializer序列化方式
+#### 6.2.5 HyperlinkedModelSerializer序列化方式
 
 HyperlinkedModelSerializer 基本上与之前用的 ModelSerializer 差不多，区别是它自动提供了外键字段的超链接，并且默认不包含模型对象的 id 字段。
 
@@ -525,7 +2047,12 @@ HyperlinkedModelSerializer与ModelSerializer有以下区别：
 https://q1mi.github.io/Django-REST-framework-documentation/api-guide/serializers_zh/#hyperlinkedmodelserializer
 
 
-#### 1.2.6 总结
+
+
+
+
+
+#### 6.2.6 总结
 
 ModelSerializer比Serializer好用是模型序列化的首选方案!
 
@@ -538,31 +2065,28 @@ https://www.cuiliangblog.cn/detail/article/13
 
 
 
-### 1.3 Django 视图
-
-
-#### 1.3.1 使用Django开发REST 接口
-
-我们以在Django框架中使用的图书英雄案例来写一套支持图书数据增删改查的REST API接口，来理解REST API的开发。
-
-在此案例中，前后端均发送JSON格式数据。
 
 
 
+## 7. Django REST framework视图
 
 
-#### 1.3.2 明确REST接口开发的核心任务
+我们基于 Django开发REST 接口 的bookv1 项目 进行视图改造
 
+项目地址： 存放在 gitee
 
-
-
-
+[bookv1](https://gitee.com/django-devops/bookv1)
 
 
 
 
 
 ![1700648982801](https://cdn.jsdelivr.net/gh/hujianli94/Picgo-atlas@main/img/1700648982801.3vua8iq84hu0.png){: .zoom}
+
+
+
+
+
 
 
 
