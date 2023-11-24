@@ -880,9 +880,15 @@ INSERT INTO `mydjango`.`index_person` (`id`, `name`, `living_id`) VALUES (2, '�
 
 ## 3. 使用Django开发REST 接口
 
+
+```sh
+git chekout -b "django-json"
+```
+
 我们以在Django框架中使用的图书英雄案例来写一套支持图书数据增删改查的REST API接口，来理解REST API的开发。
 
-在此案例中，前后端均发送JSON格式数据。
+
+在此案例中，前后端均发送JSON格式数据, 使用视图基类 View 。
 
 ##### 基本配置
 
@@ -936,7 +942,7 @@ DATABASES = {
 }
 ```
 
-##### 模型数据库
+##### 模型
 
 `app/models.py`
 
@@ -1352,7 +1358,7 @@ class HeroAPIView(View):
 
 ```
 
-##### controller
+##### 路由
 
 `bookv1/urls.py`
 
@@ -1451,9 +1457,9 @@ http://127.0.0.1:8000/api/books/5/
 3.将模型类对象转换为响应的数据（如JSON格式）
 
 
-### 4.1 序列化Serialization
+### 4.1 序列化
 
-简而言之，我们可以将序列化理解为：
+序列化Serialization 简而言之，我们可以将序列化理解为：
 
 将程序中的一个数据结构类型转换为其他格式（字典、JSON、XML等），例如将Django中的模型类对象装换为JSON字符串，这个转换过程我们称为序列化。
 
@@ -1835,7 +1841,7 @@ API返回的数据为：
 
 ##### 1.定义
 
-在 users/Serializer.py 中，写book的ModelSerializer序列化类：
+在 users/serializer.py 中，写book的ModelSerializer序列化类：
 
 ```python
 from rest_framework import serializers
@@ -1856,6 +1862,11 @@ class BookModelSerializer(serializers.ModelSerializer):
         model = Book
         fields = "__all__"  # 将整个表的所有字段都序列化
 ```
+
+
+- model 指明参照哪个模型类
+
+- fields 指明为模型类的哪些字段生成
 
 
 
@@ -1955,15 +1966,49 @@ http://127.0.0.1:8000/apibook2/?apikey=abcdefghigklmn&isbn=777777
 当然，ModelSerializer也可以像Serializer一样对某几个特定字段进行序列化，写法也很简单，只需要对原本的BookModelSerializer修改一行代码：
 
 
+
 ```python
-class BookModelSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Book
-        # fields = "__all__"  # 将整个表的所有字段都序列化
-        fields = ('title', 'isbn', 'author')  # 指定序列化某些字段
+# 1. 使用fields来明确字段，__all__表名包含所有字段，也可以写明具体哪些字段
+fields = __all__
+
+
+# 2. 使用exclude可以明确排除掉哪些字段
+exclude = ('image',)
+
+
+# 3.显示指明字段
+fields = ('id', 'hname', 'hgender', 'hcomment', 'hbook')
+
+
+# 4.指明只读字段
+fields = ('id', 'btitle', 'bpub_date'， 'bread', 'bcomment')
+read_only_fields = ('id', 'bread', 'bcomment')
 ```
 
 
+显示指明字段
+
+```python
+class BookInfoSerializer(serializers.ModelSerializer):
+    """图书数据序列化器"""
+    class Meta:
+        model = BookInfo
+        fields = ('id', 'btitle', 'bpub_date')
+```
+
+
+
+指明只读字段
+
+
+```python
+class BookInfoSerializer(serializers.ModelSerializer):
+    """图书数据序列化器"""
+    class Meta:
+        model = BookInfo
+        fields = ('id', 'btitle', 'bpub_date','bread', 'bcomment')
+        read_only_fields = ('id', 'bread', 'bcomment')
+```
 
 
 使用Postman对API进行测试，用GET的方式访问：
@@ -2008,6 +2053,23 @@ class BookInfoSerializer(serializers.ModelSerializer):
 
 
 
+```python
+class LeaveMessageSerializer(serializers.ModelSerializer):
+    """
+    留言记录序列化器
+    """
+    username = serializers.ReadOnlyField(source='user.username')
+    photo = serializers.ReadOnlyField(source='user.photo')
+    child = serializers.ListField(source='get_child', child=RecursiveField(), read_only=True)
+    father_name = serializers.ReadOnlyField(source='get_father_name')
+
+    class Meta:
+        model = LeaveMessage
+        fields = "__all__"
+```
+
+
+
 #### 6.2.4 Serializer和ModelSerializer序列化选择
 
 我们对Django REST framework的两种序列化方式做一个总结：
@@ -2023,7 +2085,7 @@ ModelSerializer与常规的Serializer相同，但提供了：
 
 - 自动推断需要序列化的字段及类型
 - 提供对字段数据的验证器的默认实现
-- 提供了修改数据需要用到的 `.create()` 、 `.update()` 方法的默认实现
+- 提供了修改数据需要用到的 `.create()`、`.update()` 方法的默认实现
 
 另外我们还可以在 fileds 列表里挑选出需要的数据，以便减小数据的体积。
 
@@ -2071,13 +2133,629 @@ https://www.cuiliangblog.cn/detail/article/13
 ## 7. Django REST framework视图
 
 
-我们基于 Django开发REST 接口 的bookv1 项目 进行视图改造
+
+### 7.1 基于APIview视图类示例
+
+
+
+我们基于 Django开发REST 接口的 bookv1 项目 进行视图改造
 
 项目地址： 存放在 gitee
 
 [bookv1](https://gitee.com/django-devops/bookv1)
 
 
+创建并切换到新分支
+
+```sh
+git checkout -b drf-APIView
+```
+
+
+
+#### 基本配置
+
+安装Django REST framework及其依赖包markdown和django-filter。命令如下
+
+```sh
+pip install djangorestframework markdown django-filter
+```
+
+在settings中注册，代码如下：
+
+```python
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'users.apps.UsersConfig',
+    'rest_framework'
+]
+```
+
+
+#### 配置模型
+
+`app/models.py`数据定义保持不变
+
+```python
+from django.db import models
+
+
+# Create your models here.
+# 定义图书模型类BookInfo
+class BookInfo(models.Model):
+    btitle = models.CharField(max_length=20, verbose_name='名称')
+    bpub_date = models.DateField(verbose_name='发布日期')
+    bread = models.IntegerField(default=0, verbose_name='阅读量')
+    bcomment = models.IntegerField(default=0, verbose_name='评论量')
+    is_delete = models.BooleanField(default=False, verbose_name='逻辑删除')
+    # 注意,如果模型已经迁移建表并且表中如果已经有数据了,那么后新增的字段,必须给默认值或可以为空,不然迁移就报错
+    # upload_to 指定上传到media_root配置项的目录中再创建booktest里面
+    image = models.ImageField(upload_to='booktest', verbose_name='图片', null=True)
+
+
+    class Meta:
+        db_table = 'tb_books'  # 指明数据库表名
+        verbose_name = '图书'  # 在admin站点中显示的名称
+        verbose_name_plural = verbose_name  # 显示的复数名称
+
+    def __str__(self):
+        """定义每个数据对象的显示信息"""
+        return self.btitle
+
+    def pub_date_format(self):
+        return self.bpub_date.strftime('%Y-%m-%d')
+    # 修改方法名在列表界面的展示
+    pub_date_format.short_description = '发布日期'
+    # 指定自定义方法的排序依据
+    pub_date_format.admin_order_field = 'bpub_date'
+
+
+# 定义英雄模型类HeroInfo
+class HeroInfo(models.Model):
+    GENDER_CHOICES = (
+        (0, 'female'),
+        (1, 'male')
+    )
+    hname = models.CharField(max_length=20, verbose_name='名称')
+    hgender = models.SmallIntegerField(choices=GENDER_CHOICES, default=0, verbose_name='性别')
+    hcomment = models.CharField(max_length=200, null=True, verbose_name='描述信息')
+    hbook = models.ForeignKey(BookInfo, on_delete=models.CASCADE, verbose_name='图书')  # 外键
+    is_delete = models.BooleanField(default=False, verbose_name='逻辑删除')
+
+    class Meta:
+        db_table = 'tb_heros'
+        verbose_name = '英雄'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.hname
+
+    def read(self):
+        return self.hbook.bread
+    read.short_description = '阅读量'
+    read.admin_order_field = 'hbook__bread'
+    # HeroInfo.objects.filter(hbook__bread=xx)
+```
+
+#### 配置序列化器
+
+app目录下新建py文件serializers，将序列化的类代码写入其中：
+
+```python
+from rest_framework import serializers
+
+from .models import BookInfo, HeroInfo
+
+
+class SimpleHeroInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HeroInfo
+        fields = ['id', 'hname', 'hgender', 'hcomment']
+
+
+class HeroInfoSerializer(serializers.ModelSerializer):
+    hbook = serializers.PrimaryKeyRelatedField(queryset=BookInfo.objects.all())
+
+    book_name = serializers.CharField(source='hbook.btitle', read_only=True)
+    read = serializers.SerializerMethodField()
+    comment = serializers.SerializerMethodField()
+
+    class Meta:
+        model = HeroInfo
+        fields = ['id', 'hname', 'hgender', 'hcomment', 'hbook', 'book_name', 'read', 'comment']
+
+    def get_read(self, obj):
+        return obj.hbook.bread
+
+    def get_comment(self, obj):
+        return obj.hbook.bcomment
+
+
+class BookInfoSerializer(serializers.ModelSerializer):
+    # 反向关联字段，表示与BookInfo模型关联的所有HeroInfo实例
+    hero_set = HeroInfoSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = BookInfo
+        fields = '__all__'
+```
+
+
+#### 配置视图
+
+`app/views`中编写视图代码
+
+```python
+from django.http import Http404
+from rest_framework import status
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from app.serializers import BookInfoSerializer, HeroInfoSerializer, SimpleHeroInfoSerializer
+from .models import BookInfo, HeroInfo
+
+"""
+
+# 书籍信息
+GET         /api/books/
+POST        /api/books/
+GET         /api/books/<pk>/
+PUT         /api/books/<pk>/
+DELETE      /api/books/<pk>/
+
+# 人物信息
+GET         /api/heros/
+POST        /api/heros/
+GET         /api/heros/<pk>/
+PUT         /api/heros/<pk>/
+DELETE      /api/heros/<pk>/
+
+
+响应数据  JSON
+# 列表视图: 路由后边没有 pk/ID
+# 详情视图: 路由后面   pk/ID
+"""
+
+
+class BookInfoListAPIView(APIView):
+    def get(self, request):
+        books = BookInfo.objects.all()
+        serializer = BookInfoSerializer(books, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = BookInfoSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class BookInfoDetailAPIView(APIView):
+    def get_object(self, pk):
+        try:
+            return BookInfo.objects.get(pk=pk)
+        except BookInfo.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk):
+        book = self.get_object(pk)
+        serializer = BookInfoSerializer(book)
+        return Response(serializer.data)
+
+    def put(self, request, pk):
+        book = self.get_object(pk)
+        serializer = BookInfoSerializer(book, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk):
+        book = self.get_object(pk)
+        book.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class HeroInfoListAPIView(APIView):
+    def get(self, request):
+        heroes = HeroInfo.objects.all()
+        serializer = SimpleHeroInfoSerializer(heroes, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = HeroInfoSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class HeroInfoDetailAPIView(APIView):
+    def get_object(self, pk):
+        try:
+            return HeroInfo.objects.get(pk=pk)
+        except HeroInfo.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk):
+        hero = self.get_object(pk)
+        serializer = HeroInfoSerializer(hero)
+        return Response(serializer.data)
+
+    def put(self, request, pk):
+        hero = self.get_object(pk)
+        serializer = HeroInfoSerializer(hero, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk):
+        hero = self.get_object(pk)
+        hero.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+```
+
+
+#### 配置路由
+
+
+`bookv1/urls.py`
+
+```python
+from django.contrib import admin
+from django.urls import include, re_path, path
+from app import urls
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    re_path('api/', include(urls)),
+]
+```
+
+`app/urls.py`
+
+```python
+from django.urls import re_path
+from . import views
+
+urlpatterns = [
+    # 书籍
+    re_path(r'^books/$', views.BooksAPIVIew.as_view()),
+    re_path(r'^books/(?P<pk>\d+)/$', views.BookAPIView.as_view()),
+    # 人物
+    re_path(r'^heros/$', views.HerosAPIVIew.as_view()),
+    re_path(r'^heros/(?P<pk>\d+)/$', views.HeroAPIView.as_view()),
+
+]
+```
+
+
+
+### 7.2 基于函数视图示例
+
+
+#### 7.2.1 Request
+
+##### Request objects
+
+1.REST framework 传入视图的request对象不再是Django默认的HttpRequest对象，而是REST framework提供的扩展了HttpRequest类的Request类的对象。REST framework 提供了Parser解析器，在接收到请求后会自动根据Content-Type指明的请求数据类型（如JSON、表单等）将请求数据进行parse解析，解析为类字典对象保存到Request对象中
+  
+
+2.Request对象的数据是自动根据前端发送数据的格式进行解析之后的结果。无论前端发送的哪种格式的数据，我们都可以以统一的方式读取数据。
+
+
+
+##### 常用属性
+
+**1.request.data**
+
+返回解析之后的请求体数据。类似于Django中标准的request.POST和 request.FILES属性，但提供如下特性：
+
+- 包含了解析之后的文件和非文件数据
+- 包含了对POST、PUT、PATCH请求方式解析后的数据
+- 利用了REST framework的parsers解析器，不仅支持表单类型数据，也支持JSON数据
+
+
+**2.request.query_params**
+
+与Django标准的request.GET相同，只是更换了更正确的名称而已。
+
+
+**3.总结**
+
+- GET请求：如果想获取GET请求的所有参数，使用request.query_params即可
+- POST请求：使用request.data就可以处理传入的json请求，或者其他格式请求。
+
+
+
+#### 7.2.2 Response
+
+
+##### Response objects
+
+REST framework提供了一个响应类Response，使用该类构造响应对象时，响应的具体数据内容会被转换（render渲染）成符合前端需求的类型。
+
+REST framework提供了Renderer渲染器，用来根据请求头中的Accept（接收数据类型声明）来自动转换响应数据到对应格式。如果前端请求中未进行Accept声明，则会采用默认方式处理响应数据，我们可以通过配置来修改默认响应格式。
+
+```python
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (  # 默认响应渲染类
+        'rest_framework.renderers.JSONRenderer',  # json渲染器
+        'rest_framework.renderers.BrowsableAPIRenderer',  # 浏览API渲染器
+    )
+}
+```
+
+##### 构造方式
+
+```python
+Response(data, status=None, template_name=None, headers=None, content_type=None)
+```
+
+参数说明:
+
+- data: 为响应准备的序列化处理后的数据（序列化器序列化处理后的数据）
+- status: 状态码，默认200；
+- template_name: 模板名称，如果使用HTMLRenderer 时需指明；
+- headers: 用于存放响应头信息的字典；
+- content_type: 响应数据的Content-Type，通常此参数无需传递，REST framework会根据前端所需类型数据来设置该参数。
+
+
+
+##### 常用属性
+
+1）.data
+
+传给response对象的序列化后，但尚未render处理的数据
+
+
+2）.status_code
+
+状态码的数字
+
+
+3）.content
+
+经过render处理后的响应数据
+
+
+##### 状态码
+
+为了方便设置状态码，REST framewrok在rest_framework.status模块中提供了常用状态码常量。
+
+
+
+
+#### 7.2.3 函数视图
+
+我们基于 Django开发REST 接口的 bookv1 项目 进行视图改造
+
+项目地址： 存放在 gitee
+
+[bookv1](https://gitee.com/django-devops/bookv1)
+
+
+创建并切换到新分支
+
+```sh
+git checkout -b drf-api_view
+```
+
+`app/views.py`
+
+```python
+from app.models import BookInfo, HeroInfo
+from app.serializers import BookInfoSerializer, HeroInfoSerializer, SimpleHeroInfoSerializer
+from rest_framework.decorators import api_view
+from rest_framework import status
+from django.http import HttpResponse
+from rest_framework.renderers import JSONRenderer
+# 不再需要JSONResponse类，所有响应通过response即可
+from rest_framework.response import Response
+
+# class JSONResponse(HttpResponse):
+#     """
+#     将内容渲染成JSON的HttpResponse
+#     """
+#
+#     def __init__(self, data, **kwargs):
+#         content = JSONRenderer().render(data)
+#         kwargs['content_type'] = 'application/json'
+#         super(JSONResponse, self).__init__(content, **kwargs)
+
+
+# 使用函数修饰器修改GET和POST请求
+@api_view(['GET', 'POST'])
+def BookInfoView(request):
+    """
+    列出所有的book信息，或创建一个新book。
+    """
+    if request.method == 'GET':
+        books = BookInfo.objects.all()
+        serializer = BookInfoSerializer(books, many=True)
+        return Response(serializer.data)
+
+    elif request.method == 'POST':
+        # book = JSONParser().parse(request)
+        # serializer = BookInfoSerializer(data=book)
+        # 使用request.data自动将请求内容数据部分处理
+        serializer = BookInfoSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET', 'PUT', 'DELETE'])
+def BookInfoDetailView(request, pk):
+    """
+    获取，更新或删除一个指定ID的book。
+    """
+    try:
+        book = BookInfo.objects.get(pk=pk)
+    except BookInfo.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = BookInfoSerializer(book)
+        return Response(serializer.data)
+
+    elif request.method == 'PUT':
+        # data = JSONParser().parse(request)
+        # serializer = BookInfoSerializer(book, data=data)
+        # 使用request.data自动将请求内容数据部分处理
+        serializer = BookInfoSerializer(book, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method == 'DELETE':
+        book.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+@api_view(['GET', 'POST'])
+def HeroInfoView(request):
+    """
+    查询所有人物信息，新增人物
+    """
+    if request.method == 'GET':
+        heros = HeroInfo.objects.all()
+        serializer = SimpleHeroInfoSerializer(heros, many=True)
+        return Response(serializer.data)
+
+    elif request.method == 'POST':
+        # heros = JSONParser().parse(request)
+        # serializer = HeroInfoSerializer(data=book)
+        # 使用request.data自动将请求内容数据部分处理
+        serializer = HeroInfoSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET', 'PUT', 'DELETE'])
+def HeroInfoDetailView(request, pk):
+    """
+    获取，更新或删除一个指定ID的人物。
+    """
+    try:
+        heros = HeroInfo.objects.get(pk=pk)
+    except HeroInfo.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = HeroInfoSerializer(heros)
+        return Response(serializer.data)
+
+    elif request.method == 'PUT':
+        serializer = HeroInfoSerializer(heros, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method == 'DELETE':
+        heros.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+```
+
+
+
+
+
+
+
+
+
+
+
+### 7.3 模型视图集
+
+我们基于 Django开发REST 接口的 bookv1 项目 进行视图改造
+
+项目地址： 存放在 gitee
+
+[bookv1](https://gitee.com/django-devops/bookv1)
+
+
+创建并切换到新分支
+
+```sh
+git checkout -b drf-ModelViewSet
+```
+
+
+`app/views.py`
+
+```python
+from rest_framework.viewsets import ModelViewSet
+from app.serializers import BookInfoSerializer, HeroInfoSerializer
+from .models import BookInfo, HeroInfo
+
+
+# --------------- ModelViewSet视图类 --------------------------
+class BooksInfoModelViewSet(ModelViewSet):
+    """
+    获取所有图书和单个图书信息的增删改查
+    """
+    authentication_classes = []
+    permission_classes = []
+    queryset = BookInfo.objects.all()
+    serializer_class = BookInfoSerializer
+
+
+class HeroInfoModelViewSet(ModelViewSet):
+    """
+    获取所有人物和单个人物信息的增删改查
+    """
+    authentication_classes = []
+    permission_classes = []
+    queryset = HeroInfo.objects.all()
+    serializer_class = HeroInfoSerializer
+
+```
+
+
+`app/urls.py`
+
+```python
+from django.urls import re_path, path
+from . import views
+
+urlpatterns = [
+    # 图书
+    path('books/', views.BooksInfoModelViewSet.as_view({'get': 'list', 'post': 'create'})),
+    path('books/<int:pk>/',
+         views.BooksInfoModelViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
+
+    # 人物
+    path('heros/', views.HeroInfoModelViewSet.as_view({'get': 'list', 'post': 'create'})),
+    path('heros/<int:pk>/',
+         views.HeroInfoModelViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
+]
+```
+
+
+
+
+
+### 7.4 视图类总结
+
+
+REST framework 提供了众多的通用视图基类与扩展类，以简化视图的编写。
+
+视图的继承关系：
+
+![1700798042427](https://cdn.jsdelivr.net/gh/hujianli94/Picgo-atlas@main/img/1700798042427.2ol9tvnog420.webp){: .zoom}
 
 
 
@@ -2086,28 +2764,64 @@ https://www.cuiliangblog.cn/detail/article/13
 
 
 
+#### 2个视图基类
+
+
+##### APIView
+
+```python
+from rest_framework.views import APIView
+```
+
+1.APIView是REST framework提供的所有视图的基类，继承自Django的View父类。
+
+2.APIView与View的不同之处在于：
+
+● 传入到视图方法中的是REST framework的Request对象，而不是Django的HttpRequeset对象；
+
+● 视图方法可以返回REST framework的Response对象，视图会为响应数据设置（render）符合前端要求的格式；
+
+● 任何APIException异常都会被捕获到，并且处理成合适的响应信息；
+
+● 在进行dispatch()分发前，会对请求进行身份认证、权限检查、流量控制。
+
+
+3.支持定义的属性：
+
+● authentication_classes 列表或元祖，身份认证类
+
+● permissoin_classes 列表或元祖，权限检查类
+
+● throttle_classes 列表或元祖，流量控制类
+
+4.在APIView中仍以常规的类视图定义方法来实现get() 、post() 或者其他请求方式的方法。
 
 
 
 
+##### GenericAPIView[通用视图类]
+
+继承自APIVIew，主要增加了操作序列化器和数据库查询的方法，作用是为下面Mixin扩展类的执行提供方法支持。通常在使用时，可搭配一个或多个Mixin扩展类。
+
+```python
+from rest_framework.generics import GenericAPIView
+```
+
+GenericAPIView(APIView):做了一些封装
+
+|属性|说明|
+|------|------|
+|queryset|要序列化的数据|
+|serializer_class|指明视图使用的序列化器|
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+|方法|说明|
+|-----|-----|
+|get_queryset|获取qs数据(返回视图使用的查询集，主要用来提供给Mixin扩展类使用，是列表视图与详情视图获取数据的基础，默认返回queryset属性)|
+|get_object|获取一条数据的对象(返回详情视图所需的模型类数据对象，主要用来提供给Mixin扩展类使用。在试图中可以调用该方法获取详情信息的模型类对象)|
+|get_serializer|以后使用它来实例化得到ser对象(返回序列化器对象，主要用来提供给Mixin扩展类使用，如果我们在视图中想要获取序列化器对象，也可以直接调用此方法)|
+|get_serializer_class|获取序列化类，注意跟上面区分|
 
 
 
