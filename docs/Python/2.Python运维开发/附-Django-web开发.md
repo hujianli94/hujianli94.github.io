@@ -23,8 +23,42 @@ Django对各种数据库提供了很好的支持，包括：PostgreSQL、MySQL�
 通过使用Django内置的ORM框架可以实现数据库连接和读写操作。
 
 
+### 2.1 django-配置 mysql
 
-### 2.1 构建模型
+1.安装 pymysql
+
+```sh
+pip install pymysql
+```
+
+
+2.修改 settings.py
+
+```sh
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django_test',
+        'USER': 'root',
+        'PASSWORD': '123456',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+```
+更多参数: https://docs.djangoproject.com/zh-hans/2.2/ref/settings/#engine
+
+
+3.修改项目的`__init__.py` (和 `settings.py` 同级目录)
+
+```python
+from pymysql import install_as_MySQLdb
+install_as_MySQLdb()
+```
+
+
+
+### 2.2 构建模型
 
 ORM框架是一种程序技术，用于实现面向对象编程语言中不同类型系统的数据之间的转换。从效果上说，其实是创建了一个可在编程语言中使用的"虚拟对象数据库"，通过对虚拟对象数据库操作从而实现对目标数控的操作，虚拟对象数据库与模板数据库是相互对应的。在Django中，虚拟对象数据库也成为模型。通过模型先对模板数据库的读写操作，实现如下：
 
@@ -258,7 +292,7 @@ class UserGroup(models.Model):
 | `db_constraint`          | 是否在数据库中创建约束     | ```author = models.ForeignKey(User, on_delete=models.CASCADE, db_constraint=False)``` |
 
 
-### 2.2 数据表的关系
+### 2.3 数据表的关系
 
 一个模型对应目标数据库的一个数据表，但我们知道，每个数据表之间是可以存在关联的，表与表之间有三种关系：
 
@@ -445,7 +479,7 @@ class AuthorDetail(models.Model):
 
 
 
-### 2.3 数据表的CRUD
+### 2.4 数据表的CRUD
 
 index的models.py文件中定义模型如下：
 
@@ -2150,6 +2184,7 @@ https://www.cuiliangblog.cn/detail/article/13
 ```sh
 git checkout -b drf-APIView
 ```
+
 
 
 
