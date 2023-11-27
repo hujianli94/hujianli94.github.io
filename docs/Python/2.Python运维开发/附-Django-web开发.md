@@ -18,12 +18,22 @@
 
 ## 2. 模型与数据库
 
+Django提供了完善的模型(model)层来创建和存取数据，它包含你所储存数据的必要字段和行为。通常，每个模型对应数据库中唯一的一张表。所以，模型避免了我们直接对数据库操作。
+
+
+Django模型基础知识：
+
+- 每个模型是一个Python类，继承 django.db.models.Model 类。
+- 该模型的每个属性表示一个数据库表字段。
+- 所有这一切，己经给了你一个自动生成的数据库访问的API。
+
+
 Django对各种数据库提供了很好的支持，包括：PostgreSQL、MySQL、SQLite和Oracle，而且为这些数据库提供了统一的调用API，这些API统称为ORM框架。
 
 通过使用Django内置的ORM框架可以实现数据库连接和读写操作。
 
 
-### 2.1 django-配置 mysql
+### 2.1 django-配置mysql
 
 1.安装 pymysql
 
@@ -46,10 +56,12 @@ DATABASES = {
     }
 }
 ```
-更多参数: https://docs.djangoproject.com/zh-hans/2.2/ref/settings/#engine
+
+> 更多参数: https://docs.djangoproject.com/zh-hans/4.2/ref/settings/
 
 
 3.修改项目的`__init__.py` (和 `settings.py` 同级目录)
+
 
 ```python
 from pymysql import install_as_MySQLdb
@@ -206,7 +218,6 @@ python manage.py migrate
 
 
 
-
 #### 表字段数据类型及说明
 
 | 字段类型       | 用途         | 示例                                             |
@@ -290,6 +301,11 @@ class UserGroup(models.Model):
 | `db_table`               | 指定表名                   | ```class Meta: db_table = 'my_table'```           |
 | `unique_together`        | 多个字段组合唯一           | ```class Meta: unique_together = [['field1', 'field2']]``` |
 | `db_constraint`          | 是否在数据库中创建约束     | ```author = models.ForeignKey(User, on_delete=models.CASCADE, db_constraint=False)``` |
+
+
+
+> 参考官方文档：https://docs.djangoproject.com/zh-hans/4.2/ref/models/fields/。
+
 
 
 ### 2.3 数据表的关系
@@ -562,6 +578,7 @@ p.name = "华为荣耀 v9"
 p.save()
 ```
 
+
 除此之外，还可以使用update方法实现单条和多条数据的更新，使用方法如下：
 
 ```sh
@@ -580,7 +597,13 @@ Product.objects.update(name='华为荣耀V9')
 删除一条数据
 
 ```sh
-#删除一条id为1的数据
+# 删除一条id为1的数据
+p = Product.objects.get(id=1)
+p.delete()
+```
+
+```sh
+# 删除一条id为1的数据
 Product.objects.get(id=1).delete()
 ```
 
@@ -596,12 +619,17 @@ Product.objects.filter(weight='119g').delete()
 Product.objects.all().delete()
 ```
 
-数据删除有ORM框架的delete方法实现。从数据的删除和更新可以看到这两种数据操作都使用查询条件get和filter，查询条件get和filter的区别如下：
+数据删除有ORM框架的delete方法实现。
+
+
+从数据的删除和更新可以看到这两种数据操作都使用查询条件get和filter，查询条件get和filter的区别如下：
 
 |方法|说明|
 |----|-----|
 |get|查询字段必须是主键或者唯一约束的字段，并且查询的数据必须存在，如果查询的字段有重复值或者查询的数据不存在，程序都会抛出异常信息。|
-|filter|查询字段没有限制，只要该字段是数据表的某一字段即可。查询结果以列表的形式返回，如果查询结果为空（查询的数据在数据库中找不到），就返回空列表。|
+|filter|查询字段没有限制，只要该字段是数据表的某一字段即可。查询结果以列表的形式返回，如果查询结果为空（查询的数据在数据库中找不到），就返回空列表[]。|
+
+
 
 
 #### Read
@@ -1642,6 +1670,13 @@ Postman的下载地址是 https://www.getpostman.com/apps 。
 
 
 
+同样的工具还有httpie，使用方法如下：
+
+
+http请求命令行工具(httpie)：https://www.cnblogs.com/yoyoketang/p/11546176.html
+
+
+
 #### 6.2.2 用serializers.Serializer方式序列化
 
 
@@ -2167,312 +2202,24 @@ https://www.cuiliangblog.cn/detail/article/13
 ## 7. Django REST framework视图
 
 
+### 7.1 视图类总结
 
-### 7.1 基于APIview视图类示例
+REST framework 提供了众多的通用视图基类与扩展类，以简化视图的编写。
 
+视图的继承关系：
 
+![1700798042427](https://cdn.jsdelivr.net/gh/hujianli94/Picgo-atlas@main/img/1700798042427.2ol9tvnog420.webp){: .zoom}
 
-我们基于 Django开发REST 接口的 bookv1 项目 进行视图改造
 
-项目地址： 存放在 gitee
 
-[bookv1](https://gitee.com/django-devops/bookv1)
+![1700648982801](https://cdn.jsdelivr.net/gh/hujianli94/Picgo-atlas@main/img/1700648982801.3vua8iq84hu0.png){: .zoom}
 
 
-创建并切换到新分支
 
-```sh
-git checkout -b drf-APIView
-```
 
 
 
-
-#### 基本配置
-
-安装Django REST framework及其依赖包markdown和django-filter。命令如下
-
-```sh
-pip install djangorestframework markdown django-filter
-```
-
-在settings中注册，代码如下：
-
-```python
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'users.apps.UsersConfig',
-    'rest_framework'
-]
-```
-
-
-#### 配置模型
-
-`app/models.py`数据定义保持不变
-
-```python
-from django.db import models
-
-
-# Create your models here.
-# 定义图书模型类BookInfo
-class BookInfo(models.Model):
-    btitle = models.CharField(max_length=20, verbose_name='名称')
-    bpub_date = models.DateField(verbose_name='发布日期')
-    bread = models.IntegerField(default=0, verbose_name='阅读量')
-    bcomment = models.IntegerField(default=0, verbose_name='评论量')
-    is_delete = models.BooleanField(default=False, verbose_name='逻辑删除')
-    # 注意,如果模型已经迁移建表并且表中如果已经有数据了,那么后新增的字段,必须给默认值或可以为空,不然迁移就报错
-    # upload_to 指定上传到media_root配置项的目录中再创建booktest里面
-    image = models.ImageField(upload_to='booktest', verbose_name='图片', null=True)
-
-
-    class Meta:
-        db_table = 'tb_books'  # 指明数据库表名
-        verbose_name = '图书'  # 在admin站点中显示的名称
-        verbose_name_plural = verbose_name  # 显示的复数名称
-
-    def __str__(self):
-        """定义每个数据对象的显示信息"""
-        return self.btitle
-
-    def pub_date_format(self):
-        return self.bpub_date.strftime('%Y-%m-%d')
-    # 修改方法名在列表界面的展示
-    pub_date_format.short_description = '发布日期'
-    # 指定自定义方法的排序依据
-    pub_date_format.admin_order_field = 'bpub_date'
-
-
-# 定义英雄模型类HeroInfo
-class HeroInfo(models.Model):
-    GENDER_CHOICES = (
-        (0, 'female'),
-        (1, 'male')
-    )
-    hname = models.CharField(max_length=20, verbose_name='名称')
-    hgender = models.SmallIntegerField(choices=GENDER_CHOICES, default=0, verbose_name='性别')
-    hcomment = models.CharField(max_length=200, null=True, verbose_name='描述信息')
-    hbook = models.ForeignKey(BookInfo, on_delete=models.CASCADE, verbose_name='图书')  # 外键
-    is_delete = models.BooleanField(default=False, verbose_name='逻辑删除')
-
-    class Meta:
-        db_table = 'tb_heros'
-        verbose_name = '英雄'
-        verbose_name_plural = verbose_name
-
-    def __str__(self):
-        return self.hname
-
-    def read(self):
-        return self.hbook.bread
-    read.short_description = '阅读量'
-    read.admin_order_field = 'hbook__bread'
-    # HeroInfo.objects.filter(hbook__bread=xx)
-```
-
-#### 配置序列化器
-
-app目录下新建py文件serializers，将序列化的类代码写入其中：
-
-```python
-from rest_framework import serializers
-
-from .models import BookInfo, HeroInfo
-
-
-class SimpleHeroInfoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = HeroInfo
-        fields = ['id', 'hname', 'hgender', 'hcomment']
-
-
-class HeroInfoSerializer(serializers.ModelSerializer):
-    hbook = serializers.PrimaryKeyRelatedField(queryset=BookInfo.objects.all())
-
-    book_name = serializers.CharField(source='hbook.btitle', read_only=True)
-    read = serializers.SerializerMethodField()
-    comment = serializers.SerializerMethodField()
-
-    class Meta:
-        model = HeroInfo
-        fields = ['id', 'hname', 'hgender', 'hcomment', 'hbook', 'book_name', 'read', 'comment']
-
-    def get_read(self, obj):
-        return obj.hbook.bread
-
-    def get_comment(self, obj):
-        return obj.hbook.bcomment
-
-
-class BookInfoSerializer(serializers.ModelSerializer):
-    # 反向关联字段，表示与BookInfo模型关联的所有HeroInfo实例
-    hero_set = HeroInfoSerializer(many=True, read_only=True)
-
-    class Meta:
-        model = BookInfo
-        fields = '__all__'
-```
-
-
-#### 配置视图
-
-`app/views`中编写视图代码
-
-```python
-from django.http import Http404
-from rest_framework import status
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from app.serializers import BookInfoSerializer, HeroInfoSerializer, SimpleHeroInfoSerializer
-from .models import BookInfo, HeroInfo
-
-"""
-
-# 书籍信息
-GET         /api/books/
-POST        /api/books/
-GET         /api/books/<pk>/
-PUT         /api/books/<pk>/
-DELETE      /api/books/<pk>/
-
-# 人物信息
-GET         /api/heros/
-POST        /api/heros/
-GET         /api/heros/<pk>/
-PUT         /api/heros/<pk>/
-DELETE      /api/heros/<pk>/
-
-
-响应数据  JSON
-# 列表视图: 路由后边没有 pk/ID
-# 详情视图: 路由后面   pk/ID
-"""
-
-
-class BookInfoListAPIView(APIView):
-    def get(self, request):
-        books = BookInfo.objects.all()
-        serializer = BookInfoSerializer(books, many=True)
-        return Response(serializer.data)
-
-    def post(self, request):
-        serializer = BookInfoSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-class BookInfoDetailAPIView(APIView):
-    def get_object(self, pk):
-        try:
-            return BookInfo.objects.get(pk=pk)
-        except BookInfo.DoesNotExist:
-            raise Http404
-
-    def get(self, request, pk):
-        book = self.get_object(pk)
-        serializer = BookInfoSerializer(book)
-        return Response(serializer.data)
-
-    def put(self, request, pk):
-        book = self.get_object(pk)
-        serializer = BookInfoSerializer(book, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    def delete(self, request, pk):
-        book = self.get_object(pk)
-        book.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
-
-
-class HeroInfoListAPIView(APIView):
-    def get(self, request):
-        heroes = HeroInfo.objects.all()
-        serializer = SimpleHeroInfoSerializer(heroes, many=True)
-        return Response(serializer.data)
-
-    def post(self, request):
-        serializer = HeroInfoSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-class HeroInfoDetailAPIView(APIView):
-    def get_object(self, pk):
-        try:
-            return HeroInfo.objects.get(pk=pk)
-        except HeroInfo.DoesNotExist:
-            raise Http404
-
-    def get(self, request, pk):
-        hero = self.get_object(pk)
-        serializer = HeroInfoSerializer(hero)
-        return Response(serializer.data)
-
-    def put(self, request, pk):
-        hero = self.get_object(pk)
-        serializer = HeroInfoSerializer(hero, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    def delete(self, request, pk):
-        hero = self.get_object(pk)
-        hero.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
-```
-
-
-#### 配置路由
-
-
-`bookv1/urls.py`
-
-```python
-from django.contrib import admin
-from django.urls import include, re_path, path
-from app import urls
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    re_path('api/', include(urls)),
-]
-```
-
-`app/urls.py`
-
-```python
-from django.urls import re_path
-from . import views
-
-urlpatterns = [
-    # 书籍
-    re_path(r'^books/$', views.BooksAPIVIew.as_view()),
-    re_path(r'^books/(?P<pk>\d+)/$', views.BookAPIView.as_view()),
-    # 人物
-    re_path(r'^heros/$', views.HerosAPIVIew.as_view()),
-    re_path(r'^heros/(?P<pk>\d+)/$', views.HeroAPIView.as_view()),
-
-]
-```
-
-
-
-### 7.2 基于函数视图示例
+### 7.2 基于api_view函数视图示例
 
 
 #### 7.2.1 Request
@@ -2589,11 +2336,13 @@ from app.models import BookInfo, HeroInfo
 from app.serializers import BookInfoSerializer, HeroInfoSerializer, SimpleHeroInfoSerializer
 from rest_framework.decorators import api_view
 from rest_framework import status
-from django.http import HttpResponse
+# from django.http import HttpResponse
 from rest_framework.renderers import JSONRenderer
 # 不再需要JSONResponse类，所有响应通过response即可
 from rest_framework.response import Response
 
+
+# 如果没有使用rest_framework的Response方法，使用HttpResponse的话需要对基类进行改写，改写方法如下
 # class JSONResponse(HttpResponse):
 #     """
 #     将内容渲染成JSON的HttpResponse
@@ -2603,6 +2352,7 @@ from rest_framework.response import Response
 #         content = JSONRenderer().render(data)
 #         kwargs['content_type'] = 'application/json'
 #         super(JSONResponse, self).__init__(content, **kwargs)
+
 
 
 # 使用函数修饰器修改GET和POST请求
@@ -2713,7 +2463,789 @@ def HeroInfoDetailView(request, pk):
 
 
 
-### 7.3 模型视图集
+
+
+
+
+
+
+
+
+### 7.3 2个视图基类
+
+
+#### APIView
+
+```python
+from rest_framework.views import APIView
+```
+
+1.APIView是REST framework提供的所有视图的基类，继承自Django的View父类。
+
+2.APIView与View的不同之处在于：
+
+● 传入到视图方法中的是REST framework的Request对象，而不是Django的HttpRequeset对象；
+
+● 视图方法可以返回REST framework的Response对象，视图会为响应数据设置（render）符合前端要求的格式；
+
+● 任何APIException异常都会被捕获到，并且处理成合适的响应信息；
+
+● 在进行dispatch()分发前，会对请求进行身份认证、权限检查、流量控制。
+
+
+3.支持定义的属性：
+
+● authentication_classes 列表或元祖，身份认证类
+
+● permissoin_classes 列表或元祖，权限检查类
+
+● throttle_classes 列表或元祖，流量控制类
+
+
+
+4.在APIView中仍以常规的类视图定义方法来实现get() 、post() 或者其他请求方式的方法。
+
+
+
+
+我们基于 Django开发REST 接口的 bookv1 项目 进行视图改造
+
+项目地址： 存放在 gitee
+
+[bookv1](https://gitee.com/django-devops/bookv1)
+
+
+创建并切换到新分支
+
+```sh
+git checkout -b drf-APIView
+```
+
+
+
+
+##### 基本配置
+
+安装Django REST framework及其依赖包markdown和django-filter。命令如下
+
+```sh
+pip install djangorestframework markdown django-filter
+```
+
+在settings中注册，代码如下：
+
+```python
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'users.apps.UsersConfig',
+    'rest_framework'
+]
+```
+
+
+##### 配置模型
+
+`app/models.py`数据定义保持不变
+
+```python
+from django.db import models
+
+
+# Create your models here.
+# 定义图书模型类BookInfo
+class BookInfo(models.Model):
+    btitle = models.CharField(max_length=20, verbose_name='名称')
+    bpub_date = models.DateField(verbose_name='发布日期')
+    bread = models.IntegerField(default=0, verbose_name='阅读量')
+    bcomment = models.IntegerField(default=0, verbose_name='评论量')
+    is_delete = models.BooleanField(default=False, verbose_name='逻辑删除')
+    # 注意,如果模型已经迁移建表并且表中如果已经有数据了,那么后新增的字段,必须给默认值或可以为空,不然迁移就报错
+    # upload_to 指定上传到media_root配置项的目录中再创建booktest里面
+    image = models.ImageField(upload_to='booktest', verbose_name='图片', null=True)
+
+
+    class Meta:
+        db_table = 'tb_books'  # 指明数据库表名
+        verbose_name = '图书'  # 在admin站点中显示的名称
+        verbose_name_plural = verbose_name  # 显示的复数名称
+
+    def __str__(self):
+        """定义每个数据对象的显示信息"""
+        return self.btitle
+
+    def pub_date_format(self):
+        return self.bpub_date.strftime('%Y-%m-%d')
+    # 修改方法名在列表界面的展示
+    pub_date_format.short_description = '发布日期'
+    # 指定自定义方法的排序依据
+    pub_date_format.admin_order_field = 'bpub_date'
+
+
+# 定义英雄模型类HeroInfo
+class HeroInfo(models.Model):
+    GENDER_CHOICES = (
+        (0, 'female'),
+        (1, 'male')
+    )
+    hname = models.CharField(max_length=20, verbose_name='名称')
+    hgender = models.SmallIntegerField(choices=GENDER_CHOICES, default=0, verbose_name='性别')
+    hcomment = models.CharField(max_length=200, null=True, verbose_name='描述信息')
+    hbook = models.ForeignKey(BookInfo, on_delete=models.CASCADE, verbose_name='图书')  # 外键
+    is_delete = models.BooleanField(default=False, verbose_name='逻辑删除')
+
+    class Meta:
+        db_table = 'tb_heros'
+        verbose_name = '英雄'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.hname
+
+    def read(self):
+        return self.hbook.bread
+    read.short_description = '阅读量'
+    read.admin_order_field = 'hbook__bread'
+    # HeroInfo.objects.filter(hbook__bread=xx)
+```
+
+##### 配置序列化器
+
+app目录下新建py文件serializers，将序列化的类代码写入其中：
+
+```python
+from rest_framework import serializers
+
+from .models import BookInfo, HeroInfo
+
+
+class SimpleHeroInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HeroInfo
+        fields = ['id', 'hname', 'hgender', 'hcomment']
+
+
+class HeroInfoSerializer(serializers.ModelSerializer):
+    hbook = serializers.PrimaryKeyRelatedField(queryset=BookInfo.objects.all())
+
+    book_name = serializers.CharField(source='hbook.btitle', read_only=True)
+    read = serializers.SerializerMethodField()
+    comment = serializers.SerializerMethodField()
+
+    class Meta:
+        model = HeroInfo
+        fields = ['id', 'hname', 'hgender', 'hcomment', 'hbook', 'book_name', 'read', 'comment']
+
+    def get_read(self, obj):
+        return obj.hbook.bread
+
+    def get_comment(self, obj):
+        return obj.hbook.bcomment
+
+
+class BookInfoSerializer(serializers.ModelSerializer):
+    # 反向关联字段，表示与BookInfo模型关联的所有HeroInfo实例
+    hero_set = HeroInfoSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = BookInfo
+        fields = '__all__'
+```
+
+
+##### 配置视图
+
+`app/views`中编写视图代码
+
+```python
+from django.http import Http404
+from rest_framework import status
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from app.serializers import BookInfoSerializer, HeroInfoSerializer, SimpleHeroInfoSerializer
+from .models import BookInfo, HeroInfo
+
+"""
+
+# 书籍信息
+GET         /api/books/
+POST        /api/books/
+GET         /api/books/<pk>/
+PUT         /api/books/<pk>/
+DELETE      /api/books/<pk>/
+
+# 人物信息
+GET         /api/heros/
+POST        /api/heros/
+GET         /api/heros/<pk>/
+PUT         /api/heros/<pk>/
+DELETE      /api/heros/<pk>/
+"""
+
+
+class BookInfoListAPIView(APIView):
+    def get(self, request):
+        books = BookInfo.objects.all()
+        serializer = BookInfoSerializer(books, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = BookInfoSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class BookInfoDetailAPIView(APIView):
+    def get_object(self, pk):
+        try:
+            return BookInfo.objects.get(pk=pk)
+        except BookInfo.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk):
+        book = self.get_object(pk)
+        serializer = BookInfoSerializer(book)
+        return Response(serializer.data)
+
+    def put(self, request, pk):
+        book = self.get_object(pk)
+        serializer = BookInfoSerializer(book, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk):
+        book = self.get_object(pk)
+        book.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class HeroInfoListAPIView(APIView):
+    def get(self, request):
+        heroes = HeroInfo.objects.all()
+        serializer = SimpleHeroInfoSerializer(heroes, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = HeroInfoSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class HeroInfoDetailAPIView(APIView):
+    def get_object(self, pk):
+        try:
+            return HeroInfo.objects.get(pk=pk)
+        except HeroInfo.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk):
+        hero = self.get_object(pk)
+        serializer = HeroInfoSerializer(hero)
+        return Response(serializer.data)
+
+    def put(self, request, pk):
+        hero = self.get_object(pk)
+        serializer = HeroInfoSerializer(hero, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk):
+        hero = self.get_object(pk)
+        hero.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+```
+
+
+##### 配置路由
+
+
+`bookv1/urls.py`
+
+```python
+from django.contrib import admin
+from django.urls import include, re_path, path
+from app import urls
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    re_path('api/', include(urls)),
+]
+```
+
+`app/urls.py`
+
+```python
+from django.urls import re_path
+from . import views
+
+urlpatterns = [
+    # 书籍
+    re_path(r'^books/$', views.BooksAPIVIew.as_view()),
+    re_path(r'^books/(?P<pk>\d+)/$', views.BookAPIView.as_view()),
+    # 人物
+    re_path(r'^heros/$', views.HerosAPIVIew.as_view()),
+    re_path(r'^heros/(?P<pk>\d+)/$', views.HeroAPIView.as_view()),
+
+]
+```
+
+
+
+#### GenericAPIView
+
+
+GenericAPIView - 通用视图类
+
+继承自APIVIew，主要增加了操作序列化器和数据库查询的方法，作用是为下面Mixin扩展类的执行提供方法支持。通常在使用时，可搭配一个或多个Mixin扩展类。
+
+```python
+from rest_framework.generics import GenericAPIView
+```
+
+GenericAPIView(APIView):做了一些封装
+
+|属性|说明|
+|------|------|
+|queryset|要序列化的数据|
+|serializer_class|指明视图使用的序列化器|
+
+
+
+|方法|说明|
+|-----|-----|
+|get_queryset|获取qs数据(返回视图使用的查询集，主要用来提供给Mixin扩展类使用，是列表视图与详情视图获取数据的基础，默认返回queryset属性)|
+|get_object|获取一条数据的对象(返回详情视图所需的模型类数据对象，主要用来提供给Mixin扩展类使用。在试图中可以调用该方法获取详情信息的模型类对象)|
+|get_serializer|以后使用它来实例化得到ser对象(返回序列化器对象，主要用来提供给Mixin扩展类使用，如果我们在视图中想要获取序列化器对象，也可以直接调用此方法)|
+|get_serializer_class|获取序列化类，注意跟上面区分|
+
+
+
+我们基于 Django开发REST 接口的 bookv1 项目 进行视图改造
+
+项目地址： 存放在 gitee
+
+[bookv1](https://gitee.com/django-devops/bookv1)
+
+
+创建并切换到新分支
+
+```sh
+git checkout -b drf-GenericAPIView
+```
+
+`app/views.py`
+
+```python
+from rest_framework.response import Response
+from app.serializers import BookInfoSerializer, HeroInfoSerializer, SimpleHeroInfoSerializer
+from .models import BookInfo, HeroInfo
+from rest_framework.generics import GenericAPIView
+
+
+class BookInfoListAPIView(GenericAPIView):
+    """
+    查询所有书籍，增加书籍
+    """
+    queryset = BookInfo.objects.all()  # 要序列化的数据
+    serializer_class = BookInfoSerializer  # 要序列化的类
+
+    def get(self, request):
+        qs = self.get_queryset()  # 推荐用self.get_queryset来获取要序列化的数据
+        ser = self.get_serializer(qs, many=True)  # 推荐使用self.get_serializer获取实例化后并且传入数据的对象
+        return Response(ser.data)
+
+    def post(self, request):
+        ser = self.get_serializer(data=request.data)
+        if ser.is_valid():
+            ser.save()
+            return Response(ser.data)
+
+        return Response(ser.errors)
+
+
+class BookInfoDetailAPIView(GenericAPIView):
+    """
+    查询，修改，删除单本书籍
+    """
+    queryset = BookInfo.objects.all()  # 要序列化的数据
+    serializer_class = BookInfoSerializer  # 要序列化的类
+
+    def get(self, request, *args, **kwargs):
+        obj = self.get_object()  # 获取单条self.get_object要序列化的数据
+        ser = self.get_serializer(obj)  # 第一个参数是instance=obj，可以直接写obj
+        return Response(ser.data)
+
+    def put(self, request, *args, **kwargs):
+        obj = self.get_object()
+        ser = self.get_serializer(instance=obj, data=request.data)
+        if ser.is_valid():
+            ser.save()
+            return Response(ser.data)
+        else:
+            return Response(ser.errors)
+
+    def delete(self, request, *args, **kwargs):
+        res = self.get_object().delete()  # get_object()拿到对象直接删除了
+        if res[0] > 0:
+            return Response('')
+        else:
+            return Response('要删的不存在')
+
+
+class HeroInfoListAPIView(GenericAPIView):
+    """
+    查询所有人物，增加人物
+    """
+    queryset = HeroInfo.objects.all()
+    serializer_class = HeroInfoSerializer
+
+    def get(self, request):
+        qs = self.get_queryset()
+        ser = self.get_serializer(qs, many=True)
+        return Response(ser.data)
+
+    def post(self, request):
+        ser = self.get_serializer(data=request.data)
+        if ser.is_valid():
+            ser.save()
+            return Response(ser.data)
+
+        return Response(ser.errors)
+
+
+class HeroInfoDetailAPIView(GenericAPIView):
+    """
+    查询，修改，删除人物信息
+    """
+    queryset = HeroInfo.objects.all()
+    serializer_class = HeroInfoSerializer
+
+    def get(self, request, *args, **kwargs):
+        obj = self.get_object()  # 获取单条self.get_object要序列化的数据
+        ser = self.get_serializer(obj)  # 第一个参数是instance=obj，可以直接写obj
+        return Response(ser.data)
+
+    def put(self, request, *args, **kwargs):
+        obj = self.get_object()
+        ser = self.get_serializer(instance=obj, data=request.data)
+        if ser.is_valid():
+            ser.save()
+            return Response(ser.data)
+        else:
+            return Response(ser.errors)
+
+    def delete(self, request, *args, **kwargs):
+        res = self.get_object().delete()  # get_object()拿到对象直接删除了
+        if res[0] > 0:
+            return Response('')
+        else:
+            return Response('要删的不存在')
+```
+
+
+
+### 7.4 5个视图扩展类
+
+作用：
+
+提供了几种后端视图（对数据资源进行曾删改查）处理流程的实现，如果需要编写的视图属于这五种，则视图可以通过继承相应的扩展类来复用代码，减少自己编写的代码量。
+
+这五个扩展类需要搭配GenericAPIView父类，因为五个扩展类的实现需要调用GenericAPIView提供的序列化器与数据库查询的方法。
+
+|父类|扩展类|说明|备注|
+|----|-----|-----|----|
+|GenericAPIView|ListModelMixin|查所有|列表视图扩展类，提供 `list(request, *args, **kwargs)`方法快速实现列表视图，返回200状态码。<br>该Mixin的list方法会对数据进行过滤和分页。|
+|GenericAPIView|RetrieveModelMixin|查一个|创建视图扩展类，提供 `create(request, *args, **kwargs)` 方法快速实现创建资源的视图，成功返回201状态码。<br>如果序列化器对前端发送的数据验证失败，返回400错误。|
+|GenericAPIView|CreateModelMixin|增一个|详情视图扩展类，提供 `retrieve(request, *args, **kwargs)`方法，可以快速实现返回一个存在的数据对象。<br>如果存在，返回200， 否则返回404|
+|GenericAPIView|UpdateModelMixin|改一个|更新视图扩展类，提供`update(request, *args, **kwargs)`方法，可以快速实现更新一个存在的数据对象。<br>同时也提供`partial_update(request, *args, **kwargs)`方法，可以实现局部更新。<br>成功返回200，序列化器校验数据失败时，返回400错误。|
+|GenericAPIView|DestroyModelMixin|删一个|删除视图扩展类，提供`destroy(request, *args, **kwargs)`方法，可以快速实现删除一个存在的数据对象。成功返回204，不存在返回404。|
+
+
+
+
+我们基于 Django开发REST 接口的 bookv1 项目 进行视图改造
+
+项目地址： 存放在 gitee
+
+[bookv1](https://gitee.com/django-devops/bookv1)
+
+
+创建并切换到新分支
+
+```sh
+git checkout -b drf-GenericAPIView-5Extended_class
+```
+
+
+`app/views.py`
+
+
+```python
+from app.serializers import BookInfoSerializer, HeroInfoSerializer, SimpleHeroInfoSerializer
+from .models import BookInfo, HeroInfo
+from rest_framework.generics import GenericAPIView
+from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, UpdateModelMixin, DestroyModelMixin, \
+    ListModelMixin
+
+
+class BookInfoListAPIView(GenericAPIView, ListModelMixin, CreateModelMixin):
+    """
+    查询所有书籍，增加书籍
+    """
+    queryset = BookInfo.objects.all()  # 要序列化的数据
+    serializer_class = BookInfoSerializer  # 要序列化的类
+
+    def get(self, request, *args, **kwargs):  # 不管有值无值最好都把 *args, **kwargs传过来
+        return self.list(request, *args, **kwargs)
+
+    def post(self, request):
+        return self.create(request)
+
+
+class BookInfoDetailAPIView(GenericAPIView, RetrieveModelMixin, UpdateModelMixin, DestroyModelMixin):
+    """
+    查询，修改，删除单本书籍
+    """
+    queryset = BookInfo.objects.all()
+    serializer_class = BookInfoSerializer
+
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
+
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
+
+
+class HeroInfoListAPIView(GenericAPIView, ListModelMixin, CreateModelMixin):
+    """
+    查询所有人物，增加人物
+    """
+    queryset = HeroInfo.objects.all()
+    serializer_class = HeroInfoSerializer
+
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+
+    def post(self, request):
+        return self.create(request)
+
+
+class HeroInfoDetailAPIView(GenericAPIView, RetrieveModelMixin, UpdateModelMixin, DestroyModelMixin):
+    """
+    查询，修改，删除人物信息
+    """
+    queryset = HeroInfo.objects.all()
+    serializer_class = HeroInfoSerializer
+
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
+
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
+```
+
+
+
+
+
+### 7.5 9个视图子类
+
+
+|父类|扩展类|说明|备注|
+|----|-----|-----|----|
+|GenericAPIView|ListAPIView|查所有|提供 get 方法 继承自：GenericAPIView、ListModelMixin。|
+|GenericAPIView|CreateAPIView|增一个|提供 post 方法 继承自： GenericAPIView、CreateModelMixin|
+|GenericAPIView|ListCreateAPIView|查所有 + 增一个|提供 get 和 post 方法 继承自： GenericAPIView、ListModelMixin、CreateModelMixin|
+|GenericAPIView|RetrieveAPIView|查一个|提供 get 方法继承自: GenericAPIView、RetrieveModelMixin|
+|GenericAPIView|UpdateAPIView|改一个|提供 put 和 patch 方法继承自：GenericAPIView、UpdateModelMixin|
+|GenericAPIView|DestoryAPIView|删一个|提供 delete 方法 继承自：GenericAPIView、DestoryModelMixin|
+|GenericAPIView|RetrieveUpdateAPIView|查一个+改一个|提供 get、put、patch方法 继承自： GenericAPIView、RetrieveModelMixin、UpdateModelMixin|
+|GenericAPIView|RetrieveDestroyAPIView|查一个+删一个|提供 get 和 delete 方法继承自： GenericAPIView、RetrieveModelMixin、DestoryModelMixin|
+|GenericAPIView|RetrieveUpdateDestoryAPIView|查一个+改一个+删一个|提供 get、put、patch、delete方法 继承自：GenericAPIView、RetrieveModelMixin、UpdateModelMixin、DestoryModelMixin|
+
+
+我们基于 Django开发REST 接口的 bookv1 项目 进行视图改造
+
+项目地址： 存放在 gitee
+
+[bookv1](https://gitee.com/django-devops/bookv1)
+
+
+创建并切换到新分支
+
+```sh
+git checkout -b drf-GenericAPIView-9view_subclass
+```
+
+
+`app/views.py`
+
+```python
+from app.serializers import BookInfoSerializer, HeroInfoSerializer, SimpleHeroInfoSerializer
+from .models import BookInfo, HeroInfo
+from rest_framework.generics import CreateAPIView, ListAPIView, ListCreateAPIView
+from rest_framework.generics import RetrieveAPIView, UpdateAPIView, DestroyAPIView, RetrieveUpdateAPIView, \
+    RetrieveDestroyAPIView, RetrieveUpdateDestroyAPIView
+
+
+class BookInfoListAPIView(ListCreateAPIView):
+    """
+    查询所有书籍，增加书籍
+    """
+
+    queryset = BookInfo.objects.all()  # 要序列化的数据
+    serializer_class = BookInfoSerializer  # 要序列化的类
+
+
+class BookInfoDetailAPIView(RetrieveUpdateDestroyAPIView):
+    """
+    查询，修改，删除单本书籍
+    """
+    queryset = BookInfo.objects.all()
+    serializer_class = BookInfoSerializer
+
+
+# # 查询，删除，修改单本书籍
+# class BookInfoDetailAPIView2(RetrieveAPIView, UpdateAPIView, DestroyAPIView):
+#     queryset = BookInfo.objects.all()
+#     serializer_class = BookInfoSerializer
+#
+# # 查询，删除，修改单本书籍
+# class BookInfoDetailAPIView3(RetrieveDestroyAPIView, UpdateAPIView):
+#     queryset = BookInfo.objects.all()
+#     serializer_class = BookInfoSerializer
+#
+# # 查询，删除，修改单本书籍
+# class BookInfoDetailAPIView4(RetrieveUpdateAPIView, DestroyAPIView):
+#     queryset = BookInfo.objects.all()
+#     serializer_class = BookInfoSerializer
+
+
+class HeroInfoListAPIView(ListCreateAPIView):
+    """
+    查询所有人物，增加人物
+    """
+    queryset = HeroInfo.objects.all()
+    serializer_class = HeroInfoSerializer
+
+
+class HeroInfoDetailAPIView(RetrieveUpdateDestroyAPIView):
+    """
+    查询，修改，删除人物信息
+    """
+    queryset = HeroInfo.objects.all()
+    serializer_class = HeroInfoSerializer
+```
+
+
+
+
+### 7.6 视图集ViewSet
+
+
+使用视图集ViewSet，可以将一系列逻辑相关的动作放到一个类中：
+
+|动作|说明|
+|-----|----|
+|list()|提供一组数据|
+|retrieve()|提供单个数据|
+|create() |创建数据|
+|update() |保存数据|
+|destory()|删除数据|
+
+
+ViewSet视图集类不再实现get()、post()等方法，而是实现动作 action 如 list() 、create() 等。
+
+视图集只在使用 as_view() 方法的时候，才会将action动作与具体请求方式对应上。
+
+在视图集中，我们可以通过action对象属性来获取当前请求视图集时的action动作是哪一个。
+
+
+```python
+class BooksModelViewSet(ModelViewSet):
+    # serializer_class = BookSerializer
+    queryset = BookInfo.objects.all()
+
+    # 对于不同的方法使用不同的序列化器
+    def get_serializer_class(self):
+        if self.action == "list":
+            return BookSerializer
+        elif self.action == "create":
+            return BookSerializer1
+        else:
+            return BookSerializer2
+```
+
+
+
+常用的视图集父类
+
+|父类|视图集名称|说明|备注|
+|-----|------|------|-------|
+|APIView与ViewSetMixin|ViewSet|与APIView基本类似，提供了身份认证、权限校验、流量管理等。<br>使用ViewSet通常并不方便，因为list、retrieve、create、update、destory等方法都需要自己编写，而这些方法与前面讲过的Mixin扩展类提供的方法同名，所以我们可以通过继承Mixin扩展类来复用这些方法而无需自己编写。|ViewSet主要通过继承ViewSetMixin来实现在调用 `as_view()` 时传入字典(如{‘get’:’list’})的映射处理工作。<br>在 ViewSet 中，没有提供任何动作 action 方法，需要我们自己实现action方法。|
+|GenericAPIView与ViewSetMixin|GenericViewSet|实现了调用`as_view()`时传入字典（如{'get':'list'}）的映射处理工作的同时，还提供了GenericAPIView提供的基础方法，可以直接搭配Mixin扩展类使用。||
+|GenericViewSet|ModelViewSet|继承自GenericViewSet，同时包括了ListModelMixin、RetrieveModelMixin、CreateModelMixin、UpdateModelMixin、DestoryModelMixin。||
+|GenericViewSet|ReadOnlyModelViewSet|继承自GenericViewSet，同时包括了ListModelMixin、RetrieveModelMixin。||
+
+
+
+```sh
+ViewSetMixin：            # 重写了as_view
+
+ViewSet：                 # 继承ViewSetMixin和APIView
+
+GenericViewSet：          # 继承ViewSetMixin, generics.GenericAPIView
+
+ModelViewSet：            # 继承mixins.CreateModelMixin,mixins.RetrieveModelMixin,mixins.UpdateModelMixin,mixins.DestroyModelMixin,mixins.ListModelMixin,GenericViewSet
+```
+
+
+
+
+```python
+#源码：
+class ModelViewSet(mixins.CreateModelMixin,
+                   mixins.RetrieveModelMixin,
+                   mixins.UpdateModelMixin,
+                   mixins.DestroyModelMixin,
+                   mixins.ListModelMixin,
+                   GenericViewSet):
+    """
+    A viewset that provides default `create()`, `retrieve()`, `update()`,
+    `partial_update()`, `destroy()` and `list()` actions.
+    """
+    pass
+
+```
+
+ReadOnlyModelViewSet：继承mixins.RetrieveModelMixin,mixins.ListModelMixin,GenericViewSet 示例参照 ModelViewSet代码，区别仅在于 ReadOnlyModelViewSet 仅实现封装了查询方法。
+
+
+
+
+
+下面主要介绍 ModelViewSet，较为常用。
+
+
+#### ModelViewSet
 
 我们基于 Django开发REST 接口的 bookv1 项目 进行视图改造
 
@@ -2780,83 +3312,66 @@ urlpatterns = [
 ```
 
 
+用viewsets + Router的方式实现视图封装
 
-
-
-### 7.4 视图类总结
-
-
-REST framework 提供了众多的通用视图基类与扩展类，以简化视图的编写。
-
-视图的继承关系：
-
-![1700798042427](https://cdn.jsdelivr.net/gh/hujianli94/Picgo-atlas@main/img/1700798042427.2ol9tvnog420.webp){: .zoom}
-
-
-
-![1700648982801](https://cdn.jsdelivr.net/gh/hujianli94/Picgo-atlas@main/img/1700648982801.3vua8iq84hu0.png){: .zoom}
-
-
-
-
-#### 2个视图基类
-
-
-##### APIView
+`bookv1/urls.py`
 
 ```python
-from rest_framework.views import APIView
+from django.contrib import admin
+from django.urls import include, re_path, path
+from app import urls
+from rest_framework.routers import DefaultRouter
+from app.views import BooksInfoModelViewSet, HeroInfoModelViewSet
+
+# 因为我们使用的是ViewSet类而不是View类，我们实际上不需要自己设计URL。
+# 将资源连接到视图和url的约定可以使用Router类自动处理。
+# 我们需要做的就是使用路由器注册相应的视图集，然后让它执行其余操作。
+router = DefaultRouter()
+router.register(r'books', BooksInfoModelViewSet, basename='books')
+router.register(r'heros', HeroInfoModelViewSet, basename='heros')
+
+urlpatterns = router.urls
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include(router.urls))
+    # re_path('api/', include(urls)),
+]
 ```
 
-1.APIView是REST framework提供的所有视图的基类，继承自Django的View父类。
-
-2.APIView与View的不同之处在于：
-
-● 传入到视图方法中的是REST framework的Request对象，而不是Django的HttpRequeset对象；
-
-● 视图方法可以返回REST framework的Response对象，视图会为响应数据设置（render）符合前端要求的格式；
-
-● 任何APIException异常都会被捕获到，并且处理成合适的响应信息；
-
-● 在进行dispatch()分发前，会对请求进行身份认证、权限检查、流量控制。
+#### 路由Router
 
 
-3.支持定义的属性：
+> 添加路由数据有2种方式
 
-● authentication_classes 列表或元祖，身份认证类
-
-● permissoin_classes 列表或元祖，权限检查类
-
-● throttle_classes 列表或元祖，流量控制类
-
-4.在APIView中仍以常规的类视图定义方法来实现get() 、post() 或者其他请求方式的方法。
-
-
-
-
-##### GenericAPIView[通用视图类]
-
-继承自APIVIew，主要增加了操作序列化器和数据库查询的方法，作用是为下面Mixin扩展类的执行提供方法支持。通常在使用时，可搭配一个或多个Mixin扩展类。
+第一种方式：
 
 ```python
-from rest_framework.generics import GenericAPIView
+urlpatterns = [
+# ...
+]
+urlpatterns += router.urls
 ```
 
-GenericAPIView(APIView):做了一些封装
+第二种方式
 
-|属性|说明|
-|------|------|
-|queryset|要序列化的数据|
-|serializer_class|指明视图使用的序列化器|
+```python
+urlpatterns = [
+# ...
+path(r'^', include(router.urls))
+]
+```
 
 
 
-|方法|说明|
-|-----|-----|
-|get_queryset|获取qs数据(返回视图使用的查询集，主要用来提供给Mixin扩展类使用，是列表视图与详情视图获取数据的基础，默认返回queryset属性)|
-|get_object|获取一条数据的对象(返回详情视图所需的模型类数据对象，主要用来提供给Mixin扩展类使用。在试图中可以调用该方法获取详情信息的模型类对象)|
-|get_serializer|以后使用它来实例化得到ser对象(返回序列化器对象，主要用来提供给Mixin扩展类使用，如果我们在视图中想要获取序列化器对象，也可以直接调用此方法)|
-|get_serializer_class|获取序列化类，注意跟上面区分|
+
+### 7.7 视图如何选择?
+
+
+APIView和viewsets应该怎样选择呢？
+
+当视图要实现的功能中，存在数据运算、拼接的业务逻辑时，可以一律选择APIView的方式来写视图类，除此以外，优先使用viewsets的方式来写视图类，毕竟使用viewsets+Router在常规功能上效率极高。
+
+
 
 
 
