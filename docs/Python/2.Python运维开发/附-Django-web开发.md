@@ -3219,6 +3219,7 @@ ModelViewSet：            # 继承mixins.CreateModelMixin,mixins.RetrieveModelM
 
 
 
+我们来剖析视图的封装层数。要知道，我们经常说到的Django REST framework的“三层视图封装”，并不是仅仅封装了三层，下面解剖一个viewsets.ModelViewSet看一下：
 
 ```python
 #源码：
@@ -3234,6 +3235,11 @@ class ModelViewSet(mixins.CreateModelMixin,
     """
     pass
 
+class GenericViewSet(ViewSetMixin, generics.GenericAPIView):
+    pass
+
+class GenericAPIView(views.APIView):
+    pass
 ```
 
 ReadOnlyModelViewSet：继承mixins.RetrieveModelMixin,mixins.ListModelMixin,GenericViewSet 示例参照 ModelViewSet代码，区别仅在于 ReadOnlyModelViewSet 仅实现封装了查询方法。
@@ -3364,8 +3370,11 @@ path(r'^', include(router.urls))
 
 
 
+
 ### 7.7 视图如何选择?
 
+
+可以说，我们在今后的项目中，只需要优先在 APIView 和 viewsets 中选择即可。至于 mixins 就好像是斐波那契数列一样，几乎永远不会缺席于应聘Django REST framework技术岗位的笔试题中，但在实际项目中却很少能用得上。
 
 APIView和viewsets应该怎样选择呢？
 
