@@ -371,6 +371,7 @@ nav:
       - Golang/9.Go三方库/6.yaml.md
       - Golang/9.Go三方库/7.tail.md
       - Golang/9.Go三方库/8.gopsutil.md
+      - Golang/9.Go三方库/9.go-awesome.md
     - 10.Go-RESTful-API接口开发:
       - Golang/10.Go-RESTful-API接口开发/1.什么是RESTful-API.md
       - Golang/10.Go-RESTful-API接口开发/2.GORMv2.md
@@ -420,6 +421,7 @@ nav:
       - Python/2.Python运维开发/7.自动化管理.md
       - Python/2.Python运维开发/8.常用模块.md
       - Python/2.Python运维开发/9.Python打造MySQL专家系统.md
+      - Python/2.Python运维开发/附-awesome-python-cn.md
       - Python/2.Python运维开发/附-CMDB.md
       - Python/2.Python运维开发/附-Django-web开发.md
     - 3.Python测试开发:
@@ -458,8 +460,6 @@ nav:
       - Python/4.Flask-Web全栈开发/附-Flask和Vue.js开发单页应用.md
       - Python/4.Flask-Web全栈开发/附-Flask容器化实践.md
       - Python/4.Flask-Web全栈开发/附-Flask数据模型.md
-
-
   - Python-vs-Go:
     - 0.线路:
       - Python-vs-Go/0.学习线路/0.Python-vs-Go.md
@@ -517,6 +517,7 @@ nav:
       - Linux/Shell/19.实用Linux-Shell脚本案例.md
       - Linux/Shell/20.Shell脚本的规范.md
       - Linux/Shell/21.Shell多进程并发.md
+      - Linux/Shell/附-vim常用操作.md
     - Ansible:
       - Linux/Ansible/1.Ansible入门和实践.md
       - Linux/Ansible/2.Ansible-wiki.md
@@ -561,6 +562,7 @@ nav:
       - Linux/System/9.Centos7.9系统盘扩容.md
       - Linux/System/10.Centos在线-离线安装依赖.md
       - Linux/System/11.rsync-ssh.md
+      - Linux/System/12.各大服务器做RAID.md
     - Serveices:
       - Linux/Serveices/0.ubuntu-desktop-vmware.md
   - Other:
