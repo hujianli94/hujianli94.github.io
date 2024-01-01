@@ -222,6 +222,7 @@ theme:
 # Page tree
 nav:
   - 首页: index.md
+    
   - k8s:
     - 1.容器的发展史:
       - k8s/1.容器的发展史/1.1开发过程的发展.md
@@ -235,6 +236,7 @@ nav:
       - k8s/3.Kubernetes的安装和部署/3.2kubeadm搭建高可用的生产k8s集群.md
     - 4.Pod:
       - k8s/4.Pod/4.1Pod的基本操作.md
+
   - Kubernetes:
     - 0.学习线路:
       - Kubernetes/0.学习线路/0.Kubernetes.md
@@ -262,6 +264,7 @@ nav:
       - Kubernetes/5.运维篇/16.服务发布Ingress进阶.md
     - 6.DevOps篇:
       - Kubernetes/6.DevOps篇/17.DevOps实践.md
+
   - Docker:
     - 0.学习线路:
       - Docker/0.学习线路/0.Docker.md
@@ -412,6 +415,7 @@ nav:
     - 13.K8s管理系统项目实战:
       - Golang/13.K8s管理系统项目实战/1.K8s管理系统-后端API开发.md
       - Golang/13.K8s管理系统项目实战/2.K8s管理系统-前端开发.md
+
   - Python:
     - 0.学习线路:
       - Python/0.学习线路/0.Pythjon-auto-ops.md
@@ -474,6 +478,7 @@ nav:
       - Python/4.Flask-Web全栈开发/附-Flask和Vue.js开发单页应用.md
       - Python/4.Flask-Web全栈开发/附-Flask容器化实践.md
       - Python/4.Flask-Web全栈开发/附-Flask数据模型.md
+
   - Python-vs-Go:
     - 0.线路:
       - Python-vs-Go/0.学习线路/0.Python-vs-Go.md
@@ -507,6 +512,7 @@ nav:
       - Python-vs-Go/2.进阶/2.使用MySQL.md
       - Python-vs-Go/2.进阶/3.使用Redis.md
       - Python-vs-Go/2.进阶/4.使用MongoDB.md
+
   - Linux:
     - Shell:
       - Linux/Shell/Shell简介.md
@@ -579,6 +585,7 @@ nav:
       - Linux/System/12.各大服务器做RAID.md
     - Serveices:
       - Linux/Serveices/0.ubuntu-desktop-vmware.md
+
   - Other:
     - tools:
       - Other/tools/1.PicGo图床.md

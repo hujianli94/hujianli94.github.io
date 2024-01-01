@@ -23,7 +23,7 @@
 
 
 
-// todo  技能展示图
+// todo  技术栈展示图
 
 
 
@@ -58,9 +58,6 @@
 
   - [shell-scripts](https://github.com/daily-scripts/shell-scripts)
 
-
-
-## 其他参考笔记
 
 !!! info "Mkdocs 教程"
 
