@@ -222,6 +222,19 @@ theme:
 # Page tree
 nav:
   - 首页: index.md
+  - k8s:
+    - 1.容器的发展史:
+      - k8s/1.容器的发展史/1.1开发过程的发展.md
+      - k8s/1.容器的发展史/1.2应用架构的发展.md
+      - k8s/1.容器的发展史/1.3部署打包的发展.md
+    - 2,Kubernetes的核心概念:
+      - k8s/2,Kubernetes的核心概念/2.1Kubernetes的设计架构.md
+      - k8s/2,Kubernetes的核心概念/2.2Kubernetes的核心对象.md
+    - 3.Kubernetes的安装和部署:
+      - k8s/3.Kubernetes的安装和部署/3.1kubeadm搭建开发环境kubernetes集群.md
+      - k8s/3.Kubernetes的安装和部署/3.2kubeadm搭建高可用的生产k8s集群.md
+    - 4.Pod:
+      - k8s/4.Pod/4.1Pod的基本操作.md
   - Kubernetes:
     - 0.学习线路:
       - Kubernetes/0.学习线路/0.Kubernetes.md
@@ -421,6 +434,7 @@ nav:
       - Python/2.Python运维开发/7.自动化管理.md
       - Python/2.Python运维开发/8.常用模块.md
       - Python/2.Python运维开发/9.Python打造MySQL专家系统.md
+      - Python/2.Python运维开发/10.自动化运维系统的开发.md
       - Python/2.Python运维开发/附-awesome-python-cn.md
       - Python/2.Python运维开发/附-CMDB.md
       - Python/2.Python运维开发/附-Django-web开发.md
