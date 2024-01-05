@@ -81,6 +81,10 @@
 !!!info "他人 mkdocs示例"
 
 
+  - [Rook-Ceph](https://rook.io/docs/rook/latest/Getting-Started/quickstart/#create-a-ceph-cluster)
+
+  - [DaoCloud Enterprise](https://docs.daocloud.io/dce/)
+
   - [Linux 101 Docs](https://github.com/ustclug/Linux101-docs)
 
   - [CS自学指南](https://csdiy.wiki/)

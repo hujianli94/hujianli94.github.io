@@ -230,14 +230,17 @@ nav:
       - k8s/1.容器的发展史/1.1开发过程的发展.md
       - k8s/1.容器的发展史/1.2应用架构的发展.md
       - k8s/1.容器的发展史/1.3部署打包的发展.md
-    - 2,Kubernetes的核心概念:
-      - k8s/2,Kubernetes的核心概念/2.1Kubernetes的设计架构.md
-      - k8s/2,Kubernetes的核心概念/2.2Kubernetes的核心对象.md
+    - 2.Kubernetes的核心概念:
+      - k8s/2.Kubernetes的核心概念/2.1Kubernetes的设计架构.md
+      - k8s/2.Kubernetes的核心概念/2.2Kubernetes的核心对象.md
     - 3.Kubernetes的安装和部署:
-      - k8s/3.Kubernetes的安装和部署/3.1kubeadm搭建开发环境kubernetes集群.md
-      - k8s/3.Kubernetes的安装和部署/3.2kubeadm搭建高可用的生产k8s集群.md
+      - k8s/3.Kubernetes的安装和部署/3.1kubeadm搭建开发环境.md
+      - k8s/3.Kubernetes的安装和部署/3.2kubeadm搭建生产环境.md
     - 4.Pod:
       - k8s/4.Pod/4.1Pod的基本操作.md
+    - 5.控制器:
+      - k8s/5.控制器/5.1Deployment.md
+
 
   - Kubernetes:
     - 0.学习线路:
