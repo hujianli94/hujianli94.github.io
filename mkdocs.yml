@@ -330,6 +330,7 @@ nav:
       - Golang/1.Go基础/2.第一个Go程序.md
       - Golang/1.Go基础/3.Go基础语法.md
       - Golang/1.Go基础/4.Go-Module.md
+      - Golang/1.Go基础/5.Go-标准目录结构.md
     - 2.Go-Web基础:
       - Golang/2.Go-Web基础/5.第一个Go-Web程序.md
       - Golang/2.Go-Web基础/6.Web程序运行原理简介.md
