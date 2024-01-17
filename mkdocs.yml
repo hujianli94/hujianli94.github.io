@@ -421,7 +421,10 @@ nav:
     - 13.K8s管理系统项目实战:
       - Golang/13.K8s管理系统项目实战/1.K8s管理系统-后端API开发.md
       - Golang/13.K8s管理系统项目实战/2.K8s管理系统-前端开发.md
-
+    - 14.Go开发的三方平台:
+      - Golang/14.Go开发的三方平台/1.TBak-System备份平台.md
+      - Golang/14.Go开发的三方平台/2.kubemanage云原生运维平台.md
+        
   - Python:
     - 0.学习线路:
       - Python/0.学习线路/0.Pythjon-auto-ops.md
