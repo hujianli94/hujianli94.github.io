@@ -523,6 +523,7 @@ nav:
       - Python-vs-Go/2.进阶/2.使用MySQL.md
       - Python-vs-Go/2.进阶/3.使用Redis.md
       - Python-vs-Go/2.进阶/4.使用MongoDB.md
+      - Python-vs-Go/2.进阶/5.练手项目推荐.md
 
   - Linux:
     - Shell:
@@ -608,6 +609,7 @@ nav:
       - Other/tools/6.sphinx构建博客.md
       - Other/tools/7.企业级VPN软件AnyLink.md
       - Other/tools/8.平台及工具汇总.md
+      - Other/tools/9.自动更新系统代理.md
     - windows:
       - Other/windows/1.常用软件下载.md
       - Other/windows/2.windows查看端口占用.md
