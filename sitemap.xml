@@ -656,6 +656,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hujianli94.github.io/Golang/9.Go%E4%B8%89%E6%96%B9%E5%BA%93/12.dmidecode/</loc>
+         <lastmod>2024-02-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hujianli94.github.io/Golang/9.Go%E4%B8%89%E6%96%B9%E5%BA%93/2.viper/</loc>
          <lastmod>2024-02-02</lastmod>
          <changefreq>daily</changefreq>
