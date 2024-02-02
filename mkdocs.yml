@@ -321,6 +321,7 @@ nav:
       - Docker/3.Devops/29.Vagrant虚拟机.md
       - Docker/3.Devops/30.VMware-workstation.md
       - Docker/3.Devops/31.VirtualBox.md
+      - Docker/3.Devops/32.Devops相关存储库.md
 
   - Golang:
     - 0.学习线路:
@@ -387,13 +388,15 @@ nav:
       - Golang/9.Go三方库/0.开源自己的Go库.md
       - Golang/9.Go三方库/1.cobra.md
       - Golang/9.Go三方库/2.viper.md
-      - Golang/9.Go三方库/3.mahonia.md
-      - Golang/9.Go三方库/4.ssh.md
-      - Golang/9.Go三方库/5.fsnotify.md
-      - Golang/9.Go三方库/6.yaml.md
-      - Golang/9.Go三方库/7.tail.md
-      - Golang/9.Go三方库/8.gopsutil.md
-      - Golang/9.Go三方库/9.go-awesome.md
+      - Golang/9.Go三方库/3.Zap.md
+      - Golang/9.Go三方库/4.mahonia.md
+      - Golang/9.Go三方库/5.ssh.md
+      - Golang/9.Go三方库/6.fsnotify.md
+      - Golang/9.Go三方库/7.yaml.md
+      - Golang/9.Go三方库/8.tail.md
+      - Golang/9.Go三方库/9.gRPC.md
+      - Golang/9.Go三方库/10.gopsutil.md
+      - Golang/9.Go三方库/11.go-awesome.md
     - 10.Go-RESTful-API接口开发:
       - Golang/10.Go-RESTful-API接口开发/1.什么是RESTful-API.md
       - Golang/10.Go-RESTful-API接口开发/2.GORMv2.md
@@ -424,6 +427,7 @@ nav:
     - 14.Go开发的三方平台:
       - Golang/14.Go开发的三方平台/1.TBak-System备份平台.md
       - Golang/14.Go开发的三方平台/2.kubemanage云原生运维平台.md
+      - Golang/14.Go开发的三方平台/3.Go命令行工具.md
         
   - Python:
     - 0.学习线路:
@@ -518,6 +522,8 @@ nav:
       - Python-vs-Go/1.对比/22.字符串格式化.md
       - Python-vs-Go/1.对比/23.去重.md
       - Python-vs-Go/1.对比/24.带颜色打印.md
+      - Python-vs-Go/1.对比/25.python-example.md
+      - Python-vs-Go/1.对比/26.go-example.md
     - 2.进阶:
       - Python-vs-Go/2.进阶/1.使用RPC.md
       - Python-vs-Go/2.进阶/2.使用MySQL.md
