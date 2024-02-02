@@ -41,6 +41,7 @@ CMDB最主要的一环节就是采集资源，有了资源后续的所有功能�
 ![1698306580302](https://cdn.jsdelivr.net/gh/hujianli94/Picgo-atlas@main/img/1698306580302.78cb9lk16ls0.webp){: .zoom}
 
 
+
 伪代码如下：
 
 ```python
@@ -55,10 +56,12 @@ request.post("http://127.0.0.1:8000/api/",data=json.dumps(res))
 ```
 
 
+
 优缺点：
 
 - 优点为采集速度快，适合服务器较多的情况
 - 缺点为需要在每个待采集的服务器上部署一个agent
+
 
 
 ### 2.2 ssh类方式
@@ -115,6 +118,7 @@ print(response.text)
 
 - 优点为不需要单独在每个待采集的服务器上装agent
 - 缺点为采集速度慢，特别是在服务器较多的情况下
+
 
 
 
@@ -235,4 +239,61 @@ for host, output in result.items():
 - 管理平台为用户提供可视化操作
  
 
+
 前三种是用Python开发的，目标是兼容三种采集方式的软件
+
+
+
+
+
+## 4. CMDB实现参考
+
+### Python 语言实现
+
+
+#### 1 后端基础
+
+1. [DRF前奏](https://blog.51cto.com/devwanghui/category13.html)
+2. [DRF入门](https://blog.51cto.com/devwanghui/category13.html)
+3. [DRF进阶之DRF视图和常用功能](https://blog.51cto.com/devwanghui/6007984)
+
+   
+#### 2 前端基础
+
+1. [Vue前端开发基础-上](https://blog.51cto.com/devwanghui/6163644)
+2. [Vue前端开发-下](https://blog.51cto.com/devwanghui/6179278)
+3. [Element Plus前端组件库](https://blog.51cto.com/devwanghui/6193473)
+
+
+#### 3 CMDB后端开发
+
+1. [CMDB后端开发（上）](https://blog.51cto.com/devwanghui/6239143)
+2. [CMDB后端开发（下）](https://blog.51cto.com/devwanghui/6241341)
+
+
+
+#### 4 CMDB前端开发
+
+1. [CMDB前端开发(上)](https://blog.51cto.com/devwanghui/6244560)
+2. [CMDB前端开发-IDC管理](https://blog.51cto.com/devwanghui/6317673)
+
+
+
+
+
+###  Go 语言实现
+
+#### 1.API开发
+
+[API开发](https://www.yuque.com/wangzilong-4omf5/efv7oy/ssk1ix)
+
+
+
+#### 2.前端开发
+
+[前端开发](https://www.yuque.com/wangzilong-4omf5/efv7oy/vmy34h)
+
+
+
+
+
