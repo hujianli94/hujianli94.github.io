@@ -5,6 +5,7 @@
 CMDB需要的主要功能有：
 
 - 用户管理：记录测试、开发、运维的用户表
+- 事件管理：事故管理负责记录、归类和安排专家处理事故并监督整个处理过程直至事故得到解决和终止。
 - 业务线管理：记录业务的详情
 - 项目管理：记录项目详情以及属于哪个业务线
 - 应用管理：指定此应用的开发人员，属于哪个项目，和代码地址，部署目录，部署集群，依赖的应用，软件等信息
@@ -220,7 +221,85 @@ for host, output in result.items():
 ```
 
 
-### 2.4 puppet方式
+### 2.4 puppet方式（ruby语言开发）
+
+基于Puppet的factor和report功能实现
+
+```sh
+puppet中默认自带了5个report，放置在【/usr/lib/ruby/site_ruby/1.8/puppet/reports/】路径下。如果需要执行某个report，那么就在puppet的master的配置文件中做如下配置：
+ 
+######################## on master ###################
+/etc/puppet/puppet.conf
+[main]
+reports = store #默认
+#report = true #默认
+#pluginsync ＝ true #默认
+ 
+ 
+####################### on client #####################
+ 
+/etc/puppet/puppet.conf
+[main]
+#report = true #默认
+   
+[agent]
+runinterval = 10
+server = master.puppet.com
+certname = c1.puppet.com
+ 
+如上述设置之后，每次执行client和master同步，就会在master服务器的 【/var/lib/puppet/reports】路径下创建一个文件，主动执行：puppet agent  --test
+```
+
+
+1、自定义factor示例
+
+```sh
+在 /etc/puppet/modules 目录下创建如下文件结构：
+ 
+modules
+└── cmdb
+    ├── lib
+    │   └── puppet
+    │       └── reports
+    │           └── cmdb.rb
+    └── manifests
+        └── init.pp
+ 
+################ cmdb.rb ################
+# cmdb.rb
+require 'puppet'
+require 'fileutils'
+require 'puppet/util'
+   
+SEPARATOR = [Regexp.escape(File::SEPARATOR.to_s), Regexp.escape(File::ALT_SEPARATOR.to_s)].join
+   
+Puppet::Reports.register_report(:cmdb) do
+  desc "Store server info
+    These files collect quickly -- one every half hour -- so it is a good idea
+    to perform some maintenance on them if you use this report (it's the only
+    default report)."
+   
+  def process
+    certname = self.name
+    now = Time.now.gmtime
+    File.open("/tmp/cmdb.json",'a') do |f|
+      f.write(certname)
+      f.write(' | ')
+      f.write(now)
+      f.write("\r\n")
+    end
+   
+  end
+end
+ 
+ 
+################ 配置 ################
+/etc/puppet/puppet.conf
+[main]
+reports = cmdb
+#report = true #默认
+#pluginsync ＝ true #默认
+```
 
 该方式目前很少使用，主要是使用puppet的企业不多。
 
@@ -232,18 +311,70 @@ for host, output in result.items():
 
 
 
-## 3.小结
 
-- 采集资产信息有四种不同的形式（但puppet是基于ruby开发的）
-- API提供相关处理的接口
-- 管理平台为用户提供可视化操作
- 
 
 
 前三种是用Python开发的，目标是兼容三种采集方式的软件
 
 
 
+### 2.5 开发cmdb程序
+
+
+开发程序设计为可插拔机制。（好处：扩展性强）
+
+开发一套程序时，要使其有充分的扩展性。接下来可以写一些伪代码...
+
+1、假设项目名为AutoClient, 目录结构如下：
+
+```sh
+AutoClient/
+|-- bin/
+|   |-- auto_client.py
+|-- config/
+|   |-- settings.py
+|-- lib/
+|   |--
+|-- log/
+|   |-- error.log
+|   |-- run.log
+|-- src/
+|   |-- plugins/
+|       |-- __init__.py
+|       |-- base.py
+|       |-- cpu.py
+|       |-- ...
+|   |-- scripts.py 
+|-- README
+```
+
+例如，采集资产信息有三种形式，而将要做的一件事就是要让程序兼容这三种形式
+
+实现方式如下示例：
+
+https://www.cnblogs.com/lzc69/p/12142254.html
+
+
+
+
+
+参考文献
+[CMDB那些事儿](https://www.cnblogs.com/dion-90/articles/8525403.html)
+
+https://www.cnblogs.com/nulige/p/6703160.html
+
+https://www.cnblogs.com/adamans/articles/7800412.html
+
+
+https://www.cnblogs.com/liuqingzheng/p/14527292.html
+
+
+## 3.小结
+
+- 采集资产信息有四种不同的形式（但puppet是基于ruby开发的）
+- API提供相关处理的接口
+- 管理平台为用户提供可视化操作
+ 
 
 
 ## 4. CMDB实现参考
