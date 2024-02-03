@@ -495,7 +495,11 @@ nav:
       - Python/4.Flask-Web全栈开发/附-Flask和Vue.js开发单页应用.md
       - Python/4.Flask-Web全栈开发/附-Flask容器化实践.md
       - Python/4.Flask-Web全栈开发/附-Flask数据模型.md
-
+    - 5.Python-Web开发与自动化测试:
+      - Python/Python-Web开发与自动化测试/1.扩展库的安装.md
+    - 6.CMDB项目实战:
+      - Python/CMDB项目实战/0.DRF前奏.md
+      - Python/CMDB项目实战/1.DRF入门.md
   - Python-vs-Go:
     - 0.线路:
       - Python-vs-Go/0.学习线路/0.Python-vs-Go.md
