@@ -387,8 +387,8 @@ https://www.cnblogs.com/liuqingzheng/p/14527292.html
 
 #### 1 后端基础
 
-1. [DRF前奏](https://blog.51cto.com/devwanghui/category13.html)
-2. [DRF入门](https://blog.51cto.com/devwanghui/category13.html)
+1. [DRF前奏](https://blog.51cto.com/devwanghui/5956688)
+2. [DRF入门](https://blog.51cto.com/devwanghui/5968540)
 3. [DRF进阶之DRF视图和常用功能](https://blog.51cto.com/devwanghui/6007984)
 
    
