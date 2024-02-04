@@ -426,6 +426,7 @@ nav:
       - Golang/13.K8s管理系统项目实战/1.K8s管理系统-后端API开发.md
       - Golang/13.K8s管理系统项目实战/2.K8s管理系统-前端开发.md
     - 14.Go开发的三方平台:
+      - Golang/14.Go开发的三方平台/0.为什么使用Go做后端开发.md
       - Golang/14.Go开发的三方平台/1.TBak-System备份平台.md
       - Golang/14.Go开发的三方平台/2.kubemanage云原生运维平台.md
       - Golang/14.Go开发的三方平台/3.Go命令行工具.md
@@ -500,6 +501,7 @@ nav:
     - 6.CMDB项目实战:
       - Python/6.CMDB项目实战/0.DRF前奏.md
       - Python/6.CMDB项目实战/1.DRF入门.md
+      - Python/6.CMDB项目实战/2.DRF进阶.md
   - Python-vs-Go:
     - 0.线路:
       - Python-vs-Go/0.学习线路/0.Python-vs-Go.md
