@@ -430,7 +430,9 @@ nav:
       - Golang/14.Go开发的三方平台/1.TBak-System备份平台.md
       - Golang/14.Go开发的三方平台/2.kubemanage云原生运维平台.md
       - Golang/14.Go开发的三方平台/3.Go命令行工具.md
-        
+      - Golang/14.Go开发的三方平台/4.内网穿透.md
+      - Golang/14.Go开发的三方平台/5.go-web项目.md
+      - Golang/14.Go开发的三方平台/6.go-三方工具简单入门.md
   - Python:
     - 0.学习线路:
       - Python/0.学习线路/0.Pythjon-auto-ops.md
@@ -597,6 +599,8 @@ nav:
       - Linux/Nginx/13.Nginx跨域配置.md
       - Linux/Nginx/14.Nginx重定向.md
       - Linux/Nginx/15.Nginx-HTTPS.md
+      - Linux/Nginx/16.附-Nginx-location语法.md
+      - Linux/Nginx/17.附-Nginx代理相关模块解析.md
     - System:
       - Linux/System/1.系统镜像和软件源.md
       - Linux/System/2.Linux安全加固.md
