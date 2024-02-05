@@ -20,9 +20,43 @@
 
 
 
+
+
+
 // todo  技术栈展示图
 
 
+
+
+
+## 个人信息：
+
+!!!info
+
+
+  - [GitHub](https://github.com/redhatxl)
+  
+  - [掘金](https://juejin.im/user/5c36033fe51d456e4138b473/posts)
+  
+  - [慕课网](https://www.imooc.com/u/1260704)
+
+  - [51CTO](https://blog.51cto.com/kaliarch)
+
+  - [InfoQ](https://www.infoq.cn/u/kaliarch/publish)
+
+
+## 其他参考笔记
+
+!!!info
+
+
+  - [Linux 101 Docs](https://github.com/ustclug/Linux101-docs)
+
+  - [awesome-kubernetes-notes](https://github.com/overnote/awesome-kubernetes-notes)
+
+  - [kubectl-img](https://github.com/redhatxl/kubectl-img)
+
+  - [shell-scripts](https://github.com/daily-scripts/shell-scripts)
 
 
 !!! info "Mkdocs 教程"
@@ -60,6 +94,19 @@
   - [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/getting-started/)
 
   - [基于mkdocs-material实现的帮助中心(markdown + 中文搜索 + 图片放大)](https://segmentfault.com/a/1190000018592279)
+
+
+
+
+
+!!! info "一些项目"
+
+
+  - [awesome-kubernetes-notes](https://github.com/overnote/awesome-kubernetes-notes)
+
+  - [kubectl-img](https://github.com/redhatxl/kubectl-img)
+
+  - [shell-scripts](https://github.com/daily-scripts/shell-scripts)
 
 
 
