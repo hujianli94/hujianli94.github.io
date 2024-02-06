@@ -372,6 +372,7 @@ https://www.cnblogs.com/adamans/articles/7800412.html
 https://www.cnblogs.com/liuqingzheng/p/14527292.html
 
 
+
 ## 3.小结
 
 - 采集资产信息有四种不同的形式（但puppet是基于ruby开发的）
@@ -380,7 +381,7 @@ https://www.cnblogs.com/liuqingzheng/p/14527292.html
  
 
 
-## 4. CMDB实现参考
+## 4. CMDB系统
 
 ### Python 语言实现
 
@@ -414,17 +415,32 @@ https://www.cnblogs.com/liuqingzheng/p/14527292.html
 
 
 
-参考示例代码： 
+其他CMDB系统参考 代码仓库 
 
 - https://gitee.com/scajy/cmdb
 
 - https://gitee.com/attacker/cmdb
 
+
+
+以 `Python` 语言，采用 django-rest-framework 框架实现后端API开发
+
+- https://github.com/zhengyansheng/lightning-ops
+
+
+
+- https://github.com/yanshicheng/super_ops.git
+
+
 - https://gitee.com/huge-dream/django-vue3-admin
+
 
 - https://gitee.com/huge-dream
 
+
 - https://gitee.com/attacker/spug
+
+
 
 
 ###  Go 语言实现
@@ -442,4 +458,22 @@ https://www.cnblogs.com/liuqingzheng/p/14527292.html
 
 
 
+
+
+## 5.工单系统
+
+### 5.1 Django + Vue开发工单系统
+
+- https://gitee.com/scajy/work_order_system
+
+- https://github.com/itimor/one-workflow
+
+
+
+
+### 5.2 Gin + Vue + Element UI前后端分离的工单系统
+
+- https://github.com/lanyulei/ferry
+
+- https://github.com/Mr-QinJiaSheng/ferry-master
 
