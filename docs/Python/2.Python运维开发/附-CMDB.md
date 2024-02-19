@@ -422,7 +422,17 @@ https://www.cnblogs.com/liuqingzheng/p/14527292.html
 
 - https://gitee.com/attacker/cmdb
 
-- [一款开源好用的cmdb资产管理平台](https://mp.weixin.qq.com/s/hKxMwEfeJS69FGwNZa5Ieg)
+- https://github.com/open-cmdb/cmdb.git
+
+- https://github.com/open-cmdb/cmdb-web.git
+
+
+
+[一款开源好用的cmdb资产管理平台](https://mp.weixin.qq.com/s/hKxMwEfeJS69FGwNZa5Ieg)
+
+项目地址:
+
+- https://github.com/myide/open-cmdb
 
 
 
@@ -431,15 +441,11 @@ https://www.cnblogs.com/liuqingzheng/p/14527292.html
 
 - https://github.com/zhengyansheng/lightning-ops
 
-
 - https://github.com/yanshicheng/super_ops.git
-
 
 - https://gitee.com/huge-dream/django-vue3-admin
 
-
 - https://gitee.com/huge-dream
-
 
 - https://gitee.com/attacker/spug
 
