@@ -83,6 +83,7 @@ request.post("http://127.0.0.1:8000/api/",data=json.dumps(res))
 ![1698306776599](https://cdn.jsdelivr.net/gh/hujianli94/Picgo-atlas@main/img/1698306776599.5nj47suqkj00.webp){: .zoom}
 
 
+
 伪代码如下：
 
 ```python
@@ -421,12 +422,14 @@ https://www.cnblogs.com/liuqingzheng/p/14527292.html
 
 - https://gitee.com/attacker/cmdb
 
+- [一款开源好用的cmdb资产管理平台](https://mp.weixin.qq.com/s/hKxMwEfeJS69FGwNZa5Ieg)
+
+
 
 
 以 `Python` 语言，采用 django-rest-framework 框架实现后端API开发
 
 - https://github.com/zhengyansheng/lightning-ops
-
 
 
 - https://github.com/yanshicheng/super_ops.git
@@ -442,12 +445,12 @@ https://www.cnblogs.com/liuqingzheng/p/14527292.html
 
 
 
-
 ###  Go 语言实现
 
 #### 1.API开发
 
 [API开发](https://www.yuque.com/wangzilong-4omf5/efv7oy/ssk1ix)
+
 
 
 
@@ -471,9 +474,22 @@ https://www.cnblogs.com/liuqingzheng/p/14527292.html
 
 
 
+
+
 ### 5.2 Gin + Vue + Element UI前后端分离的工单系统
 
 - https://github.com/lanyulei/ferry
 
 - https://github.com/Mr-QinJiaSheng/ferry-master
+
+
+
+
+
+
+
+## 6.一个简单好用安全的开源交互审计系统
+
+
+- https://github.com/dushixiang/next-terminal
 

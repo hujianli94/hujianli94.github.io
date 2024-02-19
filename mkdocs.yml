@@ -404,6 +404,7 @@ nav:
       - Golang/10.Go-RESTful-API接口开发/3.Gin框架的使用.md
       - Golang/10.Go-RESTful-API接口开发/4.图书管理系统-前端.md
       - Golang/10.Go-RESTful-API接口开发/5.图书管理系统-后端.md
+      - Golang/10.Go-RESTful-API接口开发/6.Gin+Vue入门项目.md
     - 11.Web前端:
       - Golang/11.Web前端/1.HTML标记语言.md
       - Golang/11.Web前端/2.CSS样式语言.md
