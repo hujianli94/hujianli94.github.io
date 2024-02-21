@@ -416,7 +416,9 @@ https://www.cnblogs.com/liuqingzheng/p/14527292.html
 
 
 
-其他CMDB系统参考 代码仓库 
+### CMDB系统参考 
+
+代码仓库 
 
 - https://gitee.com/scajy/cmdb
 
@@ -426,6 +428,8 @@ https://www.cnblogs.com/liuqingzheng/p/14527292.html
 
 - https://github.com/open-cmdb/cmdb-web.git
 
+- https://github.com/hequan2017/autoops
+- 
 
 
 [一款开源好用的cmdb资产管理平台](https://mp.weixin.qq.com/s/hKxMwEfeJS69FGwNZa5Ieg)
@@ -434,6 +438,12 @@ https://www.cnblogs.com/liuqingzheng/p/14527292.html
 
 - https://github.com/myide/open-cmdb
 
+
+OPMS_v3
+
+项目地址:
+
+- https://github.com/goer3/OPMS_v3/tree/dev3.1
 
 
 
@@ -451,25 +461,8 @@ https://www.cnblogs.com/liuqingzheng/p/14527292.html
 
 
 
-###  Go 语言实现
-
-#### 1.API开发
-
-[API开发](https://www.yuque.com/wangzilong-4omf5/efv7oy/ssk1ix)
-
-
-
-
-#### 2.前端开发
-
-[前端开发](https://www.yuque.com/wangzilong-4omf5/efv7oy/vmy34h)
-
-
-
-
-
-
 ## 5.工单系统
+
 
 ### 5.1 Django + Vue开发工单系统
 

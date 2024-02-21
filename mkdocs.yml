@@ -429,11 +429,14 @@ nav:
     - 14.Go开发的三方平台:
       - Golang/14.Go开发的三方平台/0.为什么使用Go做后端开发.md
       - Golang/14.Go开发的三方平台/1.TBak-System备份平台.md
-      - Golang/14.Go开发的三方平台/2.kubemanage云原生运维平台.md
+      - Golang/14.Go开发的三方平台/2.kubernetes容器云管理平台.md
       - Golang/14.Go开发的三方平台/3.Go命令行工具.md
       - Golang/14.Go开发的三方平台/4.内网穿透.md
       - Golang/14.Go开发的三方平台/5.go-web项目.md
       - Golang/14.Go开发的三方平台/6.go-三方工具简单入门.md
+    - 15.容器化Go:
+      - Golang/15.容器化Go/0.构建Go应用docker镜像.md
+
   - Python:
     - 0.学习线路:
       - Python/0.学习线路/0.Pythjon-auto-ops.md
