@@ -393,18 +393,25 @@ https://www.cnblogs.com/liuqingzheng/p/14527292.html
 2. [DRF入门](https://blog.51cto.com/devwanghui/5968540)
 3. [DRF进阶之DRF视图和常用功能](https://blog.51cto.com/devwanghui/6007984)
 
-   
+
+
+
+
 #### 2 前端基础
 
-1. [Vue前端开发基础-上](https://blog.51cto.com/devwanghui/6163644)
+1. [Vue前端开发-上](https://blog.51cto.com/devwanghui/6163644)
 2. [Vue前端开发-下](https://blog.51cto.com/devwanghui/6179278)
 3. [Element Plus前端组件库](https://blog.51cto.com/devwanghui/6193473)
+
+
+
 
 
 #### 3 CMDB后端开发
 
 1. [CMDB后端开发（上）](https://blog.51cto.com/devwanghui/6239143)
 2. [CMDB后端开发（下）](https://blog.51cto.com/devwanghui/6241341)
+
 
 
 
