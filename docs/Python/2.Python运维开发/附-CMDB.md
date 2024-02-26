@@ -416,7 +416,7 @@ https://www.cnblogs.com/liuqingzheng/p/14527292.html
 
 
 
-### CMDB系统参考 
+### CMDB运维平台参考 
 
 代码仓库 
 
@@ -437,9 +437,26 @@ https://www.cnblogs.com/liuqingzheng/p/14527292.html
 
 [一款开源好用的cmdb资产管理平台](https://mp.weixin.qq.com/s/hKxMwEfeJS69FGwNZa5Ieg)
 
+
 项目地址:
 
 - https://github.com/myide/open-cmdb
+
+
+
+[PgoOps运维平台](https://github.com/yanshicheng/pgoops)
+
+
+- [PgoOps运维平台部署文档](https://www.cnblogs.com/yanshicheng/p/16214938.html)
+
+
+
+以 `Python` 语言，采用 django-rest-framework 框架实现后端API开发
+
+
+[lightning-ops](https://github.com/zhengyansheng/lightning-ops)
+
+
 
 
 OPMS_v3
