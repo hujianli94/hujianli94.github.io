@@ -322,6 +322,7 @@ nav:
       - Docker/3.Devops/30.VMware-workstation.md
       - Docker/3.Devops/31.VirtualBox.md
       - Docker/3.Devops/32.Devops相关存储库.md
+      - Docker/3.Devops/33.terraform概述.md
 
   - Golang:
     - 0.学习线路:
