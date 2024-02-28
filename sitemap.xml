@@ -216,6 +216,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hujianli94.github.io/Docker/3.Devops/33.terraform%E6%A6%82%E8%BF%B0/</loc>
+         <lastmod>2024-02-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hujianli94.github.io/Docker/3.Devops/4.fileserver-docker/</loc>
          <lastmod>2024-02-28</lastmod>
          <changefreq>daily</changefreq>
