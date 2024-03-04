@@ -318,7 +318,6 @@ nav:
     - Docker/3.Devops/32.Devops相关存储库.md
     - Docker/3.Devops/33.terraform概述.md
 
-
 - Golang:
   - 0.学习线路:
     - Golang/0.学习线路/0.Go-Web开发实战.md
@@ -421,7 +420,7 @@ nav:
     - Golang/12.Vue前端开发/11.前后端数据交互-Axios.md
     - Golang/12.Vue前端开发/12.Element-Plus.md
   - 13.K8s管理系统项目实战:
-    - Golang/13.K8s管理系统项目实战/1.K8s管理系统-后端API开发.md
+    - Golang/13.K8s管理系统项目实战/1.K8s管理系统-后端开发.md
     - Golang/13.K8s管理系统项目实战/2.K8s管理系统-前端开发.md
   - 14.Go开发的三方平台:
     - Golang/14.Go开发的三方平台/0.为什么使用Go做后端开发.md
@@ -511,6 +510,7 @@ nav:
     - Python/6.CMDB项目实战/6.Element-Plus前端组件库.md
     - Python/6.CMDB项目实战/7.CMDB前端开发-上.md
     - Python/6.CMDB项目实战/8.CMDB前端开发-下.md
+
 - Python-vs-Go:
   - 0.线路:
     - Python-vs-Go/0.学习线路/0.Python-vs-Go.md
