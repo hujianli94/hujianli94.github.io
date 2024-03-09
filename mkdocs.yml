@@ -500,6 +500,9 @@ nav:
     - Python/4.Flask-Web全栈开发/附-Flask数据模型.md
   - 5.DevOps和自动化运维实践:
     - Python/5.DevOps和自动化运维实践/1.Devops与自动化运维的意义.md
+    - Python/5.DevOps和自动化运维实践/2.Shell脚本在Devops下的应用.md
+    - Python/5.DevOps和自动化运维实践/3.生产环境下的Shell脚本.md
+    - Python/5.DevOps和自动化运维实践/4.工作中的Python脚本分享.md
   - 6.CMDB项目实战:
     - Python/6.CMDB项目实战/0.DRF前奏.md
     - Python/6.CMDB项目实战/1.DRF入门.md
