@@ -641,8 +641,9 @@ nav:
     - Other/tools/10.Bash-to-Bat-Converter.md
   - windows:
     - Other/windows/1.常用软件下载.md
-    - Other/windows/2.windows查看端口占用.md
-    - Other/windows/3.Win11镜像下载、壁纸及KMS激活.md
-    - Other/windows/4.windows下netcat安装.md
+    - Other/windows/2.windows快捷指令.md
+    - Other/windows/3.DOS.md
+    - Other/windows/4.win11镜像下载-激活
+    - Other/windows/5.windows下netcat安装
   - Interview:
     - Other/Interview/0.面试宝典.md
