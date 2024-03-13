@@ -444,7 +444,10 @@ nav:
     - Python/1.Python基础篇/5.Python数据结构.md
     - Python/1.Python基础篇/6.Python项目结构.md
     - Python/1.Python基础篇/7.Python代码规范.md
-    - Python/1.Python基础篇/8.Python内置函数.md
+    - Python/1.Python基础篇/8.Python基础知识.md
+    - Python/1.Python基础篇/9.Python字符串.md
+    - Python/1.Python基础篇/10.Python数据类型.md
+    - Python/1.Python基础篇/11.Python内置函数.md
   - 2.Python运维开发:
     - Python/2.Python运维开发/1.命令行工具.md
     - Python/2.Python运维开发/2.文本处理.md
