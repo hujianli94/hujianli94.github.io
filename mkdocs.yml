@@ -454,6 +454,8 @@ nav:
     - Python/1.Python基础篇/15.Python异常处理.md
     - Python/1.Python基础篇/16.Python模块与包.md
     - Python/1.Python基础篇/17.Python标准库.md
+    - Python/1.Python基础篇/18.Python正则表达式.md
+    - Python/1.Python基础篇/19.Python数据库编程.md
   - 2.Python运维开发:
     - Python/2.Python运维开发/1.命令行工具.md
     - Python/2.Python运维开发/2.文本处理.md
