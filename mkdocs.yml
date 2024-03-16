@@ -236,6 +236,10 @@ nav:
   - 5.控制器:
     - k8s/5.控制器/5.1Deployment.md
 
+- k8s-network:
+  - 0.network-namespace:
+    - k8s-network/0.network-namespace/1.network-namespace.md
+
 - Kubernetes:
   - 0.学习线路:
     - Kubernetes/0.学习线路/0.Kubernetes.md
