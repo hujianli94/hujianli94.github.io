@@ -529,6 +529,9 @@ nav:
     - Python/6.CMDB项目实战/6.Element-Plus前端组件库.md
     - Python/6.CMDB项目实战/7.CMDB前端开发-上.md
     - Python/6.CMDB项目实战/8.CMDB前端开发-下.md
+  - 7.Python网络编程攻略:
+    - Python/7.Python网络编程攻略/0.IPv4和简单的客户端-服务器编程.md
+    - Python/7.Python网络编程攻略/1.使用多路复用套接字-IO提升性能.md
 
 - Python-vs-Go:
   - 0.线路:
@@ -640,6 +643,7 @@ nav:
     - Linux/System/10.Centos在线-离线安装依赖.md
     - Linux/System/11.rsync-ssh.md
     - Linux/System/12.各大服务器做RAID.md
+    - Linux/System/13.Linux系统架构与运维实战.md
   - Serveices:
     - Linux/Serveices/0.ubuntu-desktop-vmware.md
 
