@@ -532,6 +532,7 @@ nav:
   - 7.Python网络编程攻略:
     - Python/7.Python网络编程攻略/0.IPv4和简单的客户端-服务器编程.md
     - Python/7.Python网络编程攻略/1.使用多路复用套接字-IO提升性能.md
+    - Python/7.Python网络编程攻略/2.IPv6-Unix域套接字和网络接口.md
 
 - Python-vs-Go:
   - 0.线路:
