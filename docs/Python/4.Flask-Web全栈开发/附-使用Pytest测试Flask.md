@@ -1,11 +1,6 @@
-# 附-使用Pytest测试Flask
+# 附-使用 Pytest 测试 Flask
 
-
-
-[使用Pytest测试Flask应用程序][https://testdriven.io/blog/flask-pytest/]
-
-
-
+[使用 Pytest 测试 Flask 应用程序](https://testdriven.io/blog/flask-pytest/)
 
 源码地址：
 
