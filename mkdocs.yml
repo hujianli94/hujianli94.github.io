@@ -538,8 +538,17 @@ nav:
     - Python/8.Python自动化运维实战/1.搭建Python环境.md
     - Python/8.Python自动化运维实战/2.常用的自动化库.md
     - Python/8.Python自动化运维实战/3.搭建网络实验室环境.md
+
+- openstack:
+  - 0.学习线路:
+    - openstack/0.学习线路/0.Python-OpenStack.md
+  - 1.OpenStack企业工程师的成长及工作介绍:
+    - openstack/1.OpenStack企业工程师的成长及工作介绍/1.Horizon界面工程师的工作内容.md
+    - openstack/1.OpenStack企业工程师的成长及工作介绍/2.Neutron网络工程师的工作内容.md
+    - openstack/1.OpenStack企业工程师的成长及工作介绍/3.Nova资深工程师的工作内容.md
+
 - Python-vs-Go:
-  - 0.线路:
+  - 0.学习线路:
     - Python-vs-Go/0.学习线路/0.Python-vs-Go.md
   - 1.对比:
     - Python-vs-Go/1.对比/1.Hello-World.md
