@@ -1891,51 +1891,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Qpenstack/0.%E5%AD%A6%E4%B9%A0%E7%BA%BF%E8%B7%AF/0.Python-OpenStack/</loc>
-         <lastmod>2024-04-18</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://hujianli94.github.io/Qpenstack/1.OpenStack%E4%BC%81%E4%B8%9A%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%8A%E5%B7%A5%E4%BD%9C%E4%BB%8B%E7%BB%8D/1.Horizon%E7%95%8C%E9%9D%A2%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%86%85%E5%AE%B9/</loc>
-         <lastmod>2024-04-18</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://hujianli94.github.io/Qpenstack/1.OpenStack%E4%BC%81%E4%B8%9A%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%8A%E5%B7%A5%E4%BD%9C%E4%BB%8B%E7%BB%8D/2.Neutron%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%86%85%E5%AE%B9/</loc>
-         <lastmod>2024-04-18</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://hujianli94.github.io/Qpenstack/1.OpenStack%E4%BC%81%E4%B8%9A%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%8A%E5%B7%A5%E4%BD%9C%E4%BB%8B%E7%BB%8D/3.Nova%E8%B5%84%E6%B7%B1%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%86%85%E5%AE%B9/</loc>
-         <lastmod>2024-04-18</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://hujianli94.github.io/Qpenstack/2.%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/1.Windows%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/</loc>
-         <lastmod>2024-04-18</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://hujianli94.github.io/Qpenstack/2.%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/2.Linux%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/</loc>
-         <lastmod>2024-04-18</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://hujianli94.github.io/Qpenstack/2.%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/3.Launchpad%E8%B4%A6%E5%8F%B7/</loc>
-         <lastmod>2024-04-18</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://hujianli94.github.io/Qpenstack/2.%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/4.Git%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
-         <lastmod>2024-04-18</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://hujianli94.github.io/Qpenstack/3.Python%E6%A8%A1%E5%9D%97/1.SQLAlchemy/</loc>
-         <lastmod>2024-04-18</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://hujianli94.github.io/k8s/0.%E5%AD%A6%E4%B9%A0%E7%BA%BF%E8%B7%AF/0.k8s/</loc>
          <lastmod>2024-04-18</lastmod>
          <changefreq>daily</changefreq>
