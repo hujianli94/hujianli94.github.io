@@ -538,6 +538,7 @@ nav:
     - Python/8.Python自动化运维实战/1.搭建Python环境.md
     - Python/8.Python自动化运维实战/2.常用的自动化库.md
     - Python/8.Python自动化运维实战/3.搭建网络实验室环境.md
+
 - openstack:
   - 0.学习线路:
     - openstack/0.学习线路/0.OpenStack.md
@@ -552,6 +553,9 @@ nav:
     - openstack/2.开发环境的搭建/4.Git的使用.md
   - 3.Python模块:
     - openstack/3.Python模块/1.SQLAlchemy.md
+    - openstack/3.Python模块/2.logging.md
+    - openstack/3.Python模块/3.cliff命令行工具.md
+
 - Python-vs-Go:
   - 0.学习线路:
     - Python-vs-Go/0.学习线路/0.Python-vs-Go.md
