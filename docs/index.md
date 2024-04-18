@@ -8,12 +8,13 @@
 >  包含知识且不仅限于 
 
 
-- 云计算
+- Openstack
 - KVM
 - Devops
 - Golang
 - Python
 - Shell
+- Ansible
 - kubernetes
 - 云原生
 - 云架构
