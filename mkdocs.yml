@@ -555,6 +555,8 @@ nav:
     - openstack/3.Python模块/1.SQLAlchemy.md
     - openstack/3.Python模块/2.logging.md
     - openstack/3.Python模块/3.cliff命令行工具.md
+    - openstack/3.Python模块/4.Eventlet.md
+    - openstack/3.Python模块/5.WSGI.md
 
 - Python-vs-Go:
   - 0.学习线路:
