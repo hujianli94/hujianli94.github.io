@@ -236,9 +236,9 @@ nav:
   - 5.控制器:
     - k8s/5.控制器/5.1Deployment.md
 
-- k8s-network:
+- K8s-network:
   - 0.network-namespace:
-    - k8s-network/0.network-namespace/1.network-namespace.md
+    - K8s-network/0.network-namespace/1.network-namespace.md
 
 - Kubernetes:
   - 0.学习线路:
@@ -552,6 +552,7 @@ nav:
     - Openstack/2.开发环境的搭建/3.Launchpad账号.md
     - Openstack/2.开发环境的搭建/4.Git的使用.md
   - 3.Python模块:
+    - Openstack/3.Python模块/0.Python包的构建与分发.md
     - Openstack/3.Python模块/1.SQLAlchemy.md
     - Openstack/3.Python模块/2.logging.md
     - Openstack/3.Python模块/3.cliff.md

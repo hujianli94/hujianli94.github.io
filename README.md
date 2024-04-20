@@ -1,54 +1,55 @@
-
 [![ci](https://github.com/hujianli94/hujianli94.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/hujianli94/hujianli94.github.io/blob/main/.github/workflows/ci.yml)
 [![pages-build-deployment](https://github.com/hujianli94/hujianli94.github.io/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://github.com/hujianli94/hujianli94.github.io/actions/workflows/pages/pages-build-deployment)
 
+# DevOps 运维开发手记
 
+> 包含知识且不仅限于
 
-# DevOps运维开发手记
-
->  包含知识且不仅限于 
-
-- 云原生
+- Openstack
+- KVM
 - Devops
 - Golang
 - Python
 - Shell
-- 云架构
+- Ansible
 - kubernetes
+- 云原生
+- 云架构
 
+// todo 技术栈展示图
 
-## 个人信息：
+!!! info "Mkdocs 教程"
 
-!!!info
+- [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/getting-started/)
 
-  - [GitHub](https://github.com/redhatxl)
+- [MkDocs 文档开发教程](https://mkdocs-like-code.readthedocs.io/zh_CN/latest/)
 
-  - [掘金](https://juejin.im/user/5c36033fe51d456e4138b473/posts)
+- [mkdocs 教程](https://emma-ssq.github.io/blog/tools/mkdocs/)
 
-  - [慕课网](https://www.imooc.com/u/1260704)
+- [Markdown 语法学习 精简版](https://wcowin.work/develop/Markdown/markdown/)
 
-  - [51CTO](https://blog.51cto.com/kaliarch)
+- [利用 mkdocs 部署静态网页至 GitHub pages](https://segmentfault.com/a/1190000043501934?utm_source=sf-similar-article)
 
-  - [InfoQ](https://www.infoq.cn/u/kaliarch/publish)
+- [MkDocs: 构建你自己的知识库 ](https://www.cnblogs.com/brt2/p/13950073.html)
 
+- [快来美化你的 MKDocs 吧](https://juejin.cn/post/7066641709198737416)
 
+!!!info "他人 mkdocs 示例"
 
-## 其他参考笔记
+- [Rook-Ceph](https://rook.io/docs/rook/latest/Getting-Started/quickstart/#create-a-ceph-cluster)
 
-!!!info
+- [DaoCloud Enterprise](https://docs.daocloud.io/dce/)
 
+- [Linux 101 Docs](https://github.com/ustclug/Linux101-docs)
 
-  - [Linux 101 Docs](https://github.com/ustclug/Linux101-docs)
+- [CS 自学指南](https://csdiy.wiki/)
 
-  - [awesome-kubernetes-notes](https://github.com/overnote/awesome-kubernetes-notes)
+- [Mkdocs Material 使用记录](https://shafish.cn/blog/mkdocs/)
 
-  - [kubectl-img](https://github.com/redhatxl/kubectl-img)
+- [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/getting-started/)
 
-  - [shell-scripts](https://github.com/daily-scripts/shell-scripts)
-
-  - [MkDocs 文档开发教程](https://mkdocs-like-code.readthedocs.io/zh_CN/latest/)
-
+- [基于 mkdocs-material 实现的帮助中心(markdown + 中文搜索 + 图片放大)](https://segmentfault.com/a/1190000018592279)
 
 ## Blog
 
-![](https://kaliarch-bucket-1251990360.cos.ap-beijing.myqcloud.com/blog_img/20220204194001.png)
+![image](https://cdn.jsdelivr.net/gh/hujianli94/Picgo-atlas@main/img/image.q8ohq9o157k.png)
