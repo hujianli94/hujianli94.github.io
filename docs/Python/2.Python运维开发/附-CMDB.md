@@ -410,28 +410,60 @@ OPMS_v3
 
 - https://gitee.com/attacker/spug
 
+### 前端项目初始化模板
+
+Vue3 Admin Template
+在大佬的基础上 PanJiaChen / vue-admin-template，更换为 vue3 & element plus，方便个人后续使用
+https://gitee.com/hujianli94net/vue3-admin-template
+
+vite2+vue3.2+script setup+element plus
+https://gitee.com/cuiliang0302/vue3_vite_element-plus
+
+一个基于 vue3+vite+element-plus+js 完整中后台模版
+https://segmentfault.com/a/1190000040717822
+
+vue3+vite2+element-plus 的新一代的前端框架，It's fast!
+https://zhuanlan.zhihu.com/p/421872728
+
+Vue3-Element-Admin
+开箱即用的中后台系统前端解决方案
+
+- https://huzhushan.gitee.io/vue3-element-admin/
+
+- https://gitee.com/k8s-devops/vue3-element-admin
+
 ## 5.工单系统
 
-### 5.1 Django + Vue 开发工单系统
+### 5.1 work_order_system
+
+Django + Vue 开发工单系统
 
 - https://gitee.com/scajy/work_order_system
 
 - https://github.com/itimor/one-workflow
 
-### 5.2 Gin + Vue + Element UI 前后端分离的工单系统
+### 5.2 ferry
+
+Gin + Vue + Element UI 前后端分离的工单系统
 
 - https://github.com/lanyulei/ferry
 
 - https://github.com/Mr-QinJiaSheng/ferry-master
 
-## 6.一个简单好用安全的开源交互审计系统
+## 6.next-terminal
+
+一个简单好用安全的开源交互审计系统
 
 - https://github.com/dushixiang/next-terminal
 
-## 7.Cetus-GUI 是基于 web 端的 Cetus 集群可视化管理系统，能有效的提升部署与管理 Cetus 集群的效率。
+## 7.Cetus-GUI
+
+基于 web 端的 Cetus 集群可视化管理系统，能有效的提升部署与管理 Cetus 集群的效率。
 
 https://github.com/Lede-Inc/Cetus-GUI
 
-## 8.后羿 - TenSunS(原 ConsulManager)：基于 Consul 的运维平台：更优雅的 Consul 管理 UI&多云与自建 ECS/MySQL/Redis 同步
+## 8.TenSunS(原 ConsulManager)
+
+基于 Consul 的运维平台：更优雅的 Consul 管理 UI&多云与自建 ECS/MySQL/Redis 同步
 
 https://github.com/starsliao/TenSunS/tree/main
