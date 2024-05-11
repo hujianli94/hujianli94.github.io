@@ -3393,6 +3393,7 @@ APIView和viewsets应该怎样选择呢？
 
 [django rest framework学习](https://www.cnblogs.com/Slience-me/p/14456752.html)
 
+[restful framework](https://www.cnblogs.com/sui776265233/category/1319448.html)
 
 [Django REST Framework](https://www.yuque.com/wslynn/python/ouh3zo)
 
