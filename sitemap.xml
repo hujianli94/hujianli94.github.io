@@ -1311,6 +1311,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hujianli94.github.io/Other/tools/12.ssh%E5%B7%A5%E5%85%B7/</loc>
+         <lastmod>2024-05-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hujianli94.github.io/Other/tools/2.PicX%E5%9B%BE%E5%BA%8A/</loc>
          <lastmod>2024-05-23</lastmod>
          <changefreq>daily</changefreq>
@@ -1842,6 +1847,11 @@
     </url>
     <url>
          <loc>https://hujianli94.github.io/Python/8.Python%E8%87%AA%E5%8A%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E5%AE%9E%E6%88%98/6.Python%E5%92%8CJinja2%E9%85%8D%E7%BD%AE%E7%94%9F%E6%88%90%E5%99%A8/</loc>
+         <lastmod>2024-05-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hujianli94.github.io/Python/8.Python%E8%87%AA%E5%8A%A8%E5%8C%96%E8%BF%90%E7%BB%B4%E5%AE%9E%E6%88%98/7.%E5%B9%B6%E8%A1%8C%E6%89%A7%E8%A1%8CPython%E8%84%9A%E6%9C%AC/</loc>
          <lastmod>2024-05-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
