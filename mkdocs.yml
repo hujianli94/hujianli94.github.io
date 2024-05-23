@@ -533,6 +533,7 @@ nav:
           - Python/8.Python自动化运维实战/3.搭建网络实验室环境.md
           - Python/8.Python自动化运维实战/5.从网络设备中提取数据.md
           - Python/8.Python自动化运维实战/6.Python和Jinja2配置生成器.md
+          - Python/8.Python自动化运维实战/7.并行执行Python脚本.md
 
   - Openstack:
       - 0.学习线路:
@@ -685,6 +686,7 @@ nav:
           - Other/tools/9.自动更新系统代理.md
           - Other/tools/10.Bash-to-Bat-Converter.md
           - Other/tools/11.电子书阅读器.md
+          - Other/tools/12.ssh工具.md
       - windows:
           - Other/windows/1.常用软件下载.md
           - Other/windows/2.windows快捷指令.md
