@@ -436,6 +436,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hujianli94.github.io/Golang/14.Go%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0/7.diamond-devops/</loc>
+         <lastmod>2024-05-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hujianli94.github.io/Golang/15.%E5%AE%B9%E5%99%A8%E5%8C%96Go/0.%E6%9E%84%E5%BB%BAGo%E5%BA%94%E7%94%A8docker%E9%95%9C%E5%83%8F/</loc>
          <lastmod>2024-05-30</lastmod>
          <changefreq>daily</changefreq>
