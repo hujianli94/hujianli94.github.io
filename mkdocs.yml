@@ -375,6 +375,7 @@ nav:
           - Golang/8.Go标准库/46.net-http.md
           - Golang/8.Go标准库/47.sort.md
           - Golang/8.Go标准库/48.errors.md
+          - Golang/8.Go标准库/49.函数工具库.md
       - 9.Go三方库:
           - Golang/9.Go三方库/0.开源自己的Go库.md
           - Golang/9.Go三方库/1.cobra.md
@@ -390,6 +391,7 @@ nav:
           - Golang/9.Go三方库/11.go-awesome.md
           - Golang/9.Go三方库/12.dmidecode.md
           - Golang/9.Go三方库/13.toml.md
+          - Golang/9.Go三方库/14.其他三方库.md
       - 10.Go-RESTful-API接口开发:
           - Golang/10.Go-RESTful-API接口开发/1.什么是RESTful-API.md
           - Golang/10.Go-RESTful-API接口开发/2.GORMv2.md
