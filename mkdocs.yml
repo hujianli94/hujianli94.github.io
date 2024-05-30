@@ -606,7 +606,7 @@ nav:
           - Linux/Shell/7.Shell-test命令.md
           - Linux/Shell/8.Shell流程控制.md
           - Linux/Shell/9.Shell函数.md
-          - Linux/Shell/10.Shell输入_输出重定向.md
+          - Linux/Shell/10.Shell重定向.md
           - Linux/Shell/11.Shell正则表达式.md
           - Linux/Shell/12.Shell三剑客之grep.md
           - Linux/Shell/13.Shell三剑客之sed.md
