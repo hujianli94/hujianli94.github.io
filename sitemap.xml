@@ -666,6 +666,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hujianli94.github.io/Golang/8.Go%E6%A0%87%E5%87%86%E5%BA%93/49.%E5%87%BD%E6%95%B0%E5%B7%A5%E5%85%B7%E5%BA%93/</loc>
+         <lastmod>2024-05-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hujianli94.github.io/Golang/9.Go%E4%B8%89%E6%96%B9%E5%BA%93/0.%E5%BC%80%E6%BA%90%E8%87%AA%E5%B7%B1%E7%9A%84Go%E5%BA%93/</loc>
          <lastmod>2024-05-30</lastmod>
          <changefreq>daily</changefreq>
@@ -692,6 +697,11 @@
     </url>
     <url>
          <loc>https://hujianli94.github.io/Golang/9.Go%E4%B8%89%E6%96%B9%E5%BA%93/13.toml/</loc>
+         <lastmod>2024-05-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hujianli94.github.io/Golang/9.Go%E4%B8%89%E6%96%B9%E5%BA%93/14.%E5%85%B6%E4%BB%96%E4%B8%89%E6%96%B9%E5%BA%93/</loc>
          <lastmod>2024-05-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
