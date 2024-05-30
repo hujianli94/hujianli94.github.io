@@ -428,6 +428,7 @@ nav:
           - Golang/14.Go开发的三方平台/4.内网穿透.md
           - Golang/14.Go开发的三方平台/5.go-web项目.md
           - Golang/14.Go开发的三方平台/6.go-三方工具简单入门.md
+          - Golang/14.Go开发的三方平台/7.diamond-devops.md
       - 15.容器化Go:
           - Golang/15.容器化Go/0.构建Go应用docker镜像.md
 
