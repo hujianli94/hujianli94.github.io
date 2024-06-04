@@ -560,7 +560,7 @@ nav:
     - Openstack/3.Python模块/3.cliff.md
     - Openstack/3.Python模块/4.Eventlet.md
     - Openstack/3.Python模块/5.WSGI.md
-    - Openstack/3.Python模块/6.Oslo通用库.md
+    - Openstack/3.Python模块/6.OpenStack通用库Oslo.md
 
 - Python-vs-Go:
   - 0.学习线路:
