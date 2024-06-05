@@ -47,6 +47,7 @@
 
 !!!info "他人 mkdocs示例"
 
+  - [advanced-python-techniques](https://github.com/baiyongan/advanced-python-techniques)
 
   - [Rook-Ceph](https://rook.io/docs/rook/latest/Getting-Started/quickstart/#create-a-ceph-cluster)
 
