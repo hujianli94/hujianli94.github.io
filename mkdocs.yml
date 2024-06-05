@@ -457,7 +457,7 @@ nav:
     - Python/1.Python基础篇/20.Python批量管理主机.md
     - Python/1.Python基础篇/21.Python多线程多进程协程.md
     - Python/1.Python基础篇/22.Python代码调试.md
-    - Python/1.Python基础篇/22.Python单元测试.md
+    - Python/1.Python基础篇/23.Python单元测试.md
   - 2.Python运维开发:
     - Python/2.Python运维开发/1.命令行工具.md
     - Python/2.Python运维开发/2.文本处理.md
