@@ -676,6 +676,8 @@ nav:
     - Linux/System/11.rsync-ssh.md
     - Linux/System/12.各大服务器做RAID.md
     - Linux/System/13.Linux系统架构与运维实战.md
+    - Linux/System/14.Linux下软件打包.md
+    - Linux/System/15.Vim常用命令.md
   - Serveices:
     - Linux/Serveices/0.ubuntu-desktop-vmware.md
 
