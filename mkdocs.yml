@@ -628,6 +628,7 @@ nav:
     - Linux/Shell/21.Shell多进程并发.md
     - Linux/Shell/22.Shell_Library.md
     - Linux/Shell/23.Shell脚本调试技术.md
+    - Linux/Shell/24.Linux_Shell脚本攻略.md
     - Linux/Shell/附-shell其它资源.md
     - Linux/Shell/附-vim常用操作.md
   - Ansible:
