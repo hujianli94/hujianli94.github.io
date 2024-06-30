@@ -258,6 +258,8 @@ nav:
     - Kubernetes/5.运维篇/16.服务发布Ingress进阶.md
   - 6.DevOps篇:
     - Kubernetes/6.DevOps篇/17.DevOps实践.md
+  - 7.Kubernetes面试:
+    - Kubernetes/7.Kubernetes面试/1.Kubernetes面试题.md
 
 - Docker:
   - 0.学习线路:
