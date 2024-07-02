@@ -558,7 +558,8 @@ nav:
     - Openstack/2.开发环境的搭建/4.Git的使用.md
     - Openstack/2.开发环境的搭建/5.OpenStack配置文件修改.md
     - Openstack/2.开发环境的搭建/6.配置文件解析.md
-    - Openstack/2.开发环境的搭建/7.Python-rpm编译.md
+    - Openstack/2.开发环境的搭建/7.制作RPM包.md
+    - Openstack/2.开发环境的搭建/8.OpenStack容器化之路-Kolla项目.md
   - 3.Python模块:
     - Openstack/3.Python模块/0.Python包的构建与分发.md
     - Openstack/3.Python模块/1.SQLAlchemy.md
