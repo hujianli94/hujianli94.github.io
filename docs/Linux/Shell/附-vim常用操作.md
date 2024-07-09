@@ -195,3 +195,9 @@ vim路径等配置知识
 |/etc/vimrc|系统全局vim的配置文件|
 |/usr/share/vim/vim74/colors|配色模板文件存放路径|
 
+
+
+
+## 参考文献
+
+https://www.suninf.net/2016/12/vim-usage.html

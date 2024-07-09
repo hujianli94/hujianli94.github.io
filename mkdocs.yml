@@ -314,6 +314,8 @@ nav:
     - Docker/3.Devops/31.VirtualBox.md
     - Docker/3.Devops/32.Devops相关存储库.md
     - Docker/3.Devops/33.terraform概述.md
+    - Docker/3.Devops/34.加速dockerhub.md
+    - Docker/3.Devops/35.instantbox.md
 
 - Golang:
   - 0.学习线路:
@@ -686,7 +688,8 @@ nav:
     - Linux/System/12.各大服务器做RAID.md
     - Linux/System/13.Linux系统架构与运维实战.md
     - Linux/System/14.Linux下软件打包.md
-    - Linux/System/15.Vim常用命令.md
+    - Linux/System/15.Linux系统磁盘管理.md
+    - Linux/System/16.Linux系统磁盘进阶.md
   - Serveices:
     - Linux/Serveices/0.ubuntu-desktop-vmware.md
 
