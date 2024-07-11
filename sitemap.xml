@@ -231,6 +231,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hujianli94.github.io/Docker/3.Devops/36.docker-prometheus-stack/</loc>
+         <lastmod>2024-07-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hujianli94.github.io/Docker/3.Devops/37.grabber/</loc>
+         <lastmod>2024-07-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hujianli94.github.io/Docker/3.Devops/38.webhookbot/</loc>
+         <lastmod>2024-07-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hujianli94.github.io/Docker/3.Devops/4.fileserver-docker/</loc>
          <lastmod>2024-07-11</lastmod>
          <changefreq>daily</changefreq>
