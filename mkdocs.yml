@@ -569,7 +569,7 @@ nav:
     - Openstack/3.Python模块/4.cliff.md
     - Openstack/3.Python模块/5.Eventlet.md
     - Openstack/3.Python模块/6.WSGI.md
-    - Openstack/3.Python模块/7.OpenStack通用库Oslo.md
+    - Openstack/3.Python模块/7.通用库Oslo.md
   - 4.OpenStack容器手册:
     - Openstack/4.OpenStack容器手册/1.OpenStack-Kolla项目.md
 
