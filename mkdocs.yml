@@ -316,6 +316,9 @@ nav:
     - Docker/3.Devops/33.terraform概述.md
     - Docker/3.Devops/34.加速dockerhub.md
     - Docker/3.Devops/35.instantbox.md
+    - Docker/3.Devops/36.docker-prometheus-stack.md
+    - Docker/3.Devops/37.grabber.md
+    - Docker/3.Devops/38.webhookbot.md
 
 - Golang:
   - 0.学习线路:
