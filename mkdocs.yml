@@ -643,8 +643,19 @@ nav:
     - Linux/Shell/附-shell其它资源.md
     - Linux/Shell/附-vim常用操作.md
   - Ansible:
-    - Linux/Ansible/1.Ansible入门和实践.md
-    - Linux/Ansible/2.Ansible-wiki.md
+    - Linux/Ansible/1.Ansible简介.md
+    - Linux/Ansible/2.YAML介绍.md
+    - Linux/Ansible/3.安装和配置.md
+    - Linux/Ansible/4.Inventory.md
+    - Linux/Ansible/5.常用模块.md
+    - Linux/Ansible/6.playbook.md
+    - Linux/Ansible/7.role.md
+    - Linux/Ansible/8.Galaxy.md
+    - Linux/Ansible/9.Jinja2.md
+    - Linux/Ansible/10.Ansible速度优化.md
+    - Linux/Ansible/11.Ansible-API.md
+    - Linux/Ansible/12.flask+ansible运维后端.md
+    - Linux/Ansible/附录-Ansible-wiki.md
   - Git:
     - Linux/Git/1.Git基础.md
     - Linux/Git/2.远程仓库.md
