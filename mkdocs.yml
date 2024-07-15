@@ -655,6 +655,8 @@ nav:
     - Linux/Ansible/10.Ansible速度优化.md
     - Linux/Ansible/11.Ansible-API.md
     - Linux/Ansible/12.flask+ansible运维后端.md
+    - Linux/Ansible/13.Module开发.md
+    - Linux/Ansible/14.Plugin开发.md
     - Linux/Ansible/附录-Ansible-wiki.md
   - Git:
     - Linux/Git/1.Git基础.md
