@@ -467,6 +467,9 @@ nav:
     - Python/1.Python基础篇/21.Python多线程多进程协程.md
     - Python/1.Python基础篇/22.Python代码调试.md
     - Python/1.Python基础篇/23.Python单元测试.md
+    - Python/1.Python基础篇/附录1-虚拟环境.md
+    - Python/1.Python基础篇/附录2-打包和分发.md
+    - Python/1.Python基础篇/附录3-安装第三方软件包.md
   - 2.Python运维开发:
     - Python/2.Python运维开发/1.命令行工具.md
     - Python/2.Python运维开发/2.文本处理.md
@@ -553,9 +556,9 @@ nav:
   - 0.学习线路:
     - Openstack/0.学习线路/0.OpenStack.md
   - 1.OpenStack工程师工作:
-    - Openstack/1.OpenStack工程师工作/1.Horizon界面工程师的工作内容.md
-    - Openstack/1.OpenStack工程师工作/2.Neutron网络工程师的工作内容.md
-    - Openstack/1.OpenStack工程师工作/3.Nova资深工程师的工作内容.md
+    - Openstack/1.OpenStack工程师工作/1.Horizon界面工程师.md
+    - Openstack/1.OpenStack工程师工作/2.Neutron网络工程师.md
+    - Openstack/1.OpenStack工程师工作/3.Nova资深工程师.md
   - 2.开发环境的搭建:
     - Openstack/2.开发环境的搭建/1.Windows开发环境的搭建.md
     - Openstack/2.开发环境的搭建/2.Linux开发环境的搭建.md
