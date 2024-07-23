@@ -228,7 +228,6 @@ nav:
       - 5.控制器:
           - k8s/5.控制器/5.1Deployment.md
 
-  - K8s-network:
       - 0.network-namespace:
           - K8s-network/0.network-namespace/1.network-namespace.md
 
@@ -261,6 +260,8 @@ nav:
           - Kubernetes/6.DevOps篇/17.DevOps实践.md
       - 7.Kubernetes面试:
           - Kubernetes/7.Kubernetes面试/1.Kubernetes面试题.md
+      - 8.Kubernetes-网络权威指南:
+          - Kubernetes/8.Kubernetes-网络权威指南/1.network-namespace.md
 
   - Docker:
       - 0.学习线路:
@@ -618,7 +619,36 @@ nav:
           - Python-vs-Go/2.进阶/3.使用Redis.md
           - Python-vs-Go/2.进阶/4.使用MongoDB.md
           - Python-vs-Go/2.进阶/5.练手项目推荐.md
-
+  - Git:
+      - Git基础:
+          - Git/1.Git基础.md
+          - Git/2.远程仓库.md
+          - Git/3.分支管理.md
+          - Git/4.分支管理策略.md
+          - Git/5.标签管理.md
+          - Git/6.使用Gitee.md
+          - Git/7.使用Github.md
+          - Git/8.实践GitHub-Flow.md
+          - Git/9.实践Git-Flow.md
+          - Git/10.项目规范.md
+  - Ansible:
+      - Ansible实战:
+          - Ansible/1.Ansible简介.md
+          - Ansible/2.YAML介绍.md
+          - Ansible/3.安装和配置.md
+          - Ansible/4.Inventory.md
+          - Ansible/5.常用模块.md
+          - Ansible/6.playbook.md
+          - Ansible/7.role.md
+          - Ansible/8.Galaxy.md
+          - Ansible/9.Jinja2.md
+          - Ansible/10.Ansible速度优化.md
+          - Ansible/11.Ansible-API.md
+          - Ansible/12.flask+ansible运维后端.md
+          - Ansible/13.Module开发.md
+          - Ansible/14.Plugin开发.md
+          - Ansible/15.Ansible调试.md
+          - Ansible/附录-Ansible-wiki.md
   - Linux:
       - Shell:
           - Linux/Shell/Shell简介.md
@@ -648,32 +678,6 @@ nav:
           - Linux/Shell/24.Linux_Shell脚本攻略.md
           - Linux/Shell/附-shell其它资源.md
           - Linux/Shell/附-vim常用操作.md
-      - Ansible:
-          - Linux/Ansible/1.Ansible简介.md
-          - Linux/Ansible/2.YAML介绍.md
-          - Linux/Ansible/3.安装和配置.md
-          - Linux/Ansible/4.Inventory.md
-          - Linux/Ansible/5.常用模块.md
-          - Linux/Ansible/6.playbook.md
-          - Linux/Ansible/7.role.md
-          - Linux/Ansible/8.Galaxy.md
-          - Linux/Ansible/9.Jinja2.md
-          - Linux/Ansible/10.Ansible速度优化.md
-          - Linux/Ansible/11.Ansible-API.md
-          - Linux/Ansible/12.flask+ansible运维后端.md
-          - Linux/Ansible/13.Module开发.md
-          - Linux/Ansible/14.Plugin开发.md
-          - Linux/Ansible/15.Ansible调试.md
-          - Linux/Ansible/附录-Ansible-wiki.md
-      - Git:
-          - Linux/Git/1.Git基础.md
-          - Linux/Git/2.远程仓库.md
-          - Linux/Git/3.分支管理.md
-          - Linux/Git/4.分支管理策略.md
-          - Linux/Git/7.使用Github.md
-          - Linux/Git/8.实践GitHub-Flow.md
-          - Linux/Git/9.实践Git-Flow.md
-          - Linux/Git/10.项目规范.md
       - KVM:
           - Linux/KVM/1.kvm相关命令.md
           - Linux/KVM/2.kvm虚拟机创建.md
