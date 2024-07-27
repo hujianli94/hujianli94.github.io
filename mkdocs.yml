@@ -13,47 +13,47 @@ copyright: Copyright &copy; 2023 - 2024 hujainli94
 
 # Click to enlarge the image
 extra_css:
-  - stylesheets/extra.css
-  - https://file.cdn.shafish.cn/blog/css/vssue.css
-  - https://file.cdn.shafish.cn/blog/css/video-js.min.css
-  - https://file.cdn.shafish.cn/blog/css/video.css
+- stylesheets/extra.css
+- https://file.cdn.shafish.cn/blog/css/vssue.css
+- https://file.cdn.shafish.cn/blog/css/video-js.min.css
+- https://file.cdn.shafish.cn/blog/css/video.css
 
 extra_javascript:
-  - javascripts/extra.js
-  - https://file.cdn.shafish.cn/blog/js/video.min.js
+- javascripts/extra.js
+- https://file.cdn.shafish.cn/blog/js/video.min.js
 
 # Plugins
 plugins:
-  - search:
-      separator: '[\s\u200b\-]'
-  - tags
-  # Display the last modification time of the file
-  - git-revision-date-localized:
-      type: datetime
-      timezone: Asia/Shanghai
-      enable_creation_date: true
-      exclude:
-        - comments.md
-  - redirects:
-      redirect_maps:
-        changelog/insiders.md: insiders/changelog.md
-        reference/meta-tags.md: reference/index.md
-        reference/variables.md: https://mkdocs-macros-plugin.readthedocs.io/
-        sponsorship.md: insiders/index.md
-        upgrading.md: upgrade.md
-  - minify:
-      minify_html: true
+- search:
+    separator: '[\s\u200b\-]'
+- tags
+# Display the last modification time of the file
+- git-revision-date-localized:
+    type: datetime
+    timezone: Asia/Shanghai
+    enable_creation_date: true
+    exclude:
+    - comments.md
+- redirects:
+    redirect_maps:
+      changelog/insiders.md: insiders/changelog.md
+      reference/meta-tags.md: reference/index.md
+      reference/variables.md: https://mkdocs-macros-plugin.readthedocs.io/
+      sponsorship.md: insiders/index.md
+      upgrading.md: upgrade.md
+- minify:
+    minify_html: true
 
 # Customization
 extra:
   social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/hujianli94
-    - icon: fontawesome/brands/weixin
-      link: https://kaliarch-bucket-1251990360.cos.ap-beijing.myqcloud.com/blog_img/20220125122524.png
-    - icon: fontawesome/solid/paper-plane
-      link: mailto:<1879324764@qq.com>
-      name: 发送邮件
+  - icon: fontawesome/brands/github
+    link: https://github.com/hujianli94
+  - icon: fontawesome/brands/weixin
+    link: https://kaliarch-bucket-1251990360.cos.ap-beijing.myqcloud.com/blog_img/20220125122524.png
+  - icon: fontawesome/solid/paper-plane
+    link: mailto:<1879324764@qq.com>
+    name: 发送邮件
 
   consent:
     title: Cookie consent
@@ -65,70 +65,69 @@ extra:
     feedback:
       title: Was this page helpful?
       ratings:
-        - icon: material/emoticon-happy-outline
-          name: This page was helpful
-          data: 1
-          note: >-
-            Thanks for your feedback!
-        - icon: material/emoticon-sad-outline
-          name: This page could be improved
-          data: 0
-          note: >-
-            Thanks for your feedback! Help us improve this page by using our <a href="https://github.com/hujianli94/hujianli94.github.io/issues/new/?title=[Feedback]+{title}+-+{url}" target=_blank>feedback form</a>.
+      - icon: material/emoticon-happy-outline
+        name: This page was helpful
+        data: 1
+        note: >-
+          Thanks for your feedback!
+      - icon: material/emoticon-sad-outline
+        name: This page could be improved
+        data: 0
+        note: >-
+          Thanks for your feedback! Help us improve this page by using our <a href="https://github.com/hujianli94/hujianli94.github.io/issues/new/?title=[Feedback]+{title}+-+{url}" target=_blank>feedback form</a>.
 # Extensions
 markdown_extensions:
-  - tables
-  - admonition
-  - abbr
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.smartsymbols
-  - pymdownx.inlinehilite
-  - pymdownx.keys
-  - markdown.extensions.def_list
-  - attr_list
-  - footnotes
-  - pymdownx.caret
-  - pymdownx.critic
-  - pymdownx.mark
-  - pymdownx.tilde
-  - meta
-  - def_list
-  - md_in_html
-  - pymdownx.snippets:
-      auto_append:
-        - english/phonetic_note.md # 英语单词注解统一放在该文件中
-      base_path: ["docs/"]
-  - codehilite:
-      guess_lang: false
-      linenums: false
-    #      check_paths: true
-  - toc:
-      permalink: true
-      slugify:
-        !!python/object/apply:pymdownx.slugs.slugify { kwds: { case: lower } }
-  - pymdownx.arithmatex:
-      generic: true
-  - pymdownx.betterem:
-      smart_enable: all
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.magiclink:
-      repo_url_shorthand: true
-      user: hujinali-chaina
-      repo: devops-sre
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.tasklist:
-      custom_checkbox: true
+- tables
+- admonition
+- abbr
+- pymdownx.details
+- pymdownx.superfences
+- pymdownx.smartsymbols
+- pymdownx.inlinehilite
+- pymdownx.keys
+- markdown.extensions.def_list
+- attr_list
+- footnotes
+- pymdownx.caret
+- pymdownx.critic
+- pymdownx.mark
+- pymdownx.tilde
+- meta
+- def_list
+- md_in_html
+- pymdownx.snippets:
+    auto_append:
+    - english/phonetic_note.md # 英语单词注解统一放在该文件中
+    base_path: ["docs/"]
+- codehilite:
+    guess_lang: false
+    linenums: false
+  #      check_paths: true
+- toc:
+    permalink: true
+    slugify: !!python/object/apply:pymdownx.slugs.slugify {kwds: {case: lower}}
+- pymdownx.arithmatex:
+    generic: true
+- pymdownx.betterem:
+    smart_enable: all
+- pymdownx.emoji:
+    emoji_index: !!python/name:materialx.emoji.twemoji
+    emoji_generator: !!python/name:materialx.emoji.to_svg
+- pymdownx.highlight:
+    anchor_linenums: true
+- pymdownx.magiclink:
+    repo_url_shorthand: true
+    user: hujinali-chaina
+    repo: devops-sre
+- pymdownx.superfences:
+    custom_fences:
+    - name: mermaid
+      class: mermaid
+      format: !!python/name:pymdownx.superfences.fence_code_format
+- pymdownx.tabbed:
+    alternate_style: true
+- pymdownx.tasklist:
+    custom_checkbox: true
 
 theme:
   name: "material"
@@ -152,7 +151,7 @@ theme:
 
   # Static files
   static_templates:
-    - 404.html
+  - 404.html
 
   # Don't include MkDocs' JavaScript
   include_search_page: false
@@ -160,46 +159,46 @@ theme:
 
   # Default values, taken from mkdocs_theme.yml
   features:
-    - content.action.edit
-    - content.action.view
-    - content.code.copy
-    - content.code.annotate
-    # - content.tabs.link
-    # - header.autohide
-    # - navigation.expand
-    - navigation.indexes
-    - navigation.footer
-    - navigation.indexes
-    - navigation.tabs
-    # - navigation.instant
-    # - navigation.sections
-    # - navigation.tabs.sticky
-    - navigation.top
-    - navigation.tracking
-    - search.highlight
-    - search.share
-    - search.suggest
+  - content.action.edit
+  - content.action.view
+  - content.code.copy
+  - content.code.annotate
+  # - content.tabs.link
+  # - header.autohide
+  # - navigation.expand
+  - navigation.indexes
+  - navigation.footer
+  - navigation.indexes
+  - navigation.tabs
+  # - navigation.instant
+  # - navigation.sections
+  # - navigation.tabs.sticky
+  - navigation.top
+  - navigation.tracking
+  - search.highlight
+  - search.share
+  - search.suggest
   # - toc.integrate
 
   palette:
-    - scheme: default
-      media: "(prefers-color-scheme: light)"
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/weather-night
-        # icon: material/brightness-7
-        # icon: material/lightbulb
-        name: 切换至深色模式
-    - scheme: slate
-      media: "(prefers-color-scheme: dark)"
-      primary: blue
-      accent: blue
-      toggle:
-        icon: material/weather-sunny
-        # icon: material/brightness-4
-        # icon: material/lightbulb-outline
-        name: 切换至浅色模式
+  - scheme: default
+    media: "(prefers-color-scheme: light)"
+    primary: indigo
+    accent: indigo
+    toggle:
+      icon: material/weather-night
+      # icon: material/brightness-7
+      # icon: material/lightbulb
+      name: 切换至深色模式
+  - scheme: slate
+    media: "(prefers-color-scheme: dark)"
+    primary: blue
+    accent: blue
+    toggle:
+      icon: material/weather-sunny
+      # icon: material/brightness-4
+      # icon: material/lightbulb-outline
+      name: 切换至浅色模式
   font:
     text: Roboto
     code: Roboto Mono
@@ -208,538 +207,538 @@ theme:
 
 # Page tree
 nav:
-  - 首页: index.md
+- 首页: index.md
 
-  - k8s:
-      - 0.学习线路:
-          - k8s/0.学习线路/0.k8s.md
-      - 1.容器的发展史:
-          - k8s/1.容器的发展史/1.1开发过程的发展.md
-          - k8s/1.容器的发展史/1.2应用架构的发展.md
-          - k8s/1.容器的发展史/1.3部署打包的发展.md
-      - 2.Kubernetes的核心概念:
-          - k8s/2.Kubernetes的核心概念/2.1Kubernetes的设计架构.md
-          - k8s/2.Kubernetes的核心概念/2.2Kubernetes的核心对象.md
-      - 3.Kubernetes的安装和部署:
-          - k8s/3.Kubernetes的安装和部署/3.1kubeadm搭建开发环境.md
-          - k8s/3.Kubernetes的安装和部署/3.2kubeadm搭建生产环境.md
-      - 4.Pod:
-          - k8s/4.Pod/4.1Pod的基本操作.md
-      - 5.控制器:
-          - k8s/5.控制器/5.1Deployment.md
+- k8s:
+  - 0.学习线路:
+    - k8s/0.学习线路/0.k8s.md
+  - 1.容器的发展史:
+    - k8s/1.容器的发展史/1.1开发过程的发展.md
+    - k8s/1.容器的发展史/1.2应用架构的发展.md
+    - k8s/1.容器的发展史/1.3部署打包的发展.md
+  - 2.Kubernetes的核心概念:
+    - k8s/2.Kubernetes的核心概念/2.1Kubernetes的设计架构.md
+    - k8s/2.Kubernetes的核心概念/2.2Kubernetes的核心对象.md
+  - 3.Kubernetes的安装和部署:
+    - k8s/3.Kubernetes的安装和部署/3.1kubeadm搭建开发环境.md
+    - k8s/3.Kubernetes的安装和部署/3.2kubeadm搭建生产环境.md
+  - 4.Pod:
+    - k8s/4.Pod/4.1Pod的基本操作.md
+  - 5.控制器:
+    - k8s/5.控制器/5.1Deployment.md
+- Kubernetes:
+  - 0.学习线路:
+    - Kubernetes/0.学习线路/0.Kubernetes.md
+  - 1.安装篇:
+    - Kubernetes/1.安装篇/1.Kubeadm安装高可用K8s集群.md
+    - Kubernetes/1.安装篇/2.二进制安装高可用K8s集群.md
+    - Kubernetes/1.安装篇/3.安装常用工具.md
+    - Kubernetes/1.安装篇/4.Kubeadm安装开发环境.md
+    - Kubernetes/1.安装篇/5.K3s和Minikube.md
+  - 2.基础篇:
+    - Kubernetes/2.基础篇/3.Docker基础.md
+    - Kubernetes/2.基础篇/4.Kubernetes的基础概念.md
+    - Kubernetes/2.基础篇/5.Kubernetes调度基础.md
+    - Kubernetes/2.基础篇/6.Kubernetes服务发布基础.md
+    - Kubernetes/2.基础篇/7.Kubernetes配置管理.md
+  - 3.进阶篇:
+    - Kubernetes/3.进阶篇/8.Kubernetes存储入门.md
+    - Kubernetes/3.进阶篇/9.Kubernetes高级调度.md
+  - 4.高级篇:
+    - Kubernetes/4.高级篇/12.云原生存储Rook.md
+    - Kubernetes/4.高级篇/13.中间件容器化.md
+  - 5.运维篇:
+    - Kubernetes/5.运维篇/14.Kubernetes日志收集.md
+    - Kubernetes/5.运维篇/15.Kubernetes监控告警.md
+    - Kubernetes/5.运维篇/16.服务发布Ingress进阶.md
+  - 6.DevOps篇:
+    - Kubernetes/6.DevOps篇/17.DevOps实践.md
+  - 7.Kubernetes面试:
+    - Kubernetes/7.Kubernetes面试/1.Kubernetes面试题.md
+  - 8.Kubernetes-网络权威指南:
+    - Kubernetes/8.Kubernetes-网络权威指南/1.network-namespace.md
 
-      - 0.network-namespace:
-          - K8s-network/0.network-namespace/1.network-namespace.md
+- Docker:
+  - 0.学习线路:
+    - Docker/0.学习线路/0.Docker.md
+  - 1.基础:
+    - Docker/1.基础/1.安装Docker.md
+    - Docker/1.基础/2.Docker镜像.md
+    - Docker/1.基础/3.Docker容器.md
+    - Docker/1.基础/4.企业私有仓库harbor.md
+    - Docker/1.基础/5.Docker数据.md
+    - Docker/1.基础/6.Docker网络.md
+    - Docker/1.基础/7.Dockerfile.md
+    - Docker/1.基础/8.docker-compose.md
+    - Docker/1.基础/9.Docker相关脚本.md
+    - Docker/1.基础/10.Docker常用命令.md
+  - 2.实战案例:
+    - Docker/2.实战案例/1.操作系统.md
+    - Docker/2.实战案例/2.Web服务与应用.md
+    - Docker/2.实战案例/3.持续开发与管理.md
+    - Docker/2.实战案例/4.数据库应用.md
+  - 3.Devops:
+    - Docker/3.Devops/1.confcenter-docker.md
+    - Docker/3.Devops/2.simaple-jenkins.md
+    - Docker/3.Devops/3.docker-nginx-spa.md
+    - Docker/3.Devops/4.fileserver-docker.md
+    - Docker/3.Devops/5.haproxy-docker.md
+    - Docker/3.Devops/6.mysql-docker.md
+    - Docker/3.Devops/7.frp-docker.md
+    - Docker/3.Devops/8.coredns-docker.md
+    - Docker/3.Devops/9.simple-harbor.md
+    - Docker/3.Devops/10.redis-docker.md
+    - Docker/3.Devops/11.nexus3-docker.md
+    - Docker/3.Devops/12.openvpn-docker.md
+    - Docker/3.Devops/13.nfs-docker.md
+    - Docker/3.Devops/14.jumpserver-docker.md
+    - Docker/3.Devops/15.ansible-docker.md
+    - Docker/3.Devops/16.minio-docker.md
+    - Docker/3.Devops/17.vaultwarden-docker.md
+    - Docker/3.Devops/18.kasm-docker.md
+    - Docker/3.Devops/19.nginx-docker.md
+    - Docker/3.Devops/20.kafka-docker.md
+    - Docker/3.Devops/21.golang-docker.md
+    - Docker/3.Devops/22.postgres-docker.md
+    - Docker/3.Devops/23.nginx-download-docker.md
+    - Docker/3.Devops/24.helm部署常用服务.md
+    - Docker/3.Devops/25.Python操作Docker.md
+    - Docker/3.Devops/26.docker-compose-devops.md
+    - Docker/3.Devops/27.DevOps下的Shell脚本.md
+    - Docker/3.Devops/28.Devops下的Python脚本.md
+    - Docker/3.Devops/29.Vagrant虚拟机.md
+    - Docker/3.Devops/30.VMware-workstation.md
+    - Docker/3.Devops/31.VirtualBox.md
+    - Docker/3.Devops/32.Devops相关存储库.md
+    - Docker/3.Devops/33.terraform概述.md
+    - Docker/3.Devops/34.加速dockerhub.md
+    - Docker/3.Devops/35.instantbox.md
+    - Docker/3.Devops/36.docker-prometheus-stack.md
+    - Docker/3.Devops/37.grabber.md
+    - Docker/3.Devops/38.webhookbot.md
 
-  - Kubernetes:
-      - 0.学习线路:
-          - Kubernetes/0.学习线路/0.Kubernetes.md
-      - 1.安装篇:
-          - Kubernetes/1.安装篇/1.Kubeadm安装高可用K8s集群.md
-          - Kubernetes/1.安装篇/2.二进制安装高可用K8s集群.md
-          - Kubernetes/1.安装篇/3.安装常用工具.md
-          - Kubernetes/1.安装篇/4.Kubeadm安装开发环境.md
-          - Kubernetes/1.安装篇/5.K3s和Minikube.md
-      - 2.基础篇:
-          - Kubernetes/2.基础篇/3.Docker基础.md
-          - Kubernetes/2.基础篇/4.Kubernetes的基础概念.md
-          - Kubernetes/2.基础篇/5.Kubernetes调度基础.md
-          - Kubernetes/2.基础篇/6.Kubernetes服务发布基础.md
-          - Kubernetes/2.基础篇/7.Kubernetes配置管理.md
-      - 3.进阶篇:
-          - Kubernetes/3.进阶篇/8.Kubernetes存储入门.md
-          - Kubernetes/3.进阶篇/9.Kubernetes高级调度.md
-      - 4.高级篇:
-          - Kubernetes/4.高级篇/12.云原生存储Rook.md
-          - Kubernetes/4.高级篇/13.中间件容器化.md
-      - 5.运维篇:
-          - Kubernetes/5.运维篇/14.Kubernetes日志收集.md
-          - Kubernetes/5.运维篇/15.Kubernetes监控告警.md
-          - Kubernetes/5.运维篇/16.服务发布Ingress进阶.md
-      - 6.DevOps篇:
-          - Kubernetes/6.DevOps篇/17.DevOps实践.md
-      - 7.Kubernetes面试:
-          - Kubernetes/7.Kubernetes面试/1.Kubernetes面试题.md
-      - 8.Kubernetes-网络权威指南:
-          - Kubernetes/8.Kubernetes-网络权威指南/1.network-namespace.md
+- Golang:
+  - 0.学习线路:
+    - Golang/0.学习线路/0.Go-Web开发实战.md
+  - 1.Go基础:
+    - Golang/1.Go基础/1.安装Go.md
+    - Golang/1.Go基础/2.第一个Go程序.md
+    - Golang/1.Go基础/3.Go基础语法.md
+    - Golang/1.Go基础/4.Go-Module.md
+    - Golang/1.Go基础/5.Go-标准目录结构.md
+  - 2.Go-Web基础:
+    - Golang/2.Go-Web基础/5.第一个Go-Web程序.md
+    - Golang/2.Go-Web基础/6.Web程序运行原理简介.md
+    - Golang/2.Go-Web基础/7.net-http包.md
+    - Golang/2.Go-Web基础/8.html-template包.md
+  - 3.Go-Web请求处理:
+    - Golang/3.Go-Web请求处理/9.简单Web服务器.md
+    - Golang/3.Go-Web请求处理/10.处理请求.md
+    - Golang/3.Go-Web请求处理/11.session和cookie.md
+  - 4.Go访问数据库:
+    - Golang/4.Go访问数据库/12.Go操作MySQL.md
+    - Golang/4.Go访问数据库/13.Go操作Redis.md
+    - Golang/4.Go访问数据库/14.Go操作MongoDB.md
+    - Golang/4.Go访问数据库/15.Go的常见ORM库.md
+    - Golang/4.Go访问数据库/16.Go操作SQLite.md
+  - 5.Go高级网络编程:
+    - Golang/5.Go高级网络编程/17.Go-Socket编程.md
+    - Golang/5.Go高级网络编程/18.Go-RPC编程.md
+    - Golang/5.Go高级网络编程/19.Go-微服务.md
+  - 6.Go文件处理:
+    - Golang/6.Go文件处理/20.处理目录与文件.md
+    - Golang/6.Go文件处理/21.处理XML文件.md
+    - Golang/6.Go文件处理/22.处理JSON文件.md
+    - Golang/6.Go文件处理/23.处理CSV文件.md
+    - Golang/6.Go文件处理/24.处理Go日志记录.md
+    - Golang/6.Go文件处理/25.处理正则表达式.md
+    - Golang/6.Go文件处理/26.处理Excel文件.md
+  - 7.Go并发编程:
+    - Golang/7.Go并发编程/26.并发-并行.md
+    - Golang/7.Go并发编程/27.进程-线程-协程.md
+    - Golang/7.Go并发编程/28.Go并发模型.md
+    - Golang/7.Go并发编程/29.goroutine和channel.md
+    - Golang/7.Go并发编程/30.sync实现并发.md
+    - Golang/7.Go并发编程/31.Go并发的Web应用.md
+  - 8.Go标准库:
+    - Golang/8.Go标准库/32.time.md
+    - Golang/8.Go标准库/33.strings.md
+    - Golang/8.Go标准库/34.bytes.md
+    - Golang/8.Go标准库/35.json.md
+    - Golang/8.Go标准库/36.io-bufio.md
+    - Golang/8.Go标准库/37.fmt.md
+    - Golang/8.Go标准库/38.strconv.md
+    - Golang/8.Go标准库/39.regexp.md
+    - Golang/8.Go标准库/40.log.md
+    - Golang/8.Go标准库/41.reflect-unsafe.md
+    - Golang/8.Go标准库/42.os-path-filepath.md
+    - Golang/8.Go标准库/43.unicode.md
+    - Golang/8.Go标准库/44.flag.md
+    - Golang/8.Go标准库/45.net-url.md
+    - Golang/8.Go标准库/46.net-http.md
+    - Golang/8.Go标准库/47.sort.md
+    - Golang/8.Go标准库/48.errors.md
+    - Golang/8.Go标准库/49.函数工具库.md
+    - Golang/8.Go标准库/50.Go语言在运维开发中的应用.md
+  - 9.Go三方库:
+    - Golang/9.Go三方库/0.开源自己的Go库.md
+    - Golang/9.Go三方库/1.cobra.md
+    - Golang/9.Go三方库/2.viper.md
+    - Golang/9.Go三方库/3.Zap.md
+    - Golang/9.Go三方库/4.mahonia.md
+    - Golang/9.Go三方库/5.ssh.md
+    - Golang/9.Go三方库/6.fsnotify.md
+    - Golang/9.Go三方库/7.yaml.md
+    - Golang/9.Go三方库/8.tail.md
+    - Golang/9.Go三方库/9.gRPC.md
+    - Golang/9.Go三方库/10.gopsutil.md
+    - Golang/9.Go三方库/11.go-awesome.md
+    - Golang/9.Go三方库/12.dmidecode.md
+    - Golang/9.Go三方库/13.toml.md
+    - Golang/9.Go三方库/14.其他三方库.md
+  - 10.Go-RESTful-API接口开发:
+    - Golang/10.Go-RESTful-API接口开发/1.什么是RESTful-API.md
+    - Golang/10.Go-RESTful-API接口开发/2.GORMv2.md
+    - Golang/10.Go-RESTful-API接口开发/3.Gin框架的使用.md
+    - Golang/10.Go-RESTful-API接口开发/4.图书管理系统-前端.md
+    - Golang/10.Go-RESTful-API接口开发/5.图书管理系统-后端.md
+    - Golang/10.Go-RESTful-API接口开发/6.Gin+Vue入门项目.md
+  - 11.Web前端:
+    - Golang/11.Web前端/1.HTML标记语言.md
+    - Golang/11.Web前端/2.CSS样式语言.md
+    - Golang/11.Web前端/3.JavaScript客户端脚本语言.md
+    - Golang/11.Web前端/4.JavaScript库-JQuery.md
+  - 12.Vue前端开发:
+    - Golang/12.Vue前端开发/1.认识Vue.js.md
+    - Golang/12.Vue前端开发/2.Vue常用指令.md
+    - Golang/12.Vue前端开发/3.Vue常用属性.md
+    - Golang/12.Vue前端开发/4.Vue常用指令之流程控制.md
+    - Golang/12.Vue前端开发/5.Vue常用指令之数据双向绑定.md
+    - Golang/12.Vue前端开发/6.Vue生命周期钩子.md
+    - Golang/12.Vue前端开发/7.VueCli脚手架.md
+    - Golang/12.Vue前端开发/8.Vue组件.md
+    - Golang/12.Vue前端开发/9.Vue路由.md
+    - Golang/12.Vue前端开发/10.Vuex状态管理.md
+    - Golang/12.Vue前端开发/11.前后端数据交互-Axios.md
+    - Golang/12.Vue前端开发/12.Element-Plus.md
+  - 13.K8s管理系统项目实战:
+    - Golang/13.K8s管理系统项目实战/1.K8s管理系统-后端开发.md
+    - Golang/13.K8s管理系统项目实战/2.K8s管理系统-前端开发.md
+  - 14.Go开发的三方平台:
+    - Golang/14.Go开发的三方平台/0.为什么使用Go做后端开发.md
+    - Golang/14.Go开发的三方平台/1.TBak-System备份平台.md
+    - Golang/14.Go开发的三方平台/2.kubernetes容器云管理平台.md
+    - Golang/14.Go开发的三方平台/3.Go命令行工具.md
+    - Golang/14.Go开发的三方平台/4.内网穿透.md
+    - Golang/14.Go开发的三方平台/5.go-web项目.md
+    - Golang/14.Go开发的三方平台/6.go-三方工具简单入门.md
+    - Golang/14.Go开发的三方平台/7.diamond-devops.md
+    - Golang/14.Go开发的三方平台/8.Go语言学习目录.md
+  - 15.容器化Go:
+    - Golang/15.容器化Go/0.构建Go应用docker镜像.md
 
-  - Docker:
-      - 0.学习线路:
-          - Docker/0.学习线路/0.Docker.md
-      - 1.基础:
-          - Docker/1.基础/1.安装Docker.md
-          - Docker/1.基础/2.Docker镜像.md
-          - Docker/1.基础/3.Docker容器.md
-          - Docker/1.基础/4.企业私有仓库harbor.md
-          - Docker/1.基础/5.Docker数据.md
-          - Docker/1.基础/6.Docker网络.md
-          - Docker/1.基础/7.Dockerfile.md
-          - Docker/1.基础/8.docker-compose.md
-          - Docker/1.基础/9.Docker相关脚本.md
-          - Docker/1.基础/10.Docker常用命令.md
-      - 2.实战案例:
-          - Docker/2.实战案例/1.操作系统.md
-          - Docker/2.实战案例/2.Web服务与应用.md
-          - Docker/2.实战案例/3.持续开发与管理.md
-          - Docker/2.实战案例/4.数据库应用.md
-      - 3.Devops:
-          - Docker/3.Devops/1.confcenter-docker.md
-          - Docker/3.Devops/2.simaple-jenkins.md
-          - Docker/3.Devops/3.docker-nginx-spa.md
-          - Docker/3.Devops/4.fileserver-docker.md
-          - Docker/3.Devops/5.haproxy-docker.md
-          - Docker/3.Devops/6.mysql-docker.md
-          - Docker/3.Devops/7.frp-docker.md
-          - Docker/3.Devops/8.coredns-docker.md
-          - Docker/3.Devops/9.simple-harbor.md
-          - Docker/3.Devops/10.redis-docker.md
-          - Docker/3.Devops/11.nexus3-docker.md
-          - Docker/3.Devops/12.openvpn-docker.md
-          - Docker/3.Devops/13.nfs-docker.md
-          - Docker/3.Devops/14.jumpserver-docker.md
-          - Docker/3.Devops/15.ansible-docker.md
-          - Docker/3.Devops/16.minio-docker.md
-          - Docker/3.Devops/17.vaultwarden-docker.md
-          - Docker/3.Devops/18.kasm-docker.md
-          - Docker/3.Devops/19.nginx-docker.md
-          - Docker/3.Devops/20.kafka-docker.md
-          - Docker/3.Devops/21.golang-docker.md
-          - Docker/3.Devops/22.postgres-docker.md
-          - Docker/3.Devops/23.nginx-download-docker.md
-          - Docker/3.Devops/24.helm部署常用服务.md
-          - Docker/3.Devops/25.Python操作Docker.md
-          - Docker/3.Devops/26.docker-compose-devops.md
-          - Docker/3.Devops/27.DevOps下的Shell脚本.md
-          - Docker/3.Devops/28.Devops下的Python脚本.md
-          - Docker/3.Devops/29.Vagrant虚拟机.md
-          - Docker/3.Devops/30.VMware-workstation.md
-          - Docker/3.Devops/31.VirtualBox.md
-          - Docker/3.Devops/32.Devops相关存储库.md
-          - Docker/3.Devops/33.terraform概述.md
-          - Docker/3.Devops/34.加速dockerhub.md
-          - Docker/3.Devops/35.instantbox.md
-          - Docker/3.Devops/36.docker-prometheus-stack.md
-          - Docker/3.Devops/37.grabber.md
-          - Docker/3.Devops/38.webhookbot.md
+- Python:
+  - 0.学习线路:
+    - Python/0.学习线路/0.Pythjon-auto-ops.md
+  - 1.Python基础篇:
+    - Python/1.Python基础篇/1.Python生态工具.md
+    - Python/1.Python基础篇/2.Python第三方库安装.md
+    - Python/1.Python基础篇/3.Python工作环境管理.md
+    - Python/1.Python基础篇/4.Python开发环境.md
+    - Python/1.Python基础篇/5.Python数据结构.md
+    - Python/1.Python基础篇/6.Python项目结构.md
+    - Python/1.Python基础篇/7.Python代码规范.md
+    - Python/1.Python基础篇/8.Python基础知识.md
+    - Python/1.Python基础篇/9.Python字符串.md
+    - Python/1.Python基础篇/10.Python数据类型.md
+    - Python/1.Python基础篇/11.Python运算符和流程控制.md
+    - Python/1.Python基础篇/12.Python文件操作.md
+    - Python/1.Python基础篇/13.Python函数.md
+    - Python/1.Python基础篇/14.Python常用内建函数.md
+    - Python/1.Python基础篇/15.Python类.md
+    - Python/1.Python基础篇/16.Python异常处理.md
+    - Python/1.Python基础篇/17.Python模块与包.md
+    - Python/1.Python基础篇/18.Python标准库.md
+    - Python/1.Python基础篇/19.Python正则表达式.md
+    - Python/1.Python基础篇/20.Python数据库编程.md
+    - Python/1.Python基础篇/21.Python批量管理主机.md
+    - Python/1.Python基础篇/22.Python多线程多进程协程.md
+    - Python/1.Python基础篇/23.Python代码调试.md
+    - Python/1.Python基础篇/24.Python单元测试.md
+    - Python/1.Python基础篇/附录1-虚拟环境.md
+    - Python/1.Python基础篇/附录2-打包和分发.md
+    - Python/1.Python基础篇/附录3-安装第三方软件包.md
+  - 2.Python运维开发:
+    - Python/2.Python运维开发/1.命令行工具.md
+    - Python/2.Python运维开发/2.文本处理.md
+    - Python/2.Python运维开发/3.Linux系统管理.md
+    - Python/2.Python运维开发/4.监控Linux.md
+    - Python/2.Python运维开发/5.文档与报告.md
+    - Python/2.Python运维开发/6.网络.md
+    - Python/2.Python运维开发/7.自动化管理.md
+    - Python/2.Python运维开发/8.常用模块.md
+    - Python/2.Python运维开发/9.Python打造MySQL专家系统.md
+    - Python/2.Python运维开发/10.自动化运维系统的开发.md
+    - Python/2.Python运维开发/11.华为云Python演示代码.md
+    - Python/2.Python运维开发/12.华为云Go演示代码.md
+    - Python/2.Python运维开发/附-运维相关开源项目.md
+    - Python/2.Python运维开发/附-awesome-python-cn.md
+    - Python/2.Python运维开发/附-CMDB.md
+    - Python/2.Python运维开发/附-Django-web开发.md
+  - 3.Python测试开发:
+    - Python/3.Python测试开发/1.Python2与Python3区别.md
+    - Python/3.Python测试开发/2.Windows环境安装Python.md
+    - Python/3.Python测试开发/3.Linux多版本Python安装.md
+    - Python/3.Python测试开发/4.Python虚拟环境安装.md
+    - Python/3.Python测试开发/5.Pycharm安装与使用.md
+    - Python/3.Python测试开发/6.Python间接定义常量.md
+    - Python/3.Python测试开发/7.Python运算符与表达式.md
+    - Python/3.Python测试开发/8.逻辑控制语句.md
+    - Python/3.Python测试开发/9.数据结构介绍.md
+    - Python/3.Python测试开发/10.函数介绍.md
+    - Python/3.Python测试开发/11.类与对象.md
+    - Python/3.Python测试开发/12.打包与发布.md
+    - Python/3.Python测试开发/13.异常捕获与处理.md
+    - Python/3.Python测试开发/14.并发编程.md
+    - Python/3.Python测试开发/15.标准库和三方库.md
+    - Python/3.Python测试开发/16.vue-cli脚手架.md
+    - Python/3.Python测试开发/17.案例实践-任务列表.md
+  - 4.Flask-Web全栈开发:
+    - Python/4.Flask-Web全栈开发/1.Flask前奏.md
+    - Python/4.Flask-Web全栈开发/2.项目配置.md
+    - Python/4.Flask-Web全栈开发/3.URL与视图.md
+    - Python/4.Flask-Web全栈开发/4.Jinja2模板.md
+    - Python/4.Flask-Web全栈开发/5.数据库.md
+    - Python/4.Flask-Web全栈开发/6.表单.md
+    - Python/4.Flask-Web全栈开发/7.Flask进阶.md
+    - Python/4.Flask-Web全栈开发/8.缓存系统.md
+    - Python/4.Flask-Web全栈开发/9.Flask项目实战.md
+    - Python/4.Flask-Web全栈开发/10.WebSock实战.md
+    - Python/4.Flask-Web全栈开发/11.Flask异步编程.md
+    - Python/4.Flask-Web全栈开发/附-使用Pytest测试Flask.md
+    - Python/4.Flask-Web全栈开发/附-图书管理系统.md
+    - Python/4.Flask-Web全栈开发/附-Flask常用扩展.md
+    - Python/4.Flask-Web全栈开发/附-Flask和Redis队列的异步任务.md
+    - Python/4.Flask-Web全栈开发/附-Flask和Vue.js开发单页应用.md
+    - Python/4.Flask-Web全栈开发/附-Flask容器化实践.md
+    - Python/4.Flask-Web全栈开发/附-Flask数据模型.md
+  - 5.DevOps和自动化运维实践:
+    - Python/5.DevOps和自动化运维实践/1.Devops与自动化运维的意义.md
+    - Python/5.DevOps和自动化运维实践/2.Shell脚本在Devops下的应用.md
+    - Python/5.DevOps和自动化运维实践/3.生产环境下的Shell脚本.md
+    - Python/5.DevOps和自动化运维实践/4.工作中的Python脚本分享.md
+  - 6.CMDB项目实战:
+    - Python/6.CMDB项目实战/0.DRF前奏.md
+    - Python/6.CMDB项目实战/1.DRF入门.md
+    - Python/6.CMDB项目实战/2.DRF进阶.md
+    - Python/6.CMDB项目实战/3.CMDB后端开发.md
+    - Python/6.CMDB项目实战/4.Vue前端开发-上.md
+    - Python/6.CMDB项目实战/5.Vue前端开发-下.md
+    - Python/6.CMDB项目实战/6.Element-Plus前端组件库.md
+    - Python/6.CMDB项目实战/7.CMDB前端开发-上.md
+    - Python/6.CMDB项目实战/8.CMDB前端开发-下.md
+  - 7.Python网络编程攻略:
+    - Python/7.Python网络编程攻略/1.IPv4和简单的客户端-服务器编程.md
+    - Python/7.Python网络编程攻略/2.使用多路复用套接字-IO提升性能.md
+    - Python/7.Python网络编程攻略/3.IPv6-Unix域套接字和网络接口.md
+  - 8.Python自动化运维实战:
+    - Python/8.Python自动化运维实战/1.搭建Python环境.md
+    - Python/8.Python自动化运维实战/2.常用的自动化库.md
+    - Python/8.Python自动化运维实战/3.搭建网络实验室环境.md
+    - Python/8.Python自动化运维实战/4.使用Python管理网络设备.md
+    - Python/8.Python自动化运维实战/5.从网络设备中提取数据.md
+    - Python/8.Python自动化运维实战/6.Python和Jinja2配置生成器.md
+    - Python/8.Python自动化运维实战/7.并行执行Python脚本.md
+    - Python/8.Python自动化运维实战/8.准备实验室环境.md
+    - Python/8.Python自动化运维实战/9.使用Subprocess模块.md
+    - Python/8.Python自动化运维实战/10.使用Fabric运行系统管理任务.md
+    - Python/8.Python自动化运维实战/11.生成系统报告和系统监控.md
+    - Python/8.Python自动化运维实战/12.与数据库交互.md
+    - Python/8.Python自动化运维实战/13.系统管理的Ansible.md
 
-  - Golang:
-      - 0.学习线路:
-          - Golang/0.学习线路/0.Go-Web开发实战.md
-      - 1.Go基础:
-          - Golang/1.Go基础/1.安装Go.md
-          - Golang/1.Go基础/2.第一个Go程序.md
-          - Golang/1.Go基础/3.Go基础语法.md
-          - Golang/1.Go基础/4.Go-Module.md
-          - Golang/1.Go基础/5.Go-标准目录结构.md
-      - 2.Go-Web基础:
-          - Golang/2.Go-Web基础/5.第一个Go-Web程序.md
-          - Golang/2.Go-Web基础/6.Web程序运行原理简介.md
-          - Golang/2.Go-Web基础/7.net-http包.md
-          - Golang/2.Go-Web基础/8.html-template包.md
-      - 3.Go-Web请求处理:
-          - Golang/3.Go-Web请求处理/9.简单Web服务器.md
-          - Golang/3.Go-Web请求处理/10.处理请求.md
-          - Golang/3.Go-Web请求处理/11.session和cookie.md
-      - 4.Go访问数据库:
-          - Golang/4.Go访问数据库/12.Go操作MySQL.md
-          - Golang/4.Go访问数据库/13.Go操作Redis.md
-          - Golang/4.Go访问数据库/14.Go操作MongoDB.md
-          - Golang/4.Go访问数据库/15.Go的常见ORM库.md
-          - Golang/4.Go访问数据库/16.Go操作SQLite.md
-      - 5.Go高级网络编程:
-          - Golang/5.Go高级网络编程/17.Go-Socket编程.md
-          - Golang/5.Go高级网络编程/18.Go-RPC编程.md
-          - Golang/5.Go高级网络编程/19.Go-微服务.md
-      - 6.Go文件处理:
-          - Golang/6.Go文件处理/20.处理目录与文件.md
-          - Golang/6.Go文件处理/21.处理XML文件.md
-          - Golang/6.Go文件处理/22.处理JSON文件.md
-          - Golang/6.Go文件处理/23.处理CSV文件.md
-          - Golang/6.Go文件处理/24.处理Go日志记录.md
-          - Golang/6.Go文件处理/25.处理正则表达式.md
-          - Golang/6.Go文件处理/26.处理Excel文件.md
-      - 7.Go并发编程:
-          - Golang/7.Go并发编程/26.并发-并行.md
-          - Golang/7.Go并发编程/27.进程-线程-协程.md
-          - Golang/7.Go并发编程/28.Go并发模型.md
-          - Golang/7.Go并发编程/29.goroutine和channel.md
-          - Golang/7.Go并发编程/30.sync实现并发.md
-          - Golang/7.Go并发编程/31.Go并发的Web应用.md
-      - 8.Go标准库:
-          - Golang/8.Go标准库/32.time.md
-          - Golang/8.Go标准库/33.strings.md
-          - Golang/8.Go标准库/34.bytes.md
-          - Golang/8.Go标准库/35.json.md
-          - Golang/8.Go标准库/36.io-bufio.md
-          - Golang/8.Go标准库/37.fmt.md
-          - Golang/8.Go标准库/38.strconv.md
-          - Golang/8.Go标准库/39.regexp.md
-          - Golang/8.Go标准库/40.log.md
-          - Golang/8.Go标准库/41.reflect-unsafe.md
-          - Golang/8.Go标准库/42.os-path-filepath.md
-          - Golang/8.Go标准库/43.unicode.md
-          - Golang/8.Go标准库/44.flag.md
-          - Golang/8.Go标准库/45.net-url.md
-          - Golang/8.Go标准库/46.net-http.md
-          - Golang/8.Go标准库/47.sort.md
-          - Golang/8.Go标准库/48.errors.md
-          - Golang/8.Go标准库/49.函数工具库.md
-          - Golang/8.Go标准库/50.Go语言在运维开发中的应用.md
-      - 9.Go三方库:
-          - Golang/9.Go三方库/0.开源自己的Go库.md
-          - Golang/9.Go三方库/1.cobra.md
-          - Golang/9.Go三方库/2.viper.md
-          - Golang/9.Go三方库/3.Zap.md
-          - Golang/9.Go三方库/4.mahonia.md
-          - Golang/9.Go三方库/5.ssh.md
-          - Golang/9.Go三方库/6.fsnotify.md
-          - Golang/9.Go三方库/7.yaml.md
-          - Golang/9.Go三方库/8.tail.md
-          - Golang/9.Go三方库/9.gRPC.md
-          - Golang/9.Go三方库/10.gopsutil.md
-          - Golang/9.Go三方库/11.go-awesome.md
-          - Golang/9.Go三方库/12.dmidecode.md
-          - Golang/9.Go三方库/13.toml.md
-          - Golang/9.Go三方库/14.其他三方库.md
-      - 10.Go-RESTful-API接口开发:
-          - Golang/10.Go-RESTful-API接口开发/1.什么是RESTful-API.md
-          - Golang/10.Go-RESTful-API接口开发/2.GORMv2.md
-          - Golang/10.Go-RESTful-API接口开发/3.Gin框架的使用.md
-          - Golang/10.Go-RESTful-API接口开发/4.图书管理系统-前端.md
-          - Golang/10.Go-RESTful-API接口开发/5.图书管理系统-后端.md
-          - Golang/10.Go-RESTful-API接口开发/6.Gin+Vue入门项目.md
-      - 11.Web前端:
-          - Golang/11.Web前端/1.HTML标记语言.md
-          - Golang/11.Web前端/2.CSS样式语言.md
-          - Golang/11.Web前端/3.JavaScript客户端脚本语言.md
-          - Golang/11.Web前端/4.JavaScript库-JQuery.md
-      - 12.Vue前端开发:
-          - Golang/12.Vue前端开发/1.认识Vue.js.md
-          - Golang/12.Vue前端开发/2.Vue常用指令.md
-          - Golang/12.Vue前端开发/3.Vue常用属性.md
-          - Golang/12.Vue前端开发/4.Vue常用指令之流程控制.md
-          - Golang/12.Vue前端开发/5.Vue常用指令之数据双向绑定.md
-          - Golang/12.Vue前端开发/6.Vue生命周期钩子.md
-          - Golang/12.Vue前端开发/7.VueCli脚手架.md
-          - Golang/12.Vue前端开发/8.Vue组件.md
-          - Golang/12.Vue前端开发/9.Vue路由.md
-          - Golang/12.Vue前端开发/10.Vuex状态管理.md
-          - Golang/12.Vue前端开发/11.前后端数据交互-Axios.md
-          - Golang/12.Vue前端开发/12.Element-Plus.md
-      - 13.K8s管理系统项目实战:
-          - Golang/13.K8s管理系统项目实战/1.K8s管理系统-后端开发.md
-          - Golang/13.K8s管理系统项目实战/2.K8s管理系统-前端开发.md
-      - 14.Go开发的三方平台:
-          - Golang/14.Go开发的三方平台/0.为什么使用Go做后端开发.md
-          - Golang/14.Go开发的三方平台/1.TBak-System备份平台.md
-          - Golang/14.Go开发的三方平台/2.kubernetes容器云管理平台.md
-          - Golang/14.Go开发的三方平台/3.Go命令行工具.md
-          - Golang/14.Go开发的三方平台/4.内网穿透.md
-          - Golang/14.Go开发的三方平台/5.go-web项目.md
-          - Golang/14.Go开发的三方平台/6.go-三方工具简单入门.md
-          - Golang/14.Go开发的三方平台/7.diamond-devops.md
-          - Golang/14.Go开发的三方平台/8.Go语言学习目录.md
-      - 15.容器化Go:
-          - Golang/15.容器化Go/0.构建Go应用docker镜像.md
+- Openstack:
+  - 0.学习线路:
+    - Openstack/0.学习线路/0.OpenStack.md
+  - 1.OpenStack工程师工作:
+    - Openstack/1.OpenStack工程师工作/1.Horizon界面工程师.md
+    - Openstack/1.OpenStack工程师工作/2.Neutron网络工程师.md
+    - Openstack/1.OpenStack工程师工作/3.Nova资深工程师.md
+  - 2.开发环境的搭建:
+    - Openstack/2.开发环境的搭建/1.Windows开发环境的搭建.md
+    - Openstack/2.开发环境的搭建/2.Linux开发环境的搭建.md
+    - Openstack/2.开发环境的搭建/3.Launchpad账号.md
+    - Openstack/2.开发环境的搭建/4.Git的使用.md
+    - Openstack/2.开发环境的搭建/5.OpenStack配置文件修改.md
+    - Openstack/2.开发环境的搭建/6.RPM软件包管理器.md
+    - Openstack/2.开发环境的搭建/7.制作deb包.md
+    - Openstack/2.开发环境的搭建/8.Linux自建软件源.md
+  - 3.Python模块:
+    - Openstack/3.Python模块/1.Python包的构建与分发.md
+    - Openstack/3.Python模块/2.SQLAlchemy.md
+    - Openstack/3.Python模块/3.logging.md
+    - Openstack/3.Python模块/4.cliff.md
+    - Openstack/3.Python模块/5.Eventlet.md
+    - Openstack/3.Python模块/6.WSGI.md
+    - Openstack/3.Python模块/7.通用库Oslo.md
+  - 4.OpenStack容器手册:
+    - Openstack/4.OpenStack容器手册/1.OpenStack-Kolla项目.md
 
-  - Python:
-      - 0.学习线路:
-          - Python/0.学习线路/0.Pythjon-auto-ops.md
-      - 1.Python基础篇:
-          - Python/1.Python基础篇/1.Python生态工具.md
-          - Python/1.Python基础篇/2.Python第三方库安装.md
-          - Python/1.Python基础篇/3.Python工作环境管理.md
-          - Python/1.Python基础篇/4.Python开发环境.md
-          - Python/1.Python基础篇/5.Python数据结构.md
-          - Python/1.Python基础篇/6.Python项目结构.md
-          - Python/1.Python基础篇/7.Python代码规范.md
-          - Python/1.Python基础篇/8.Python基础知识.md
-          - Python/1.Python基础篇/9.Python字符串.md
-          - Python/1.Python基础篇/10.Python数据类型.md
-          - Python/1.Python基础篇/11.Python运算符和流程控制.md
-          - Python/1.Python基础篇/12.Python文件操作.md
-          - Python/1.Python基础篇/13.Python函数.md
-          - Python/1.Python基础篇/14.Python常用内建函数.md
-          - Python/1.Python基础篇/15.Python类.md
-          - Python/1.Python基础篇/16.Python异常处理.md
-          - Python/1.Python基础篇/17.Python模块与包.md
-          - Python/1.Python基础篇/18.Python标准库.md
-          - Python/1.Python基础篇/19.Python正则表达式.md
-          - Python/1.Python基础篇/20.Python数据库编程.md
-          - Python/1.Python基础篇/21.Python批量管理主机.md
-          - Python/1.Python基础篇/22.Python多线程多进程协程.md
-          - Python/1.Python基础篇/23.Python代码调试.md
-          - Python/1.Python基础篇/24.Python单元测试.md
-          - Python/1.Python基础篇/附录1-虚拟环境.md
-          - Python/1.Python基础篇/附录2-打包和分发.md
-          - Python/1.Python基础篇/附录3-安装第三方软件包.md
-      - 2.Python运维开发:
-          - Python/2.Python运维开发/1.命令行工具.md
-          - Python/2.Python运维开发/2.文本处理.md
-          - Python/2.Python运维开发/3.Linux系统管理.md
-          - Python/2.Python运维开发/4.监控Linux.md
-          - Python/2.Python运维开发/5.文档与报告.md
-          - Python/2.Python运维开发/6.网络.md
-          - Python/2.Python运维开发/7.自动化管理.md
-          - Python/2.Python运维开发/8.常用模块.md
-          - Python/2.Python运维开发/9.Python打造MySQL专家系统.md
-          - Python/2.Python运维开发/10.自动化运维系统的开发.md
-          - Python/2.Python运维开发/11.华为云Python演示代码.md
-          - Python/2.Python运维开发/12.华为云Go演示代码.md
-          - Python/2.Python运维开发/附-运维相关开源项目.md
-          - Python/2.Python运维开发/附-awesome-python-cn.md
-          - Python/2.Python运维开发/附-CMDB.md
-          - Python/2.Python运维开发/附-Django-web开发.md
-      - 3.Python测试开发:
-          - Python/3.Python测试开发/1.Python2与Python3区别.md
-          - Python/3.Python测试开发/2.Windows环境安装Python.md
-          - Python/3.Python测试开发/3.Linux多版本Python安装.md
-          - Python/3.Python测试开发/4.Python虚拟环境安装.md
-          - Python/3.Python测试开发/5.Pycharm安装与使用.md
-          - Python/3.Python测试开发/6.Python间接定义常量.md
-          - Python/3.Python测试开发/7.Python运算符与表达式.md
-          - Python/3.Python测试开发/8.逻辑控制语句.md
-          - Python/3.Python测试开发/9.数据结构介绍.md
-          - Python/3.Python测试开发/10.函数介绍.md
-          - Python/3.Python测试开发/11.类与对象.md
-          - Python/3.Python测试开发/12.打包与发布.md
-          - Python/3.Python测试开发/13.异常捕获与处理.md
-          - Python/3.Python测试开发/14.并发编程.md
-          - Python/3.Python测试开发/15.标准库和三方库.md
-          - Python/3.Python测试开发/16.vue-cli脚手架.md
-          - Python/3.Python测试开发/17.案例实践-任务列表.md
-      - 4.Flask-Web全栈开发:
-          - Python/4.Flask-Web全栈开发/1.Flask前奏.md
-          - Python/4.Flask-Web全栈开发/2.项目配置.md
-          - Python/4.Flask-Web全栈开发/3.URL与视图.md
-          - Python/4.Flask-Web全栈开发/4.Jinja2模板.md
-          - Python/4.Flask-Web全栈开发/5.数据库.md
-          - Python/4.Flask-Web全栈开发/6.表单.md
-          - Python/4.Flask-Web全栈开发/7.Flask进阶.md
-          - Python/4.Flask-Web全栈开发/8.缓存系统.md
-          - Python/4.Flask-Web全栈开发/9.Flask项目实战.md
-          - Python/4.Flask-Web全栈开发/10.WebSock实战.md
-          - Python/4.Flask-Web全栈开发/11.Flask异步编程.md
-          - Python/4.Flask-Web全栈开发/附-使用Pytest测试Flask.md
-          - Python/4.Flask-Web全栈开发/附-图书管理系统.md
-          - Python/4.Flask-Web全栈开发/附-Flask常用扩展.md
-          - Python/4.Flask-Web全栈开发/附-Flask和Redis队列的异步任务.md
-          - Python/4.Flask-Web全栈开发/附-Flask和Vue.js开发单页应用.md
-          - Python/4.Flask-Web全栈开发/附-Flask容器化实践.md
-          - Python/4.Flask-Web全栈开发/附-Flask数据模型.md
-      - 5.DevOps和自动化运维实践:
-          - Python/5.DevOps和自动化运维实践/1.Devops与自动化运维的意义.md
-          - Python/5.DevOps和自动化运维实践/2.Shell脚本在Devops下的应用.md
-          - Python/5.DevOps和自动化运维实践/3.生产环境下的Shell脚本.md
-          - Python/5.DevOps和自动化运维实践/4.工作中的Python脚本分享.md
-      - 6.CMDB项目实战:
-          - Python/6.CMDB项目实战/0.DRF前奏.md
-          - Python/6.CMDB项目实战/1.DRF入门.md
-          - Python/6.CMDB项目实战/2.DRF进阶.md
-          - Python/6.CMDB项目实战/3.CMDB后端开发.md
-          - Python/6.CMDB项目实战/4.Vue前端开发-上.md
-          - Python/6.CMDB项目实战/5.Vue前端开发-下.md
-          - Python/6.CMDB项目实战/6.Element-Plus前端组件库.md
-          - Python/6.CMDB项目实战/7.CMDB前端开发-上.md
-          - Python/6.CMDB项目实战/8.CMDB前端开发-下.md
-      - 7.Python网络编程攻略:
-          - Python/7.Python网络编程攻略/1.IPv4和简单的客户端-服务器编程.md
-          - Python/7.Python网络编程攻略/2.使用多路复用套接字-IO提升性能.md
-          - Python/7.Python网络编程攻略/3.IPv6-Unix域套接字和网络接口.md
-      - 8.Python自动化运维实战:
-          - Python/8.Python自动化运维实战/1.搭建Python环境.md
-          - Python/8.Python自动化运维实战/2.常用的自动化库.md
-          - Python/8.Python自动化运维实战/3.搭建网络实验室环境.md
-          - Python/8.Python自动化运维实战/4.使用Python管理网络设备.md
-          - Python/8.Python自动化运维实战/5.从网络设备中提取数据.md
-          - Python/8.Python自动化运维实战/6.Python和Jinja2配置生成器.md
-          - Python/8.Python自动化运维实战/7.并行执行Python脚本.md
-          - Python/8.Python自动化运维实战/8.准备实验室环境.md
-          - Python/8.Python自动化运维实战/9.使用Subprocess模块.md
+- Python-vs-Go:
+  - 0.学习线路:
+    - Python-vs-Go/0.学习线路/0.Python-vs-Go.md
+  - 1.对比:
+    - Python-vs-Go/1.对比/1.Hello-World.md
+    - Python-vs-Go/1.对比/2.Print.md
+    - Python-vs-Go/1.对比/3.注释.md
+    - Python-vs-Go/1.对比/4.多行字符串.md
+    - Python-vs-Go/1.对比/5.Lists.md
+    - Python-vs-Go/1.对比/6.Map.md
+    - Python-vs-Go/1.对比/7.Booleans.md
+    - Python-vs-Go/1.对比/8.Forloop.md
+    - Python-vs-Go/1.对比/9.Range.md
+    - Python-vs-Go/1.对比/10.Switch.md
+    - Python-vs-Go/1.对比/11.可变参数函数.md
+    - Python-vs-Go/1.对比/12.时间计算.md
+    - Python-vs-Go/1.对比/13.函数的闭包.md
+    - Python-vs-Go/1.对比/14.退出处理.md
+    - Python-vs-Go/1.对比/15.异常捕获.md
+    - Python-vs-Go/1.对比/16.可变项.md
+    - Python-vs-Go/1.对比/17.类.md
+    - Python-vs-Go/1.对比/18.方法.md
+    - Python-vs-Go/1.对比/19.并发.md
+    - Python-vs-Go/1.对比/20.Args.md
+    - Python-vs-Go/1.对比/21.导入模块别名.md
+    - Python-vs-Go/1.对比/22.字符串格式化.md
+    - Python-vs-Go/1.对比/23.去重.md
+    - Python-vs-Go/1.对比/24.带颜色打印.md
+    - Python-vs-Go/1.对比/25.python-example.md
+    - Python-vs-Go/1.对比/26.go-example.md
+  - 2.进阶:
+    - Python-vs-Go/2.进阶/1.使用RPC.md
+    - Python-vs-Go/2.进阶/2.使用MySQL.md
+    - Python-vs-Go/2.进阶/3.使用Redis.md
+    - Python-vs-Go/2.进阶/4.使用MongoDB.md
+    - Python-vs-Go/2.进阶/5.练手项目推荐.md
+- Git:
+  - Git基础:
+    - Git/1.Git基础.md
+    - Git/2.远程仓库.md
+    - Git/3.分支管理.md
+    - Git/4.分支管理策略.md
+    - Git/5.标签管理.md
+    - Git/6.使用Gitee.md
+    - Git/7.使用Github.md
+    - Git/8.实践GitHub-Flow.md
+    - Git/9.实践Git-Flow.md
+    - Git/10.项目规范.md
+- Ansible:
+  - Ansible实战:
+    - Ansible/1.Ansible简介.md
+    - Ansible/2.YAML介绍.md
+    - Ansible/3.安装和配置.md
+    - Ansible/4.Inventory.md
+    - Ansible/5.常用模块.md
+    - Ansible/6.playbook.md
+    - Ansible/7.role.md
+    - Ansible/8.Galaxy.md
+    - Ansible/9.Jinja2.md
+    - Ansible/10.Ansible速度优化.md
+    - Ansible/11.Ansible-API.md
+    - Ansible/12.flask+ansible运维后端.md
+    - Ansible/13.Module开发.md
+    - Ansible/14.Plugin开发.md
+    - Ansible/15.Ansible调试.md
+    - Ansible/附录-Ansible-wiki.md
+- Linux:
+  - Shell:
+    - Linux/Shell/Shell简介.md
+    - Linux/Shell/1.第一个shell程序.md
+    - Linux/Shell/2.Shell变量和字符串.md
+    - Linux/Shell/3.Shell参数.md
+    - Linux/Shell/4.Shell数组.md
+    - Linux/Shell/5.Shell运算符.md
+    - Linux/Shell/6.Shell-echo_printf命令.md
+    - Linux/Shell/7.Shell-test命令.md
+    - Linux/Shell/8.Shell流程控制.md
+    - Linux/Shell/9.Shell函数.md
+    - Linux/Shell/10.Shell重定向.md
+    - Linux/Shell/11.Shell正则表达式.md
+    - Linux/Shell/12.Shell三剑客之grep.md
+    - Linux/Shell/13.Shell三剑客之sed.md
+    - Linux/Shell/14.Shell三剑客之awk.md
+    - Linux/Shell/15.Shell常用工具.md
+    - Linux/Shell/16.Shell实战项目.md
+    - Linux/Shell/17.Shell脚本示例.md
+    - Linux/Shell/18.Shell脚本的参数解析工具.md
+    - Linux/Shell/19.实用Shell脚本案例.md
+    - Linux/Shell/20.Shell脚本的规范.md
+    - Linux/Shell/21.Shell多进程并发.md
+    - Linux/Shell/22.Shell_Library.md
+    - Linux/Shell/23.Shell脚本调试技术.md
+    - Linux/Shell/24.Linux_Shell脚本攻略.md
+    - Linux/Shell/附-shell其它资源.md
+    - Linux/Shell/附-vim常用操作.md
+  - KVM:
+    - Linux/KVM/1.kvm相关命令.md
+    - Linux/KVM/2.kvm虚拟机创建.md
+    - Linux/KVM/3.kvm网络配置.md
+  - Nginx:
+    - Linux/Nginx/1.Nginx简介.md
+    - Linux/Nginx/2.Nginx安装及启动.md
+    - Linux/Nginx/3.Nginx配置.md
+    - Linux/Nginx/4.Nginx配置下载站点.md
+    - Linux/Nginx/5.Nginx访问控制.md
+    - Linux/Nginx/6.Nginx虚拟主机.md
+    - Linux/Nginx/7.Nginx静态资源.md
+    - Linux/Nginx/8.Nginx缓存配置.md
+    - Linux/Nginx/9.Nginx正反代理.md
+    - Linux/Nginx/10.Nginx防盗链.md
+    - Linux/Nginx/11.Nginx负载均衡.md
+    - Linux/Nginx/12.Nginx动静分离.md
+    - Linux/Nginx/13.Nginx跨域配置.md
+    - Linux/Nginx/14.Nginx重定向.md
+    - Linux/Nginx/15.Nginx-HTTPS.md
+    - Linux/Nginx/16.附-Nginx-location语法.md
+    - Linux/Nginx/17.附-Nginx代理相关模块解析.md
+  - System:
+    - Linux/System/1.系统镜像和软件源.md
+    - Linux/System/2.Linux安全加固.md
+    - Linux/System/3.Systemd.md
+    - Linux/System/4.Superivisor.md
+    - Linux/System/5.SSH登录Linux显示横幅.md
+    - Linux/System/6.Linux中端口占用排查.md
+    - Linux/System/7.使用curl发送REST-API请求.md
+    - Linux/System/8.命令行模糊查找器fzf.md
+    - Linux/System/9.Centos7.9系统盘扩容.md
+    - Linux/System/10.Centos在线-离线安装依赖.md
+    - Linux/System/11.rsync-ssh.md
+    - Linux/System/12.各大服务器做RAID.md
+    - Linux/System/13.Linux系统架构与运维实战.md
+    - Linux/System/14.Linux下软件打包.md
+    - Linux/System/15.Linux系统磁盘管理.md
+    - Linux/System/16.Linux系统磁盘进阶.md
+  - Serveices:
+    - Linux/Serveices/0.ubuntu-desktop-vmware.md
 
-  - Openstack:
-      - 0.学习线路:
-          - Openstack/0.学习线路/0.OpenStack.md
-      - 1.OpenStack工程师工作:
-          - Openstack/1.OpenStack工程师工作/1.Horizon界面工程师.md
-          - Openstack/1.OpenStack工程师工作/2.Neutron网络工程师.md
-          - Openstack/1.OpenStack工程师工作/3.Nova资深工程师.md
-      - 2.开发环境的搭建:
-          - Openstack/2.开发环境的搭建/1.Windows开发环境的搭建.md
-          - Openstack/2.开发环境的搭建/2.Linux开发环境的搭建.md
-          - Openstack/2.开发环境的搭建/3.Launchpad账号.md
-          - Openstack/2.开发环境的搭建/4.Git的使用.md
-          - Openstack/2.开发环境的搭建/5.OpenStack配置文件修改.md
-          - Openstack/2.开发环境的搭建/6.RPM软件包管理器.md
-          - Openstack/2.开发环境的搭建/7.制作deb包.md
-          - Openstack/2.开发环境的搭建/8.Linux自建软件源.md
-      - 3.Python模块:
-          - Openstack/3.Python模块/1.Python包的构建与分发.md
-          - Openstack/3.Python模块/2.SQLAlchemy.md
-          - Openstack/3.Python模块/3.logging.md
-          - Openstack/3.Python模块/4.cliff.md
-          - Openstack/3.Python模块/5.Eventlet.md
-          - Openstack/3.Python模块/6.WSGI.md
-          - Openstack/3.Python模块/7.通用库Oslo.md
-      - 4.OpenStack容器手册:
-          - Openstack/4.OpenStack容器手册/1.OpenStack-Kolla项目.md
-
-  - Python-vs-Go:
-      - 0.学习线路:
-          - Python-vs-Go/0.学习线路/0.Python-vs-Go.md
-      - 1.对比:
-          - Python-vs-Go/1.对比/1.Hello-World.md
-          - Python-vs-Go/1.对比/2.Print.md
-          - Python-vs-Go/1.对比/3.注释.md
-          - Python-vs-Go/1.对比/4.多行字符串.md
-          - Python-vs-Go/1.对比/5.Lists.md
-          - Python-vs-Go/1.对比/6.Map.md
-          - Python-vs-Go/1.对比/7.Booleans.md
-          - Python-vs-Go/1.对比/8.Forloop.md
-          - Python-vs-Go/1.对比/9.Range.md
-          - Python-vs-Go/1.对比/10.Switch.md
-          - Python-vs-Go/1.对比/11.可变参数函数.md
-          - Python-vs-Go/1.对比/12.时间计算.md
-          - Python-vs-Go/1.对比/13.函数的闭包.md
-          - Python-vs-Go/1.对比/14.退出处理.md
-          - Python-vs-Go/1.对比/15.异常捕获.md
-          - Python-vs-Go/1.对比/16.可变项.md
-          - Python-vs-Go/1.对比/17.类.md
-          - Python-vs-Go/1.对比/18.方法.md
-          - Python-vs-Go/1.对比/19.并发.md
-          - Python-vs-Go/1.对比/20.Args.md
-          - Python-vs-Go/1.对比/21.导入模块别名.md
-          - Python-vs-Go/1.对比/22.字符串格式化.md
-          - Python-vs-Go/1.对比/23.去重.md
-          - Python-vs-Go/1.对比/24.带颜色打印.md
-          - Python-vs-Go/1.对比/25.python-example.md
-          - Python-vs-Go/1.对比/26.go-example.md
-      - 2.进阶:
-          - Python-vs-Go/2.进阶/1.使用RPC.md
-          - Python-vs-Go/2.进阶/2.使用MySQL.md
-          - Python-vs-Go/2.进阶/3.使用Redis.md
-          - Python-vs-Go/2.进阶/4.使用MongoDB.md
-          - Python-vs-Go/2.进阶/5.练手项目推荐.md
-  - Git:
-      - Git基础:
-          - Git/1.Git基础.md
-          - Git/2.远程仓库.md
-          - Git/3.分支管理.md
-          - Git/4.分支管理策略.md
-          - Git/5.标签管理.md
-          - Git/6.使用Gitee.md
-          - Git/7.使用Github.md
-          - Git/8.实践GitHub-Flow.md
-          - Git/9.实践Git-Flow.md
-          - Git/10.项目规范.md
-  - Ansible:
-      - Ansible实战:
-          - Ansible/1.Ansible简介.md
-          - Ansible/2.YAML介绍.md
-          - Ansible/3.安装和配置.md
-          - Ansible/4.Inventory.md
-          - Ansible/5.常用模块.md
-          - Ansible/6.playbook.md
-          - Ansible/7.role.md
-          - Ansible/8.Galaxy.md
-          - Ansible/9.Jinja2.md
-          - Ansible/10.Ansible速度优化.md
-          - Ansible/11.Ansible-API.md
-          - Ansible/12.flask+ansible运维后端.md
-          - Ansible/13.Module开发.md
-          - Ansible/14.Plugin开发.md
-          - Ansible/15.Ansible调试.md
-          - Ansible/附录-Ansible-wiki.md
-  - Linux:
-      - Shell:
-          - Linux/Shell/Shell简介.md
-          - Linux/Shell/1.第一个shell程序.md
-          - Linux/Shell/2.Shell变量和字符串.md
-          - Linux/Shell/3.Shell参数.md
-          - Linux/Shell/4.Shell数组.md
-          - Linux/Shell/5.Shell运算符.md
-          - Linux/Shell/6.Shell-echo_printf命令.md
-          - Linux/Shell/7.Shell-test命令.md
-          - Linux/Shell/8.Shell流程控制.md
-          - Linux/Shell/9.Shell函数.md
-          - Linux/Shell/10.Shell重定向.md
-          - Linux/Shell/11.Shell正则表达式.md
-          - Linux/Shell/12.Shell三剑客之grep.md
-          - Linux/Shell/13.Shell三剑客之sed.md
-          - Linux/Shell/14.Shell三剑客之awk.md
-          - Linux/Shell/15.Shell常用工具.md
-          - Linux/Shell/16.Shell实战项目.md
-          - Linux/Shell/17.Shell脚本示例.md
-          - Linux/Shell/18.Shell脚本的参数解析工具.md
-          - Linux/Shell/19.实用Shell脚本案例.md
-          - Linux/Shell/20.Shell脚本的规范.md
-          - Linux/Shell/21.Shell多进程并发.md
-          - Linux/Shell/22.Shell_Library.md
-          - Linux/Shell/23.Shell脚本调试技术.md
-          - Linux/Shell/24.Linux_Shell脚本攻略.md
-          - Linux/Shell/附-shell其它资源.md
-          - Linux/Shell/附-vim常用操作.md
-      - KVM:
-          - Linux/KVM/1.kvm相关命令.md
-          - Linux/KVM/2.kvm虚拟机创建.md
-          - Linux/KVM/3.kvm网络配置.md
-      - Nginx:
-          - Linux/Nginx/1.Nginx简介.md
-          - Linux/Nginx/2.Nginx安装及启动.md
-          - Linux/Nginx/3.Nginx配置.md
-          - Linux/Nginx/4.Nginx配置下载站点.md
-          - Linux/Nginx/5.Nginx访问控制.md
-          - Linux/Nginx/6.Nginx虚拟主机.md
-          - Linux/Nginx/7.Nginx静态资源.md
-          - Linux/Nginx/8.Nginx缓存配置.md
-          - Linux/Nginx/9.Nginx正反代理.md
-          - Linux/Nginx/10.Nginx防盗链.md
-          - Linux/Nginx/11.Nginx负载均衡.md
-          - Linux/Nginx/12.Nginx动静分离.md
-          - Linux/Nginx/13.Nginx跨域配置.md
-          - Linux/Nginx/14.Nginx重定向.md
-          - Linux/Nginx/15.Nginx-HTTPS.md
-          - Linux/Nginx/16.附-Nginx-location语法.md
-          - Linux/Nginx/17.附-Nginx代理相关模块解析.md
-      - System:
-          - Linux/System/1.系统镜像和软件源.md
-          - Linux/System/2.Linux安全加固.md
-          - Linux/System/3.Systemd.md
-          - Linux/System/4.Superivisor.md
-          - Linux/System/5.SSH登录Linux显示横幅.md
-          - Linux/System/6.Linux中端口占用排查.md
-          - Linux/System/7.使用curl发送REST-API请求.md
-          - Linux/System/8.命令行模糊查找器fzf.md
-          - Linux/System/9.Centos7.9系统盘扩容.md
-          - Linux/System/10.Centos在线-离线安装依赖.md
-          - Linux/System/11.rsync-ssh.md
-          - Linux/System/12.各大服务器做RAID.md
-          - Linux/System/13.Linux系统架构与运维实战.md
-          - Linux/System/14.Linux下软件打包.md
-          - Linux/System/15.Linux系统磁盘管理.md
-          - Linux/System/16.Linux系统磁盘进阶.md
-      - Serveices:
-          - Linux/Serveices/0.ubuntu-desktop-vmware.md
-
-  - Other:
-      - tools:
-          - Other/tools/1.PicGo图床.md
-          - Other/tools/2.PicX图床.md
-          - Other/tools/3.Markdown语法.md
-          - Other/tools/4.KeyManager.md
-          - Other/tools/5.mkdocs-material搭建博客.md
-          - Other/tools/6.sphinx构建博客.md
-          - Other/tools/7.企业级VPN软件AnyLink.md
-          - Other/tools/8.平台及工具汇总.md
-          - Other/tools/9.自动更新系统代理.md
-          - Other/tools/10.Bash-to-Bat-Converter.md
-          - Other/tools/11.电子书阅读器.md
-          - Other/tools/12.ssh工具.md
-      - windows:
-          - Other/windows/1.常用软件下载.md
-          - Other/windows/2.windows快捷指令.md
-          - Other/windows/3.DOS.md
-          - Other/windows/4.win11镜像下载-激活.md
-          - Other/windows/5.windows下netcat安装.md
-      - Interview:
-          - Other/Interview/0.面试宝典.md
+- Other:
+  - tools:
+    - Other/tools/1.PicGo图床.md
+    - Other/tools/2.PicX图床.md
+    - Other/tools/3.Markdown语法.md
+    - Other/tools/4.KeyManager.md
+    - Other/tools/5.mkdocs-material搭建博客.md
+    - Other/tools/6.sphinx构建博客.md
+    - Other/tools/7.企业级VPN软件AnyLink.md
+    - Other/tools/8.平台及工具汇总.md
+    - Other/tools/9.自动更新系统代理.md
+    - Other/tools/10.Bash-to-Bat-Converter.md
+    - Other/tools/11.电子书阅读器.md
+    - Other/tools/12.ssh工具.md
+  - windows:
+    - Other/windows/1.常用软件下载.md
+    - Other/windows/2.windows快捷指令.md
+    - Other/windows/3.DOS.md
+    - Other/windows/4.win11镜像下载-激活.md
+    - Other/windows/5.windows下netcat安装.md
+  - Interview:
+    - Other/Interview/0.面试宝典.md
