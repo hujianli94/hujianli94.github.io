@@ -719,6 +719,8 @@ nav:
     - Linux/System/16.Linux系统磁盘进阶.md
   - Serveices:
     - Linux/Serveices/0.ubuntu-desktop-vmware.md
+    - Linux/Serveices/1.Vagrant虚拟机.md
+    - Linux/Serveices/2.ubuntu网络设置.md
 
 - Other:
   - tools:
