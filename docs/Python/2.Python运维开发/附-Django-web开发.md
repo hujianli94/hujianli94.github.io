@@ -1,46 +1,40 @@
-# 附-Django-web开发
-
+# 附-Django-web 开发
 
 ## 1. MVC/MTV
 
-### 1.1 MVC框架
+### 1.1 MVC 框架
 
 - controllers:处理用户请求
-- views：放置html模板
+- views：放置 html 模板
 - modals：操作数据库
 
-### 1.2 MTV框架
+### 1.2 MTV 框架
 
 - views：处理用户请求
-- template：放置html模板
+- template：放置 html 模板
 - modals：操作数据库
-
 
 ## 2. 模型与数据库
 
-Django提供了完善的模型(model)层来创建和存取数据，它包含你所储存数据的必要字段和行为。通常，每个模型对应数据库中唯一的一张表。所以，模型避免了我们直接对数据库操作。
+Django 提供了完善的模型(model)层来创建和存取数据，它包含你所储存数据的必要字段和行为。通常，每个模型对应数据库中唯一的一张表。所以，模型避免了我们直接对数据库操作。
 
+Django 模型基础知识：
 
-Django模型基础知识：
-
-- 每个模型是一个Python类，继承 django.db.models.Model 类。
+- 每个模型是一个 Python 类，继承 django.db.models.Model 类。
 - 该模型的每个属性表示一个数据库表字段。
-- 所有这一切，己经给了你一个自动生成的数据库访问的API。
+- 所有这一切，己经给了你一个自动生成的数据库访问的 API。
 
+Django 对各种数据库提供了很好的支持，包括：PostgreSQL、MySQL、SQLite 和 Oracle，而且为这些数据库提供了统一的调用 API，这些 API 统称为 ORM 框架。
 
-Django对各种数据库提供了很好的支持，包括：PostgreSQL、MySQL、SQLite和Oracle，而且为这些数据库提供了统一的调用API，这些API统称为ORM框架。
+通过使用 Django 内置的 ORM 框架可以实现数据库连接和读写操作。
 
-通过使用Django内置的ORM框架可以实现数据库连接和读写操作。
-
-
-### 2.1 django-配置mysql
+### 2.1 django-配置 mysql
 
 1.安装 pymysql
 
 ```sh
 pip install pymysql
 ```
-
 
 2.修改 settings.py
 
@@ -59,32 +53,25 @@ DATABASES = {
 
 > 更多参数: https://docs.djangoproject.com/zh-hans/4.2/ref/settings/
 
-
 3.修改项目的`__init__.py` (和 `settings.py` 同级目录)
-
 
 ```python
 from pymysql import install_as_MySQLdb
 install_as_MySQLdb()
 ```
 
-
-
 ### 2.2 构建模型
 
-ORM框架是一种程序技术，用于实现面向对象编程语言中不同类型系统的数据之间的转换。从效果上说，其实是创建了一个可在编程语言中使用的"虚拟对象数据库"，通过对虚拟对象数据库操作从而实现对目标数控的操作，虚拟对象数据库与模板数据库是相互对应的。在Django中，虚拟对象数据库也成为模型。通过模型先对模板数据库的读写操作，实现如下：
+ORM 框架是一种程序技术，用于实现面向对象编程语言中不同类型系统的数据之间的转换。从效果上说，其实是创建了一个可在编程语言中使用的"虚拟对象数据库"，通过对虚拟对象数据库操作从而实现对目标数控的操作，虚拟对象数据库与模板数据库是相互对应的。在 Django 中，虚拟对象数据库也成为模型。通过模型先对模板数据库的读写操作，实现如下：
 
-
-1. 配置模板数据库信息，主要在setting.py中设置数据库信息
-2. 构建虚拟对象数据库，在App的models.py文件中以类的形式定义模型。
+1. 配置模板数据库信息，主要在 setting.py 中设置数据库信息
+2. 构建虚拟对象数据库，在 App 的 models.py 文件中以类的形式定义模型。
 3. 通过模型在模板数据库中创建相应的数据表
 4. 在视图函数中通过对模型操作实现目标数据库的读写操作。
 
 以 MyDjango 项目为例，创建项目并配置
 
-
 === "python2"
-
 
     ```sh
     pip install virtualenv
@@ -99,9 +86,7 @@ ORM框架是一种程序技术，用于实现面向对象编程语言中不同�
     (venv)# python manage.py startapp index
     ```
 
-  
 === "python3"
-
 
     ```sh
     #创建虚拟环境
@@ -122,9 +107,7 @@ ORM框架是一种程序技术，用于实现面向对象编程语言中不同�
     deactivate
     ```
 
-
-
-settings.py文件里面的INSTALLED_APPS。注册你的app
+settings.py 文件里面的 INSTALLED_APPS。注册你的 app
 
 ```python
 
@@ -146,9 +129,10 @@ INSTALLED_APPS = [
     'index.apps.IndexConfig',   # 注册app
 ]
 ```
+
 不注册它，你的数据库就不知道该给哪个 app 创建表。
 
-若想将模型转为mysql数据库中的表，需要在settings中配置：
+若想将模型转为 mysql 数据库中的表，需要在 settings 中配置：
 
 ```python
 
@@ -164,29 +148,27 @@ DATABASES = {
 }
 ```
 
-
-
-由于ORM不能创建数据库，需要手动创建 mydjango 数据库。
+由于 ORM 不能创建数据库，需要手动创建 mydjango 数据库。
 
 ```sql
 CREATE DATABASE mydjango CHARACTER SET utf8;
 ```
 
-django连接MySQL，使用的是pymysql模块，必须得安装pymysql模块。否则后面会创建表不成功！
+django 连接 MySQL，使用的是 pymysql 模块，必须得安装 pymysql 模块。否则后面会创建表不成功！
 
 ```sh
 pip install pymysql
 ```
 
 在 `book/user/__init__.py` 文件中加入代码：
+
 ```python
 from pymysql import install_as_MySQLdb
 
 install_as_MySQLdb()
 ```
 
-
-在项目index的models.py文件中定义模型如下：
+在项目 index 的 models.py 文件中定义模型如下：
 
 ```python
 from django.db import models
@@ -208,38 +190,33 @@ class Product(models.Model):
     type = models.ForeignKey(Type, on_delete=models.CASCADE)
 ```
 
-
-接下来要在pycharm的teminal中通过命令创建数据库的表了。有2条命令，分别是：
+接下来要在 pycharm 的 teminal 中通过命令创建数据库的表了。有 2 条命令，分别是：
 
 ```sh
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-
-
 #### 表字段数据类型及说明
 
-| 字段类型       | 用途         | 示例                                             |
-| ------------ | ----------- | ------------------------------------------------- |
-| `AutoField`  | 自增长整数字段 | ```id = models.AutoField(primary_key=True)```    |
-| `CharField`  | 字符串字段    | ```title = models.CharField(max_length=100)```    |
-| `BooleanField` | 布尔类型字段  | ```is_published = models.BooleanField(default=False)``` |
-| `DateField`  | 日期字段      | ```published_date = models.DateField()```          |
-| `DateTimeField` | 日期时间字段  | ```created_at = models.DateTimeField(auto_now_add=True)``` |
-| `DecimalField` | 十进制数值字段 | ```price = models.DecimalField(max_digits=6, decimal_places=2)``` |
-| `EmailField` | 电子邮件地址字段 | ```email = models.EmailField()```                  |
-| `FileField`  | 文件上传字段   | ```photo = models.FileField(upload_to='photos/')``` |
-| `FloatField` | 浮点数字段    | ```rating = models.FloatField()```                 |
-| `ForeignKey` | 外键字段      | ```author = models.ForeignKey(User, on_delete=models.CASCADE)``` |
-| `ImageField` | 图片上传字段   | ```avatar = models.ImageField(upload_to='avatars/')``` |
-| `IntegerField` | 整数字段     | ```views = models.IntegerField(default=0)```      |
-| `ManyToManyField` | 多对多关系字段 | ```tags = models.ManyToManyField(Tag)```           |
-| `OneToOneField` | 一对一关系字段 | ```profile = models.OneToOneField(Profile, on_delete=models.CASCADE)``` |
-| `TextField`  | 大文本字段    | ```content = models.TextField()```                 |
-| `TimeField`  | 时间字段      | ```published_time = models.TimeField()```          |
-
-
+| 字段类型          | 用途             | 示例                                                                |
+| ----------------- | ---------------- | ------------------------------------------------------------------- |
+| `AutoField`       | 自增长整数字段   | `id = models.AutoField(primary_key=True)`                           |
+| `CharField`       | 字符串字段       | `title = models.CharField(max_length=100)`                          |
+| `BooleanField`    | 布尔类型字段     | `is_published = models.BooleanField(default=False)`                 |
+| `DateField`       | 日期字段         | `published_date = models.DateField()`                               |
+| `DateTimeField`   | 日期时间字段     | `created_at = models.DateTimeField(auto_now_add=True)`              |
+| `DecimalField`    | 十进制数值字段   | `price = models.DecimalField(max_digits=6, decimal_places=2)`       |
+| `EmailField`      | 电子邮件地址字段 | `email = models.EmailField()`                                       |
+| `FileField`       | 文件上传字段     | `photo = models.FileField(upload_to='photos/')`                     |
+| `FloatField`      | 浮点数字段       | `rating = models.FloatField()`                                      |
+| `ForeignKey`      | 外键字段         | `author = models.ForeignKey(User, on_delete=models.CASCADE)`        |
+| `ImageField`      | 图片上传字段     | `avatar = models.ImageField(upload_to='avatars/')`                  |
+| `IntegerField`    | 整数字段         | `views = models.IntegerField(default=0)`                            |
+| `ManyToManyField` | 多对多关系字段   | `tags = models.ManyToManyField(Tag)`                                |
+| `OneToOneField`   | 一对一关系字段   | `profile = models.OneToOneField(Profile, on_delete=models.CASCADE)` |
+| `TextField`       | 大文本字段       | `content = models.TextField()`                                      |
+| `TimeField`       | 时间字段         | `published_time = models.TimeField()`                               |
 
 ```python
 from django.db import models
@@ -267,7 +244,7 @@ class UserGroup(models.Model):
     balance = models.SmallIntegerField()          # 小整数 -32768 ～ 32767
     money = models.PositiveIntegerField()         # 正整数 0 ～ 2147483647
     bignum = models.BigIntegerField()           # 长整型(有符号的) -9223372036854775808 ～ 9223372036854775807
-    
+
     user_type_choices = (
         (1, "超级用户"),
         (2, "普通用户"),
@@ -276,37 +253,32 @@ class UserGroup(models.Model):
     user_type_id = models.IntegerField(choices=user_type_choices, default=1)
 ```
 
-
 #### 表字段参数及说明
 
-| 字段属性                   | 用途                       | 示例                                             |
-| ------------------------ | ------------------------- | ------------------------------------------------- |
-| `null`                   | 是否可以为空               | ```name = models.CharField(max_length=100, null=True)``` |
-| `blank`                  | 是否可以为空白             | ```description = models.TextField(blank=True)``` |
-| `default`                | 默认值                     | ```is_published = models.BooleanField(default=False)``` |
-| `primary_key`            | 是否为主键                 | ```id = models.AutoField(primary_key=True)```    |
-| `db_column`              | 字段在数据库中的列名       | ```first_name = models.CharField(max_length=50, db_column='first')``` |
-| `unique`                 | 是否唯一                   | ```email = models.EmailField(unique=True)```      |
-| `db_index`               | 是否在数据库中创建索引     | ```name = models.CharField(max_length=100, db_index=True)``` |
-| `verbose_name`           | 字段的可读名称             | ```title = models.CharField(max_length=100, verbose_name='文章标题')``` |
-| `related_name`           | 关联模型的反向引用名称     | ```author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')``` |
-| `max_length`             | 最大长度限制               | ```title = models.CharField(max_length=100)```    |
-| `choices`                | 选项列表                   | ```status = models.CharField(choices=STATUS_CHOICES, max_length=20)``` |
-| `on_delete`              | 级联删除行为               | ```author = models.ForeignKey(User, on_delete=models.CASCADE)``` |
-| `upload_to`              | 上传文件保存路径           | ```photo = models.FileField(upload_to='photos/')``` |
-| `auto_now`               | 自动更新为当前时间         | ```modified_at = models.DateTimeField(auto_now=True)``` |
-| `auto_now_add`           | 创建时自动设置为当前时间   | ```created_at = models.DateTimeField(auto_now_add=True)``` |
-| `editable`               | 是否可编辑                 | ```views = models.IntegerField(default=0, editable=False)``` |
-| `help_text`              | 字段的帮助文本             | ```content = models.TextField(help_text='请输入文章内容')``` |
-| `db_table`               | 指定表名                   | ```class Meta: db_table = 'my_table'```           |
-| `unique_together`        | 多个字段组合唯一           | ```class Meta: unique_together = [['field1', 'field2']]``` |
-| `db_constraint`          | 是否在数据库中创建约束     | ```author = models.ForeignKey(User, on_delete=models.CASCADE, db_constraint=False)``` |
-
-
+| 字段属性          | 用途                     | 示例                                                                               |
+| ----------------- | ------------------------ | ---------------------------------------------------------------------------------- |
+| `null`            | 是否可以为空             | `name = models.CharField(max_length=100, null=True)`                               |
+| `blank`           | 是否可以为空白           | `description = models.TextField(blank=True)`                                       |
+| `default`         | 默认值                   | `is_published = models.BooleanField(default=False)`                                |
+| `primary_key`     | 是否为主键               | `id = models.AutoField(primary_key=True)`                                          |
+| `db_column`       | 字段在数据库中的列名     | `first_name = models.CharField(max_length=50, db_column='first')`                  |
+| `unique`          | 是否唯一                 | `email = models.EmailField(unique=True)`                                           |
+| `db_index`        | 是否在数据库中创建索引   | `name = models.CharField(max_length=100, db_index=True)`                           |
+| `verbose_name`    | 字段的可读名称           | `title = models.CharField(max_length=100, verbose_name='文章标题')`                |
+| `related_name`    | 关联模型的反向引用名称   | `author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')` |
+| `max_length`      | 最大长度限制             | `title = models.CharField(max_length=100)`                                         |
+| `choices`         | 选项列表                 | `status = models.CharField(choices=STATUS_CHOICES, max_length=20)`                 |
+| `on_delete`       | 级联删除行为             | `author = models.ForeignKey(User, on_delete=models.CASCADE)`                       |
+| `upload_to`       | 上传文件保存路径         | `photo = models.FileField(upload_to='photos/')`                                    |
+| `auto_now`        | 自动更新为当前时间       | `modified_at = models.DateTimeField(auto_now=True)`                                |
+| `auto_now_add`    | 创建时自动设置为当前时间 | `created_at = models.DateTimeField(auto_now_add=True)`                             |
+| `editable`        | 是否可编辑               | `views = models.IntegerField(default=0, editable=False)`                           |
+| `help_text`       | 字段的帮助文本           | `content = models.TextField(help_text='请输入文章内容')`                           |
+| `db_table`        | 指定表名                 | `class Meta: db_table = 'my_table'`                                                |
+| `unique_together` | 多个字段组合唯一         | `class Meta: unique_together = [['field1', 'field2']]`                             |
+| `db_constraint`   | 是否在数据库中创建约束   | `author = models.ForeignKey(User, on_delete=models.CASCADE, db_constraint=False)`  |
 
 > 参考官方文档：https://docs.djangoproject.com/zh-hans/4.2/ref/models/fields/。
-
-
 
 ### 2.3 数据表的关系
 
@@ -316,11 +288,9 @@ class UserGroup(models.Model):
 - 一对多
 - 多对多
 
-
 #### 一对一
 
-
-一对一的关系，就很简单了，彼此唯一。 
+一对一的关系，就很简单了，彼此唯一。
 
 ##### 如何建立关联
 
@@ -352,25 +322,21 @@ class Performer_info(models.Model):
 - OneToOneField 表示创建一对一关系。
 - to 表示需要和哪张表创建关系
 - to_field 表示关联字段
-- on_delete=models.CASCADE 表示级联删除。假设a表删除了一条记录，b表也还会删除对应的记录。
+- on_delete=models.CASCADE 表示级联删除。假设 a 表删除了一条记录，b 表也还会删除对应的记录。
 
-performer 表示关联字段，但是ORM创建表的时候，会自动添加_id后缀。那么关联字段为performer_id
-
+performer 表示关联字段，但是 ORM 创建表的时候，会自动添加\_id 后缀。那么关联字段为 performer_id
 
 > 注意：创建一对一关系，会将关联字添加唯一属性。比如：performer_id
 
-
-使用DJango的管理工具manage.py创建数据表Performer和Performer_info,创建数据表前最好先删除0001_initial.py文件并清空数据库里的数据表。
+使用 DJango 的管理工具 manage.py 创建数据表 Performer 和 Performer_info,创建数据表前最好先删除 0001_initial.py 文件并清空数据库里的数据表。
 
 然后重新执行数据迁移。如下
-
 
 ```sh
 python manage.py makemigrations --empty index
 python manage.py makemigrations
 python manage.py migrate
 ```
-
 
 #### 一对多
 
@@ -380,9 +346,7 @@ python manage.py migrate
 
 ##### 如何建立关联
 
-
 **一对多：一旦确定一对多的关系：在多的表中创建关联字段**
-
 
 示例：
 
@@ -405,10 +369,9 @@ class Book(models.Model):
 - ForeignKey 表示建立外键
 - to 表示需要和哪张表创建关系
 - to_field 表示关联字段
-- on_delete=models.CASCADE 表示级联删除。使用ForeignKey必须要加on_delete。否则报错。这是2.x规
+- on_delete=models.CASCADE 表示级联删除。使用 ForeignKey 必须要加 on_delete。否则报错。这是 2.x 规
 
 一对多存在于两个或两个以上的数据表中，第一个表的数据可以与第二个表的一道多行数据进行关联，但是第二个表的每一行数据只能与第一个表的某一行进行管理，以下列表为例：
-
 
 ```python
 #一对多关系
@@ -424,22 +387,21 @@ class Program(models.Model):
     name = models.CharField(max_length=20)
 ```
 
-使用Django的管理工具manage.py创建数据表 Performer 和 Program，创建数据表前最好先删除0001_initial.py文件并清空数据库里的数据表。数据表的表关系如图：
+使用 Django 的管理工具 manage.py 创建数据表 Performer 和 Program，创建数据表前最好先删除 0001_initial.py 文件并清空数据库里的数据表。数据表的表关系如图：
 
 然后重新执行数据迁移。如下
+
 ```sh
 python manage.py makemigrations --empty index
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-
 #### 多对多
 
 多对多存在于两个或两个以上的数据表中，第一个表的某一行数据可以与第二个表的一到多行数据进行关联，同时在第二个表中的某一行数据也可以与第一个表的一到多行数据进行关联。
 
 多对多关系会在两张表的基础之上，新增一个映射表。
-
 
 ##### 如何建立关联
 
@@ -458,7 +420,6 @@ class Manytomany(models.Model):
     name = models.CharField(max_length=20)
     performer = models.ManyToManyField(Performer)
 ```
-
 
 ```python
 from django.db import models
@@ -493,11 +454,9 @@ class AuthorDetail(models.Model):
     tel=models.CharField(max_length=32)
 ```
 
+### 2.4 数据表的 CRUD
 
-
-### 2.4 数据表的CRUD
-
-index的models.py文件中定义模型如下：
+index 的 models.py 文件中定义模型如下：
 
 ```python
 from django.db import models
@@ -518,7 +477,6 @@ class Product(models.Model):
     size = models.CharField(max_length=20)
     type = models.ForeignKey(Type, on_delete=models.CASCADE)
 ```
-
 
 首先插入测试数据
 
@@ -542,15 +500,15 @@ INSERT INTO `index_product` VALUES (11, '荣耀V9', '111g', '120*75*7mm', 1);
 INSERT INTO `index_product` VALUES (13, '荣耀V9', '111g', '120*75*7mm', 1);
 ```
 
-在MyDjango项目中使用shell模式(启动命令行和执行脚本)进行讲述，该模式主要为方便开发人员开发和调式程序。在PyCharm的Terminal下开启shell模式，输入python manage.py shell指令即可开启。
+在 MyDjango 项目中使用 shell 模式(启动命令行和执行脚本)进行讲述，该模式主要为方便开发人员开发和调式程序。在 PyCharm 的 Terminal 下开启 shell 模式，输入 python manage.py shell 指令即可开启。
 
 ```sh
 (venv) PS D:\coder\python-project\MyDjango> python manage.py shell
 >>> from index.models import *
 >>> p = Product()
->>> p.name = "荣耀V9" 
->>> p.weight = "111g" 
->>> p.size = "120*75*7mm" 
+>>> p.name = "荣耀V9"
+>>> p.weight = "111g"
+>>> p.size = "120*75*7mm"
 >>> p.type_id = 1
 >>> p.save()
 ```
@@ -578,8 +536,7 @@ p.name = "华为荣耀 v9"
 p.save()
 ```
 
-
-除此之外，还可以使用update方法实现单条和多条数据的更新，使用方法如下：
+除此之外，还可以使用 update 方法实现单条和多条数据的更新，使用方法如下：
 
 ```sh
 #通过Django的ORM框架提供的API实现
@@ -592,7 +549,6 @@ Product.objects.update(name='华为荣耀V9')
 ```
 
 #### delete
-
 
 删除一条数据
 
@@ -619,22 +575,18 @@ Product.objects.filter(weight='119g').delete()
 Product.objects.all().delete()
 ```
 
-数据删除有ORM框架的delete方法实现。
+数据删除有 ORM 框架的 delete 方法实现。
 
+从数据的删除和更新可以看到这两种数据操作都使用查询条件 get 和 filter，查询条件 get 和 filter 的区别如下：
 
-从数据的删除和更新可以看到这两种数据操作都使用查询条件get和filter，查询条件get和filter的区别如下：
-
-|方法|说明|
-|----|-----|
-|get|查询字段必须是主键或者唯一约束的字段，并且查询的数据必须存在，如果查询的字段有重复值或者查询的数据不存在，程序都会抛出异常信息。|
-|filter|查询字段没有限制，只要该字段是数据表的某一字段即可。查询结果以列表的形式返回，如果查询结果为空（查询的数据在数据库中找不到），就返回空列表[]。|
-
-
-
+| 方法   | 说明                                                                                                                                           |
+| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| get    | 查询字段必须是主键或者唯一约束的字段，并且查询的数据必须存在，如果查询的字段有重复值或者查询的数据不存在，程序都会抛出异常信息。               |
+| filter | 查询字段没有限制，只要该字段是数据表的某一字段即可。查询结果以列表的形式返回，如果查询结果为空（查询的数据在数据库中找不到），就返回空列表[]。 |
 
 #### Read
 
-数据查询是数据库操作中最为复杂并且内容最多的部分，我们以代码的形式来讲述如何通过ORM框架提供的API实现数据查询，代码如下：
+数据查询是数据库操作中最为复杂并且内容最多的部分，我们以代码的形式来讲述如何通过 ORM 框架提供的 API 实现数据查询，代码如下：
 
 ```sh
 In [39]: from index.models import *
@@ -733,31 +685,30 @@ In [74]: p
 Out[74]: {'id_count': 8}
 ```
 
-上述代码将是了日常开发中常用的数据查询方法，但又时候需要设置不同的查询条件来满足多方面的查询要求。上述例子中，查询条件filter和get使用等值的方法来匹配结果。若想使用大于、不等于和模糊查询的匹配方法，则可以使用如下表所以的匹配附实现：
+上述代码将是了日常开发中常用的数据查询方法，但又时候需要设置不同的查询条件来满足多方面的查询要求。上述例子中，查询条件 filter 和 get 使用等值的方法来匹配结果。若想使用大于、不等于和模糊查询的匹配方法，则可以使用如下表所以的匹配附实现：
 
+| 匹配符          | 使用                               | 说明                              |
+| --------------- | ---------------------------------- | --------------------------------- |
+| `__exact`       | `filter(name__exact='荣耀')`       | 精确等于，如 SQL 的 like ‘荣耀’   |
+| `__iexact`      | `filter(name__iexact='荣耀')`      | 精确等于并忽略大小写              |
+| `__contains`    | `filter(name__contains='荣耀')`    | 模糊匹配，如 SQL 的 like '%荣耀%' |
+| `__icontains`   | `filter(name__icontains='荣耀')`   | 模糊匹配，忽略大小写              |
+| `__gt`          | `filter(id__gt=5)`                 | 大于                              |
+| `__gte`         | `filter(id__gte=5)`                | 大于等于                          |
+| `__lt`          | `filter(id__lt=5)`                 | 小于                              |
+| `__lte`         | `filter(id__lte=5)`                | 小于等于                          |
+| `__in`          | `filter(id__in=[1,2,3])`           | 判断是否在列表内                  |
+| `__startswith`  | `filter(name__startswith='荣耀')`  | 以...开头                         |
+| `__istartswith` | `filter(name__istartswith='荣耀')` | 以...开头并忽略大小写             |
+| `__endswith`    | `filter(name__endswith='荣耀')`    | 以...结尾                         |
+| `__iendswith`   | `filter(name__iendswith='荣耀')`   | 以...结尾并忽略大小写             |
+| `__range`       | `filter(name__range='荣耀')`       | 在...范围内                       |
+| `__year`        | `filter(date__year=2018)`          | 日期字段的年份                    |
+| `__month`       | `filter(date__month=12)`           | 日期字段的月份                    |
+| `__day`         | `filter(date__day='')`             | 日期字段的天数                    |
+| `__isnull`      | `filter(name__isnull=True/False)`  | 判断是否为空                      |
 
-| 匹配符 | 使用                           | 说明                         |
-| ------ | ------------------------------ | ---------------------------- |
-| `__exact` | `filter(name__exact='荣耀')` | 精确等于，如 SQL 的 like ‘荣耀’ |
-| `__iexact` | `filter(name__iexact='荣耀')` | 精确等于并忽略大小写 |
-| `__contains` | `filter(name__contains='荣耀')` | 模糊匹配，如 SQL 的 like '%荣耀%' |
-| `__icontains` | `filter(name__icontains='荣耀')` | 模糊匹配，忽略大小写 |
-| `__gt` | `filter(id__gt=5)` | 大于 |
-| `__gte` | `filter(id__gte=5)` | 大于等于 |
-| `__lt` | `filter(id__lt=5)` | 小于 |
-| `__lte` | `filter(id__lte=5)` | 小于等于 |
-| `__in` | `filter(id__in=[1,2,3])` | 判断是否在列表内 |
-| `__startswith` | `filter(name__startswith='荣耀')` | 以...开头 |
-| `__istartswith` | `filter(name__istartswith='荣耀')` | 以...开头并忽略大小写 |
-| `__endswith` | `filter(name__endswith='荣耀')` | 以...结尾 |
-| `__iendswith` | `filter(name__iendswith='荣耀')` | 以...结尾并忽略大小写 |
-| `__range` | `filter(name__range='荣耀')` | 在...范围内 |
-| `__year` | `filter(date__year=2018)` | 日期字段的年份 |
-| `__month` | `filter(date__month=12)` | 日期字段的月份 |
-| `__day` | `filter(date__day='')` | 日期字段的天数 |
-| `__isnull` | `filter(name__isnull=True/False)` | 判断是否为空 |
-
-从表中可以看到，只要在查询的字段后添加相应的匹配符，就能实现多种不同的数据查询，如`filter(id__gt=9)`用于获取字段id大于9的数据，在shell模式下使用该匹配符进行数据查询，代码如下：
+从表中可以看到，只要在查询的字段后添加相应的匹配符，就能实现多种不同的数据查询，如`filter(id__gt=9)`用于获取字段 id 大于 9 的数据，在 shell 模式下使用该匹配符进行数据查询，代码如下：
 
 ```sh
 In [75]: from index.models import *
@@ -768,7 +719,7 @@ In [77]: p
 Out[77]: <QuerySet [<Product: Product object (10)>, <Product: Product object (11)>, <Product: Product object (13)>]>
 
 >>> for product in p:
-...     print(f"Product: {product.name}, {product.weight}, {product.size}") 
+...     print(f"Product: {product.name}, {product.weight}, {product.size}")
 ...
 Product: Cheory, g, XL
 Product: 荣耀V9, 111g, 120*75*7mm
@@ -777,21 +728,18 @@ Product: 荣耀V9, 111g, 120*75*7mm
 
 #### 多表查询
 
+一对多或一对一的表关系是通过外键实现关联的，而多表查询分为正向查询和反向查询。以模型 Product 和 Type 为例：
 
-一对多或一对一的表关系是通过外键实现关联的，而多表查询分为正向查询和反向查询。以模型Product和Type为例：
+1、如果查询对象的主体是模型 Type，要查询模型 Type 的数据，那么该查询成为正向查询。
 
-　　　　1、如果查询对象的主体是模型Type，要查询模型Type的数据，那么该查询成为正向查询。
-
-
-　　　　2、如果查询对象的主体是模型Type，要通过模型Type查询模型Product的数据，那么该查询称为反向查询。
-
+2、如果查询对象的主体是模型 Type，要通过模型 Type 查询模型 Product 的数据，那么该查询称为反向查询。
 
 无论是正向查询还是反向查询，两者的实现方法大致相同，代码如下：
 
 ```sh
 (venv) PS D:\coder\python-project\MyDjango> python manage.py shell
->>> from index.models import *              
-# 正向查询                                
+>>> from index.models import *
+# 正向查询
 >>> t = Type.objects.filter(product__id=9)
 >>> t
 <QuerySet [<Type: Type object (3)>]>
@@ -803,57 +751,57 @@ Product: 荣耀V9, 111g, 120*75*7mm
 <QuerySet [{'name': 'Pluots'}, {'name': 'aluots plus'}, {'name': 'Orange'}, {'name': 'Rhspberry'}, {'name': '华为荣耀 v9'}, {'name': 'Cheory'}]>
 ```
 
-从上面的代码分析，因为正向查询的查询对象主体和查询的数据都来自于模型Type,因此正向查询在数据库中只执行了一次SQL查询。
+从上面的代码分析，因为正向查询的查询对象主体和查询的数据都来自于模型 Type,因此正向查询在数据库中只执行了一次 SQL 查询。
 
-而反向查询通过 `t[0].product_set.values('name')` 来获取模型Product的数据，因此反向查询执行了两次SQL查询，首先查询模型Type的数据，然后根据第一次查询的结果再查询与模型
-Product相互关联的数据。
+而反向查询通过 `t[0].product_set.values('name')` 来获取模型 Product 的数据，因此反向查询执行了两次 SQL 查询，首先查询模型 Type 的数据，然后根据第一次查询的结果再查询与模型
+Product 相互关联的数据。
 
-
-为了减少反向查询的查询次数，我们可以使用 select_related 方法实现，该方法只执行一次SQL查询就能达到反向查询的效果。select_related 使用方法如下：
-
+为了减少反向查询的查询次数，我们可以使用 select_related 方法实现，该方法只执行一次 SQL 查询就能达到反向查询的效果。select_related 使用方法如下：
 
 查询模型 Product 的字段 name 和模型 Type 的字段 type_name
-```sh        
-# >>> p = Product.objects.select_related('type').values('name','type__type_name') 
-# >>> print(p.query) 
+
+```sh
+# >>> p = Product.objects.select_related('type').values('name','type__type_name')
+# >>> print(p.query)
 # SELECT `index_product`.`name`, `index_type`.`type_name` FROM `index_product` INNER JOIN `index_type` ON (`index_product`.`type_id` = `index_type`.`id`)
 
->>> from index.models import *                   
+>>> from index.models import *
 >>> Product.objects.select_related('type').values('name','type__type_name')
 <QuerySet [{'name': 'omni-Mango', 'type__type_name': '手机'}, {'name': '荣耀V9', 'type__type_name': '手机'}, {'name': '荣耀V9', 'type__type_name': '手机'}, {'name': 'Huawei v1', 'type__type_name':
  '平板电脑'}, {'name': 'Khwi plus', 'type__type_name': '平板电脑'}, {'name': 'Apfle', 'type__type_name': '平板电脑'}, {'name': 'Pluots', 'type__type_name': '智能穿戴'}, {'name': 'aluots plus', 'ty
 pe__type_name': '智能穿戴'}, {'name': 'Orange', 'type__type_name': '智能穿戴'}, {'name': 'Rhspberry', 'type__type_name': '智能穿戴'}, {'name': '华为荣耀 v9', 'type__type_name': '智能穿戴'}, {'name': 'Cheory', 'type__type_name': '智能穿戴'}]>
 ```
 
-
 查询两个模型的全部数据
 
 ```sh
-# >>> p = Product.objects.select_related('type').all()                            
-# >>> print(p.query)                                   
+# >>> p = Product.objects.select_related('type').all()
+# >>> print(p.query)
 # SELECT `index_product`.`id`, `index_product`.`name`, `index_product`.`weight`, `index_product`.`size`, `index_product`.`type_id`, `index_type`.`id`, `index_type`.`type_name` FROM `index_product` INNER JOIN `index_type` ON (`index_product`.`type_id` = `index_type`.`id`)
->>> from index.models import *  
->>> Product.objects.select_related('type').all()    
+>>> from index.models import *
+>>> Product.objects.select_related('type').all()
 <QuerySet [<Product: Product object (4)>, <Product: Product object (11)>, <Product: Product object (13)>, <Product: Product object (2)>, <Product: Product object (3)>, <Product: Product object (5)>, <Product: Product object (1)>, <Product: Product object (6)>, <Product: Product object (7)>, <Product: Product object (8)>, <Product: Product object (9)>, <Product: Product object (10)>]>
 ```
 
-获取两个模型的数据，以模型Product的id大于8为查询条件
+获取两个模型的数据，以模型 Product 的 id 大于 8 为查询条件
+
 ```sh
 # >> p = Product.objects.select_related('type').filter(id__gt=8)
 # #输出SQL查询语句
 # >>> print(p.query)
 # SELECT `index_product`.`id`, `index_product`.`name`, `index_product`.`weight`, `index_product`.`size`, `index_product`.`type_id`, `index_type`.`id`, `index_type`.`type_name` FROM `index_product` INNER JOIN `index_type` ON (`index_product`.`type_id` = `index_type`.`id`) WHERE `index_product`.`id` > 8
 
->>> Product.objects.select_related('type').filter(id__gt=8)     
+>>> Product.objects.select_related('type').filter(id__gt=8)
 <QuerySet [<Product: Product object (9)>, <Product: Product object (10)>, <Product: Product object (11)>, <Product: Product object (13)>]>
 ```
 
-获取两模型数据，以模型Type的type_name字段等于手机为查询条件
+获取两模型数据，以模型 Type 的 type_name 字段等于手机为查询条件
+
 ```sh
 # >>> p = Product.objects.select_related('type').filter(type__type_name='手机').all()
-# >>> print(p.query) 
+# >>> print(p.query)
 # SELECT `index_product`.`id`, `index_product`.`name`, `index_product`.`weight`, `index_product`.`size`, `index_product`.`type_id`, `index_type`.`id`, `index_type`.`type_name` FROM `index_product` INNER JOIN `index_type` ON (`index_product`.`type_id` = `index_type`.`id`) WHERE `index_type`.`type_name` = 手机
->>> Product.objects.select_related('type').filter(type__type_name='手机').all()     
+>>> Product.objects.select_related('type').filter(type__type_name='手机').all()
 <QuerySet [<Product: Product object (4)>, <Product: Product object (11)>, <Product: Product object (13)>]>
 >>> p = Product.objects.select_related('type').filter(type__type_name='手机').all()
 #输出模型Product信息
@@ -866,16 +814,13 @@ pe__type_name': '智能穿戴'}, {'name': 'Orange', 'type__type_name': '智能�
 手机·
 ```
 
+select related 的使用说明如下：
 
-select related的使用说明如下：
-
-- 以模型Product作为查询对象主体，当然也可以使用模型Type,只要两表之间有外键关联即可。
-- 设置 select_related 的参数值为“type”,该参数值是模型Product定义的type字段。
-- 如果在查询过程中需要使用另一个数据表的字段，可以使用 `"外键__字段名"` 来指向该表的字段。如 `type__type_name` 代表由模型Product的外键type指向模型 Type 的字段 type_name ,type代表模型Product的外键 type,双下画线“_”代表连接符，type_name是模型Type的字段。
-
+- 以模型 Product 作为查询对象主体，当然也可以使用模型 Type,只要两表之间有外键关联即可。
+- 设置 select_related 的参数值为“type”,该参数值是模型 Product 定义的 type 字段。
+- 如果在查询过程中需要使用另一个数据表的字段，可以使用 `"外键__字段名"` 来指向该表的字段。如 `type__type_name` 代表由模型 Product 的外键 type 指向模型 Type 的字段 type*name ,type 代表模型 Product 的外键 type,双下画线“*”代表连接符，type_name 是模型 Type 的字段。
 
 除此之外，select_related 还可以支持三个或三个以上的数据表同时查询，以下面的例子进行说明。
-
 
 ```python
 from django.db import models
@@ -898,18 +843,19 @@ class Person(models.Model):
     living = models.ForeignKey(City, on_delete=models.CASCADE)
 ```
 
-
 然后重新执行数据迁移。如下
+
 ```sh
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-在上述模型中，模型Person通过外键living关联模型City，模型City通过外键province关联模型Province，从而使三个模型形成一种递进关系。
+在上述模型中，模型 Person 通过外键 living 关联模型 City，模型 City 通过外键 province 关联模型 Province，从而使三个模型形成一种递进关系。
 
-　　例如查询张三现在所居住的省份，首先通过模型Person和模型City查出张三所居住的城市，然后通过模型City和模型Province查询当前城市所属的省份。因此，select_related的实现方法如下：
+例如查询张三现在所居住的省份，首先通过模型 Person 和模型 City 查出张三所居住的城市，然后通过模型 City 和模型 Province 查询当前城市所属的省份。因此，select_related 的实现方法如下：
 
 首先生成测试数据
+
 ```sql
 INSERT INTO `mydjango`.`index_province` (`id`, `name`) VALUES (11, '湖北省');
 INSERT INTO `mydjango`.`index_province` (`id`, `name`) VALUES (12, '广东省');
@@ -921,7 +867,7 @@ INSERT INTO `mydjango`.`index_person` (`id`, `name`, `living_id`) VALUES (2, '�
 
 ```sh
 (venv) PS D:\coder\python-project\MyDjango> python manage.py shell
->>> from index.models import *     
+>>> from index.models import *
 >>> p = Person.objects.select_related('living__province').get(name='胡建力')
 >>> p.living.province
 <Province: Province object (11)>
@@ -929,28 +875,23 @@ INSERT INTO `mydjango`.`index_person` (`id`, `name`, `living_id`) VALUES (2, '�
 '湖北省'
 ```
 
-　在上述例子可以发现，通过设置 select_related 的参数值即可实现三个或三个以上的多表查询。例子中的参数值为 `living__province`, 参数值说明如下：
+在上述例子可以发现，通过设置 select_related 的参数值即可实现三个或三个以上的多表查询。例子中的参数值为 `living__province`, 参数值说明如下：
 
-　　　　1、living是模型Person的字段，该字段指向模型City。
+1、living 是模型 Person 的字段，该字段指向模型 City。
 
-　　　　2、province是模型City的字段，该字段指向模型Province
+2、province 是模型 City 的字段，该字段指向模型 Province
 
-　　　　3、两个字段之间使用双下划线连接并且两个字段都是指向另一个模型的，这说明在查询过程中，模型Person的字段living指向模型City，再从模型City的字段province指向模型Province，从而实现两个或三个以上的多表查询。
+3、两个字段之间使用双下划线连接并且两个字段都是指向另一个模型的，这说明在查询过程中，模型 Person 的字段 living 指向模型 City，再从模型 City 的字段 province 指向模型 Province，从而实现两个或三个以上的多表查询。
 
-
-
-
-## 3. 使用Django开发REST 接口
-
+## 3. 使用 Django 开发 REST 接口
 
 ```sh
 git chekout -b "django-json"
 ```
 
-我们以在Django框架中使用的图书英雄案例来写一套支持图书数据增删改查的REST API接口，来理解REST API的开发。
+我们以在 Django 框架中使用的图书英雄案例来写一套支持图书数据增删改查的 REST API 接口，来理解 REST API 的开发。
 
-
-在此案例中，前后端均发送JSON格式数据, 使用视图基类 View 。
+在此案例中，前后端均发送 JSON 格式数据, 使用视图基类 View 。
 
 ##### 基本配置
 
@@ -969,7 +910,6 @@ source bin/activite
 # 创建app
 (venv)# python manage.py startapp app
 ```
-
 
 `bookv1/settings.py`
 
@@ -1069,15 +1009,12 @@ class HeroInfo(models.Model):
     # HeroInfo.objects.filter(hbook__bread=xx)
 ```
 
-
 迁移数据库命令，如下
 
 ```sh
 python manage.py makemigrations
 python manage.py migrate
 ```
-
-
 
 首先插入一些测试数据,如下
 
@@ -1088,9 +1025,6 @@ insert into tb_books(btitle,bpub_date,bread,bcomment,is_delete) values
 ('笑傲江湖','1995-12-24',20,80,0),
 ('雪山飞狐','1987-11-11',58,24,0);
 ```
-
-
-
 
 ```sql
 insert into tb_heros(hname,hgender,hbook_id,hcomment,is_delete) values
@@ -1112,7 +1046,6 @@ insert into tb_heros(hname,hgender,hbook_id,hcomment,is_delete) values
 ('程灵素',0,4,'医术',0),
 ('袁紫衣',0,4,'六合拳',0);
 ```
-
 
 ##### 视图
 
@@ -1452,27 +1385,20 @@ urlpatterns = [
 ]
 ```
 
-
 ##### 启动应用
 
 ```sh
 python manage.py runserver 0.0.0.0:8000
 ```
 
+##### 使用 postman 测试接口
 
-##### 使用postman测试接口
+| 分类 | 方法                         | 详细                                                         | 接口是否可用         |
+| ---- | ---------------------------- | ------------------------------------------------------------ | -------------------- |
+| 图书 | GET<br>POST<br>PUT<br>DELETE | 获取图书列表<br>获取单个图书详细<br>修改图书信息<br>删除图书 | √<br>√<br>√<br>√<br> |
+| 人物 | GET<br>POST<br>PUT<br>DELETE | 获取人物列表<br>获取单个人物详细<br>修改人物信息<br>删除人物 | √<br>√<br>√<br>√<br> |
 
-
-
-
-|分类|方法|详细|接口是否可用|
-|----|----|----|------|
-|图书|GET<br>POST<br>PUT<br>DELETE|获取图书列表<br>获取单个图书详细<br>修改图书信息<br>删除图书|√<br>√<br>√<br>√<br>|
-|人物|GET<br>POST<br>PUT<br>DELETE|获取人物列表<br>获取单个人物详细<br>修改人物信息<br>删除人物|√<br>√<br>√<br>√<br>|
-
-
-
-Postman发送请求示例
+Postman 发送请求示例
 
 ```sh
 # GET 获取所有图书数据
@@ -1505,25 +1431,21 @@ http://127.0.0.1:8000/api/books/5/
 # ......
 ```
 
+## 4. 明确 REST 接口开发的核心任务
 
-## 4. 明确REST接口开发的核心任务
+分析一下上节的案例，可以发现，在开发 REST API 接口时，视图中做的最主要有三件事：
 
-
-
-分析一下上节的案例，可以发现，在开发REST API接口时，视图中做的最主要有三件事：
-
-1.将请求的数据（如JSON格式）转换为模型类对象
+1.将请求的数据（如 JSON 格式）转换为模型类对象
 
 2.操作数据库
 
-3.将模型类对象转换为响应的数据（如JSON格式）
-
+3.将模型类对象转换为响应的数据（如 JSON 格式）
 
 ### 4.1 序列化
 
-序列化Serialization 简而言之，我们可以将序列化理解为：
+序列化 Serialization 简而言之，我们可以将序列化理解为：
 
-将程序中的一个数据结构类型转换为其他格式（字典、JSON、XML等），例如将Django中的模型类对象装换为JSON字符串，这个转换过程我们称为序列化。
+将程序中的一个数据结构类型转换为其他格式（字典、JSON、XML 等），例如将 Django 中的模型类对象装换为 JSON 字符串，这个转换过程我们称为序列化。
 
 ```python
 queryset = BookInfo.objects.all()
@@ -1541,7 +1463,7 @@ for book in queryset:
 return JsonResponse(book_list, safe=False)
 ```
 
-反之，将其他格式（字典、JSON、XML等）转换为程序中的数据，例如将JSON字符串转换为Django中的模型类对象，这个过程我们称为反序列化。
+反之，将其他格式（字典、JSON、XML 等）转换为程序中的数据，例如将 JSON 字符串转换为 Django 中的模型类对象，这个过程我们称为反序列化。
 
 ```python
 json_bytes = request.body
@@ -1558,54 +1480,49 @@ book = BookInfo.objects.create(
 )
 ```
 
-我们可以看到，在开发REST API时，视图中要频繁的进行序列化与反序列化的编写。
+我们可以看到，在开发 REST API 时，视图中要频繁的进行序列化与反序列化的编写。
 
-总结 在开发REST API接口时，我们在视图中需要做的最核心的事是：
+总结 在开发 REST API 接口时，我们在视图中需要做的最核心的事是：
 
 - 将数据库数据序列化为前端所需要的格式，并返回；
 - 将前端发送的数据反序列化为模型类对象，并保存到数据库中
-
 
 ## 5. Django REST framework 简介
 
 在序列化与反序列化时，虽然操作的数据不尽相同，但是执行的过程却是相似的，也就是说这部分代码是可以复用简化编写的。
 
-在开发RESTAPI的视图中，虽然每个视图具体操作的数据不同，但增、删、改、查的实现流程基本套路化，所以这部分代码也是可以复用简化编写的：
+在开发 RESTAPI 的视图中，虽然每个视图具体操作的数据不同，但增、删、改、查的实现流程基本套路化，所以这部分代码也是可以复用简化编写的：
 
 1. 增：校验请求数据 -> 执行反序列化过程 -> 保存数据库 -> 将保存的对象序列化并返回
 2. 删：判断要删除的数据是否存在 ->执行数据库删除
 3. 改：判断要修改的数据是否存在 -> 校验请求的数据 -> 执行反序列化过程 -> 保存数据库 -> 将保存的对象序列化并返回
 4. 查：查询数据库 -> 将数据序列化并返回
 
-Django REST framework可以帮助我们简化上述两部分的代码编写，大大提高REST API的开发速度。
+Django REST framework 可以帮助我们简化上述两部分的代码编写，大大提高 REST API 的开发速度。
 
+### 5.1 认识 Django REST framework
 
-### 5.1 认识Django REST framework
+Django REST framework 框架是一个用于构建 Web API 的强大而又灵活的工具。
 
-Django REST framework 框架是一个用于构建Web API 的强大而又灵活的工具。
+通常简称为 DRF 框架 或 REST framework。
 
-通常简称为DRF框架 或 REST framework。
-
-
-DRF框架是建立在Django框架基础之上，由Tom Christie大牛二次开发的开源项目。
+DRF 框架是建立在 Django 框架基础之上，由 Tom Christie 大牛二次开发的开源项目。
 
 特点
 
-- 提供了定义序列化器Serializer的方法，可以快速根据 Django ORM 或者其它库自动序列化/反序列化；
-- 提供了丰富的类视图、Mixin扩展类，简化视图的编写；
+- 提供了定义序列化器 Serializer 的方法，可以快速根据 Django ORM 或者其它库自动序列化/反序列化；
+- 提供了丰富的类视图、Mixin 扩展类，简化视图的编写；
 - 丰富的定制层级：函数视图、类视图、视图集合到自动生成 API， 满足各种需要；
 - 多种身份认证和权限认证方式的支持；
 - 内置了限流系统；
 - 直观的 API web 界面；
 - 可扩展性，插件丰富
 
+### 5.2 Django REST framework 常用组件
 
+可以毫不夸张地说，如果可以将 Django REST framework 的 10 个常用组件融会贯通，那么使用 Django 开发前后端分离的项目中有可能遇到的绝大部分需求，都能得到高效的解决。
 
-### 5.2 Django REST framework常用组件
-
-可以毫不夸张地说，如果可以将Django REST framework的10个常用组件融会贯通，那么使用Django开发前后端分离的项目中有可能遇到的绝大部分需求，都能得到高效的解决。
-
-Django REST framework的10个常用组件如下：
+Django REST framework 的 10 个常用组件如下：
 
 - 权限组件；
 - 认证组件；
@@ -1618,77 +1535,59 @@ Django REST framework的10个常用组件如下：
 - 渲染器组件；
 - 版本组件。
 
-Django REST framework官方文档的地址是  https://www.django-rest-framework.org/
+Django REST framework 官方文档的地址是 https://www.django-rest-framework.org/
 
+## 6. 用 Django REST framework 实现豆瓣 API 应用
 
+新建一个 Django 项目，命名为 book，作为贯穿本书的演示项目。
 
-## 6. 用Django REST framework实现豆瓣API应用
+选择 PyCharm 作为开发工具，在新建目录时，新建 App 命名为 users。
 
+### 6.1 豆瓣 API 功能介绍
 
-新建一个Django项目，命名为book，作为贯穿本书的演示项目。
+豆瓣图书的 API 功能原理是用户通过输入图书的 ISBN 号（书号）、书名、作者、出版社等部分信息，就可获取到该图书在豆瓣上的所有信息。
 
-选择PyCharm作为开发工具，在新建目录时，新建App命名为users。
+当然，API 中除了要包含检索信息之外，还要包含开发者的 apikey，用来记录开发者访问 API 的次数，以此向开发者收费。
 
+目前豆瓣图书的 API 是 0.3 元/100 次。
 
+### 6.2 Django REST framework 序列化
 
-### 6.1 豆瓣API功能介绍
+序列化（Serialization）是指将对象的状态信息转换为可以存储或传输形式的过程。在客户端与服务端传输的数据形式主要分为两种：XML 和 JSON。
 
+在 Django 中的序列化就是指将对象状态的信息转换为 JSON 数据，以达到将数据信息传送给前端的目的。
 
-豆瓣图书的API功能原理是用户通过输入图书的ISBN号（书号）、书名、作者、出版社等部分信息，就可获取到该图书在豆瓣上的所有信息。
+序列化是开发 API 不可缺少的一个环节，Django 本身也有一套做序列化的方案，这个方案可以说已经做得很好了，但是若跟 Django REST framework 相比，还是不够极致，速度不够快。
 
-当然，API中除了要包含检索信息之外，还要包含开发者的apikey，用来记录开发者访问API的次数，以此向开发者收费。
+#### 6.2.1 Postman 的使用
 
-目前豆瓣图书的API是0.3元/100次。
+Postman 是一款非常流行的 API 调试工具，其使用简单、方便，而且功能强大。
 
+通过 Postman 可以便捷地向 API 发送 GET、POST、PUT 和 DELETE 请求，几乎是资深或者伪资深开发人员调试 API 的首选。
 
+当然，这并不是 Postman 在开发领域如此受欢迎的唯一理由。
 
-### 6.2 Django REST framework序列化
+Postman 最早是以 Chrome 浏览器插件的形式存在，可以从 Chrome 应用商店搜索、下载并安装，后来因为一些原因，Chrome 应用商店在国内无法访问，2018 年 Postman 停止了对 Chrome 浏览器的支持，提供了独立安装包，不再依赖 Chrome，同时支持 Linux、Windows 和 Mac OS 系统。
 
+测试人员做接口测试会有更多选择，例如 Jmeter 和 soapUI 等，因为测试人员就是完成产品的测试，而开发人员不需要有更多的选择，毕竟开发人员是创新者、创造者。
 
-序列化（Serialization）是指将对象的状态信息转换为可以存储或传输形式的过程。在客户端与服务端传输的数据形式主要分为两种：XML和JSON。
+Postman 的下载地址是 https://www.getpostman.com/apps 。
 
-在Django中的序列化就是指将对象状态的信息转换为JSON数据，以达到将数据信息传送给前端的目的。
+同样的工具还有 httpie，使用方法如下：
 
-序列化是开发API不可缺少的一个环节，Django本身也有一套做序列化的方案，这个方案可以说已经做得很好了，但是若跟Django REST framework相比，还是不够极致，速度不够快。
+http 请求命令行工具(httpie)：https://www.cnblogs.com/yoyoketang/p/11546176.html
 
+#### 6.2.2 用 serializers.Serializer 方式序列化
 
+（1）打开项目 book。
 
-
-#### 6.2.1 Postman的使用
-
-Postman是一款非常流行的API调试工具，其使用简单、方便，而且功能强大。
-
-通过Postman可以便捷地向API发送GET、POST、PUT和DELETE请求，几乎是资深或者伪资深开发人员调试API的首选。
-
-当然，这并不是Postman在开发领域如此受欢迎的唯一理由。
-
-Postman最早是以Chrome浏览器插件的形式存在，可以从Chrome应用商店搜索、下载并安装，后来因为一些原因，Chrome应用商店在国内无法访问，2018年Postman停止了对Chrome浏览器的支持，提供了独立安装包，不再依赖Chrome，同时支持Linux、Windows和Mac OS系统。
-
-测试人员做接口测试会有更多选择，例如Jmeter和soapUI等，因为测试人员就是完成产品的测试，而开发人员不需要有更多的选择，毕竟开发人员是创新者、创造者。
-
-Postman的下载地址是 https://www.getpostman.com/apps 。
-
-
-
-同样的工具还有httpie，使用方法如下：
-
-
-http请求命令行工具(httpie)：https://www.cnblogs.com/yoyoketang/p/11546176.html
-
-
-
-#### 6.2.2 用serializers.Serializer方式序列化
-
-
-（1）打开项目book。
-
-（2）安装Django REST framework及其依赖包markdown和django-filter。命令如下：
+（2）安装 Django REST framework 及其依赖包 markdown 和 django-filter。命令如下：
 
 ```sh
 pip install djangorestframework markdown django-filter
 ```
 
-（3）在settings中注册，代码如下：
+（3）在 settings 中注册，代码如下：
 
 ```python
 INSTALLED_APPS = [
@@ -1703,9 +1602,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-
-
-（4）设计users的models.py，重构用户表UserProfile，增加字段APIkey和money。当然，为了演示核心功能，可以建立一张最简单的表，大家可以根据个人喜好增加一些业务字段来丰富项目功能。
+（4）设计 users 的 models.py，重构用户表 UserProfile，增加字段 APIkey 和 money。当然，为了演示核心功能，可以建立一张最简单的表，大家可以根据个人喜好增加一些业务字段来丰富项目功能。
 
 ```python
 from datetime import datetime
@@ -1730,14 +1627,13 @@ class UserProfile(AbstractUser):
 
 ```
 
-（5）在settings中配置用户表的继承代码：
+（5）在 settings 中配置用户表的继承代码：
 
 ```python
 AUTH_USER_MODEL='users.UserProfile'
 ```
 
-
-（6）在users的models.py文件中新建书籍信息表book，为了演示方便，我们姑且将作者字段并入书籍信息表，读者在实际项目中可根据业务模式灵活设计数据表model：
+（6）在 users 的 models.py 文件中新建书籍信息表 book，为了演示方便，我们姑且将作者字段并入书籍信息表，读者在实际项目中可根据业务模式灵活设计数据表 model：
 
 ```python
 class Book(models.Model):
@@ -1769,7 +1665,7 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-（8）建立一个超级用户，用户名为admin，邮箱为 1@1.com ，密码为admin1234。
+（8）建立一个超级用户，用户名为 admin，邮箱为 1@1.com ，密码为 admin1234。
 
 ```sh
 python manage.py createsuperuser
@@ -1779,11 +1675,9 @@ Password:
 Password (again):
 ```
 
-（9）通过PyCharm的Databases操作面板，直接在book表内增加一条记录，title为三国演义，isbn为777777，author为罗贯中，publish为一个出版社，rate为6.6，add_time为154087130331。
+（9）通过 PyCharm 的 Databases 操作面板，直接在 book 表内增加一条记录，title 为三国演义，isbn 为 777777，author 为罗贯中，publish 为一个出版社，rate 为 6.6，add_time 为 154087130331。
 
-
-
-（10）准备工作已经完成，接下来是我们的“正片”开始啦。在users目录下新建py文件serializers，将序列化的类代码写入其中：
+（10）准备工作已经完成，接下来是我们的“正片”开始啦。在 users 目录下新建 py 文件 serializers，将序列化的类代码写入其中：
 
 ```python
 from rest_framework import serializers
@@ -1800,13 +1694,11 @@ class BookSerializer(serializers.Serializer):
 
 ```
 
-其他Serializer字段与选项
+其他 Serializer 字段与选项
 
 [参考](https://q1mi.github.io/Django-REST-framework-documentation/api-guide/fields_zh/)
 
-
-
-（11）在users/views中编写视图代码：
+（11）在 users/views 中编写视图代码：
 
 ```python
 from .serializers import BookSerializer
@@ -1840,9 +1732,7 @@ class BookAPIView1(APIView):
             return Response("查无此人啊")
 ```
 
-
-（12）在urls中配置路由如下：
-
+（12）在 urls 中配置路由如下：
 
 ```python
 from django.contrib import admin
@@ -1855,62 +1745,49 @@ urlpatterns = [
 ]
 ```
 
-至此，我们可以运行book项目，使用Postman访问API来测试一下啦。我们用Postman的GET方式访问API：
-
+至此，我们可以运行 book 项目，使用 Postman 访问 API 来测试一下啦。我们用 Postman 的 GET 方式访问 API：
 
 http://127.0.0.1:8000/apibook1/?apikey=abcdefghigklmn&isbn=777777
 
-
-我们获得了想要的JSON数据：
+我们获得了想要的 JSON 数据：
 
 ```json
 [
-    {
-        "title": "三国演义",
-        "isbn": "777777",
-        "author": "罗贯中",
-        "publish": "人民出版社",
-        "rate": 6.6
-    }
+  {
+    "title": "三国演义",
+    "isbn": "777777",
+    "author": "罗贯中",
+    "publish": "人民出版社",
+    "rate": 6.6
+  }
 ]
 ```
 
-然后到数据库中查看一下，发现用户admin的money被减去了1，变成了9。当我们用Postman故意填错apikey时，访问：
+然后到数据库中查看一下，发现用户 admin 的 money 被减去了 1，变成了 9。当我们用 Postman 故意填错 apikey 时，访问：
 
-
-
-
-
-当我们连续访问10次：
+当我们连续访问 10 次：
 
 http://127.0.0.1:8000/apibook1/?apikey=abcdefghigklmn&isbn=777777
 
-
-
-API返回的数据为：
-
+API 返回的数据为：
 
 ```json
 "兄弟，又到了需要充钱的时候！好开心啊！"
 ```
 
+至此，一个简单的模仿豆瓣图书 API 的功能就实现了。在实际的项目中，这样的实现方式虽然原理很清晰，但是存在着很明显的短板，比如被查询的表的字段不可能只有几个，我们在真正调用豆瓣图书 API 的时候就会发现，即使只查询一本书的信息，由于有很多的字段和外键字段，返回的数据量也会非常大。如果使用 Serializer 进行序列化，那么工作量实在太大，严重影响了开发效率。
 
+所以，这里使用 Serializer 进行序列化，目的是让大家通过这种序列化方式更加轻松地理解 Django REST framework 的序列化原理。在实际生产环境中，更加被广泛应用的序列化方式是采用了 Django REST framework 的 ModelSerializer。
 
-至此，一个简单的模仿豆瓣图书API的功能就实现了。在实际的项目中，这样的实现方式虽然原理很清晰，但是存在着很明显的短板，比如被查询的表的字段不可能只有几个，我们在真正调用豆瓣图书API的时候就会发现，即使只查询一本书的信息，由于有很多的字段和外键字段，返回的数据量也会非常大。如果使用Serializer进行序列化，那么工作量实在太大，严重影响了开发效率。
+#### 6.2.3 用 serializers.ModelSerializer 方式序列化
 
-所以，这里使用Serializer进行序列化，目的是让大家通过这种序列化方式更加轻松地理解Django REST framework的序列化原理。在实际生产环境中，更加被广泛应用的序列化方式是采用了Django REST framework的ModelSerializer。
+我们将要使用 Django REST framework 的 ModelSerializer 来实现这个功能。因为都是在 book 项目中，所以上一节中介绍的很多步骤我们没有必要重复。
 
-
-#### 6.2.3 用serializers.ModelSerializer方式序列化
-
-我们将要使用Django REST framework的ModelSerializer来实现这个功能。因为都是在book项目中，所以上一节中介绍的很多步骤我们没有必要重复。
-
-我们现在要做的，首先是到数据库中的UserProfile表中，将用户admin的money从0修改回10，不然API只能返回提醒充值的数据。
-
+我们现在要做的，首先是到数据库中的 UserProfile 表中，将用户 admin 的 money 从 0 修改回 10，不然 API 只能返回提醒充值的数据。
 
 ##### 1.定义
 
-在 users/serializer.py 中，写book的ModelSerializer序列化类：
+在 users/serializer.py 中，写 book 的 ModelSerializer 序列化类：
 
 ```python
 from rest_framework import serializers
@@ -1932,14 +1809,11 @@ class BookModelSerializer(serializers.ModelSerializer):
         fields = "__all__"  # 将整个表的所有字段都序列化
 ```
 
-
 - model 指明参照哪个模型类
 
 - fields 指明为模型类的哪些字段生成
 
-
-
-在 users/views.py 中，编写基于 BookModelSerializer 的图书API视图类：
+在 users/views.py 中，编写基于 BookModelSerializer 的图书 API 视图类：
 
 ```python
 from .serializers import BookSerializer
@@ -1984,10 +1858,9 @@ class BookAPIView2(APIView):
 
 ```
 
+> 注意： 使用 ModelSerializer 序列化对应的视图类与使用 Serializer 进行序列化对应的视图类，除了序列化的方式不同，其他的代码都是相同的。
 
-> 注意： 使用ModelSerializer序列化对应的视图类与使用Serializer进行序列化对应的视图类，除了序列化的方式不同，其他的代码都是相同的。
-
-在urls中配置路由代码：
+在 urls 中配置路由代码：
 
 ```python
 from django.contrib import admin
@@ -2001,40 +1874,34 @@ urlpatterns = [
 ]
 ```
 
-使用Postman对API进行测试，用GET的方式访问：
-
+使用 Postman 对 API 进行测试，用 GET 的方式访问：
 
 http://127.0.0.1:8000/apibook2/?apikey=abcdefghigklmn&isbn=777777
-
 
 返回书籍所有的字段数据：
 
 ```json
 [
-    {
-        "id": 1,
-        "title": "三国演义",
-        "isbn": "777777",
-        "author": "罗贯中",
-        "publish": "人民出版社",
-        "rate": 6.6,
-        "add_time": null
-    }
+  {
+    "id": 1,
+    "title": "三国演义",
+    "isbn": "777777",
+    "author": "罗贯中",
+    "publish": "人民出版社",
+    "rate": 6.6,
+    "add_time": null
+  }
 ]
 ```
 
-> 注意： 这里的add_time字段为null，是因为这个项目使用了Django默认的db.sqlite3数据库。由于db.sqlite3在存储时间字段的时候，是以时间戳的格式保存的，
-> 所以直接使用Django REST framework的Serializer进行序列化失败。在实际项目中，我们会选择MySQL等主流数据库，就不会出现这种情况了
+> 注意： 这里的 add_time 字段为 null，是因为这个项目使用了 Django 默认的 db.sqlite3 数据库。由于 db.sqlite3 在存储时间字段的时候，是以时间戳的格式保存的，
+> 所以直接使用 Django REST framework 的 Serializer 进行序列化失败。在实际项目中，我们会选择 MySQL 等主流数据库，就不会出现这种情况了
 
-
-可以看出，对于一条有很多字段的数据记录来说，使用ModelSerializer的序列化方式，可以一句话将所有字段序列化，非常方便。
-
+可以看出，对于一条有很多字段的数据记录来说，使用 ModelSerializer 的序列化方式，可以一句话将所有字段序列化，非常方便。
 
 ##### 2.指定字段
 
-当然，ModelSerializer也可以像Serializer一样对某几个特定字段进行序列化，写法也很简单，只需要对原本的BookModelSerializer修改一行代码：
-
-
+当然，ModelSerializer 也可以像 Serializer 一样对某几个特定字段进行序列化，写法也很简单，只需要对原本的 BookModelSerializer 修改一行代码：
 
 ```python
 # 1. 使用fields来明确字段，__all__表名包含所有字段，也可以写明具体哪些字段
@@ -2054,7 +1921,6 @@ fields = ('id', 'btitle', 'bpub_date'， 'bread', 'bcomment')
 read_only_fields = ('id', 'bread', 'bcomment')
 ```
 
-
 显示指明字段
 
 ```python
@@ -2065,10 +1931,7 @@ class BookInfoSerializer(serializers.ModelSerializer):
         fields = ('id', 'btitle', 'bpub_date')
 ```
 
-
-
 指明只读字段
-
 
 ```python
 class BookInfoSerializer(serializers.ModelSerializer):
@@ -2079,21 +1942,19 @@ class BookInfoSerializer(serializers.ModelSerializer):
         read_only_fields = ('id', 'bread', 'bcomment')
 ```
 
-
-使用Postman对API进行测试，用GET的方式访问：
+使用 Postman 对 API 进行测试，用 GET 的方式访问：
 
 http://127.0.0.1:8000/apibook2/?apikey=abcdefghigklmn&isbn=777777
-
 
 返回的数据就成了：
 
 ```json
 [
-    {
-        "title": "三国演义",
-        "isbn": "777777",
-        "author": "罗贯中"
-    }
+  {
+    "title": "三国演义",
+    "isbn": "777777",
+    "author": "罗贯中"
+  }
 ]
 ```
 
@@ -2120,8 +1981,6 @@ class BookInfoSerializer(serializers.ModelSerializer):
 #    bcomment = IntegerField(label='评论量', max_value=2147483647, min_value=0, required=True)
 ```
 
-
-
 ```python
 class LeaveMessageSerializer(serializers.ModelSerializer):
     """
@@ -2137,20 +1996,17 @@ class LeaveMessageSerializer(serializers.ModelSerializer):
         fields = "__all__"
 ```
 
+#### 6.2.4 Serializer 和 ModelSerializer 序列化选择
 
+我们对 Django REST framework 的两种序列化方式做一个总结：
 
-#### 6.2.4 Serializer和ModelSerializer序列化选择
+Serializer 和 ModelSerializer 两种序列化方式中，前者比较容易理解，适用于新手；后者则在商业项目中被使用的更多，在实际开发中建议大家多使用后者。
 
-我们对Django REST framework的两种序列化方式做一个总结：
+许多教材中都将 Django REST framework 的 Serializer 和 ModelSerializer,与 Django 的 Form 和 ModelForm 做对比，虽然二者相似，在优劣选择上却是不同的。Form 虽然没有 ModelForm 效率高，但是 ModelForm 的使用增加了项目的耦合度，不符合项目解耦原则，所以 Form 比 ModelForm 更优（除了字段量过大的情况）；
 
-Serializer和ModelSerializer两种序列化方式中，前者比较容易理解，适用于新手；后者则在商业项目中被使用的更多，在实际开发中建议大家多使用后者。
+而 ModelSerializer 有 Serializer 所有的优点，同时并没有比 Serializer 明显的不足之外，**所以 ModelSerializer 比 Serializer 更优。**
 
-许多教材中都将Django REST framework的Serializer和ModelSerializer,与Django的Form和ModelForm做对比，虽然二者相似，在优劣选择上却是不同的。Form虽然没有ModelForm效率高，但是ModelForm的使用增加了项目的耦合度，不符合项目解耦原则，所以Form比ModelForm更优（除了字段量过大的情况）；
-
-而ModelSerializer有Serializer所有的优点，同时并没有比Serializer明显的不足之外，**所以ModelSerializer比Serializer更优。**
-
-ModelSerializer与常规的Serializer相同，但提供了：
-
+ModelSerializer 与常规的 Serializer 相同，但提供了：
 
 - 自动推断需要序列化的字段及类型
 - 提供对字段数据的验证器的默认实现
@@ -2158,34 +2014,23 @@ ModelSerializer与常规的Serializer相同，但提供了：
 
 另外我们还可以在 fileds 列表里挑选出需要的数据，以便减小数据的体积。
 
-
-
-
-#### 6.2.5 HyperlinkedModelSerializer序列化方式
+#### 6.2.5 HyperlinkedModelSerializer 序列化方式
 
 HyperlinkedModelSerializer 基本上与之前用的 ModelSerializer 差不多，区别是它自动提供了外键字段的超链接，并且默认不包含模型对象的 id 字段。
 
-HyperlinkedModelSerializer与ModelSerializer有以下区别：
+HyperlinkedModelSerializer 与 ModelSerializer 有以下区别：
 
-- 默认情况下不包括id字段。
-- 它包含一个url字段，使用HyperlinkedIdentityField。
-- 关联关系使用HyperlinkedRelatedField，而不是PrimaryKeyRelatedField。
-
-
+- 默认情况下不包括 id 字段。
+- 它包含一个 url 字段，使用 HyperlinkedIdentityField。
+- 关联关系使用 HyperlinkedRelatedField，而不是 PrimaryKeyRelatedField。
 
 参考文献：
 
 https://q1mi.github.io/Django-REST-framework-documentation/api-guide/serializers_zh/#hyperlinkedmodelserializer
 
-
-
-
-
-
-
 #### 6.2.6 总结
 
-ModelSerializer比Serializer好用是模型序列化的首选方案!
+ModelSerializer 比 Serializer 好用是模型序列化的首选方案!
 
 参考文献：
 
@@ -2193,14 +2038,7 @@ https://www.cnblogs.com/gengfenglog/p/14658470.html#_lab2_0_4
 
 https://www.cuiliangblog.cn/detail/article/13
 
-
-
-
-
-
-
-## 7. Django REST framework视图
-
+## 7. Django REST framework 视图
 
 ### 7.1 视图类总结
 
@@ -2210,60 +2048,44 @@ REST framework 提供了众多的通用视图基类与扩展类，以简化视�
 
 ![1700798042427](https://cdn.jsdelivr.net/gh/hujianli94/Picgo-atlas@main/img/1700798042427.2ol9tvnog420.webp){: .zoom}
 
-
-
 ![1700648982801](https://cdn.jsdelivr.net/gh/hujianli94/Picgo-atlas@main/img/1700648982801.3vua8iq84hu0.png){: .zoom}
 
-
-
-
-
-
-### 7.2 基于api_view函数视图示例
-
+### 7.2 基于 api_view 函数视图示例
 
 #### 7.2.1 Request
 
 ##### Request objects
 
-1.REST framework 传入视图的request对象不再是Django默认的HttpRequest对象，而是REST framework提供的扩展了HttpRequest类的Request类的对象。REST framework 提供了Parser解析器，在接收到请求后会自动根据Content-Type指明的请求数据类型（如JSON、表单等）将请求数据进行parse解析，解析为类字典对象保存到Request对象中
-  
+1.REST framework 传入视图的 request 对象不再是 Django 默认的 HttpRequest 对象，而是 REST framework 提供的扩展了 HttpRequest 类的 Request 类的对象。REST framework 提供了 Parser 解析器，在接收到请求后会自动根据 Content-Type 指明的请求数据类型（如 JSON、表单等）将请求数据进行 parse 解析，解析为类字典对象保存到 Request 对象中
 
-2.Request对象的数据是自动根据前端发送数据的格式进行解析之后的结果。无论前端发送的哪种格式的数据，我们都可以以统一的方式读取数据。
-
-
+2.Request 对象的数据是自动根据前端发送数据的格式进行解析之后的结果。无论前端发送的哪种格式的数据，我们都可以以统一的方式读取数据。
 
 ##### 常用属性
 
 **1.request.data**
 
-返回解析之后的请求体数据。类似于Django中标准的request.POST和 request.FILES属性，但提供如下特性：
+返回解析之后的请求体数据。类似于 Django 中标准的 request.POST 和 request.FILES 属性，但提供如下特性：
 
 - 包含了解析之后的文件和非文件数据
-- 包含了对POST、PUT、PATCH请求方式解析后的数据
-- 利用了REST framework的parsers解析器，不仅支持表单类型数据，也支持JSON数据
-
+- 包含了对 POST、PUT、PATCH 请求方式解析后的数据
+- 利用了 REST framework 的 parsers 解析器，不仅支持表单类型数据，也支持 JSON 数据
 
 **2.request.query_params**
 
-与Django标准的request.GET相同，只是更换了更正确的名称而已。
-
+与 Django 标准的 request.GET 相同，只是更换了更正确的名称而已。
 
 **3.总结**
 
-- GET请求：如果想获取GET请求的所有参数，使用request.query_params即可
-- POST请求：使用request.data就可以处理传入的json请求，或者其他格式请求。
-
-
+- GET 请求：如果想获取 GET 请求的所有参数，使用 request.query_params 即可
+- POST 请求：使用 request.data 就可以处理传入的 json 请求，或者其他格式请求。
 
 #### 7.2.2 Response
 
-
 ##### Response objects
 
-REST framework提供了一个响应类Response，使用该类构造响应对象时，响应的具体数据内容会被转换（render渲染）成符合前端需求的类型。
+REST framework 提供了一个响应类 Response，使用该类构造响应对象时，响应的具体数据内容会被转换（render 渲染）成符合前端需求的类型。
 
-REST framework提供了Renderer渲染器，用来根据请求头中的Accept（接收数据类型声明）来自动转换响应数据到对应格式。如果前端请求中未进行Accept声明，则会采用默认方式处理响应数据，我们可以通过配置来修改默认响应格式。
+REST framework 提供了 Renderer 渲染器，用来根据请求头中的 Accept（接收数据类型声明）来自动转换响应数据到对应格式。如果前端请求中未进行 Accept 声明，则会采用默认方式处理响应数据，我们可以通过配置来修改默认响应格式。
 
 ```python
 REST_FRAMEWORK = {
@@ -2283,45 +2105,36 @@ Response(data, status=None, template_name=None, headers=None, content_type=None)
 参数说明:
 
 - data: 为响应准备的序列化处理后的数据（序列化器序列化处理后的数据）
-- status: 状态码，默认200；
-- template_name: 模板名称，如果使用HTMLRenderer 时需指明；
+- status: 状态码，默认 200；
+- template_name: 模板名称，如果使用 HTMLRenderer 时需指明；
 - headers: 用于存放响应头信息的字典；
-- content_type: 响应数据的Content-Type，通常此参数无需传递，REST framework会根据前端所需类型数据来设置该参数。
-
-
+- content_type: 响应数据的 Content-Type，通常此参数无需传递，REST framework 会根据前端所需类型数据来设置该参数。
 
 ##### 常用属性
 
 1）.data
 
-传给response对象的序列化后，但尚未render处理的数据
-
+传给 response 对象的序列化后，但尚未 render 处理的数据
 
 2）.status_code
 
 状态码的数字
 
-
 3）.content
 
-经过render处理后的响应数据
-
+经过 render 处理后的响应数据
 
 ##### 状态码
 
-为了方便设置状态码，REST framewrok在rest_framework.status模块中提供了常用状态码常量。
-
-
-
+为了方便设置状态码，REST framewrok 在 rest_framework.status 模块中提供了常用状态码常量。
 
 #### 7.2.3 函数视图
 
-我们基于 Django开发REST 接口的 bookv1 项目 进行视图改造
+我们基于 Django 开发 REST 接口的 bookv1 项目 进行视图改造
 
 项目地址： 存放在 gitee
 
 [bookv1](https://gitee.com/django-devops/bookv1)
-
 
 创建并切换到新分支
 
@@ -2453,26 +2266,7 @@ def HeroInfoDetailView(request, pk):
         return Response(status=status.HTTP_204_NO_CONTENT)
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### 7.3 2个视图基类
-
+### 7.3 2 个视图基类
 
 #### APIView
 
@@ -2480,18 +2274,17 @@ def HeroInfoDetailView(request, pk):
 from rest_framework.views import APIView
 ```
 
-1.APIView是REST framework提供的所有视图的基类，继承自Django的View父类。
+1.APIView 是 REST framework 提供的所有视图的基类，继承自 Django 的 View 父类。
 
-2.APIView与View的不同之处在于：
+2.APIView 与 View 的不同之处在于：
 
-● 传入到视图方法中的是REST framework的Request对象，而不是Django的HttpRequeset对象；
+● 传入到视图方法中的是 REST framework 的 Request 对象，而不是 Django 的 HttpRequeset 对象；
 
-● 视图方法可以返回REST framework的Response对象，视图会为响应数据设置（render）符合前端要求的格式；
+● 视图方法可以返回 REST framework 的 Response 对象，视图会为响应数据设置（render）符合前端要求的格式；
 
-● 任何APIException异常都会被捕获到，并且处理成合适的响应信息；
+● 任何 APIException 异常都会被捕获到，并且处理成合适的响应信息；
 
-● 在进行dispatch()分发前，会对请求进行身份认证、权限检查、流量控制。
-
+● 在进行 dispatch()分发前，会对请求进行身份认证、权限检查、流量控制。
 
 3.支持定义的属性：
 
@@ -2501,19 +2294,13 @@ from rest_framework.views import APIView
 
 ● throttle_classes 列表或元祖，流量控制类
 
+4.在 APIView 中仍以常规的类视图定义方法来实现 get() 、post() 或者其他请求方式的方法。
 
-
-4.在APIView中仍以常规的类视图定义方法来实现get() 、post() 或者其他请求方式的方法。
-
-
-
-
-我们基于 Django开发REST 接口的 bookv1 项目 进行视图改造
+我们基于 Django 开发 REST 接口的 bookv1 项目 进行视图改造
 
 项目地址： 存放在 gitee
 
 [bookv1](https://gitee.com/django-devops/bookv1)
-
 
 创建并切换到新分支
 
@@ -2521,18 +2308,15 @@ from rest_framework.views import APIView
 git checkout -b drf-APIView
 ```
 
-
-
-
 ##### 基本配置
 
-安装Django REST framework及其依赖包markdown和django-filter。命令如下
+安装 Django REST framework 及其依赖包 markdown 和 django-filter。命令如下
 
 ```sh
 pip install djangorestframework markdown django-filter
 ```
 
-在settings中注册，代码如下：
+在 settings 中注册，代码如下：
 
 ```python
 INSTALLED_APPS = [
@@ -2546,7 +2330,6 @@ INSTALLED_APPS = [
     'rest_framework'
 ]
 ```
-
 
 ##### 配置模型
 
@@ -2615,7 +2398,7 @@ class HeroInfo(models.Model):
 
 ##### 配置序列化器
 
-app目录下新建py文件serializers，将序列化的类代码写入其中：
+app 目录下新建 py 文件 serializers，将序列化的类代码写入其中：
 
 ```python
 from rest_framework import serializers
@@ -2655,7 +2438,6 @@ class BookInfoSerializer(serializers.ModelSerializer):
         model = BookInfo
         fields = '__all__'
 ```
-
 
 ##### 配置视图
 
@@ -2767,9 +2549,7 @@ class HeroInfoDetailAPIView(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 ```
 
-
 ##### 配置路由
-
 
 `bookv1/urls.py`
 
@@ -2801,14 +2581,11 @@ urlpatterns = [
 ]
 ```
 
-
-
 #### GenericAPIView
-
 
 GenericAPIView - 通用视图类
 
-继承自APIVIew，主要增加了操作序列化器和数据库查询的方法，作用是为下面Mixin扩展类的执行提供方法支持。通常在使用时，可搭配一个或多个Mixin扩展类。
+继承自 APIVIew，主要增加了操作序列化器和数据库查询的方法，作用是为下面 Mixin 扩展类的执行提供方法支持。通常在使用时，可搭配一个或多个 Mixin 扩展类。
 
 ```python
 from rest_framework.generics import GenericAPIView
@@ -2816,28 +2593,23 @@ from rest_framework.generics import GenericAPIView
 
 GenericAPIView(APIView):做了一些封装
 
-|属性|说明|
-|------|------|
-|queryset|要序列化的数据|
-|serializer_class|指明视图使用的序列化器|
+| 属性             | 说明                   |
+| ---------------- | ---------------------- |
+| queryset         | 要序列化的数据         |
+| serializer_class | 指明视图使用的序列化器 |
 
+| 方法                 | 说明                                                                                                                                           |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| get_queryset         | 获取 qs 数据(返回视图使用的查询集，主要用来提供给 Mixin 扩展类使用，是列表视图与详情视图获取数据的基础，默认返回 queryset 属性)                |
+| get_object           | 获取一条数据的对象(返回详情视图所需的模型类数据对象，主要用来提供给 Mixin 扩展类使用。在试图中可以调用该方法获取详情信息的模型类对象)          |
+| get_serializer       | 以后使用它来实例化得到 ser 对象(返回序列化器对象，主要用来提供给 Mixin 扩展类使用，如果我们在视图中想要获取序列化器对象，也可以直接调用此方法) |
+| get_serializer_class | 获取序列化类，注意跟上面区分                                                                                                                   |
 
-
-|方法|说明|
-|-----|-----|
-|get_queryset|获取qs数据(返回视图使用的查询集，主要用来提供给Mixin扩展类使用，是列表视图与详情视图获取数据的基础，默认返回queryset属性)|
-|get_object|获取一条数据的对象(返回详情视图所需的模型类数据对象，主要用来提供给Mixin扩展类使用。在试图中可以调用该方法获取详情信息的模型类对象)|
-|get_serializer|以后使用它来实例化得到ser对象(返回序列化器对象，主要用来提供给Mixin扩展类使用，如果我们在视图中想要获取序列化器对象，也可以直接调用此方法)|
-|get_serializer_class|获取序列化类，注意跟上面区分|
-
-
-
-我们基于 Django开发REST 接口的 bookv1 项目 进行视图改造
+我们基于 Django 开发 REST 接口的 bookv1 项目 进行视图改造
 
 项目地址： 存放在 gitee
 
 [bookv1](https://gitee.com/django-devops/bookv1)
-
 
 创建并切换到新分支
 
@@ -2954,33 +2726,27 @@ class HeroInfoDetailAPIView(GenericAPIView):
             return Response('要删的不存在')
 ```
 
-
-
-### 7.4 5个视图扩展类
+### 7.4 5 个视图扩展类
 
 作用：
 
 提供了几种后端视图（对数据资源进行曾删改查）处理流程的实现，如果需要编写的视图属于这五种，则视图可以通过继承相应的扩展类来复用代码，减少自己编写的代码量。
 
-这五个扩展类需要搭配GenericAPIView父类，因为五个扩展类的实现需要调用GenericAPIView提供的序列化器与数据库查询的方法。
+这五个扩展类需要搭配 GenericAPIView 父类，因为五个扩展类的实现需要调用 GenericAPIView 提供的序列化器与数据库查询的方法。
 
-|父类|扩展类|说明|备注|
-|----|-----|-----|----|
-|GenericAPIView|ListModelMixin|查所有|列表视图扩展类，提供 `list(request, *args, **kwargs)`方法快速实现列表视图，返回200状态码。<br>该Mixin的list方法会对数据进行过滤和分页。|
-|GenericAPIView|RetrieveModelMixin|查一个|创建视图扩展类，提供 `create(request, *args, **kwargs)` 方法快速实现创建资源的视图，成功返回201状态码。<br>如果序列化器对前端发送的数据验证失败，返回400错误。|
-|GenericAPIView|CreateModelMixin|增一个|详情视图扩展类，提供 `retrieve(request, *args, **kwargs)`方法，可以快速实现返回一个存在的数据对象。<br>如果存在，返回200， 否则返回404|
-|GenericAPIView|UpdateModelMixin|改一个|更新视图扩展类，提供`update(request, *args, **kwargs)`方法，可以快速实现更新一个存在的数据对象。<br>同时也提供`partial_update(request, *args, **kwargs)`方法，可以实现局部更新。<br>成功返回200，序列化器校验数据失败时，返回400错误。|
-|GenericAPIView|DestroyModelMixin|删一个|删除视图扩展类，提供`destroy(request, *args, **kwargs)`方法，可以快速实现删除一个存在的数据对象。成功返回204，不存在返回404。|
+| 父类           | 扩展类             | 说明   | 备注                                                                                                                                                                                                                                      |
+| -------------- | ------------------ | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| GenericAPIView | ListModelMixin     | 查所有 | 列表视图扩展类，提供 `list(request, *args, **kwargs)`方法快速实现列表视图，返回 200 状态码。<br>该 Mixin 的 list 方法会对数据进行过滤和分页。                                                                                             |
+| GenericAPIView | RetrieveModelMixin | 查一个 | 创建视图扩展类，提供 `create(request, *args, **kwargs)` 方法快速实现创建资源的视图，成功返回 201 状态码。<br>如果序列化器对前端发送的数据验证失败，返回 400 错误。                                                                        |
+| GenericAPIView | CreateModelMixin   | 增一个 | 详情视图扩展类，提供 `retrieve(request, *args, **kwargs)`方法，可以快速实现返回一个存在的数据对象。<br>如果存在，返回 200， 否则返回 404                                                                                                  |
+| GenericAPIView | UpdateModelMixin   | 改一个 | 更新视图扩展类，提供`update(request, *args, **kwargs)`方法，可以快速实现更新一个存在的数据对象。<br>同时也提供`partial_update(request, *args, **kwargs)`方法，可以实现局部更新。<br>成功返回 200，序列化器校验数据失败时，返回 400 错误。 |
+| GenericAPIView | DestroyModelMixin  | 删一个 | 删除视图扩展类，提供`destroy(request, *args, **kwargs)`方法，可以快速实现删除一个存在的数据对象。成功返回 204，不存在返回 404。                                                                                                           |
 
-
-
-
-我们基于 Django开发REST 接口的 bookv1 项目 进行视图改造
+我们基于 Django 开发 REST 接口的 bookv1 项目 进行视图改造
 
 项目地址： 存放在 gitee
 
 [bookv1](https://gitee.com/django-devops/bookv1)
-
 
 创建并切换到新分支
 
@@ -2988,9 +2754,7 @@ class HeroInfoDetailAPIView(GenericAPIView):
 git checkout -b drf-GenericAPIView-5Extended_class
 ```
 
-
 `app/views.py`
-
 
 ```python
 from app.serializers import BookInfoSerializer, HeroInfoSerializer, SimpleHeroInfoSerializer
@@ -3062,39 +2826,31 @@ class HeroInfoDetailAPIView(GenericAPIView, RetrieveModelMixin, UpdateModelMixin
         return self.destroy(request, *args, **kwargs)
 ```
 
+### 7.5 9 个视图子类
 
+| 父类           | 扩展类                       | 说明                 | 备注                                                                                                              |
+| -------------- | ---------------------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| GenericAPIView | ListAPIView                  | 查所有               | 提供 get 方法 继承自：GenericAPIView、ListModelMixin。                                                            |
+| GenericAPIView | CreateAPIView                | 增一个               | 提供 post 方法 继承自： GenericAPIView、CreateModelMixin                                                          |
+| GenericAPIView | ListCreateAPIView            | 查所有 + 增一个      | 提供 get 和 post 方法 继承自： GenericAPIView、ListModelMixin、CreateModelMixin                                   |
+| GenericAPIView | RetrieveAPIView              | 查一个               | 提供 get 方法继承自: GenericAPIView、RetrieveModelMixin                                                           |
+| GenericAPIView | UpdateAPIView                | 改一个               | 提供 put 和 patch 方法继承自：GenericAPIView、UpdateModelMixin                                                    |
+| GenericAPIView | DestoryAPIView               | 删一个               | 提供 delete 方法 继承自：GenericAPIView、DestoryModelMixin                                                        |
+| GenericAPIView | RetrieveUpdateAPIView        | 查一个+改一个        | 提供 get、put、patch 方法 继承自： GenericAPIView、RetrieveModelMixin、UpdateModelMixin                           |
+| GenericAPIView | RetrieveDestroyAPIView       | 查一个+删一个        | 提供 get 和 delete 方法继承自： GenericAPIView、RetrieveModelMixin、DestoryModelMixin                             |
+| GenericAPIView | RetrieveUpdateDestoryAPIView | 查一个+改一个+删一个 | 提供 get、put、patch、delete 方法 继承自：GenericAPIView、RetrieveModelMixin、UpdateModelMixin、DestoryModelMixin |
 
-
-
-### 7.5 9个视图子类
-
-
-|父类|扩展类|说明|备注|
-|----|-----|-----|----|
-|GenericAPIView|ListAPIView|查所有|提供 get 方法 继承自：GenericAPIView、ListModelMixin。|
-|GenericAPIView|CreateAPIView|增一个|提供 post 方法 继承自： GenericAPIView、CreateModelMixin|
-|GenericAPIView|ListCreateAPIView|查所有 + 增一个|提供 get 和 post 方法 继承自： GenericAPIView、ListModelMixin、CreateModelMixin|
-|GenericAPIView|RetrieveAPIView|查一个|提供 get 方法继承自: GenericAPIView、RetrieveModelMixin|
-|GenericAPIView|UpdateAPIView|改一个|提供 put 和 patch 方法继承自：GenericAPIView、UpdateModelMixin|
-|GenericAPIView|DestoryAPIView|删一个|提供 delete 方法 继承自：GenericAPIView、DestoryModelMixin|
-|GenericAPIView|RetrieveUpdateAPIView|查一个+改一个|提供 get、put、patch方法 继承自： GenericAPIView、RetrieveModelMixin、UpdateModelMixin|
-|GenericAPIView|RetrieveDestroyAPIView|查一个+删一个|提供 get 和 delete 方法继承自： GenericAPIView、RetrieveModelMixin、DestoryModelMixin|
-|GenericAPIView|RetrieveUpdateDestoryAPIView|查一个+改一个+删一个|提供 get、put、patch、delete方法 继承自：GenericAPIView、RetrieveModelMixin、UpdateModelMixin、DestoryModelMixin|
-
-
-我们基于 Django开发REST 接口的 bookv1 项目 进行视图改造
+我们基于 Django 开发 REST 接口的 bookv1 项目 进行视图改造
 
 项目地址： 存放在 gitee
 
 [bookv1](https://gitee.com/django-devops/bookv1)
-
 
 创建并切换到新分支
 
 ```sh
 git checkout -b drf-GenericAPIView-9view_subclass
 ```
-
 
 `app/views.py`
 
@@ -3155,29 +2911,23 @@ class HeroInfoDetailAPIView(RetrieveUpdateDestroyAPIView):
     serializer_class = HeroInfoSerializer
 ```
 
+### 7.6 视图集 ViewSet
 
+使用视图集 ViewSet，可以将一系列逻辑相关的动作放到一个类中：
 
+| 动作       | 说明         |
+| ---------- | ------------ |
+| list()     | 提供一组数据 |
+| retrieve() | 提供单个数据 |
+| create()   | 创建数据     |
+| update()   | 保存数据     |
+| destory()  | 删除数据     |
 
-### 7.6 视图集ViewSet
+ViewSet 视图集类不再实现 get()、post()等方法，而是实现动作 action 如 list() 、create() 等。
 
+视图集只在使用 as_view() 方法的时候，才会将 action 动作与具体请求方式对应上。
 
-使用视图集ViewSet，可以将一系列逻辑相关的动作放到一个类中：
-
-|动作|说明|
-|-----|----|
-|list()|提供一组数据|
-|retrieve()|提供单个数据|
-|create() |创建数据|
-|update() |保存数据|
-|destory()|删除数据|
-
-
-ViewSet视图集类不再实现get()、post()等方法，而是实现动作 action 如 list() 、create() 等。
-
-视图集只在使用 as_view() 方法的时候，才会将action动作与具体请求方式对应上。
-
-在视图集中，我们可以通过action对象属性来获取当前请求视图集时的action动作是哪一个。
-
+在视图集中，我们可以通过 action 对象属性来获取当前请求视图集时的 action 动作是哪一个。
 
 ```python
 class BooksModelViewSet(ModelViewSet):
@@ -3194,18 +2944,14 @@ class BooksModelViewSet(ModelViewSet):
             return BookSerializer2
 ```
 
-
-
 常用的视图集父类
 
-|父类|视图集名称|说明|备注|
-|-----|------|------|-------|
-|APIView与ViewSetMixin|ViewSet|与APIView基本类似，提供了身份认证、权限校验、流量管理等。<br>使用ViewSet通常并不方便，因为list、retrieve、create、update、destory等方法都需要自己编写，而这些方法与前面讲过的Mixin扩展类提供的方法同名，所以我们可以通过继承Mixin扩展类来复用这些方法而无需自己编写。|ViewSet主要通过继承ViewSetMixin来实现在调用 `as_view()` 时传入字典(如{‘get’:’list’})的映射处理工作。<br>在 ViewSet 中，没有提供任何动作 action 方法，需要我们自己实现action方法。|
-|GenericAPIView与ViewSetMixin|GenericViewSet|实现了调用`as_view()`时传入字典（如{'get':'list'}）的映射处理工作的同时，还提供了GenericAPIView提供的基础方法，可以直接搭配Mixin扩展类使用。||
-|GenericViewSet|ModelViewSet|继承自GenericViewSet，同时包括了ListModelMixin、RetrieveModelMixin、CreateModelMixin、UpdateModelMixin、DestoryModelMixin。||
-|GenericViewSet|ReadOnlyModelViewSet|继承自GenericViewSet，同时包括了ListModelMixin、RetrieveModelMixin。||
-
-
+| 父类                           | 视图集名称           | 说明                                                                                                                                                                                                                                                                            | 备注                                                                                                                                                                                   |
+| ------------------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| APIView 与 ViewSetMixin        | ViewSet              | 与 APIView 基本类似，提供了身份认证、权限校验、流量管理等。<br>使用 ViewSet 通常并不方便，因为 list、retrieve、create、update、destory 等方法都需要自己编写，而这些方法与前面讲过的 Mixin 扩展类提供的方法同名，所以我们可以通过继承 Mixin 扩展类来复用这些方法而无需自己编写。 | ViewSet 主要通过继承 ViewSetMixin 来实现在调用 `as_view()` 时传入字典(如{‘get’:’list’})的映射处理工作。<br>在 ViewSet 中，没有提供任何动作 action 方法，需要我们自己实现 action 方法。 |
+| GenericAPIView 与 ViewSetMixin | GenericViewSet       | 实现了调用`as_view()`时传入字典（如{'get':'list'}）的映射处理工作的同时，还提供了 GenericAPIView 提供的基础方法，可以直接搭配 Mixin 扩展类使用。                                                                                                                                |                                                                                                                                                                                        |
+| GenericViewSet                 | ModelViewSet         | 继承自 GenericViewSet，同时包括了 ListModelMixin、RetrieveModelMixin、CreateModelMixin、UpdateModelMixin、DestoryModelMixin。                                                                                                                                                   |                                                                                                                                                                                        |
+| GenericViewSet                 | ReadOnlyModelViewSet | 继承自 GenericViewSet，同时包括了 ListModelMixin、RetrieveModelMixin。                                                                                                                                                                                                          |                                                                                                                                                                                        |
 
 ```sh
 ViewSetMixin：            # 重写了as_view
@@ -3217,9 +2963,7 @@ GenericViewSet：          # 继承ViewSetMixin, generics.GenericAPIView
 ModelViewSet：            # 继承mixins.CreateModelMixin,mixins.RetrieveModelMixin,mixins.UpdateModelMixin,mixins.DestroyModelMixin,mixins.ListModelMixin,GenericViewSet
 ```
 
-
-
-我们来剖析视图的封装层数。要知道，我们经常说到的Django REST framework的“三层视图封装”，并不是仅仅封装了三层，下面解剖一个viewsets.ModelViewSet看一下：
+我们来剖析视图的封装层数。要知道，我们经常说到的 Django REST framework 的“三层视图封装”，并不是仅仅封装了三层，下面解剖一个 viewsets.ModelViewSet 看一下：
 
 ```python
 #源码：
@@ -3242,30 +2986,23 @@ class GenericAPIView(views.APIView):
     pass
 ```
 
-ReadOnlyModelViewSet：继承mixins.RetrieveModelMixin,mixins.ListModelMixin,GenericViewSet 示例参照 ModelViewSet代码，区别仅在于 ReadOnlyModelViewSet 仅实现封装了查询方法。
-
-
-
-
+ReadOnlyModelViewSet：继承 mixins.RetrieveModelMixin,mixins.ListModelMixin,GenericViewSet 示例参照 ModelViewSet 代码，区别仅在于 ReadOnlyModelViewSet 仅实现封装了查询方法。
 
 下面主要介绍 ModelViewSet，较为常用。
 
-
 #### ModelViewSet
 
-我们基于 Django开发REST 接口的 bookv1 项目 进行视图改造
+我们基于 Django 开发 REST 接口的 bookv1 项目 进行视图改造
 
 项目地址： 存放在 gitee
 
 [bookv1](https://gitee.com/django-devops/bookv1)
-
 
 创建并切换到新分支
 
 ```sh
 git checkout -b drf-ModelViewSet
 ```
-
 
 `app/views.py`
 
@@ -3297,7 +3034,6 @@ class HeroInfoModelViewSet(ModelViewSet):
 
 ```
 
-
 `app/urls.py`
 
 ```python
@@ -3317,8 +3053,7 @@ urlpatterns = [
 ]
 ```
 
-
-用viewsets + Router的方式实现视图封装
+用 viewsets + Router 的方式实现视图封装
 
 `bookv1/urls.py`
 
@@ -3344,10 +3079,9 @@ urlpatterns = [
 ]
 ```
 
-#### 路由Router
+#### 路由 Router
 
-
-> 添加路由数据有2种方式
+> 添加路由数据有 2 种方式
 
 第一种方式：
 
@@ -3367,47 +3101,52 @@ path(r'^', include(router.urls))
 ]
 ```
 
-
-
-
-
 ### 7.7 视图如何选择?
 
+可以说，我们在今后的项目中，只需要优先在 APIView 和 viewsets 中选择即可。至于 mixins 就好像是斐波那契数列一样，几乎永远不会缺席于应聘 Django REST framework 技术岗位的笔试题中，但在实际项目中却很少能用得上。
 
-可以说，我们在今后的项目中，只需要优先在 APIView 和 viewsets 中选择即可。至于 mixins 就好像是斐波那契数列一样，几乎永远不会缺席于应聘Django REST framework技术岗位的笔试题中，但在实际项目中却很少能用得上。
+APIView 和 viewsets 应该怎样选择呢？
 
-APIView和viewsets应该怎样选择呢？
+当视图要实现的功能中，存在数据运算、拼接的业务逻辑时，可以一律选择 APIView 的方式来写视图类，除此以外，优先使用 viewsets 的方式来写视图类，毕竟使用 viewsets+Router 在常规功能上效率极高。
 
-当视图要实现的功能中，存在数据运算、拼接的业务逻辑时，可以一律选择APIView的方式来写视图类，除此以外，优先使用viewsets的方式来写视图类，毕竟使用viewsets+Router在常规功能上效率极高。
+## 8.Python+Django+Vue 图书管理系统开发全流程
 
+https://github.com/guosaike/dvtushu
 
+## 9.基于 Python+Django+Vue 协同过滤电影推荐系统设计与实现
 
+https://github.com/guosaike/dvdianying
 
+## 10.基于 Python+Django+Vue 的旅游景区推荐系统系统设计与实现
 
+https://github.com/guosaike/dvlvyou
 
+## 11.基于 Python+Django+Vue 协同过滤图书推荐系统设计与实现
 
+https://github.com/guosaike/dvbook
 
+## 12.基于 Python+Django+Vue 的宠物领养推荐系统设计与实现
 
+https://github.com/guosaike/dvchongwu
+
+## 13.基于 Python+Django+Vue 的医院预约医院预定推荐系统设计与实现
+
+https://github.com/guosaike/dvyiyuan
 
 ## 参考文献
 
-[django rest framework学习](https://www.cnblogs.com/Slience-me/p/14456752.html)
+[django rest framework 学习](https://www.cnblogs.com/Slience-me/p/14456752.html)
 
 [restful framework](https://www.cnblogs.com/sui776265233/category/1319448.html)
 
 [Django REST Framework](https://www.yuque.com/wslynn/python/ouh3zo)
 
-
-[DRF知识点总结](https://www.yuque.com/cuiliang0302/python/enqmvp)
-
+[DRF 知识点总结](https://www.yuque.com/cuiliang0302/python/enqmvp)
 
 [DRF](http://www.sunrisenan.com/docs/drf/drf-1do8mau479ha8)
 
+[Django-Vue 搭建个人博客](https://www.dusaiphoto.com/article/77/)
 
-[Django-Vue搭建个人博客](https://www.dusaiphoto.com/article/77/)
-
-
-[Django REST Framework教程](https://pythondjango.cn/django/rest-framework-tutorials)
-
+[Django REST Framework 教程](https://pythondjango.cn/django/rest-framework-tutorials)
 
 [Django drf 从入门到精通](https://www.cnblogs.com/bladecheng/p/11565336.html)
