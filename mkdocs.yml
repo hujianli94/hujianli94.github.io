@@ -653,33 +653,33 @@ nav:
           - Ansible/附录-Ansible-wiki.md
   - Shell:
       - Shell脚本实践:
-          - Shell/Shell脚本实践/Shell简介.md
-          - Shell/Shell脚本实践/1.第一个shell程序.md
-          - Shell/Shell脚本实践/2.Shell变量和字符串.md
-          - Shell/Shell脚本实践/3.Shell参数.md
-          - Shell/Shell脚本实践/4.Shell数组.md
-          - Shell/Shell脚本实践/5.Shell运算符.md
-          - Shell/Shell脚本实践/6.Shell-echo_printf命令.md
-          - Shell/Shell脚本实践/7.Shell-test命令.md
-          - Shell/Shell脚本实践/8.Shell流程控制.md
-          - Shell/Shell脚本实践/9.Shell函数.md
-          - Shell/Shell脚本实践/10.Shell重定向.md
-          - Shell/Shell脚本实践/11.Shell正则表达式.md
-          - Shell/Shell脚本实践/12.Shell三剑客之grep.md
-          - Shell/Shell脚本实践/13.Shell三剑客之sed.md
-          - Shell/Shell脚本实践/14.Shell三剑客之awk.md
-          - Shell/Shell脚本实践/15.Shell常用工具.md
-          - Shell/Shell脚本实践/16.Shell实战项目.md
-          - Shell/Shell脚本实践/17.Shell脚本示例.md
-          - Shell/Shell脚本实践/18.Shell脚本的参数解析工具.md
-          - Shell/Shell脚本实践/19.实用Shell脚本案例.md
-          - Shell/Shell脚本实践/20.Shell脚本的规范.md
-          - Shell/Shell脚本实践/21.Shell多进程并发.md
-          - Shell/Shell脚本实践/22.Shell_Library.md
-          - Shell/Shell脚本实践/23.Shell脚本调试技术.md
-          - Shell/Shell脚本实践/24.Linux_Shell脚本攻略.md
-          - Shell/Shell脚本实践/附-shell其它资源.md
-          - Shell/Shell脚本实践/附-vim常用操作.md
+          - Shell/Shell简介.md
+          - Shell/1.第一个shell程序.md
+          - Shell/2.Shell变量和字符串.md
+          - Shell/3.Shell参数.md
+          - Shell/4.Shell数组.md
+          - Shell/5.Shell运算符.md
+          - Shell/6.Shell-echo_printf命令.md
+          - Shell/7.Shell-test命令.md
+          - Shell/8.Shell流程控制.md
+          - Shell/9.Shell函数.md
+          - Shell/10.Shell重定向.md
+          - Shell/11.Shell正则表达式.md
+          - Shell/12.Shell三剑客之grep.md
+          - Shell/13.Shell三剑客之sed.md
+          - Shell/14.Shell三剑客之awk.md
+          - Shell/15.Shell常用工具.md
+          - Shell/16.Shell实战项目.md
+          - Shell/17.Shell脚本示例.md
+          - Shell/18.Shell脚本的参数解析工具.md
+          - Shell/19.实用Shell脚本案例.md
+          - Shell/20.Shell脚本的规范.md
+          - Shell/21.Shell多进程并发.md
+          - Shell/22.Shell_Library.md
+          - Shell/23.Shell脚本调试技术.md
+          - Shell/24.Linux_Shell脚本攻略.md
+          - Shell/附-shell其它资源.md
+          - Shell/附-vim常用操作.md
   - Linux:
       - KVM:
           - Linux/KVM/1.kvm相关命令.md

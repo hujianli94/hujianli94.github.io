@@ -1,9 +1,5 @@
 # 附-Flask 容器化实践
 
-Dockerizing Flask with Postgres, Gunicorn, and Nginx
-
-- https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx
-
 [使用 Postgres、Gunicorn 和 Nginx 对 flask 进行 docker 化](https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx/)
 
 [使用 Postgres、Gunicorn 和 Traefik 对 flask 进行 docker 化](https://testdriven.io/blog/flask-docker-traefik/#traefik)
