@@ -634,7 +634,7 @@ nav:
           - Git/9.实践Git-Flow.md
           - Git/10.项目规范.md
   - Ansible:
-      - Ansible实战:
+      - Ansible实践:
           - Ansible/1.Ansible简介.md
           - Ansible/2.YAML介绍.md
           - Ansible/3.安装和配置.md
@@ -652,7 +652,7 @@ nav:
           - Ansible/15.Ansible调试.md
           - Ansible/附录-Ansible-wiki.md
   - Shell:
-      - Shell脚本实践:
+      - Shell实践:
           - Shell/Shell简介.md
           - Shell/1.第一个shell程序.md
           - Shell/2.Shell变量和字符串.md
