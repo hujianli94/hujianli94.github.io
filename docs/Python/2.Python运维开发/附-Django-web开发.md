@@ -3109,27 +3109,31 @@ APIView 和 viewsets 应该怎样选择呢？
 
 当视图要实现的功能中，存在数据运算、拼接的业务逻辑时，可以一律选择 APIView 的方式来写视图类，除此以外，优先使用 viewsets 的方式来写视图类，毕竟使用 viewsets+Router 在常规功能上效率极高。
 
-## 8.Python+Django+Vue 图书管理系统开发全流程
+## 8.手把手 Django+Vue 前后端分离开发入门
+
+https://github.com/jumploop/book_demo
+
+## 9.Python+Django+Vue 图书管理系统开发全流程
 
 https://github.com/guosaike/dvtushu
 
-## 9.基于 Python+Django+Vue 协同过滤电影推荐系统设计与实现
+## 10.基于 Python+Django+Vue 协同过滤电影推荐系统设计与实现
 
 https://github.com/guosaike/dvdianying
 
-## 10.基于 Python+Django+Vue 的旅游景区推荐系统系统设计与实现
+## 11.基于 Python+Django+Vue 的旅游景区推荐系统系统设计与实现
 
 https://github.com/guosaike/dvlvyou
 
-## 11.基于 Python+Django+Vue 协同过滤图书推荐系统设计与实现
+## 12.基于 Python+Django+Vue 协同过滤图书推荐系统设计与实现
 
 https://github.com/guosaike/dvbook
 
-## 12.基于 Python+Django+Vue 的宠物领养推荐系统设计与实现
+## 13.基于 Python+Django+Vue 的宠物领养推荐系统设计与实现
 
 https://github.com/guosaike/dvchongwu
 
-## 13.基于 Python+Django+Vue 的医院预约医院预定推荐系统设计与实现
+## 14.基于 Python+Django+Vue 的医院预约医院预定推荐系统设计与实现
 
 https://github.com/guosaike/dvyiyuan
 

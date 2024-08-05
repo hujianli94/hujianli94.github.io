@@ -505,6 +505,8 @@ nav:
           - Python/3.Python测试开发/15.标准库和三方库.md
           - Python/3.Python测试开发/16.vue-cli脚手架.md
           - Python/3.Python测试开发/17.案例实践-任务列表.md
+          - Python/3.Python测试开发/附录-前后端代码仓库汇总.md
+          - Python/3.Python测试开发/附录-Nginx完整配置样例.md
       - 4.Flask-Web全栈开发:
           - Python/4.Flask-Web全栈开发/1.Flask前奏.md
           - Python/4.Flask-Web全栈开发/2.项目配置.md
