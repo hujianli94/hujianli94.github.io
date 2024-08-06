@@ -585,6 +585,7 @@ nav:
           - Openstack/3.Python模块/5.Eventlet.md
           - Openstack/3.Python模块/6.WSGI.md
           - Openstack/3.Python模块/7.通用库Oslo.md
+          - Openstack/3.Python模块/附-模仿OpenStack写自己的RPC.md
       - 4.OpenStack容器手册:
           - Openstack/4.OpenStack容器手册/1.OpenStack-Kolla项目.md
 
@@ -729,6 +730,9 @@ nav:
           - Linux/Serveices/2.ubuntu网络设置.md
 
   - Other:
+      - db:
+          - Other/db/1.postgres.md
+          - Other/db/2.redis.md
       - tools:
           - Other/tools/1.PicGo图床.md
           - Other/tools/2.PicX图床.md
