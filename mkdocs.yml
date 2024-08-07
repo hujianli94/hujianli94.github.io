@@ -483,10 +483,14 @@ nav:
           - Python/2.Python运维开发/10.自动化运维系统的开发.md
           - Python/2.Python运维开发/11.华为云Python演示代码.md
           - Python/2.Python运维开发/12.华为云Go演示代码.md
+          - Python/2.Python运维开发/附-学习API的demo.md
           - Python/2.Python运维开发/附-运维相关开源项目.md
           - Python/2.Python运维开发/附-awesome-python-cn.md
           - Python/2.Python运维开发/附-CMDB.md
           - Python/2.Python运维开发/附-Django-web开发.md
+          - Python/2.Python运维开发/附-Django实现的简易发布会签到系统.md
+          - Python/2.Python运维开发/附-Kubernetes管理平台.md
+          - Python/2.Python运维开发/附-varnish管理平台.md
       - 3.Python测试开发:
           - Python/3.Python测试开发/1.Python2与Python3区别.md
           - Python/3.Python测试开发/2.Windows环境安装Python.md

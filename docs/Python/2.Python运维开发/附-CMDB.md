@@ -415,11 +415,10 @@ OPMS_v3
 Vue3 Admin Template
 在大佬的基础上 PanJiaChen / vue-admin-template，更换为 vue3 & element plus，方便个人后续使用
 
-
 https://gitee.com/hujianli94net/vue3-admin-template
 
-
 ---
+
 vite2+vue3.2+script setup+element plus
 
 https://gitee.com/cuiliang0302/vue3_vite_element-plus
@@ -434,9 +433,7 @@ https://segmentfault.com/a/1190000040717822
 
 vue3+vite2+element-plus 的新一代的前端框架，It's fast!
 
-
 https://zhuanlan.zhihu.com/p/421872728
-
 
 ---
 
