@@ -483,6 +483,7 @@ nav:
           - Python/2.Python运维开发/10.自动化运维系统的开发.md
           - Python/2.Python运维开发/11.华为云Python演示代码.md
           - Python/2.Python运维开发/12.华为云Go演示代码.md
+          - Python/2.Python运维开发/13.Tornado框架.md
           - Python/2.Python运维开发/附-学习API的demo.md
           - Python/2.Python运维开发/附-运维相关开源项目.md
           - Python/2.Python运维开发/附-awesome-python-cn.md
@@ -511,25 +512,26 @@ nav:
           - Python/3.Python测试开发/17.案例实践-任务列表.md
           - Python/3.Python测试开发/附录-前后端代码仓库汇总.md
           - Python/3.Python测试开发/附录-Nginx完整配置样例.md
-      - 4.Flask-Web全栈开发:
-          - Python/4.Flask-Web全栈开发/1.Flask前奏.md
-          - Python/4.Flask-Web全栈开发/2.项目配置.md
-          - Python/4.Flask-Web全栈开发/3.URL与视图.md
-          - Python/4.Flask-Web全栈开发/4.Jinja2模板.md
-          - Python/4.Flask-Web全栈开发/5.数据库.md
-          - Python/4.Flask-Web全栈开发/6.表单.md
-          - Python/4.Flask-Web全栈开发/7.Flask进阶.md
-          - Python/4.Flask-Web全栈开发/8.缓存系统.md
-          - Python/4.Flask-Web全栈开发/9.Flask项目实战.md
-          - Python/4.Flask-Web全栈开发/10.WebSock实战.md
-          - Python/4.Flask-Web全栈开发/11.Flask异步编程.md
-          - Python/4.Flask-Web全栈开发/附-使用Pytest测试Flask.md
-          - Python/4.Flask-Web全栈开发/附-图书管理系统.md
-          - Python/4.Flask-Web全栈开发/附-Flask常用扩展.md
-          - Python/4.Flask-Web全栈开发/附-Flask和Redis队列的异步任务.md
-          - Python/4.Flask-Web全栈开发/附-Flask和Vue.js开发单页应用.md
-          - Python/4.Flask-Web全栈开发/附-Flask容器化实践.md
-          - Python/4.Flask-Web全栈开发/附-Flask数据模型.md
+      - 4.Flask学习:
+          - Python/4.Flask学习/1.Flask前奏.md
+          - Python/4.Flask学习/2.项目配置.md
+          - Python/4.Flask学习/3.URL与视图.md
+          - Python/4.Flask学习/4.Jinja2模板.md
+          - Python/4.Flask学习/5.数据库.md
+          - Python/4.Flask学习/6.表单.md
+          - Python/4.Flask学习/7.Flask进阶.md
+          - Python/4.Flask学习/8.缓存系统.md
+          - Python/4.Flask学习/9.Flask项目实战.md
+          - Python/4.Flask学习/10.WebSock实战.md
+          - Python/4.Flask学习/11.Flask异步编程.md
+          - Python/4.Flask学习/附-使用Pytest测试Flask.md
+          - Python/4.Flask学习/附-图书管理系统.md
+          - Python/4.Flask学习/附-自动化测试平台-flask.md
+          - Python/4.Flask学习/附-Flask常用扩展.md
+          - Python/4.Flask学习/附-Flask和Redis队列的异步任务.md
+          - Python/4.Flask学习/附-Flask和Vue.js开发单页应用.md
+          - Python/4.Flask学习/附-Flask容器化实践.md
+          - Python/4.Flask学习/附-Flask数据模型.md
       - 5.DevOps和自动化运维实践:
           - Python/5.DevOps和自动化运维实践/1.Devops与自动化运维的意义.md
           - Python/5.DevOps和自动化运维实践/2.Shell脚本在Devops下的应用.md
@@ -546,6 +548,7 @@ nav:
           - Python/6.CMDB项目实战/6.Element-Plus前端组件库.md
           - Python/6.CMDB项目实战/7.CMDB前端开发-上.md
           - Python/6.CMDB项目实战/8.CMDB前端开发-下.md
+          - Python/6.CMDB项目实战/9.celery组件.md
       - 7.Python网络编程攻略:
           - Python/7.Python网络编程攻略/1.IPv4和简单的客户端-服务器编程.md
           - Python/7.Python网络编程攻略/2.使用多路复用套接字-IO提升性能.md
@@ -629,6 +632,11 @@ nav:
           - Python-vs-Go/2.进阶/3.使用Redis.md
           - Python-vs-Go/2.进阶/4.使用MongoDB.md
           - Python-vs-Go/2.进阶/5.练手项目推荐.md
+      - 3.开发之路:
+          - Python-vs-Go/3.开发之路/1.Go开发之路.md
+          - Python-vs-Go/3.开发之路/2.Python开发之路.md
+          - Python-vs-Go/3.开发之路/3.Vue3框架.md
+          - Python-vs-Go/3.开发之路/4.Git版本控制.md
   - Git:
       - Git基础:
           - Git/1.Git基础.md
@@ -732,11 +740,14 @@ nav:
           - Linux/Serveices/0.ubuntu-desktop-vmware.md
           - Linux/Serveices/1.Vagrant虚拟机.md
           - Linux/Serveices/2.ubuntu网络设置.md
-
-  - Other:
+  - middleware:
       - db:
-          - Other/db/1.postgres.md
-          - Other/db/2.redis.md
+          - middleware/db/1.postgres.md
+          - middleware/db/2.redis.md
+          - middleware/db/3.Mysql.md
+      - mq:
+          - middleware/mq/1.rabbitMQ.md
+  - Other:
       - tools:
           - Other/tools/1.PicGo图床.md
           - Other/tools/2.PicX图床.md
