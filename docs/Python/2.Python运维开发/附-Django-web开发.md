@@ -3109,6 +3109,8 @@ APIView 和 viewsets 应该怎样选择呢？
 
 当视图要实现的功能中，存在数据运算、拼接的业务逻辑时，可以一律选择 APIView 的方式来写视图类，除此以外，优先使用 viewsets 的方式来写视图类，毕竟使用 viewsets+Router 在常规功能上效率极高。
 
+
+
 ## 8.手把手 Django+Vue 前后端分离开发入门
 
 https://github.com/jumploop/book_demo
