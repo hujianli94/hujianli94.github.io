@@ -166,6 +166,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hujianli94.github.io/Docker/3.Devops/0.keepalived-docker/</loc>
+         <lastmod>2024-08-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hujianli94.github.io/Docker/3.Devops/1.confcenter-docker/</loc>
          <lastmod>2024-08-16</lastmod>
          <changefreq>daily</changefreq>
