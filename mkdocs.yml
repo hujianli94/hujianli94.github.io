@@ -279,6 +279,7 @@ nav:
           - Docker/2.实战案例/3.持续开发与管理.md
           - Docker/2.实战案例/4.数据库应用.md
       - 3.Devops:
+          - Docker/3.Devops/0.keepalived-docker.md
           - Docker/3.Devops/1.confcenter-docker.md
           - Docker/3.Devops/2.simaple-jenkins.md
           - Docker/3.Devops/3.docker-nginx-spa.md
