@@ -535,6 +535,8 @@ nav:
           - Python/4.Flask学习/附-Flask常用扩展.md
           - Python/4.Flask学习/附-Flask和Redis队列的异步任务.md
           - Python/4.Flask学习/附-Flask和Vue.js开发单页应用.md
+          - Python/4.Flask学习/附-flask脚手架.md
+          - Python/4.Flask学习/附-Flask框架.md
           - Python/4.Flask学习/附-Flask容器化实践.md
           - Python/4.Flask学习/附-Flask数据模型.md
       - 5.DevOps和自动化运维实践:
@@ -769,6 +771,7 @@ nav:
           - Other/tools/12.ssh工具.md
           - Other/tools/13.自用工具集.md
           - Other/tools/14.Draw画图.md
+          - Other/tools/15.搭建一个文档管理网站.md
       - windows:
           - Other/windows/1.常用软件下载.md
           - Other/windows/2.windows快捷指令.md
