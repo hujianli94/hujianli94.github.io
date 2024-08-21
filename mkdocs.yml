@@ -538,7 +538,7 @@ nav:
           - Python/4.Flask学习/附-Flask和Vue.js开发单页应用.md
           - Python/4.Flask学习/附-flask脚手架.md
           - Python/4.Flask学习/附-Flask框架.md
-          - Python/4.Flask学习/附-Flask容器化实践.md
+          - Python/4.Flask学习/附-Flask容器化部署.md
           - Python/4.Flask学习/附-Flask数据模型.md
       - 5.DevOps和自动化运维实践:
           - Python/5.DevOps和自动化运维实践/1.Devops与自动化运维的意义.md
@@ -558,6 +558,7 @@ nav:
           - Python/6.CMDB项目实战/8.CMDB前端开发-下.md
           - Python/6.CMDB项目实战/9.celery组件.md
           - Python/6.CMDB项目实战/10.Django自定义命令.md
+          - Python/6.CMDB项目实战/11.Django容器化部署.md
       - 7.Python网络编程攻略:
           - Python/7.Python网络编程攻略/1.IPv4和简单的客户端-服务器编程.md
           - Python/7.Python网络编程攻略/2.使用多路复用套接字-IO提升性能.md
