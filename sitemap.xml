@@ -1876,7 +1876,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hujianli94.github.io/Python/4.Flask%E5%AD%A6%E4%B9%A0/%E9%99%84-Flask%E5%AE%B9%E5%99%A8%E5%8C%96%E5%AE%9E%E8%B7%B5/</loc>
+         <loc>https://hujianli94.github.io/Python/4.Flask%E5%AD%A6%E4%B9%A0/%E9%99%84-Flask%E5%AE%B9%E5%99%A8%E5%8C%96%E9%83%A8%E7%BD%B2/</loc>
          <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1952,6 +1952,11 @@
     </url>
     <url>
          <loc>https://hujianli94.github.io/Python/6.CMDB%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/10.Django%E8%87%AA%E5%AE%9A%E4%B9%89%E5%91%BD%E4%BB%A4/</loc>
+         <lastmod>2024-08-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hujianli94.github.io/Python/6.CMDB%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/11.Django%E5%AE%B9%E5%99%A8%E5%8C%96%E9%83%A8%E7%BD%B2/</loc>
          <lastmod>2024-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
