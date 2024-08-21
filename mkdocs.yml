@@ -526,9 +526,10 @@ nav:
           - Python/4.Flask学习/6.表单.md
           - Python/4.Flask学习/7.Flask进阶.md
           - Python/4.Flask学习/8.缓存系统.md
-          - Python/4.Flask学习/9.Flask项目实战.md
-          - Python/4.Flask学习/10.WebSock实战.md
-          - Python/4.Flask学习/11.Flask异步编程.md
+          - Python/4.Flask学习/9.Flask_Restful.md
+          - Python/4.Flask学习/10.Flask项目实战.md
+          - Python/4.Flask学习/11.WebSock实战.md
+          - Python/4.Flask学习/12.Flask异步编程.md
           - Python/4.Flask学习/附-使用Pytest测试Flask.md
           - Python/4.Flask学习/附-图书管理系统.md
           - Python/4.Flask学习/附-自动化测试平台-flask.md
