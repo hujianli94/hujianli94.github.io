@@ -647,8 +647,8 @@ nav:
           - Python-vs-Go/3.开发之路/2.Python开发之路.md
           - Python-vs-Go/3.开发之路/3.Vue3框架.md
           - Python-vs-Go/3.开发之路/4.Git版本控制.md
-          - Python-vs-Go/3.开发之路/5.Python实现自动化运维平台项目.md
-          - Python-vs-Go/3.开发之路/6.Go实现自动化运维平台项目.md
+          - Python-vs-Go/3.开发之路/5.Python自动化运维平台.md
+          - Python-vs-Go/3.开发之路/6.Go自动化运维平台.md
   - Git:
       - Git基础:
           - Git/1.Git基础.md
