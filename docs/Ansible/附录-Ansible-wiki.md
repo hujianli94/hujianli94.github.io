@@ -3,6 +3,7 @@
 ## 参考文献
 
 - [Ansible-wiki](https://ansible.leops.cn/)
+- [Ansible 简体中文](https://runebook.dev/zh/docs/ansible/-index-)
 - [Ansible Wiki Site](https://github.com/leops-china/ansible-wiki/)
 - [Ansible-wiki-fork](https://www.19870612.xyz/ansible/)
 
