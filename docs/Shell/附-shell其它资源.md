@@ -2,6 +2,8 @@
 
 ## 其它资源
 
+https://www.zhang21.cn/linuxshell/
+
 https://github.com/awesome-lists/awesome-bash
 
 https://github.com/HariSekhon/DevOps-Bash-tools

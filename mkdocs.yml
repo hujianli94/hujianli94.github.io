@@ -732,7 +732,8 @@ nav:
           - Linux/Nginx/14.Nginx重定向.md
           - Linux/Nginx/15.Nginx-HTTPS.md
           - Linux/Nginx/16.附-Nginx-location语法.md
-          - Linux/Nginx/17.附-Nginx代理相关模块解析.md
+          - Linux/Nginx/17.附-Nginx-wiki.md
+          - Linux/Nginx/18.附-Nginx综合实践.md
       - System:
           - Linux/System/1.系统镜像和软件源.md
           - Linux/System/2.Linux安全加固.md
@@ -778,6 +779,7 @@ nav:
           - Other/tools/13.自用工具集.md
           - Other/tools/14.Draw画图.md
           - Other/tools/15.搭建一个文档管理网站.md
+          - Other/tools/16.在线工具箱.md
       - windows:
           - Other/windows/1.常用软件下载.md
           - Other/windows/2.windows快捷指令.md
