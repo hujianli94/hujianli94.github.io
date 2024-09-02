@@ -713,7 +713,7 @@ nav:
     - Shell/附-vim常用操作.md
 - Linux:
   - KVM:
-    - Linux/KVM/1.kvm相关命令.md
+    - Linux/KVM/1.kvm常见操作.md
     - Linux/KVM/2.kvm虚拟机创建.md
     - Linux/KVM/3.kvm网络配置.md
     - Linux/KVM/4.安装KVM.md
