@@ -25,13 +25,27 @@
 
 - https://github.com/ansible/ansible
 
+## 运维自动化工具 Ansible-马哥教育
+
+- https://wiki.colorfulgz.com/25运维自动化工具%20Ansible.pdf
+
+- http://galaxy.ansible.com
+- https://galaxy.ansible.com/explore#/
+- http://github.com/
+- http://ansible.com.cn/
+- https://github.com/ansible/ansible
+- ttp://github.com
+- https://github.com/ansible/ansible-examples
+
 ## vscode-ansible
 
 - https://github.com/ansible/vscode-ansible
 
 ## Roles
 
-- 官方 Hub: https://galaxy.ansible.com/
+- 官方 Hub:
+  https://galaxy.ansible.com/
+
 - https://github.com/ansible/ansible-examples
 - https://github.com/geerlingguy
 - https://github.com/debops
