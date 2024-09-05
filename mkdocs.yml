@@ -682,7 +682,8 @@ nav:
           - Ansible/13.Module开发.md
           - Ansible/14.Plugin开发.md
           - Ansible/15.Ansible调试.md
-          - Ansible/16.Ansible安装实例.md
+          - Ansible/16.playbook实例.md
+          - Ansible/17.role实例.md
           - Ansible/附录-Ansible-wiki.md
   - Shell:
       - Shell实践:
