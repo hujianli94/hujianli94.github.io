@@ -141,7 +141,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',   # 数据库引擎mysql
         'NAME': 'mydjango',       # 你要存储数据的库名，事先要创建之
         'USER': 'root',      # 数据库用户名
-        'PASSWORD': 'oschina',      # 密码
+        'PASSWORD': 'xxxx',      # 密码
         'HOST': '127.0.0.1', # 主机
         'PORT': '3306',      # 数据库使用的端口
     }
@@ -937,7 +937,7 @@ DATABASES = {
         'NAME': 'book_demo',
         'HOST': '127.0.0.1',
         'USER': 'root',
-        'PASSWORD': 'oschina',
+        'PASSWORD': 'xxxx',
         'PORT': '3306',
         "OPTIONS": {"init_command": "SET default_storage_engine=INNODB;"}
     }
