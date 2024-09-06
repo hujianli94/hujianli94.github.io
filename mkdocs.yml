@@ -684,7 +684,7 @@ nav:
     - Ansible/16.playbook实例.md
     - Ansible/17.role实例.md
     - Ansible/附录-Ansible-wiki.md
-    - Ansible/附录-吃透Ansible-核心源码剖析-1.md
+    - Ansible/附录-Ansible核心源码剖析-1.md
 
 - Shell:
   - Shell实践:

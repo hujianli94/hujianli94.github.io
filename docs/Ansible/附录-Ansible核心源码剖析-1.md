@@ -1,4 +1,4 @@
-# 附录-吃透 Ansible-核心源码剖析-1
+# 附录-Ansible 核心源码剖析-1
 
 由于 Ansible 1.1 形成于 2013 年年中，只支持 Python 2，为了后续能更好地学习其他版本的 Ansible，
 
