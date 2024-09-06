@@ -83,7 +83,7 @@ ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
 # 连接服务器
-ssh.connect(hostname='192.168.11.126', port=8888, username='root', password='密码')
+ssh.connect(hostname='192.168.11.xx', port=8888, username='root', password='密码')
 
 # 执行命令
 stdin, stdout, stderr = ssh.exec_command('ls')
