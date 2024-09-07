@@ -34,7 +34,6 @@
 - http://github.com/
 - http://ansible.com.cn/
 - https://github.com/ansible/ansible
-- ttp://github.com
 - https://github.com/ansible/ansible-examples
 
 ## vscode-ansible
