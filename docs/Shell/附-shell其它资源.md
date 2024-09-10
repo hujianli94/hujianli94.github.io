@@ -8,7 +8,6 @@ https://github.com/awesome-lists/awesome-bash
 
 https://github.com/HariSekhon/DevOps-Bash-tools
 
-
 - [awesome-cheatsheets](https://github.com/skywind3000/awesome-cheatsheets.git)超级速查表 - 编程语言、框架和开发工具的速查表，单个文件包含一切你需要知道的东西
 
 - [awesome-bash](https://github.com/awesome-lists/awesome-bash)，是一个组织有序的有关 Bash 脚本以及相关资源的列表
