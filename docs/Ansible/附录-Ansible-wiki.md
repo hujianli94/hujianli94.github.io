@@ -42,10 +42,16 @@
 
 ## Roles
 
-- 官方 Hub:
-  https://galaxy.ansible.com/
+官方示例
 
 - https://github.com/ansible/ansible-examples
+
+galaxy 仓库
+
+- https://galaxy.ansible.com/
+
+其他
+
 - https://github.com/geerlingguy
 - https://github.com/debops
 - https://github.com/openstack/openstack-ansible
