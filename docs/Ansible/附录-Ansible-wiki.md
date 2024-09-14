@@ -2,6 +2,7 @@
 
 ## 参考文献
 
+- [Ansible 学习笔记](https://hellogitlab.com/CM/ansible/)
 - [Ansible-wiki](https://ansible.leops.cn/)
 - [Ansible 简体中文](https://runebook.dev/zh/docs/ansible/-index-)
 - [Ansible Wiki Site](https://github.com/leops-china/ansible-wiki/)
