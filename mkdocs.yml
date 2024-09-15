@@ -764,7 +764,7 @@ nav:
     - Linux/Ubuntu/2.ubuntu-desktop-vmware.md
     - Linux/Ubuntu/3.Ubuntu_UFW防火墙.md
   - VM:
-    - Linux/Serveices/1.Vagrant虚拟机.md
+    - Linux/VM/1.Vagrant虚拟机.md
 - middleware:
   - db:
     - middleware/db/1.postgres.md
