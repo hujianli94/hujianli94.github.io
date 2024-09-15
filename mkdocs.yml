@@ -580,6 +580,7 @@ nav:
     - Python/8.Python自动化运维实战/11.生成系统报告和系统监控.md
     - Python/8.Python自动化运维实战/12.与数据库交互.md
     - Python/8.Python自动化运维实战/13.系统管理的Ansible.md
+    - Python/8.Python自动化运维实战/14.与OpenStack-API交互.md
 
 - Openstack:
   - 0.学习线路:
