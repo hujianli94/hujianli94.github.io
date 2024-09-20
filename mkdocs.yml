@@ -609,13 +609,13 @@ nav:
           - Openstack/2.开发环境的搭建/7.制作deb包.md
           - Openstack/2.开发环境的搭建/8.Linux自建软件源.md
       - 3.Python模块:
-          - Openstack/3.Python模块/0.持续集成打包.md
+          - Openstack/3.Python模块/1.持续集成打包.md
           - Openstack/3.Python模块/2.SQLAlchemy.md
           - Openstack/3.Python模块/3.logging.md
           - Openstack/3.Python模块/4.cliff.md
           - Openstack/3.Python模块/5.Eventlet.md
           - Openstack/3.Python模块/6.WSGI.md
-          - Openstack/3.Python模块/7.oslo.md
+          - Openstack/3.Python模块/7.Oslo.md
           - Openstack/3.Python模块/8.oslo-config.md
           - Openstack/3.Python模块/9.oslo-db.md
           - Openstack/3.Python模块/10.oslo-i18n.md
