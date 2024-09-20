@@ -620,9 +620,10 @@ nav:
           - Openstack/3.Python模块/9.oslo-db.md
           - Openstack/3.Python模块/10.oslo.log.md
           - Openstack/3.Python模块/11.oslo-i18n.md
-          - Openstack/3.Python模块/12.oslo-messaging.md
-          - Openstack/3.Python模块/13.cookiecutter.md
-          - Openstack/3.Python模块/14.stevedore.md
+          - Openstack/3.Python模块/12.oslo.utils.md
+          - Openstack/3.Python模块/13.oslo-messaging.md
+          - Openstack/3.Python模块/14.cookiecutter.md
+          - Openstack/3.Python模块/15.stevedore.md
           - Openstack/3.Python模块/附-模仿OpenStack写自己的RPC.md
       - 4.OpenStack容器手册:
           - Openstack/4.OpenStack容器手册/1.OpenStack-Kolla项目.md
