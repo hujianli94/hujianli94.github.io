@@ -827,7 +827,8 @@ nav:
           - Other/windows/9.Cygwin工具安装和使用指导.md
           - Other/windows/10.我使用的GPT.md
           - Other/windows/11.win10安装wsl2.md
-          - Other/windows/12.wsl-安装配置miniconda虚拟环境.md
-          - Other/windows/13.wsl-安装docker.md
+          - Other/windows/12.wsl安装配置miniconda.md
+          - Other/windows/13.wsl安装docker.md
+          - Other/windows/14.wsl安装nodejs.md
       - Interview:
           - Other/Interview/0.面试宝典.md
