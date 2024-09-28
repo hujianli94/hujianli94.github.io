@@ -398,6 +398,7 @@ nav:
     - Golang/9.Go三方库/12.dmidecode.md
     - Golang/9.Go三方库/13.toml.md
     - Golang/9.Go三方库/14.cli.md
+    - Golang/9.Go三方库/15.goconfig.md
     - Golang/9.Go三方库/附-其他三方库.md
   - 10.Go-RESTful-API接口开发:
     - Golang/10.Go-RESTful-API接口开发/1.什么是RESTful-API.md
