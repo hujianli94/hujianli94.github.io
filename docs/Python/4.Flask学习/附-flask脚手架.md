@@ -42,6 +42,10 @@ FlaskBoot 基于 Flask 快速开发脚手架
 
 - https://gitee.com/LiBaoXuan/FlaskBoot-v1.0
 
+使用Python的Flask框架开发Web项目的模板，规范代码约束，增加Swag，CURD、ORM等模板
+
+- https://github.com/nangongchengfeng/Python-Flask-Template.git
+
 flask 应用通用脚手架
 
 - https://github.com/Fangqiushun/flask-demo.git
