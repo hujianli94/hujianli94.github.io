@@ -54,6 +54,31 @@ request.post("http://127.0.0.1:8000/api/",data=json.dumps(res))
 - 优点为采集速度快，适合服务器较多的情况
 - 缺点为需要在每个待采集的服务器上部署一个 agent
 
+#### python实现
+
+Linux远程主机及进程状态监测系统 - 客户端
+- https://github.com/Watch-Dogs-HIT/Watch_Dogs-Client.git
+
+
+CMDB客户端组件，采集服务器信息
+- https://github.com/hanqianops/agentd.git
+
+
+cmdb 客户端部分待更新
+- https://github.com/shaoxiaUdropUUNshort/cmdb_clinent.git
+
+
+#### golang实现
+
+cmdb 客户端Agent 采集信息agent
+- https://github.com/kevin19890/cmdb_agent.git
+
+
+主机信息监控客户端，用来向服务端推送当前主机信息
+- https://github.com/Hopetree/GoMonitor.git
+
+
+
 ### 2.2 ssh 类方式
 
 其核心思路通过一台中控机登录到待采集的服务端去执行采集命令，得到结果。
@@ -372,13 +397,13 @@ https://www.cnblogs.com/liuqingzheng/p/14527292.html
 
 - https://gitee.com/attacker/cmdb
 
-- https://github.com/open-cmdb/cmdb.git
-
 - https://github.com/open-cmdb/cmdb-web.git
 
 - https://github.com/hequan2017/autoops
 
 [一款开源好用的 cmdb 资产管理平台](https://mp.weixin.qq.com/s/hKxMwEfeJS69FGwNZa5Ieg)
+
+
 
 项目地址:
 
@@ -391,6 +416,12 @@ https://www.cnblogs.com/liuqingzheng/p/14527292.html
 以 `Python` 语言，采用 django-rest-framework 框架实现后端 API 开发
 
 [lightning-ops](https://github.com/zhengyansheng/lightning-ops)
+
+
+CMDB 配置管理系统 资产管理系统
+
+- https://github.com/open-cmdb/cmdb.git
+- 
 
 OPMS_v3
 
