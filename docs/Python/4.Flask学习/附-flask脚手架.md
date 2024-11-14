@@ -1,5 +1,11 @@
 # 附-flask 脚手架
 
+## flask大型项目脚手架
+- https://github.com/hujianli94/flask-service.git
+
+fork
+- https://github.com/damianoalves/flask-service.git
+
 ## flask 脚手架
 
 pyapi 是一个基于 Flask 框架的 api 项目脚手架，是从实际应用中精简而来，用于快速构建 api 项目，或者用于 Flask 框架初学者上手。
