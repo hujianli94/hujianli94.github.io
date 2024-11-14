@@ -3141,6 +3141,12 @@ https://github.com/guosaike/dvyiyuan
 
 ## 参考文献
 
+[DjangoRestFramework原来如此！](https://www.u1s1.vip/archives/djangorestframework)
+
+[DjangoRestFramework的响应体如何封装？](https://www.u1s1.vip/archives/djangorestframework-response)
+
+[DjangoRestFramework的Api如何鉴权](https://www.u1s1.vip/archives/djangorestframework-auth)
+
 [django rest framework 学习](https://www.cnblogs.com/Slience-me/p/14456752.html)
 
 [restful framework](https://www.cnblogs.com/sui776265233/category/1319448.html)
