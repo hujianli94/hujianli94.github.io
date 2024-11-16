@@ -1,4 +1,4 @@
-# 附录-Ansible 核心源码剖析-1
+# 附录 1-Ansible 核心源码剖析-1
 
 由于 Ansible 1.1 形成于 2013 年年中，只支持 Python 2，为了后续能更好地学习其他版本的 Ansible，
 
@@ -88,7 +88,7 @@ cat >/etc/hosts<<EOF
 
 
 192.168.0.108 master
-192.168.0.109 ceph-1
+192.168.0.113 ceph-1
 192.168.0.110 ceph-2
 192.168.0.112 ceph-3
 EOF
@@ -210,6 +210,17 @@ wheel        0.37.1
 
 此外，还需要对刚刚安装好的 Ansible 工具进行测试，确保能正常使用。
 
+所有服务器开启 root 访问和设置 root 密码,这里以 msater 为例，其他节点也一样
+
+```sh
+[root@master ~]# sed -i 's/^#PermitRootLogin yes/PermitRootLogin yes/' /etc/ssh/sshd_config
+[root@master ~]# sed -i 's/^#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+[root@master ~]# sed -i 's/^#UseDNS yes/UseDNS no/' /etc/ssh/sshd_config
+[root@master ~]# sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
+[root@master ~]# systemctl restart sshd.service
+[root@master ~]# echo "@hjl19940722"|passwd root --stdin
+```
+
 首先准备一个 hosts 文件并按照组归类 Ansible 目标主机，同时给组变量添加主机的 SSH 登录账号、密码及端口（用户和端口均有默认值，可以忽略），具体操作命令如下：
 
 ```sh
@@ -219,7 +230,7 @@ ceph-[1:3]
 
 [nodes:vars]
 ansible_ssh_user=root
-ansible_ssh_pass=@SHENcong19920522
+ansible_ssh_pass=@hjl19940722
 ansible_ssh_port=22
 
 (ansible1.1) [root@master ~]# ansible all -i hosts -m ping
@@ -244,6 +255,7 @@ ceph-3 | FAILED => module ping not found in /root/library:/root/.pyenv/versions/
 (ansible1.1) [root@master opt]# wget https://releases.ansible.com/ansible/ansible-1.1.tar.gz
 (ansible1.1) [root@master opt]# tar -xf ansible-1.1.tar.gz
 (ansible1.1) [root@master opt]# mkdir -p /root/.pyenv/versions/2.7.18/envs/ansible1.1/share/ansible/
+(ansible1.1) [root@master opt]# cp -rf ansible-1.1/library/* /root/.pyenv/versions/2.7.18/envs/ansible1.1/share/ansible/
 
 # 最后，再次运行前面的测试命令，运行结果如下：
 (ansible1.1) [root@master ~]# ansible all -i hosts -m ping

@@ -98,21 +98,21 @@ markdown_extensions:
 - pymdownx.snippets:
     auto_append:
     - english/phonetic_note.md # 英语单词注解统一放在该文件中
-    base_path: ["docs/"]
+    base_path: [ "docs/" ]
 - codehilite:
     guess_lang: false
     linenums: false
   #      check_paths: true
 - toc:
     permalink: true
-    slugify: !!python/object/apply:pymdownx.slugs.slugify {kwds: {case: lower}}
+    slugify: !!python/object/apply:pymdownx.slugs.slugify { kwds: { case: lower } }
 - pymdownx.arithmatex:
     generic: true
 - pymdownx.betterem:
     smart_enable: all
 - pymdownx.emoji:
-    emoji_index: !!python/name:materialx.emoji.twemoji
-    emoji_generator: !!python/name:materialx.emoji.to_svg
+    emoji_index: !!python/name:materialx.emoji.twemoji ""
+    emoji_generator: !!python/name:materialx.emoji.to_svg ""
 - pymdownx.highlight:
     anchor_linenums: true
 - pymdownx.magiclink:
@@ -123,7 +123,7 @@ markdown_extensions:
     custom_fences:
     - name: mermaid
       class: mermaid
-      format: !!python/name:pymdownx.superfences.fence_code_format
+      format: !!python/name:pymdownx.superfences.fence_code_format ""
 - pymdownx.tabbed:
     alternate_style: true
 - pymdownx.tasklist:
@@ -152,7 +152,6 @@ theme:
   # Static files
   static_templates:
   - 404.html
-
   # Don't include MkDocs' JavaScript
   include_search_page: false
   search_index_only: true
@@ -592,7 +591,10 @@ nav:
     - Python/8.Python自动化运维实战/12.与数据库交互.md
     - Python/8.Python自动化运维实战/13.系统管理的Ansible.md
     - Python/8.Python自动化运维实战/14.与OpenStack-API交互.md
-
+  - 9.源码解读:
+    - Python/9.源码解读/1.envoy库解读.md
+    - Python/9.源码解读/附录1-Ansible核心源码剖析-1.md
+    - Python/9.源码解读/附录2-Ansible-1.1的基本使用.md
 - Openstack:
   - 0.学习线路:
     - Openstack/0.学习线路/0.OpenStack.md
@@ -710,7 +712,6 @@ nav:
     - Ansible/16.playbook实例.md
     - Ansible/17.role实例.md
     - Ansible/附录-Ansible-wiki.md
-    - Ansible/附录-Ansible核心源码剖析-1.md
 
 - Shell:
   - Shell实践:
