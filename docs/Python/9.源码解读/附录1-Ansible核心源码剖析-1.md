@@ -10,7 +10,7 @@
 
 - VSCode
 
-> ansible 所有版本均已开源，下载地址： https://releases.ansible.com/ansible网站进行下载
+> ansible 所有版本均已开源，下载地址： https://releases.ansible.com/ansible
 
 > python 版本下载地址：https://mirrors.huaweicloud.com/python
 
