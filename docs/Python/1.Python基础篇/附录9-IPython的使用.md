@@ -153,7 +153,7 @@ In [16]: %history -n 1-4
    4: print(In)
 ```
 
-## `! shell_command` 执行 shell 命令
+## `!cmd` 执行 shell 命令
 
 shell （windows 里叫作 cmd）表示使用文本与计算机进行交互的方式，在 IPython 中，shell 命令前加上感叹号!（英文输入法）就可以直接执行。
 
@@ -204,6 +204,18 @@ In [16]: %load myscript.py
 ### %load 加载代码
 
 %load 命令用于将脚本代码加载到当前 cell。
+
+```
+%load myscript.py
+%load 7-27
+%load http://www.example.com/myscript.py
+%load -r 5-10 myscript.py
+%load -r 10-20,30,40: foo.py
+%load -s MyClass,wonder_function myscript.py
+%load -n MyClass
+%load -n my_module.wonder_function
+```
+
 
 ## \_打印前输出结果
 
