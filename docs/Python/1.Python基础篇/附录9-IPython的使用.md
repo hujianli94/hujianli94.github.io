@@ -395,6 +395,36 @@ In [23]: %who int
 a        b
 ```
 
+## %whos 显示变量，更详细
+
+```sh
+In [61]: %whos
+Variable                         Type        Data/Info
+------------------------------------------------------
+ANSIBLE_SSH_ARGS                 NoneType    None
+C                                module      <module 'constants' from 'constants.py'>
+ConfigParser                     module      <module 'ConfigParser' fr<...>hon2.7/ConfigParser.pyc'>
+DEFAULTS                         str         defaults
+DEFAULT_MODULE_PATH              str         /usr/share/ansible/
+DEFAULT_PATTERN                  str         *
+DEFAULT_POLL_INTERVAL            int         15
+```
+
+## %xdel 删除变量
+
+```sh
+In [64]: %whos int
+Variable                Type    Data/Info
+-----------------------------------------
+DEFAULT_FORKS           int     5
+DEFAULT_POLL_INTERVAL   int     15
+DEFAULT_REMOTE_PORT     int     22
+DEFAULT_TIMEOUT         int     10
+ZEROMQ_PORT             int     5099
+
+In [65]: %xdel DEFAULT_FORKS
+```
+
 ## %rerun 执行前代码
 
 %rerun 命令用于执行之前的代码，可以指定历史代码行，默认最后一行。
