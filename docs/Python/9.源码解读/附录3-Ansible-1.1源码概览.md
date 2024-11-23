@@ -22,11 +22,6 @@ ansible-1.1
 ├── docs
 # ....
 ├── examples
-│   ├── ansible.cfg
-│   ├── hosts
-│   └── playbooks
-│       ├── ansible_pull.yml
-│       ├── batch_size_control.yml
 # ....
 ├── lib
 │   └── ansible
@@ -68,7 +63,7 @@ ansible-1.1
 │           └── template.py
 ├── library
 │   ├── add_host
-│   ├── apt
+# ....
 # ....
 ├── Makefile
 ├── packaging
