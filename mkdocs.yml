@@ -577,6 +577,7 @@ nav:
     - Python/7.Python网络编程攻略/1.IPv4和简单的客户端-服务器编程.md
     - Python/7.Python网络编程攻略/2.使用多路复用套接字-IO提升性能.md
     - Python/7.Python网络编程攻略/3.IPv6-Unix域套接字和网络接口.md
+    - Python/7.Python网络编程攻略/4.HTTP协议网络编程.md
   - 8.Python自动化运维实战:
     - Python/8.Python自动化运维实战/1.搭建Python环境.md
     - Python/8.Python自动化运维实战/2.常用的自动化库.md
