@@ -594,9 +594,15 @@ nav:
     - Python/8.Python自动化运维实战/13.系统管理的Ansible.md
     - Python/8.Python自动化运维实战/14.与OpenStack-API交互.md
   - 9.源码解读:
-    - Python/9.源码解读/1.envoy库解读.md
+    - Python/9.源码解读/1.envoy源码分析.md
+    - Python/9.源码解读/2.pssh源码分析.md
     - Python/9.源码解读/附录1-Ansible核心源码剖析-1.md
     - Python/9.源码解读/附录2-Ansible-1.1的基本使用.md
+  - 10.Python进阶:
+    - Python/10.Python进阶/1.理解与使用单例模式.md
+    - Python/10.Python进阶/2.argparse解析命令行参数.md
+    - Python/10.Python进阶/3.utils-强大的工具箱.md
+
 - Openstack:
   - 0.学习线路:
     - Openstack/0.学习线路/0.OpenStack.md

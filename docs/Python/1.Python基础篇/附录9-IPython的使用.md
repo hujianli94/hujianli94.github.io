@@ -216,7 +216,6 @@ In [16]: %load myscript.py
 %load -n my_module.wonder_function
 ```
 
-
 ## \_打印前输出结果
 
 使用一个下划线 \_ 获取前一个输出结果，它是个变量，实时更新的。
