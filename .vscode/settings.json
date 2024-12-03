@@ -23,10 +23,11 @@
   "editor.defaultFormatter": null,
   "editor.wordWrap": "on", // 启用自动换行
   "editor.fontSize": 16, // 编辑器中的字体
-  "editor.rulers": [80, 120], // 设置编辑器标尺
+  "editor.rulers": [79, 120], // 设置编辑器标尺
   "editor.renderLineHighlight": "all", //当前行高亮方式
   "editor.hover.delay": 300, // 显示缩进指南。
-  "editor.indentGuides": "none", //缩进参考线显示
+  "editor.indentGuides": "none", // 不显示缩进指南。
+  "editor.renderIndentGuides": true, //缩进参考线显示
   "editor.lineHeight": 17, // 设置编辑器的行高为17。
   "editor.snippetSuggestions": "top", // 控制代码片段的建议是如何显示,是否允许自定义的snippet片段提示
   "editor.quickSuggestions": "true", //代码片段将以快速建议的形式出现
@@ -81,7 +82,7 @@
   "[python]": {
     "editor.tabSize": 4, // Python文件的Tab大小
     "editor.insertSpaces": true, // 插入空格而不是Tab
-    "editor.rulers": [80, 120], // 显示80和140字符的参考线
+    "editor.rulers": [79, 120], // 显示80和140字符的参考线
     "editor.renderWhitespace": "all", // 显示所有空白字符
     "editor.wordWrap": "off", // 关闭单词换行
     "editor.formatOnSave": true, // 在保存时自动格式化代码
