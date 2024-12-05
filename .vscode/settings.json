@@ -7,6 +7,7 @@
   "git.ignoreLegacyWarning": true, // 忽略Git的旧版本警告。
   "git.autofetch": true, // 启用Git自动拉取。
   "git.confirmSync": false, // 在同步Git存储库时不需要确认。
+  "gitlens.historyExplorer.enabled": true, // 启用Git历史记录浏览器扩展。
   "explorer.confirmDragAndDrop": false, // 在文件资源管理器中拖放文件时不需要确认。
   "search.followSymlinks": false, // 在搜索时不要跟随符号链接。
   // 编辑器配置
@@ -15,21 +16,38 @@
   "editor.tabSize": 2, // 设置编辑器的缩进大小为2个空格。
   "editor.detectIndentation": false, // 禁用自动检测缩进
   "editor.parameterHints.enabled": false, //输入时函数参数提示
-  "editor.formatOnSave": true, // 保存时自动格式化
+  "editor.formatOnSave": true, // #值设置为true时，每次保存的时候自动格式化；
   "editor.formatOnType": true, //输入一行时格式化代码
   "editor.formatOnPaste": true, //黏贴时格式化代码
+  "editor.suggest.snippetsPreventQuickSuggestions": true, // 启用自动建议。
   "eslint.format.enable": true,
   "editor.mouseWheelZoom": true, // 允许使用鼠标滚轮进行缩放。
+  "update.mode": "none", // 禁用自动更新。
+  // 删除二次确认,可以使用 cmd + z 撤销掉删除行为
+  "explorer.confirmDelete": false,
+  // Internal terminal
+  // 使用 code runner 作为终端
+  "code-runner.runInTerminal": true,
+  // 每次默认打开终端的 path 在当前打开的文件目录下
+  "code-runner.fileDirectoryAsCwd": true,
+
   "editor.defaultFormatter": null,
   "editor.wordWrap": "on", // 启用自动换行
+  "editor.inlineSuggest.enabled": true, // 启用快速建议。使用 Tabnine 或 github copilot 等自动补全插件都需要开启的选项。
   "editor.fontSize": 16, // 编辑器中的字体
+  "editor.lineHeight": 17, // 设置编辑器的行高为17。
+  "editor.lineNumbers": "on", //开启行数提示
   "editor.rulers": [79, 120], // 设置编辑器标尺
   "editor.renderLineHighlight": "all", //当前行高亮方式
   "editor.hover.delay": 300, // 显示缩进指南。
   "editor.indentGuides": "none", //缩进参考线显示
-  "editor.lineHeight": 17, // 设置编辑器的行高为17。
   "editor.snippetSuggestions": "top", // 控制代码片段的建议是如何显示,是否允许自定义的snippet片段提示
-  "editor.quickSuggestions": "true", //代码片段将以快速建议的形式出现
+  "editor.quickSuggestions": {
+    //开启自动显示建议
+    "other": true,
+    "comments": true,
+    "strings": true
+  },
   // 代码片段支持 tab-completion,on: 打开tab-completion 功能。
   // off: 关闭 tab-completion 功能，这是_默认值_。onlySnippets: 只对代码片段打开 tab-completion。
   "editor.tabCompletion": "onlySnippets",
@@ -46,19 +64,23 @@
   "files.autoGuessEncoding": true, // 启用文件编码自动猜测。
   "breadcrumbs.enabled": false, // 禁用面包屑导航。
   // 文件保存配置
-  "files.autoSave": "afterDelay", //在配置的 #files.autoSaveDelay# 之后，会自动保存具有更改的编辑器。
+  "files.autoSave": "onFocusChange",    //失去焦点后自动保存
   "files.autoSaveDelay": 500,
+  "files.trimTrailingWhitespace": true, // 保存时自动去除文件末尾的空白字符。
+  "files.trimFinalNewlines": true, // 保存时自动去除文件末尾的换行符。
   "files.encoding": "utf8", // 设置文件编码为UTF-8。
   "files.eol": "\n", // 行尾序列"\n",linux uninx格式
   "bashIde.shfmt.simplifyCode": true,
   "terminal.integrated.inheritEnv": false, // 不继承外部环境变量。
   "vetur.experimental.templateInterpolationService": true, // 启用Vetur的模板插值服务。
+
   "terminal.integrated.env.windows": {
     // 为Windows终端设置环境变量
     "PYTHONPATH": "${workspaceFolder}" // 设置PYTHONPATH环境变量。
   },
   // 插件配置
-  "extensions.autoUpdate": true, // 启用扩展自动更新。
+  "extensions.ignoreRecommendations": false,  // 关闭 vscode 推荐插件的行为
+  "extensions.autoUpdate": "onlyEnabledExtensions", // 仅对已启用的扩展进行自动更新。
   // 语言特定配置
   "[markdown]": {
     "editor.wordWrap": "on",
@@ -169,6 +191,7 @@
     "return": ""
   },
   "workbench.editor.enablePreview": false,
+  // vscode 的 diff 行为默认会忽略尾部空字符，为了更精准的控制文件尾，我们需要更加敏感，所以关闭忽略行为。
   "diffEditor.ignoreTrimWhitespace": false,
   "python.analysis.completeFunctionParens": true,
   // 在使用搜索功能时，将这些文件夹/文件排除在外
@@ -190,7 +213,7 @@
     "**/CVS": true,
     "**/.DS_Store": true,
     "**/*.js": {
-      "when": "$(basename).ts" //ts编译后生成的js文件将不会显示在工作空中
+      "when": "$(basename).ts" // ts编译后生成的js文件将不会显示在工作空中
     },
     "**/node_modules": true,
     "**/Thumbs.db": true,
@@ -201,6 +224,7 @@
   "workbench.tree.renderIndentGuides": "always",
   "workbench.settings.applyToAllProfiles": ["editor.guides.indentation"],
   "editor.guides.indentation": true,
+  // 文件夹紧凑模式显示
   "explorer.compactFolders": false,
   "guides.enabled": false,
   "files.autoSaveWhenNoErrors": true,
