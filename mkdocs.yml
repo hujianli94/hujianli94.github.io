@@ -757,7 +757,7 @@ nav:
     - Linux/KVM/1.kvm常见操作.md
     - Linux/KVM/2.kvm虚拟机创建.md
     - Linux/KVM/3.kvm网络配置.md
-    - Linux/KVM/4.安装KVM.md
+    - Linux/KVM/附录-安装KVM.md
   - Nginx:
     - Linux/Nginx/1.Nginx简介.md
     - Linux/Nginx/2.Nginx安装及启动.md
