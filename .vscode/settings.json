@@ -32,7 +32,6 @@
   "code-runner.fileDirectoryAsCwd": true,
   "editor.defaultFormatter": null,
   "editor.wordWrap": "on", // 启用自动换行
-  "editor.inlineSuggest.enabled": true, // 启用快速建议。使用 Tabnine 或 github copilot 等自动补全插件都需要开启的选项。
   "editor.fontSize": 16, // 编辑器中的字体
   "editor.lineHeight": 17, // 设置编辑器的行高为17。
   "editor.lineNumbers": "on", //开启行数提示
@@ -114,7 +113,6 @@
     "editor.defaultFormatter": "ms-python.black-formatter", // 设置Python的默认格式化工具为Black 需先安装 pip install black
     "editor.formatOnType": true
   },
-  "python.formatting.provider": "black",
   "python.formatting.blackArgs": [
     "--skip-string-normalization",
     "--line-length 120"
@@ -243,7 +241,7 @@
   "github.copilot.chat.welcomeMessage": "always",
   // 设置Copilot本地语言
   "github.copilot.chat.localeOverride": "zh-CN",
-  // 启用内联建议
+  // 启用快速建议。使用 Tabnine 或 github copilot 等自动补全插件都需要开启的选项。
   "editor.inlineSuggest.enabled": true,
   // 允许 Copilot 代码操作建议,这些操作可能包括重构代码、优化代码结构、修复可错误等
   "github.copilot.editor.enableCodeActions": true,
