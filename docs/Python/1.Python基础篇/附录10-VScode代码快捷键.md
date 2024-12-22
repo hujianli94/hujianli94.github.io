@@ -192,540 +192,349 @@
 
 ```json
 {
-  "ansible_apb_group_vars_all": {
-    "prefix": "apbgvall",
+  "ansible_common_modules_apt1": {
+    "prefix": "asb_apt1",
     "body": [
-      "ceph_origin: repository",
-      "ceph_repository: community",
-      "ceph_mirror: https://mirrors.aliyun.com/ceph/",
-      "ceph_stable_key: \"{{ ceph_mirror }}/keys/release.asc\"",
-      "ceph_stable_release: nautilus",
-      "ceph_stable_repo: \"{{ ceph_mirror }}/debian-{{ ceph_stable_release }}\"",
-      "ceph_stable_distro_source: bionic",
-      "",
-      "cephx: \"true\"",
-      "",
-      "public_network: 192.168.26.0/24",
-      "cluster_network: 192.168.26.0/24",
-      "",
-      "monitor_interface: ens33",
-      "radosgw_interface: ens33",
-      "configure_firewall: False",
-      "osd_objectstore: bluestore",
-      "devices:",
-      "  - /dev/sdb",
-      "",
-      "osd_pool_default_pg_num: 128",
-      "dashboard_enabled: False"
+      "- name: Install required packages",
+      "  ansible.builtin.apt:",
+      "    name: \"{{item}}\"",
+      "    state: present",
+      "    update_cache: yes",
+      "  become: yes",
+      "  become_method: sudo"
     ],
-    "description": "ansible_apb_group_vars_all"
+    "description": "ansible_common_modules_apt1"
   },
-  "ansible_apb1": {
-    "prefix": "apb1",
+  "ansible_include_role1": {
+    "prefix": "asb_include_role1",
     "body": [
       "---",
-      "- hosts: $1",
-      "  gather_facts: false",
-      "  become: true",
-      "  any_errors_fatal: true",
-      "  tasks:",
-      "    - name: $2",
-      "      $3"
-    ],
-    "description": "Ansible playbook_snippet1"
-  },
-  "ansible_apb2": {
-    "prefix": "apb2",
-    "body": [
-      "---",
-      "- hosts: mons",
-      "  gather_facts: false",
-      "  become: true",
-      "  serial: 1  # 一般情况下, ansible 会同时在所有服务器上执行用户定义的操作，因此可以通过设置 serial 来控制并发执行的任务数。",
-      "  any_errors_fatal: true",
-      "  tasks:",
-      "    - import_role:",
-      "        name: ceph-defaults",
-      "    - name: get ceph status from the first monitor",
-      "      command: ceph --cluster {{ cluster }} -s",
-      "      register: ceph_status",
-      "      changed_when: false",
-      "      delegate_to: \"{{ groups[mon_group_name][0] }}\"",
-      "      run_once: true",
+      "- hosts: services",
+      "  remote_user: \"{{ansible_user}}\"",
       "",
-      "    - name: \"show ceph status for cluster {{ cluster }}\"",
-      "      debug:",
-      "        msg: \"{{ ceph_status.stdout_lines }}\"",
-      "      delegate_to: \"{{ groups[mon_group_name][0] }}\"",
-      "      run_once: true"
-    ],
-    "description": "ansible_apb2"
-  },
-  "ansible_apb3": {
-    "prefix": "apb3",
-    "body": [
-      "- name: Switching from non-containerized to containerized ceph mon",
-      "  vars:",
-      "    containerized_deployment: true",
-      "    switch_to_containers: true",
-      "    mon_group_name: mons",
-      "  hosts: \"{{ mon_group_name|default('mons') }}\"",
-      "  serial: 1",
-      "  become: true",
-      "  any_errors_fatal: true",
       "  pre_tasks:",
-      "    - name: Select a running monitor",
-      "      ansible.builtin.set_fact:",
-      "        mon_host: \"{{ item }}\"",
-      "      with_items: \"{{ groups[mon_group_name] }}\"",
-      "      when: item != inventory_hostname",
       "",
-      "    - name: Rename leveldb extension from ldb to sst",
-      "      ansible.builtin.shell: rename -v .ldb .sst /var/lib/ceph/mon/*/store.db/*.ldb",
-      "      changed_when: false",
-      "      failed_when: false",
-      "      when: ldb_files.rc == 0",
-      "",
-      "  tasks:",
-      "    - name: Import ceph-handler role",
-      "      ansible.builtin.import_role:",
-      "        name: ceph-handler",
+      "  roles:",
+      "    - installpack",
+      "    - common",
+      "    - esrtf",
+      "    - sonarworker",
+      "    - fdfs",
       "",
       "  post_tasks:",
-      "    - name: Waiting for the monitor to join the quorum...",
-      "      ansible.builtin.command: \"{{ container_binary }} run --rm  -v /etc/ceph:/etc/ceph:z --entrypoint=ceph {{ ceph_docker_registry }}/{{ ceph_docker_image }}:{{ ceph_docker_image_tag }} --cluster {{ cluster }} quorum_status --format json\"",
-      "      register: ceph_health_raw",
-      "      until: ansible_facts['hostname'] in (ceph_health_raw.stdout | trim | from_json)[\"quorum_names\"]",
-      "      changed_when: false",
-      "      retries: \"{{ health_mon_check_retries }}\"",
-      "      delay: \"{{ health_mon_check_delay }}\""
+      "    - name: 设置服务开机自启动",
+      "      shell: echo \"/bin/bash /usr/local/bin/serviceshost.sh\" >> /etc/rc.local && chmod +x /etc/rc.local && chmod +x /etc/rc.d/rc.local\"",
+      "      become: yes",
+      "      become_method: sudo"
     ],
-    "description": "ansible_apb3"
+    "description": "ansible_include_role1"
   },
-  "ansible_apb_host1": {
-    "prefix": "apb_host1",
+  "ansible_include_role2": {
+    "prefix": "asb_include_role2",
     "body": [
       "---",
-      "- hosts: mons",
-      "  gather_facts: false",
       "",
-      "  tasks:",
-      "    - name: include common.yml",
-      "      include_tasks: common.yml",
-      "",
-      "    - name: include facts.yml",
-      "      include_tasks: facts.yml",
-      "",
-      "    - name: include config.yml",
-      "      include_tasks: config.yml",
-      "",
-      "    - name: include mon.yml",
-      "      include_tasks: mon.yml",
-      "",
-      "    - name: include mgr.yml",
-      "      include_tasks: mgr.yml"
+      "- include: redis.yml",
+      "- include: db.yml",
+      "- include: license-gitignore.yml"
     ],
-    "description": "ansible_apb_host1"
+    "description": "ansible_include_role2"
   },
-  "ansible_apb_task": {
-    "prefix": "at",
-    "body": ["- name: $1", "  $2"],
-    "description": "ansible_apb_task"
-  },
-  "ansible_apb_task_set_fact1": {
-    "prefix": "atset_fact1",
+  "ansible_common_modules_shell1": {
+    "prefix": "asb_shell1",
     "body": [
-      "- name: set_fact fsid",
-      "  set_fact:",
-      "     fsid: \"{{ cluster_uuid.stdout }}\""
-    ],
-    "description": "ansible_apb_task_set_fact1"
-  },
-  "ansible_apb_task_set_fact2": {
-    "prefix": "atset_fact2",
-    "body": [
-      "- name: set_fact monitor_ipv4",
-      "  set_fact:",
-      "    monitor_ipv4: \"{{ shell_out.stdout }}\""
-    ],
-    "description": "ansible_apb_task_set_fact2"
-  },
-  "ansible_apb_task_set_fact3": {
-    "prefix": "atset_fact3",
-    "body": [
-      "- name: set ntp service name depending on OS family",
-      "  block:",
-      "  - name: set ntp service name for Debian family",
-      "    set_fact:",
-      "      ntp_service_name: ntp",
-      "    when: ansible_os_family == 'Debian'",
-      "",
-      "  - name: set ntp service name for Red Hat family",
-      "    set_fact:",
-      "      ntp_service_name: ntpd",
-      "    when: ansible_os_family in ['RedHat', 'Suse']"
-    ],
-    "description": "ansible_apb_task_set_fact3"
-  },
-  "ansible_apb_task_set_fact4": {
-    "prefix": "atset_fact4",
-    "body": [
-      "- name: set_fact _monitor_address to monitor_interface - ipv4",
-      "  set_fact:",
-      "    _monitor_addresses: \"{{ _monitor_addresses | default([]) + [{ 'name': item, 'addr': hostvars[item]['monitor_ipv4'] }] }}\"",
-      "  with_items: \"{{ groups.get(mon_group_name, []) }}\""
-    ],
-    "description": "ansible_apb_task_set_fact4"
-  },
-  "ansible_apb_task_set_fact5": {
-    "prefix": "atset_fact5",
-    "body": [
-      "- name: get ceph version",
-      "  command: ceph --version",
-      "  changed_when: false",
-      "  check_mode: no",
-      "  register: ceph_version",
-      "",
-      "- name: set_fact ceph_version",
-      "  set_fact:",
-      "    ceph_version: \"{{ ceph_version.stdout.split(' ')[2] }}\""
-    ],
-    "description": "ansible_apb_task_set_fact5"
-  },
-  "ansible_apb_task_command1": {
-    "prefix": "atc1",
-    "body": ["- name: $1", "  command: $2"],
-    "description": "ansible_apb_task_command1"
-  },
-  "ansible_apb_task_command2": {
-    "prefix": "atc2",
-    "body": [
-      "---",
-      "- name: generate cluster fsid",
-      "  command: \"/bin/python -c 'import uuid; print(str(uuid.uuid4()))'\"",
-      "  register: cluster_uuid",
-      "  delegate_to: \"{{ groups[mon_group_name][0] }}\"",
-      "  run_once: true"
-    ],
-    "description": "ansible_apb_task_command2"
-  },
-  "ansible_apb_task_command3": {
-    "prefix": "atc3",
-    "body": [
-      "- name: generate cluster fsid",
-      "  command: \"{{ hostvars[groups[mon_group_name][0]]['discovered_interpreter_python'] }} -c 'import uuid; print(str(uuid.uuid4()))'\"",
-      "  register: cluster_uuid",
-      "  delegate_to: \"{{ groups[mon_group_name][0] }}\"",
-      "  run_once: true"
-    ],
-    "description": "ansible_apb_task_command3"
-  },
-  "ansible_apb_task_command4": {
-    "prefix": "atc4",
-    "body": [
-      "- name: generate monitor initial keyring",
-      "  command: >",
-      "    {{ hostvars[groups[mon_group_name][0] if running_mon is undefined else running_mon]['discovered_interpreter_python'] }} -c \"import os ; import struct ;",
-      "    import time; import base64 ; key = os.urandom(16) ;",
-      "    header = struct.pack('<hiih',1,int(time.time()),0,len(key)) ;",
-      "    print(base64.b64encode(header + key).decode())\"",
-      "  register: monitor_keyring",
-      "  run_once: True",
-      "  delegate_to: \"{{ groups[mon_group_name][0] if running_mon is undefined else running_mon }}\"",
-      "  when:",
-      "    - initial_mon_key.skipped is defined",
-      "    - ceph_current_status.fsid is undefined"
-    ],
-    "description": "ansible_apb_task_command4"
-  },
-  "ansible_apb_task_shell1": {
-    "prefix": "ats1",
-    "body": ["- name: $1", "  shell: $2"],
-    "description": "ansible_apb_task_shell1"
-  },
-  "ansible_apb_task_shell2": {
-    "prefix": "ats2",
-    "body": [
-      "- name: exec shell ",
-      "  shell: echo \"Hello, World\" > /tmp/hello.txt",
-      "  args:",
-      "    chdir: /path/to/directory",
-      "    creates: /path/to/somefile",
-      "    #args 用于指定额外的参数：",
-      "    #chdir: 指定命令执行的目录。",
-      "    #creates: 如果指定的文件存在，则不执行命令。"
-    ],
-    "description": "ansible_apb_task_shell2"
-  },
-  "ansible_apb_task_shell3": {
-    "prefix": "ats3",
-    "body": [
-      "- name: get monitor ipv4 address",
-      "  shell: \"cat /etc/hosts | grep {{ inventory_hostname }} | awk '{print \\$1}'\"",
-      "  register: shell_out",
+      "- name: Configure timezone",
+      "  ansible.builtin.shell: ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shanghai' >/etc/timezone",
       ""
     ],
-    "description": "ansible_apb_task_shell3"
+    "description": "ansible_common_modules_shell1"
   },
-  "ansible_apb_task_copy1": {
-    "prefix": "atcp1",
-    "body": ["- name: $1", "  copy:", "    src: $2", "    dest: $3"],
-    "description": "ansible_apb_task_copy1"
-  },
-  "ansible_apb_task_copy2": {
-    "prefix": "atcp2",
+  "ansible_common_modules_shell2": {
+    "prefix": "asb_shell2",
     "body": [
-      "- name: copy repo files to all hosts",
-      "  copy:",
-      "    src: \"{{ item }}\"",
-      "    dest: \"/etc/yum.repos.d/{{ item }}\"",
+      "- name: control plane初始化成功,添加用户连接集群配置",
+      "  ansible.builtin.shell: mkdir -p \\$HOME/.kube && cp /etc/kubernetes/admin.conf \\${HOME}/.kube/config && chown \\$(id -u):\\$(id -g) \\$HOME/.kube/config",
+      "  become: yes",
+      "  when:",
+      "    - opriation == \"create\"",
+      "    - rc_result.rc == 0",
+      ""
+    ],
+    "description": "ansible_common_modules_shell2"
+  },
+  "ansible_common_modules_shell3": {
+    "prefix": "asb_shell3",
+    "body": [
+      "- name: 初始化数据库 1",
+      "  ansible.builtin.shell: \"chdir=/app/gitee bundle exec rake db:migrate RAILS_ENV=production\"",
+      "  run_once: true",
+      "  delegate_to: backend1"
+    ],
+    "description": "ansible_common_modules_shell3"
+  },
+  "ansible_common_modules_copy1": {
+    "prefix": "asb_copy1",
+    "body": [
+      "- name: Configure online sources",
+      "  ansible.builtin.copy:",
+      "    src: sources.list",
+      "    dest: /etc/apt/",
+      "    backup: yes"
+    ],
+    "description": "ansible_common_modules_copy1"
+  },
+  "ansible_common_modules_copy2": {
+    "prefix": "asb_copy2",
+    "body": [
+      "- name: 优化用户所能打开的最大文件描述符数&加载ipvs模块&优化内核参数",
+      "  ansible.builtin.copy:",
+      "    src: \"{{ item.src }}\"",
+      "    dest: \"{{ item.dest }}\"",
+      "    backup: yes",
       "  with_items:",
-      "    - \"CentOS-Base.repo\"",
-      "    - \"ceph.repo\"",
-      "  become: true"
-    ],
-    "description": "ansible_apb_task_copy2"
-  },
-  "ansible_apb_task_copy3": {
-    "prefix": "atcp3",
-    "body": [
-      "- name: Tmp copy the prometheus data",
-      "  copy:",
-      "    src: '{{ prometheus_data_dir }}/'",
-      "    dest: /var/lib/prom_metrics",
-      "    owner: 65534",
-      "    group: 65534",
-      "    mode: preserve",
-      "    remote_src: true"
-    ],
-    "description": "ansible_apb_task_copy3"
-  },
-  "ansible_apb_task_copy4": {
-    "prefix": "atcp4",
-    "body": [
-      "- name: Copy grafana SSL certificate file",
-      "  copy:",
-      "    src: \"{{ grafana_crt }}\"",
-      "    dest: \"/etc/grafana/ceph-dashboard.crt\"",
-      "    owner: \"{{ grafana_uid }}\"",
-      "    group: \"{{ grafana_uid }}\"",
-      "    mode: \"0640\"",
-      "    remote_src: \"{{ dashboard_tls_external | bool }}\"",
-      "  when:",
-      "    - grafana_crt | length > 0",
-      "    - dashboard_protocol == \"https\""
-    ],
-    "description": "ansible_apb_task_copy4"
-  },
-  "ansible_apb_task_template1": {
-    "prefix": "att1",
-    "body": ["- name: $1", "  template:", "    src: $2", "    dest: $3"],
-    "description": "ansible_apb_task_template1"
-  },
-  "ansible_apb_task_template2": {
-    "prefix": "att2",
-    "body": [
-      "- name: Write datasources provisioning config file",
-      "  template:",
-      "    src: datasources-ceph-dashboard.yml.j2",
-      "    dest: /etc/grafana/provisioning/datasources/ceph-dashboard.yml",
-      "    owner: \"{{ grafana_uid }}\"",
-      "    group: \"{{ grafana_uid }}\"",
-      "    mode: \"0640\"",
+      "    - {src: 'limits.conf', dest: '/etc/security/limits.conf'}",
+      "    - {src: 'limits.conf', dest: '/etc/security/limits.d/20-nproc.conf'}",
+      "    - {src: 'ipvs.conf', dest: '/etc/modules-load.d/ipvs.conf'}",
+      "    - {src: 'k8s.conf', dest: '/etc/sysctl.d/k8s.conf'}",
+      "  notify:",
+      "    - Start systemd-modules-load.service",
+      "    - Reboot OS",
       ""
     ],
-    "description": "ansible_apb_task_template2"
+    "description": "ansible_common_modules_copy2"
   },
-  "ansible_apb_task_template3": {
-    "prefix": "att3",
+  "ansible_common_modules_template1": {
+    "prefix": "asb_template1",
     "body": [
-      "- name: Generate systemd unit file",
+      "- name: 配置 keepalived",
       "  ansible.builtin.template:",
-      "    src: \"{{ role_path }}/templates/ceph-mds.service.j2\"",
-      "    dest: /etc/systemd/system/ceph-mds@.service",
-      "    owner: \"root\"",
-      "    group: \"root\"",
-      "    mode: \"0644\"",
-      "  notify: Restart ceph mdss"
+      "    src: keepalived/frontend/keepalived.conf",
+      "    dest: /etc/keepalived/keepalived.conf",
+      "  become: yes",
+      "  become_method: sudo"
     ],
-    "description": "ansible_apb_task_template3"
+    "description": "ansible_common_modules_template1"
   },
-  "ansible_apb_task_when1": {
-    "prefix": "atw1",
+  "ansible_common_modules_template2": {
+    "prefix": "asb_template2",
     "body": [
-      "- name: include_tasks installs/install_on_redhat.yml",
-      "  include_tasks: installs/install_on_redhat.yml",
-      "  when: ansible_os_family == 'RedHat'",
-      "  tags: package-install"
+      "- name: 复制启动脚本",
+      "  ansible.builtin.template:",
+      "    src: \"keepalived/frontend/{{item}}\"",
+      "    dest: \"/usr/local/bin/{{item}}\"",
+      "    mode: \"0755\"",
+      "  with_items:",
+      "    - frontendhost.sh",
+      "    - check_server.sh",
+      "  become: yes",
+      "  become_method: sudo"
     ],
-    "description": "ansible_apb_task_when1"
+    "description": "ansible_common_modules_template2"
   },
-  "ansible_apb_task_when2": {
-    "prefix": "atw2",
+  "ansible_common_modules_unarchive1": {
+    "prefix": "asb_unarchive1",
     "body": [
-      "- name: include release-rhcs.yml",
-      "  include_tasks: release-rhcs.yml",
-      "  when: ceph_repository in ['rhcs', 'dev'] or ceph_origin == 'distro'",
-      "  tags: always"
+      "- name: Unarchive containerd-{{ containerd_version }}-linux-amd64.tar.gz",
+      "  ansible.builtin.unarchive:",
+      "    src: /tmp/containerd-{{ containerd_version }}-linux-amd64.tar.gz",
+      "    dest: /usr/local",
+      "    copy: no"
     ],
-    "description": "ansible_apb_task_when2"
+    "description": "ansible_common_modules_unarchive1"
   },
-  "ansible_apb_task_when3": {
-    "prefix": "atw3",
+  "ansible_common_modules_unarchive2": {
+    "prefix": "asb_unarchive2",
     "body": [
-      "- name: include configure_memory_allocator.yml",
-      "  include_tasks: configure_memory_allocator.yml",
-      "  when:",
-      "    - (ceph_tcmalloc_max_total_thread_cache | int) > 0",
-      "    - osd_objectstore == 'filestore'",
-      "    - (ceph_origin == 'repository' or ceph_origin == 'distro')"
+      "- name: Unarchive nerdctl-{{ nerdctl }}-linux-amd64.tar.gz",
+      "   ansible.builtin.unarchive:",
+      "    src: /tmp/nerdctl-{{ nerdctl }}-linux-amd64.tar.gz",
+      "    dest: /tmp/",
+      "    copy: no"
     ],
-    "description": "ansible_apb_task_when3"
+    "description": "ansible_common_modules_unarchive2"
   },
-  "ansible_apb_task_when4": {
-    "prefix": "atw4",
+  "ansible_common_modules_cron1": {
+    "prefix": "asb_cron1",
     "body": [
-      "- name: include_tasks ceph_keys.yml",
-      "  include_tasks: ceph_keys.yml",
-      "  when: not switch_to_containers | default(False) | bool",
-      "",
-      "- name: include secure_cluster.yml",
-      "  include_tasks: secure_cluster.yml",
-      "  when:",
-      "    - secure_cluster | bool",
-      "    - inventory_hostname == groups[mon_group_name] | first"
+      "- name: Configure crontab Time sync",
+      "  ansible.builtin.cron:",
+      "    name: \"Cron time sync\"",
+      "    minute: \"*/5\"",
+      "    job: /usr/sbin/ntpdate {{ ntp_server }} &>/dev/null",
+      "  when: ntp_server is defined"
     ],
-    "description": "ansible_apb_task_when4"
+    "description": "ansible_common_modules_cron1"
   },
-  "ansible_apb_task_debug1": {
-    "prefix": "atdebug1",
+  "ansible_common_modules_user1": {
+    "prefix": "asb_user1",
     "body": [
-      "",
-      "- name: \"show ceph status for cluster {{ cluster }}\"",
-      "  debug:",
-      "    msg: \"{{ ceph_status.stdout_lines }}\""
-    ],
-    "description": "ansible_apb_task_debug1"
-  },
-  "ansible_apb_task_debug2": {
-    "prefix": "atdebug2",
-    "body": [
-      "",
-      "- name: \"show ceph status for cluster {{ cluster }}\"",
-      "  debug:",
-      "    msg: \"{{ ceph_status.stdout_lines }}\"",
-      "  delegate_to: \"{{ groups[mon_group_name][0] }}\"",
-      "  run_once: true"
-    ],
-    "description": "ansible_apb_task_debug2"
-  },
-  "ansible_apb_task_package1": {
-    "prefix": "atpackage1",
-    "body": [
-      "- name: install redhat dependencies",
-      "  package:",
-      "    name: \"{{ redhat_package_dependencies }}\"",
+      "- name: add git user",
+      "  ansible.builtin.user:",
+      "    name: git",
+      "    password: \"{{ item | password_hash('sha512') }}\"",
+      "    groups:",
+      "      - wheel",
+      "    append: yes",
       "    state: present",
-      "  register: result",
-      "  until: result is succeeded",
-      "  when: ansible_distribution == 'RedHat'"
+      "  with_items:",
+      "    - \"admin#123\"",
+      "  become: yes",
+      "  become_method: sudo"
     ],
-    "description": "ansible_apb_task_package1"
+    "description": "ansible_common_modules_user1"
   },
-  "ansible_apb_task_package2": {
-    "prefix": "atpackage2",
+  "ansible_common_modules_file1": {
+    "prefix": "asb_file1",
     "body": [
-      "- name: install redhat ceph packages",
-      "  package:",
-      "    name: \"{{ redhat_ceph_pkgs | unique }}\"",
-      "    state: \"{{ (upgrade_ceph_packages|bool) | ternary('latest','present') }}\"",
-      "  register: result",
-      "  until: result is succeeded"
+      "- name: Create /etc/containerd",
+      "  ansible.builtin.file:",
+      "    path: /etc/containerd",
+      "    state: directory",
+      ""
     ],
-    "description": "ansible_apb_task_package2"
+    "description": "ansible_common_modules_file1"
   },
-  "ansible_apb_task_yum1": {
-    "prefix": "atyum1",
+  "ansible_common_modules_file2": {
+    "prefix": "asb_file2",
     "body": [
-      "- name: install centos dependencies",
-      "  yum:",
-      "    name: \"{{ centos_package_dependencies }}\"",
+      "- name: 创建 /app 目录",
+      "   ansible.builtin.file:",
+      "    path: '/app/{{item}}'",
+      "    state: directory",
+      "    owner: git",
+      "    group: git",
+      "  with_items:",
+      "    - oscsrc",
+      "  become: yes",
+      "  become_method: sudo"
+    ],
+    "description": "ansible_common_modules_file2"
+  },
+  "ansible_common_modules_file3": {
+    "prefix": "asb_file3",
+    "body": [
+      "- name: 建立软链接 archive",
+      "  ansible.builtin.file:",
+      "    src: /data/archive",
+      "    dest: /app/gitee/tmp/repositories",
+      "    state: link"
+    ],
+    "description": "ansible_common_modules_file3"
+  },
+  "ansible_common_modules_file4": {
+    "prefix": "asb_file4",
+    "body": [
+      "- name: 修改 production.log 权限",
+      "  ansible.builtin.file:",
+      "    path: /app/gitee/log/production.log",
+      "    state: touch",
+      "    mode: '0666'",
+      "    mode: '0666'"
+    ],
+    "description": "ansible_common_modules_file4"
+  },
+  "ansible_common_modules_yum1": {
+    "prefix": "asb_yum1",
+    "body": [
+      "- name: 安装 keepalived",
+      "  ansible.builtin.yum:",
+      "    name: \"{{item}}\"",
       "    state: present",
-      "  register: result",
-      "  until: result is succeeded",
-      "  when: ansible_distribution == 'CentOS'"
+      "  with_items:",
+      "    - keepalived",
+      "  become: yes",
+      "  become_method: sudo"
     ],
-    "description": "ansible_apb_task_yum1"
+    "description": "ansible_common_modules_yum1"
   },
-  "ansible_apb_task_yum2": {
-    "prefix": "atyum2",
+  "ansible_common_modules_service1": {
+    "prefix": "asb_service1",
     "body": [
-      "- name: yum install require packages",
-      "  yum:",
-      "    name: \"{{ require_packages }}\"",
-      "  vars:",
-      "    require_packages:",
-      "      - libselinux-python",
-      "      - ceph-common",
-      "      - ceph-mon",
-      "      - ceph-mgr",
-      "  become: true"
-    ],
-    "description": "ansible_apb_task_yum2"
-  },
-  "ansible_apb_task_file1": {
-    "prefix": "atfile1",
-    "body": [
-      "- name: create ceph conf directory",
-      "  file:",
-      "    path: \"/etc/ceph\"",
-      "    state: directory",
-      "    owner: \"ceph\"",
-      "    group: \"ceph\"",
-      "    mode: \"{{ ceph_directories_mode | default('0755') }}\""
-    ],
-    "description": "ansible_apb_task_file1"
-  },
-  "ansible_apb_task_file2": {
-    "prefix": "atfile2",
-    "body": [
-      "- name: create (and fix ownership of) monitor directory",
-      "  file:",
-      "    path: /var/lib/ceph/mon/{{ cluster }}-{{ monitor_name }}",
-      "    state: directory",
-      "    owner: \"{{ ceph_uid if containerized_deployment else 'ceph' }}\"",
-      "    group: \"{{ ceph_uid if containerized_deployment else 'ceph' }}\"",
-      "    mode: \"{{ ceph_directories_mode | default('0755') }}\"",
-      "    recurse: true"
-    ],
-    "description": "ansible_apb_task_file2"
-  },
-  "ansible_apb_task_file3": {
-    "prefix": "atfile3",
-    "body": [
-      "- name: ensure systemd service override directory exists",
-      "  file:",
-      "    state: directory",
-      "    path: \"/etc/systemd/system/ceph-mon@.service.d/\"",
-      "  when:",
-      "    - not containerized_deployment | bool",
-      "    - ceph_mon_systemd_overrides is defined",
-      "    - ansible_service_mgr == 'systemd'"
-    ],
-    "description": "ansible_apb_task_file3"
-  },
-  "ansible_apb_task_system1": {
-    "prefix": "atsystem1",
-    "body": [
-      "- name: start the monitor service",
-      "  systemd:",
-      "    name: ceph-mon@{{ inventory_hostname }}",
+      "- name: Start kubelet",
+      "   ansible.builtin.service:",
+      "    name: kubelet.service",
       "    state: started",
-      "    enabled: yes",
-      "    masked: no",
-      "    daemon_reload: yes"
+      "    enabled: yes"
     ],
-    "description": "ansible_apb_task_system1"
+    "description": "ansible_common_modules_service1"
+  },
+  "ansible_common_modules_systemd1": {
+    "prefix": "asb_systemd1",
+    "body": [
+      "- name: Start containerd.service",
+      "  ansible.builtin.systemd:",
+      "    name: containerd.service",
+      "    state: started",
+      "    daemon_reload: yes",
+      "    enabled: yes"
+    ],
+    "description": "ansible_common_modules_systemd1"
+  },
+  "ansible_common_modules_get_url1": {
+    "prefix": "asb_get_url1",
+    "body": [
+      "- name: Download kubenetes packages crictl",
+      "  ansible.builtin.get_url:",
+      "    url: http://{{ download_address }}/kubeadm-install/{{ crictl }}/crictl-v{{ crictl }}-linux-amd64.tar.gz",
+      "    dest: /tmp",
+      "    mode: 0755",
+      "    force: yes ",
+      ""
+    ],
+    "description": "ansible_common_modules_get_url1"
+  },
+  "ansible_common_modules_get_url2": {
+    "prefix": "asb_get_url2",
+    "body": [
+      "- name: Download kubenetes packages kubeadm&kubelet",
+      "  ansible.builtin.get_url:",
+      "    url: \"{{ item }}\"",
+      "    dest: /usr/local/bin",
+      "    mode: 0755",
+      "    force: yes #是否覆盖本地",
+      "  with_items:",
+      "    - http://{{ download_address }}/kubeadm-install/{{ kubeadm }}/kubeadm",
+      "    - http://{{ download_address }}/kubeadm-install/{{ kubelet }}/kubelet",
+      "    - http://{{ download_address }}/kubeadm-install/{{ kubectl }}/kubectl"
+    ],
+    "description": "ansible_common_modules_get_url2"
+  },
+  "ansible_common_modules_mysql_db": {
+    "prefix": "asb_mysql_db",
+    "body": [
+      "- name: 创建数据库",
+      "  mysql_db:",
+      "    name: \"{{mysql_db_name}}\"",
+      "    state: present",
+      "    collation: utf8mb4_unicode_ci",
+      "    encoding: utf8mb4",
+      "    login_host: \"{{mysql_host}}\"",
+      "    login_port: \"{{mysql_port}}\"",
+      "    login_user: root",
+      "    login_password: \"{{mysql_root_password}}\"",
+      "  run_once: true",
+      "  delegate_to: backend1"
+    ],
+    "description": "ansible_common_modules_mysql_db"
+  },
+  "ansible_common_modules_mysql_user": {
+    "prefix": "asb_mysql_user",
+    "body": [
+      "- name: 创建数据库用户",
+      "  mysql_user:",
+      "    name: \"{{mysql_user_name}}\"",
+      "    host: \"%\"",
+      "    password: \"{{ mysql_user_password }}\"",
+      "    priv: \"{{mysql_db_name}}.*:ALL\"",
+      "    state: present",
+      "    login_host: \"{{mysql_host}}\"",
+      "    login_port: \"{{mysql_port}}\"",
+      "    login_user: root",
+      "    login_password: \"{{mysql_root_password}}\"",
+      "  run_once: true",
+      "  delegate_to: backend1"
+    ],
+    "description": "ansible_common_modules_mysql_user"
   }
 }
 ```
