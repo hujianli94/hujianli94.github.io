@@ -2,6 +2,8 @@
 
 ## 参考文献
 
+- [《Ansible 快速入门》链接资源列表](https://getansible.com/reference/link_resources)
+- [《Ansible 快速入门》资源列表](https://github.com/ansible-book/resources)
 - [Ansible 学习笔记](https://hellogitlab.com/CM/ansible/)
 - [Ansible-wiki](https://ansible.leops.cn/)
 - [Ansible 简体中文](https://runebook.dev/zh/docs/ansible/-index-)
