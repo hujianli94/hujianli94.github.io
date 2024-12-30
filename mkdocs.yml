@@ -639,6 +639,7 @@ nav:
     - Openstack/3.Openstack通用技术/附-编译-打包总结.md
     - Openstack/3.Openstack通用技术/附-模仿OpenStack写自己的RPC.md
     - Openstack/3.Openstack通用技术/附-模仿Openstack写Restful-API.md
+    - Openstack/3.Openstack通用技术/附-Openstack学习指南.md
   - 4.OpenStack容器手册:
     - Openstack/4.OpenStack容器手册/1.OpenStack-Kolla项目.md
     - Openstack/4.OpenStack容器手册/2.kolla源码阅读.md
