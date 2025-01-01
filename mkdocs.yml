@@ -602,6 +602,18 @@ nav:
     - Python/10.Python进阶/1.理解与使用单例模式.md
     - Python/10.Python进阶/2.argparse解析命令行参数.md
     - Python/10.Python进阶/3.utils-强大的工具箱.md
+  - 11.Tornado框架:
+    - Python/11.Tornado框架/1.快速入门.md
+    - Python/11.Tornado框架/2.请求与响应.md
+    - Python/11.Tornado框架/3.静态文件.md
+    - Python/11.Tornado框架/4.路由进阶.md
+    - Python/11.Tornado框架/5.视图进阶.md
+    - Python/11.Tornado框架/6.用户认证.md
+    - Python/11.Tornado框架/7.模板语法.md
+    - Python/11.Tornado框架/8.数据库.md
+    - Python/11.Tornado框架/附1-pyadmin源码学习.md
+    - Python/11.Tornado框架/附2-kerrigan源码学习.md
+    - Python/11.Tornado框架/附3-codo-cmdb源码学习.md
 
 - Openstack:
   - 0.学习线路:
