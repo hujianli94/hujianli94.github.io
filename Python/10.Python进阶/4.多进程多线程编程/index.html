@@ -6,15 +6,15 @@
 <a id=__codelineno-0-6 name=__codelineno-0-6 href=#__codelineno-0-6></a><span class=sd>@desc:  单线程，多线程，多进程计算素数</span>
 <a id=__codelineno-0-7 name=__codelineno-0-7 href=#__codelineno-0-7></a><span class=sd>@hint:</span>
 <a id=__codelineno-0-8 name=__codelineno-0-8 href=#__codelineno-0-8></a><span class=sd>&quot;&quot;&quot;</span>
-<a id=__codelineno-0-9 name=__codelineno-0-9 href=#__codelineno-0-9></a><span class=kn>import</span> <span class=nn>math</span>
-<a id=__codelineno-0-10 name=__codelineno-0-10 href=#__codelineno-0-10></a><span class=kn>import</span> <span class=nn>time</span>
-<a id=__codelineno-0-11 name=__codelineno-0-11 href=#__codelineno-0-11></a><span class=kn>from</span> <span class=nn>concurrent.futures</span> <span class=kn>import</span> <span class=n>ThreadPoolExecutor</span><span class=p>,</span> <span class=n>ProcessPoolExecutor</span>
+<a id=__codelineno-0-9 name=__codelineno-0-9 href=#__codelineno-0-9></a><span class=kn>import</span><span class=w> </span><span class=nn>math</span>
+<a id=__codelineno-0-10 name=__codelineno-0-10 href=#__codelineno-0-10></a><span class=kn>import</span><span class=w> </span><span class=nn>time</span>
+<a id=__codelineno-0-11 name=__codelineno-0-11 href=#__codelineno-0-11></a><span class=kn>from</span><span class=w> </span><span class=nn>concurrent.futures</span><span class=w> </span><span class=kn>import</span> <span class=n>ThreadPoolExecutor</span><span class=p>,</span> <span class=n>ProcessPoolExecutor</span>
 <a id=__codelineno-0-12 name=__codelineno-0-12 href=#__codelineno-0-12></a>
 <a id=__codelineno-0-13 name=__codelineno-0-13 href=#__codelineno-0-13></a>
 <a id=__codelineno-0-14 name=__codelineno-0-14 href=#__codelineno-0-14></a><span class=n>parameter</span> <span class=o>=</span> <span class=p>[</span><span class=mi>112272535095293</span><span class=p>]</span> <span class=o>*</span> <span class=mi>100</span>
 <a id=__codelineno-0-15 name=__codelineno-0-15 href=#__codelineno-0-15></a>
 <a id=__codelineno-0-16 name=__codelineno-0-16 href=#__codelineno-0-16></a>
-<a id=__codelineno-0-17 name=__codelineno-0-17 href=#__codelineno-0-17></a><span class=k>def</span> <span class=nf>is_prime</span><span class=p>(</span><span class=n>n</span><span class=p>):</span>
+<a id=__codelineno-0-17 name=__codelineno-0-17 href=#__codelineno-0-17></a><span class=k>def</span><span class=w> </span><span class=nf>is_prime</span><span class=p>(</span><span class=n>n</span><span class=p>):</span>
 <a id=__codelineno-0-18 name=__codelineno-0-18 href=#__codelineno-0-18></a>    <span class=k>if</span> <span class=n>n</span> <span class=o>&lt;</span> <span class=mi>2</span><span class=p>:</span>
 <a id=__codelineno-0-19 name=__codelineno-0-19 href=#__codelineno-0-19></a>        <span class=k>return</span> <span class=kc>False</span>
 <a id=__codelineno-0-20 name=__codelineno-0-20 href=#__codelineno-0-20></a>    <span class=k>elif</span> <span class=n>n</span> <span class=o>==</span> <span class=mi>2</span><span class=p>:</span>
@@ -28,17 +28,17 @@
 <a id=__codelineno-0-28 name=__codelineno-0-28 href=#__codelineno-0-28></a>    <span class=k>return</span> <span class=kc>True</span>
 <a id=__codelineno-0-29 name=__codelineno-0-29 href=#__codelineno-0-29></a>
 <a id=__codelineno-0-30 name=__codelineno-0-30 href=#__codelineno-0-30></a>
-<a id=__codelineno-0-31 name=__codelineno-0-31 href=#__codelineno-0-31></a><span class=k>def</span> <span class=nf>single_thread</span><span class=p>():</span>
+<a id=__codelineno-0-31 name=__codelineno-0-31 href=#__codelineno-0-31></a><span class=k>def</span><span class=w> </span><span class=nf>single_thread</span><span class=p>():</span>
 <a id=__codelineno-0-32 name=__codelineno-0-32 href=#__codelineno-0-32></a>    <span class=k>for</span> <span class=n>number</span> <span class=ow>in</span> <span class=n>parameter</span><span class=p>:</span>
 <a id=__codelineno-0-33 name=__codelineno-0-33 href=#__codelineno-0-33></a>        <span class=n>is_prime</span><span class=p>(</span><span class=n>number</span><span class=p>)</span>
 <a id=__codelineno-0-34 name=__codelineno-0-34 href=#__codelineno-0-34></a>
 <a id=__codelineno-0-35 name=__codelineno-0-35 href=#__codelineno-0-35></a>
-<a id=__codelineno-0-36 name=__codelineno-0-36 href=#__codelineno-0-36></a><span class=k>def</span> <span class=nf>multi_thread</span><span class=p>():</span>
+<a id=__codelineno-0-36 name=__codelineno-0-36 href=#__codelineno-0-36></a><span class=k>def</span><span class=w> </span><span class=nf>multi_thread</span><span class=p>():</span>
 <a id=__codelineno-0-37 name=__codelineno-0-37 href=#__codelineno-0-37></a>    <span class=k>with</span> <span class=n>ThreadPoolExecutor</span><span class=p>()</span> <span class=k>as</span> <span class=n>pool</span><span class=p>:</span>
 <a id=__codelineno-0-38 name=__codelineno-0-38 href=#__codelineno-0-38></a>        <span class=n>pool</span><span class=o>.</span><span class=n>map</span><span class=p>(</span><span class=n>is_prime</span><span class=p>,</span> <span class=n>parameter</span><span class=p>)</span>
 <a id=__codelineno-0-39 name=__codelineno-0-39 href=#__codelineno-0-39></a>
 <a id=__codelineno-0-40 name=__codelineno-0-40 href=#__codelineno-0-40></a>
-<a id=__codelineno-0-41 name=__codelineno-0-41 href=#__codelineno-0-41></a><span class=k>def</span> <span class=nf>multi_process</span><span class=p>():</span>
+<a id=__codelineno-0-41 name=__codelineno-0-41 href=#__codelineno-0-41></a><span class=k>def</span><span class=w> </span><span class=nf>multi_process</span><span class=p>():</span>
 <a id=__codelineno-0-42 name=__codelineno-0-42 href=#__codelineno-0-42></a>    <span class=k>with</span> <span class=n>ProcessPoolExecutor</span><span class=p>()</span> <span class=k>as</span> <span class=n>pool</span><span class=p>:</span>
 <a id=__codelineno-0-43 name=__codelineno-0-43 href=#__codelineno-0-43></a>        <span class=n>pool</span><span class=o>.</span><span class=n>map</span><span class=p>(</span><span class=n>is_prime</span><span class=p>,</span> <span class=n>parameter</span><span class=p>)</span>
 <a id=__codelineno-0-44 name=__codelineno-0-44 href=#__codelineno-0-44></a>
@@ -63,13 +63,13 @@
 <a id=__codelineno-0-63 name=__codelineno-0-63 href=#__codelineno-0-63></a><span class=c1># single_thread，cost： 26.275424480438232 seconds</span>
 <a id=__codelineno-0-64 name=__codelineno-0-64 href=#__codelineno-0-64></a><span class=c1># multi_thread，cost： 27.60079574584961 seconds</span>
 <a id=__codelineno-0-65 name=__codelineno-0-65 href=#__codelineno-0-65></a><span class=c1># multi_process，cost： 4.819551706314087 seconds</span>
-</code></pre></div> <h3 id=多进程加速-flask>多进程加速 flask<a class=headerlink href=#多进程加速-flask title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-1-1 name=__codelineno-1-1 href=#__codelineno-1-1></a><span class=kn>from</span> <span class=nn>concurrent.futures</span> <span class=kn>import</span> <span class=n>ProcessPoolExecutor</span>
-<a id=__codelineno-1-2 name=__codelineno-1-2 href=#__codelineno-1-2></a><span class=kn>import</span> <span class=nn>flask</span><span class=o>,</span><span class=nn>math</span>
+</code></pre></div> <h3 id=多进程加速-flask>多进程加速 flask<a class=headerlink href=#多进程加速-flask title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-1-1 name=__codelineno-1-1 href=#__codelineno-1-1></a><span class=kn>from</span><span class=w> </span><span class=nn>concurrent.futures</span><span class=w> </span><span class=kn>import</span> <span class=n>ProcessPoolExecutor</span>
+<a id=__codelineno-1-2 name=__codelineno-1-2 href=#__codelineno-1-2></a><span class=kn>import</span><span class=w> </span><span class=nn>flask</span><span class=o>,</span><span class=nn>math</span>
 <a id=__codelineno-1-3 name=__codelineno-1-3 href=#__codelineno-1-3></a>
 <a id=__codelineno-1-4 name=__codelineno-1-4 href=#__codelineno-1-4></a><span class=n>app</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>Flask</span><span class=p>(</span><span class=vm>__name__</span><span class=p>)</span>
 <a id=__codelineno-1-5 name=__codelineno-1-5 href=#__codelineno-1-5></a><span class=n>pool</span> <span class=o>=</span> <span class=n>ProcessPoolExecutor</span><span class=p>()</span>
 <a id=__codelineno-1-6 name=__codelineno-1-6 href=#__codelineno-1-6></a>
-<a id=__codelineno-1-7 name=__codelineno-1-7 href=#__codelineno-1-7></a><span class=k>def</span> <span class=nf>is_prime</span><span class=p>(</span><span class=n>n</span><span class=p>):</span>
+<a id=__codelineno-1-7 name=__codelineno-1-7 href=#__codelineno-1-7></a><span class=k>def</span><span class=w> </span><span class=nf>is_prime</span><span class=p>(</span><span class=n>n</span><span class=p>):</span>
 <a id=__codelineno-1-8 name=__codelineno-1-8 href=#__codelineno-1-8></a>    <span class=k>if</span> <span class=n>n</span><span class=o>&lt;</span><span class=mi>2</span><span class=p>:</span>
 <a id=__codelineno-1-9 name=__codelineno-1-9 href=#__codelineno-1-9></a>        <span class=k>return</span> <span class=kc>False</span>
 <a id=__codelineno-1-10 name=__codelineno-1-10 href=#__codelineno-1-10></a>    <span class=k>elif</span> <span class=n>n</span><span class=o>==</span><span class=mi>2</span><span class=p>:</span>
@@ -84,14 +84,14 @@
 <a id=__codelineno-1-19 name=__codelineno-1-19 href=#__codelineno-1-19></a>
 <a id=__codelineno-1-20 name=__codelineno-1-20 href=#__codelineno-1-20></a>
 <a id=__codelineno-1-21 name=__codelineno-1-21 href=#__codelineno-1-21></a><span class=nd>@app</span><span class=o>.</span><span class=n>route</span><span class=p>(</span><span class=s2>&quot;/is_prime/&lt;numbers&gt;&quot;</span><span class=p>)</span>
-<a id=__codelineno-1-22 name=__codelineno-1-22 href=#__codelineno-1-22></a><span class=k>def</span> <span class=nf>api_is_prime</span><span class=p>(</span><span class=n>numbers</span><span class=p>):</span>
+<a id=__codelineno-1-22 name=__codelineno-1-22 href=#__codelineno-1-22></a><span class=k>def</span><span class=w> </span><span class=nf>api_is_prime</span><span class=p>(</span><span class=n>numbers</span><span class=p>):</span>
 <a id=__codelineno-1-23 name=__codelineno-1-23 href=#__codelineno-1-23></a>    <span class=n>number_list</span> <span class=o>=</span> <span class=p>[</span> <span class=nb>int</span><span class=p>(</span><span class=n>i</span><span class=p>)</span> <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=n>numbers</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s2>&quot;,&quot;</span><span class=p>)</span> <span class=p>]</span>
 <a id=__codelineno-1-24 name=__codelineno-1-24 href=#__codelineno-1-24></a>    <span class=n>results</span> <span class=o>=</span> <span class=n>pool</span><span class=o>.</span><span class=n>map</span><span class=p>(</span><span class=n>is_prime</span><span class=p>,</span><span class=n>number_list</span><span class=p>)</span>
 <a id=__codelineno-1-25 name=__codelineno-1-25 href=#__codelineno-1-25></a>    <span class=k>return</span><span class=p>(</span><span class=nb>dict</span><span class=p>(</span><span class=nb>zip</span><span class=p>(</span><span class=n>number_list</span><span class=p>,</span><span class=n>results</span><span class=p>)))</span>
 <a id=__codelineno-1-26 name=__codelineno-1-26 href=#__codelineno-1-26></a>
 <a id=__codelineno-1-27 name=__codelineno-1-27 href=#__codelineno-1-27></a><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&quot;__main__&quot;</span><span class=p>:</span>
 <a id=__codelineno-1-28 name=__codelineno-1-28 href=#__codelineno-1-28></a>    <span class=n>app</span><span class=o>.</span><span class=n>run</span><span class=p>(</span><span class=n>host</span><span class=o>=</span><span class=s2>&quot;127.0.0.1&quot;</span><span class=p>,</span> <span class=n>port</span><span class=o>=</span><span class=mi>8000</span><span class=p>,</span> <span class=n>debug</span> <span class=o>=</span> <span class=kc>True</span><span class=p>)</span>
-</code></pre></div> <h2 id=thread-多线程>Thread 多线程<a class=headerlink href=#thread-多线程 title="Permanent link">&para;</a></h2> <h3 id=基础案例>基础案例<a class=headerlink href=#基础案例 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-2-1 name=__codelineno-2-1 href=#__codelineno-2-1></a><span class=kn>import</span> <span class=nn>requests</span><span class=o>,</span><span class=nn>time</span><span class=o>,</span><span class=nn>threading</span>
+</code></pre></div> <h2 id=thread-多线程>Thread 多线程<a class=headerlink href=#thread-多线程 title="Permanent link">&para;</a></h2> <h3 id=基础案例>基础案例<a class=headerlink href=#基础案例 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-2-1 name=__codelineno-2-1 href=#__codelineno-2-1></a><span class=kn>import</span><span class=w> </span><span class=nn>requests</span><span class=o>,</span><span class=nn>time</span><span class=o>,</span><span class=nn>threading</span>
 <a id=__codelineno-2-2 name=__codelineno-2-2 href=#__codelineno-2-2></a>
 <a id=__codelineno-2-3 name=__codelineno-2-3 href=#__codelineno-2-3></a>
 <a id=__codelineno-2-4 name=__codelineno-2-4 href=#__codelineno-2-4></a><span class=n>urls</span> <span class=o>=</span> <span class=p>[</span>
@@ -99,17 +99,17 @@
 <a id=__codelineno-2-6 name=__codelineno-2-6 href=#__codelineno-2-6></a>    <span class=k>for</span> <span class=n>num</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span><span class=mi>50</span><span class=o>+</span><span class=mi>1</span><span class=p>)</span>
 <a id=__codelineno-2-7 name=__codelineno-2-7 href=#__codelineno-2-7></a><span class=p>]</span>
 <a id=__codelineno-2-8 name=__codelineno-2-8 href=#__codelineno-2-8></a>
-<a id=__codelineno-2-9 name=__codelineno-2-9 href=#__codelineno-2-9></a><span class=k>def</span> <span class=nf>get_url</span><span class=p>(</span><span class=n>url</span><span class=p>):</span>
+<a id=__codelineno-2-9 name=__codelineno-2-9 href=#__codelineno-2-9></a><span class=k>def</span><span class=w> </span><span class=nf>get_url</span><span class=p>(</span><span class=n>url</span><span class=p>):</span>
 <a id=__codelineno-2-10 name=__codelineno-2-10 href=#__codelineno-2-10></a>    <span class=k>with</span> <span class=n>requests</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>url</span><span class=p>)</span> <span class=k>as</span> <span class=n>res</span><span class=p>:</span>
 <a id=__codelineno-2-11 name=__codelineno-2-11 href=#__codelineno-2-11></a>        <span class=nb>print</span><span class=p>(</span><span class=n>res</span><span class=o>.</span><span class=n>status_code</span><span class=p>,</span><span class=nb>len</span><span class=p>(</span><span class=n>res</span><span class=o>.</span><span class=n>text</span><span class=p>),</span><span class=n>url</span><span class=p>)</span>
 <a id=__codelineno-2-12 name=__codelineno-2-12 href=#__codelineno-2-12></a>
-<a id=__codelineno-2-13 name=__codelineno-2-13 href=#__codelineno-2-13></a><span class=k>def</span> <span class=nf>single_thread</span><span class=p>():</span> <span class=c1>#单线程</span>
+<a id=__codelineno-2-13 name=__codelineno-2-13 href=#__codelineno-2-13></a><span class=k>def</span><span class=w> </span><span class=nf>single_thread</span><span class=p>():</span> <span class=c1>#单线程</span>
 <a id=__codelineno-2-14 name=__codelineno-2-14 href=#__codelineno-2-14></a>    <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;single_thread is start&quot;</span><span class=p>)</span>
 <a id=__codelineno-2-15 name=__codelineno-2-15 href=#__codelineno-2-15></a>    <span class=k>for</span> <span class=n>url</span> <span class=ow>in</span> <span class=n>urls</span><span class=p>:</span>
 <a id=__codelineno-2-16 name=__codelineno-2-16 href=#__codelineno-2-16></a>        <span class=n>get_url</span><span class=p>(</span><span class=n>url</span><span class=p>)</span>
 <a id=__codelineno-2-17 name=__codelineno-2-17 href=#__codelineno-2-17></a>    <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;single_thread is end&quot;</span><span class=p>)</span>
 <a id=__codelineno-2-18 name=__codelineno-2-18 href=#__codelineno-2-18></a>
-<a id=__codelineno-2-19 name=__codelineno-2-19 href=#__codelineno-2-19></a><span class=k>def</span> <span class=nf>multi_thread</span><span class=p>():</span> <span class=c1>#多线程</span>
+<a id=__codelineno-2-19 name=__codelineno-2-19 href=#__codelineno-2-19></a><span class=k>def</span><span class=w> </span><span class=nf>multi_thread</span><span class=p>():</span> <span class=c1>#多线程</span>
 <a id=__codelineno-2-20 name=__codelineno-2-20 href=#__codelineno-2-20></a>    <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;multi_thread is start&quot;</span><span class=p>)</span>
 <a id=__codelineno-2-21 name=__codelineno-2-21 href=#__codelineno-2-21></a>    <span class=n>threads</span> <span class=o>=</span> <span class=p>[]</span>
 <a id=__codelineno-2-22 name=__codelineno-2-22 href=#__codelineno-2-22></a>    <span class=k>for</span> <span class=n>url</span> <span class=ow>in</span> <span class=n>urls</span><span class=p>:</span>
@@ -134,27 +134,27 @@
 <a id=__codelineno-2-41 name=__codelineno-2-41 href=#__codelineno-2-41></a>    <span class=n>multi_thread</span><span class=p>()</span>
 <a id=__codelineno-2-42 name=__codelineno-2-42 href=#__codelineno-2-42></a>    <span class=n>end</span> <span class=o>=</span> <span class=n>time</span><span class=o>.</span><span class=n>time</span><span class=p>()</span>
 <a id=__codelineno-2-43 name=__codelineno-2-43 href=#__codelineno-2-43></a>    <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;multi_thread cost：&quot;</span><span class=p>,</span> <span class=n>end</span> <span class=o>-</span> <span class=n>start</span><span class=p>,</span> <span class=s2>&quot;seconds&quot;</span><span class=p>)</span>
-</code></pre></div> <h3 id=线程池加速-flask-网站案例>线程池加速 flask 网站案例<a class=headerlink href=#线程池加速-flask-网站案例 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-3-1 name=__codelineno-3-1 href=#__codelineno-3-1></a><span class=kn>import</span> <span class=nn>flask</span><span class=o>,</span><span class=nn>time</span><span class=o>,</span><span class=nn>json</span>
-<a id=__codelineno-3-2 name=__codelineno-3-2 href=#__codelineno-3-2></a><span class=kn>from</span> <span class=nn>concurrent.futures</span> <span class=kn>import</span> <span class=n>ThreadPoolExecutor</span>
+</code></pre></div> <h3 id=线程池加速-flask-网站案例>线程池加速 flask 网站案例<a class=headerlink href=#线程池加速-flask-网站案例 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-3-1 name=__codelineno-3-1 href=#__codelineno-3-1></a><span class=kn>import</span><span class=w> </span><span class=nn>flask</span><span class=o>,</span><span class=nn>time</span><span class=o>,</span><span class=nn>json</span>
+<a id=__codelineno-3-2 name=__codelineno-3-2 href=#__codelineno-3-2></a><span class=kn>from</span><span class=w> </span><span class=nn>concurrent.futures</span><span class=w> </span><span class=kn>import</span> <span class=n>ThreadPoolExecutor</span>
 <a id=__codelineno-3-3 name=__codelineno-3-3 href=#__codelineno-3-3></a>
 <a id=__codelineno-3-4 name=__codelineno-3-4 href=#__codelineno-3-4></a>
 <a id=__codelineno-3-5 name=__codelineno-3-5 href=#__codelineno-3-5></a><span class=n>app</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>Flask</span><span class=p>(</span><span class=vm>__name__</span><span class=p>)</span>
 <a id=__codelineno-3-6 name=__codelineno-3-6 href=#__codelineno-3-6></a><span class=n>pool</span> <span class=o>=</span> <span class=n>ThreadPoolExecutor</span><span class=p>()</span>
 <a id=__codelineno-3-7 name=__codelineno-3-7 href=#__codelineno-3-7></a>
-<a id=__codelineno-3-8 name=__codelineno-3-8 href=#__codelineno-3-8></a><span class=k>def</span> <span class=nf>read_file</span><span class=p>():</span>
+<a id=__codelineno-3-8 name=__codelineno-3-8 href=#__codelineno-3-8></a><span class=k>def</span><span class=w> </span><span class=nf>read_file</span><span class=p>():</span>
 <a id=__codelineno-3-9 name=__codelineno-3-9 href=#__codelineno-3-9></a>    <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=mf>0.1</span><span class=p>)</span>
 <a id=__codelineno-3-10 name=__codelineno-3-10 href=#__codelineno-3-10></a>    <span class=k>return</span> <span class=s2>&quot;file result&quot;</span>
 <a id=__codelineno-3-11 name=__codelineno-3-11 href=#__codelineno-3-11></a>
-<a id=__codelineno-3-12 name=__codelineno-3-12 href=#__codelineno-3-12></a><span class=k>def</span> <span class=nf>read_db</span><span class=p>():</span>
+<a id=__codelineno-3-12 name=__codelineno-3-12 href=#__codelineno-3-12></a><span class=k>def</span><span class=w> </span><span class=nf>read_db</span><span class=p>():</span>
 <a id=__codelineno-3-13 name=__codelineno-3-13 href=#__codelineno-3-13></a>    <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=mf>0.2</span><span class=p>)</span>
 <a id=__codelineno-3-14 name=__codelineno-3-14 href=#__codelineno-3-14></a>    <span class=k>return</span> <span class=s2>&quot;db result&quot;</span>
 <a id=__codelineno-3-15 name=__codelineno-3-15 href=#__codelineno-3-15></a>
-<a id=__codelineno-3-16 name=__codelineno-3-16 href=#__codelineno-3-16></a><span class=k>def</span> <span class=nf>read_api</span><span class=p>():</span>
+<a id=__codelineno-3-16 name=__codelineno-3-16 href=#__codelineno-3-16></a><span class=k>def</span><span class=w> </span><span class=nf>read_api</span><span class=p>():</span>
 <a id=__codelineno-3-17 name=__codelineno-3-17 href=#__codelineno-3-17></a>    <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=mf>0.3</span><span class=p>)</span>
 <a id=__codelineno-3-18 name=__codelineno-3-18 href=#__codelineno-3-18></a>    <span class=k>return</span> <span class=s2>&quot;api result&quot;</span>
 <a id=__codelineno-3-19 name=__codelineno-3-19 href=#__codelineno-3-19></a>
 <a id=__codelineno-3-20 name=__codelineno-3-20 href=#__codelineno-3-20></a><span class=nd>@app</span><span class=o>.</span><span class=n>route</span><span class=p>(</span><span class=s2>&quot;/&quot;</span><span class=p>)</span>
-<a id=__codelineno-3-21 name=__codelineno-3-21 href=#__codelineno-3-21></a><span class=k>def</span> <span class=nf>index</span><span class=p>():</span>
+<a id=__codelineno-3-21 name=__codelineno-3-21 href=#__codelineno-3-21></a><span class=k>def</span><span class=w> </span><span class=nf>index</span><span class=p>():</span>
 <a id=__codelineno-3-22 name=__codelineno-3-22 href=#__codelineno-3-22></a>    <span class=n>result_file</span> <span class=o>=</span> <span class=n>pool</span><span class=o>.</span><span class=n>submit</span><span class=p>(</span><span class=n>read_file</span><span class=p>)</span>
 <a id=__codelineno-3-23 name=__codelineno-3-23 href=#__codelineno-3-23></a>    <span class=n>result_db</span> <span class=o>=</span> <span class=n>pool</span><span class=o>.</span><span class=n>submit</span><span class=p>(</span><span class=n>read_db</span><span class=p>)</span>
 <a id=__codelineno-3-24 name=__codelineno-3-24 href=#__codelineno-3-24></a>    <span class=n>result_api</span> <span class=o>=</span> <span class=n>pool</span><span class=o>.</span><span class=n>submit</span><span class=p>(</span><span class=n>read_api</span><span class=p>)</span>
@@ -168,7 +168,7 @@
 <a id=__codelineno-3-32 name=__codelineno-3-32 href=#__codelineno-3-32></a><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&quot;__main__&quot;</span><span class=p>:</span>
 <a id=__codelineno-3-33 name=__codelineno-3-33 href=#__codelineno-3-33></a>    <span class=n>app</span><span class=o>.</span><span class=n>run</span><span class=p>(</span><span class=n>host</span><span class=o>=</span><span class=s2>&quot;127.0.0.1&quot;</span><span class=p>,</span> <span class=n>port</span><span class=o>=</span><span class=mi>8000</span><span class=p>,</span> <span class=n>debug</span> <span class=o>=</span> <span class=kc>True</span><span class=p>)</span>
 </code></pre></div> <h2 id=多进程多线程池化>多进程多线程池化<a class=headerlink href=#多进程多线程池化 title="Permanent link">&para;</a></h2> <p>Python 版本 3.2 中的新功能。</p> <p>可参考如下：</p> <ul> <li><a href=https://python3-cookbook.readthedocs.io/zh-cn/latest/c12/p07_creating_thread_pool.html>https://python3-cookbook.readthedocs.io/zh-cn/latest/c12/p07_creating_thread_pool.html</a></li> </ul> <p>将 concurrent.future 包的后端移植到 Python 2.6 和 2.7</p> <ul> <li><a href=https://github.com/agronholm/pythonfutures/tree/master>agronholm/pythonfutures: Backport of the concurrent.futures package to Python 2.6 and 2.7</a></li> </ul> <h2 id=coroutine-多协程>Coroutine 多协程<a class=headerlink href=#coroutine-多协程 title="Permanent link">&para;</a></h2> <h3 id=asyncio>asyncio<a class=headerlink href=#asyncio title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-4-1 name=__codelineno-4-1 href=#__codelineno-4-1></a>pip<span class=w> </span>install<span class=w> </span>aiohttp
-</code></pre></div> <div class=highlight><pre><span></span><code><a id=__codelineno-5-1 name=__codelineno-5-1 href=#__codelineno-5-1></a><span class=kn>import</span> <span class=nn>asyncio</span><span class=o>,</span><span class=nn>aiohttp</span><span class=o>,</span><span class=nn>time</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><a id=__codelineno-5-1 name=__codelineno-5-1 href=#__codelineno-5-1></a><span class=kn>import</span><span class=w> </span><span class=nn>asyncio</span><span class=o>,</span><span class=nn>aiohttp</span><span class=o>,</span><span class=nn>time</span>
 <a id=__codelineno-5-2 name=__codelineno-5-2 href=#__codelineno-5-2></a>
 <a id=__codelineno-5-3 name=__codelineno-5-3 href=#__codelineno-5-3></a><span class=n>semaphore</span> <span class=o>=</span> <span class=n>asyncio</span><span class=o>.</span><span class=n>Semaphore</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span> <span class=c1>#信号量，控制最大并发数</span>
 <a id=__codelineno-5-4 name=__codelineno-5-4 href=#__codelineno-5-4></a>
@@ -186,7 +186,7 @@
 <a id=__codelineno-5-16 name=__codelineno-5-16 href=#__codelineno-5-16></a>    <span class=s1>&#39;content-type&#39;</span><span class=p>:</span> <span class=s1>&#39;application/json; charset=UTF-8&#39;</span>
 <a id=__codelineno-5-17 name=__codelineno-5-17 href=#__codelineno-5-17></a><span class=p>}</span>
 <a id=__codelineno-5-18 name=__codelineno-5-18 href=#__codelineno-5-18></a>
-<a id=__codelineno-5-19 name=__codelineno-5-19 href=#__codelineno-5-19></a><span class=k>async</span> <span class=k>def</span> <span class=nf>async_post</span><span class=p>(</span><span class=n>data</span><span class=p>):</span>
+<a id=__codelineno-5-19 name=__codelineno-5-19 href=#__codelineno-5-19></a><span class=k>async</span> <span class=k>def</span><span class=w> </span><span class=nf>async_post</span><span class=p>(</span><span class=n>data</span><span class=p>):</span>
 <a id=__codelineno-5-20 name=__codelineno-5-20 href=#__codelineno-5-20></a>    <span class=k>async</span> <span class=k>with</span> <span class=n>semaphore</span><span class=p>:</span>
 <a id=__codelineno-5-21 name=__codelineno-5-21 href=#__codelineno-5-21></a>        <span class=k>async</span> <span class=k>with</span> <span class=n>aiohttp</span><span class=o>.</span><span class=n>ClientSession</span><span class=p>(</span><span class=n>headers</span><span class=o>=</span><span class=n>header</span><span class=p>)</span> <span class=k>as</span> <span class=n>session</span><span class=p>:</span>
 <a id=__codelineno-5-22 name=__codelineno-5-22 href=#__codelineno-5-22></a>            <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&quot;post data:</span><span class=si>{</span><span class=n>data</span><span class=si>}</span><span class=s2>&quot;</span><span class=p>)</span>
@@ -205,7 +205,7 @@
 <a id=__codelineno-5-35 name=__codelineno-5-35 href=#__codelineno-5-35></a><span class=n>end</span> <span class=o>=</span> <span class=n>time</span><span class=o>.</span><span class=n>time</span><span class=p>()</span>
 <a id=__codelineno-5-36 name=__codelineno-5-36 href=#__codelineno-5-36></a><span class=nb>print</span><span class=p>(</span><span class=s2>&quot;一共花费&quot;</span><span class=p>,</span><span class=n>end</span><span class=o>-</span><span class=n>start</span><span class=p>,</span><span class=s2>&quot;秒&quot;</span><span class=p>)</span>
 </code></pre></div> <h2 id=总结>总结<a class=headerlink href=#总结 title="Permanent link">&para;</a></h2> <p>多进程 multiprocessing 对比 threading 多线程</p> <h3 id=多线程>多线程<a class=headerlink href=#多线程 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-6-1 name=__codelineno-6-1 href=#__codelineno-6-1></a><span class=c1># 引入模块</span>
-<a id=__codelineno-6-2 name=__codelineno-6-2 href=#__codelineno-6-2></a><span class=kn>from</span> <span class=nn>threading</span> <span class=kn>import</span> <span class=n>Thread</span>
+<a id=__codelineno-6-2 name=__codelineno-6-2 href=#__codelineno-6-2></a><span class=kn>from</span><span class=w> </span><span class=nn>threading</span><span class=w> </span><span class=kn>import</span> <span class=n>Thread</span>
 <a id=__codelineno-6-3 name=__codelineno-6-3 href=#__codelineno-6-3></a>
 <a id=__codelineno-6-4 name=__codelineno-6-4 href=#__codelineno-6-4></a><span class=c1># 新建、启动、等待结束</span>
 <a id=__codelineno-6-5 name=__codelineno-6-5 href=#__codelineno-6-5></a><span class=n>t</span> <span class=o>=</span> <span class=n>Thread</span><span class=p>(</span><span class=n>target</span><span class=o>=</span><span class=n>func</span><span class=p>,</span><span class=n>args</span><span class=o>=</span><span class=p>(</span><span class=mi>100</span><span class=p>,)</span>
@@ -213,20 +213,20 @@
 <a id=__codelineno-6-7 name=__codelineno-6-7 href=#__codelineno-6-7></a><span class=n>t</span><span class=o>.</span><span class=n>join</span><span class=p>()</span>
 <a id=__codelineno-6-8 name=__codelineno-6-8 href=#__codelineno-6-8></a>
 <a id=__codelineno-6-9 name=__codelineno-6-9 href=#__codelineno-6-9></a><span class=c1># 数据通信</span>
-<a id=__codelineno-6-10 name=__codelineno-6-10 href=#__codelineno-6-10></a><span class=kn>import</span> <span class=nn>queue</span>
+<a id=__codelineno-6-10 name=__codelineno-6-10 href=#__codelineno-6-10></a><span class=kn>import</span><span class=w> </span><span class=nn>queue</span>
 <a id=__codelineno-6-11 name=__codelineno-6-11 href=#__codelineno-6-11></a><span class=n>q</span> <span class=o>=</span> <span class=n>queue</span><span class=o>.</span><span class=n>Queue</span><span class=p>()</span>
 <a id=__codelineno-6-12 name=__codelineno-6-12 href=#__codelineno-6-12></a><span class=n>q</span><span class=o>.</span><span class=n>put</span><span class=p>(</span><span class=n>item</span><span class=p>)</span>
 <a id=__codelineno-6-13 name=__codelineno-6-13 href=#__codelineno-6-13></a><span class=n>item</span> <span class=o>=</span> <span class=n>q</span><span class=o>.</span><span class=n>get</span><span class=p>()</span>
 <a id=__codelineno-6-14 name=__codelineno-6-14 href=#__codelineno-6-14></a>
 <a id=__codelineno-6-15 name=__codelineno-6-15 href=#__codelineno-6-15></a><span class=c1># 线程安全加锁</span>
-<a id=__codelineno-6-16 name=__codelineno-6-16 href=#__codelineno-6-16></a><span class=kn>from</span> <span class=nn>threading</span> <span class=kn>import</span> <span class=n>Lock</span>
+<a id=__codelineno-6-16 name=__codelineno-6-16 href=#__codelineno-6-16></a><span class=kn>from</span><span class=w> </span><span class=nn>threading</span><span class=w> </span><span class=kn>import</span> <span class=n>Lock</span>
 <a id=__codelineno-6-17 name=__codelineno-6-17 href=#__codelineno-6-17></a><span class=n>lock</span> <span class=o>=</span> <span class=n>Lock</span><span class=p>()</span>
 <a id=__codelineno-6-18 name=__codelineno-6-18 href=#__codelineno-6-18></a><span class=k>with</span> <span class=n>lock</span><span class=p>:</span>
 <a id=__codelineno-6-19 name=__codelineno-6-19 href=#__codelineno-6-19></a>    <span class=c1># do something</span>
 <a id=__codelineno-6-20 name=__codelineno-6-20 href=#__codelineno-6-20></a>
 <a id=__codelineno-6-21 name=__codelineno-6-21 href=#__codelineno-6-21></a>
 <a id=__codelineno-6-22 name=__codelineno-6-22 href=#__codelineno-6-22></a><span class=c1># 池化技术</span>
-<a id=__codelineno-6-23 name=__codelineno-6-23 href=#__codelineno-6-23></a><span class=kn>from</span> <span class=nn>concurrent.futures</span> <span class=kn>import</span> <span class=n>ThreadPoolExecutor</span>
+<a id=__codelineno-6-23 name=__codelineno-6-23 href=#__codelineno-6-23></a><span class=kn>from</span><span class=w> </span><span class=nn>concurrent.futures</span><span class=w> </span><span class=kn>import</span> <span class=n>ThreadPoolExecutor</span>
 <a id=__codelineno-6-24 name=__codelineno-6-24 href=#__codelineno-6-24></a>
 <a id=__codelineno-6-25 name=__codelineno-6-25 href=#__codelineno-6-25></a><span class=k>with</span> <span class=n>ThreadPoolExecutor</span><span class=p>()</span><span class=k>as</span> <span class=n>executor</span><span class=p>:</span>
 <a id=__codelineno-6-26 name=__codelineno-6-26 href=#__codelineno-6-26></a>   <span class=c1># 方法1</span>
@@ -235,7 +235,7 @@
 <a id=__codelineno-6-29 name=__codelineno-6-29 href=#__codelineno-6-29></a>   <span class=n>future</span> <span class=o>=</span> <span class=n>executor</span><span class=o>.</span><span class=n>submit</span><span class=p>(</span><span class=n>func</span><span class=p>,</span><span class=mi>1</span><span class=p>)</span>
 <a id=__codelineno-6-30 name=__codelineno-6-30 href=#__codelineno-6-30></a>   <span class=n>result</span> <span class=o>=</span> <span class=n>future</span><span class=o>.</span><span class=n>result</span><span class=p>()</span>
 </code></pre></div> <h3 id=多进程>多进程<a class=headerlink href=#多进程 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-7-1 name=__codelineno-7-1 href=#__codelineno-7-1></a><span class=c1># 引入模块</span>
-<a id=__codelineno-7-2 name=__codelineno-7-2 href=#__codelineno-7-2></a><span class=kn>from</span> <span class=nn>multiprocessing</span> <span class=kn>import</span> <span class=n>Process</span>
+<a id=__codelineno-7-2 name=__codelineno-7-2 href=#__codelineno-7-2></a><span class=kn>from</span><span class=w> </span><span class=nn>multiprocessing</span><span class=w> </span><span class=kn>import</span> <span class=n>Process</span>
 <a id=__codelineno-7-3 name=__codelineno-7-3 href=#__codelineno-7-3></a>
 <a id=__codelineno-7-4 name=__codelineno-7-4 href=#__codelineno-7-4></a><span class=c1># 新建、启动、等待结束</span>
 <a id=__codelineno-7-5 name=__codelineno-7-5 href=#__codelineno-7-5></a><span class=n>p</span><span class=o>=</span><span class=n>Process</span><span class=p>(</span><span class=n>target</span><span class=o>=</span><span class=n>f</span><span class=p>,</span><span class=n>args</span><span class=o>=</span><span class=p>(</span><span class=s1>&#39;bob&#39;</span><span class=p>,))</span>
@@ -243,21 +243,21 @@
 <a id=__codelineno-7-7 name=__codelineno-7-7 href=#__codelineno-7-7></a><span class=n>p</span><span class=o>.</span><span class=n>join</span><span class=p>()</span>
 <a id=__codelineno-7-8 name=__codelineno-7-8 href=#__codelineno-7-8></a>
 <a id=__codelineno-7-9 name=__codelineno-7-9 href=#__codelineno-7-9></a><span class=c1># 数据通信</span>
-<a id=__codelineno-7-10 name=__codelineno-7-10 href=#__codelineno-7-10></a><span class=kn>from</span> <span class=nn>multiprocessing</span> <span class=kn>import</span> <span class=n>Queue</span>
+<a id=__codelineno-7-10 name=__codelineno-7-10 href=#__codelineno-7-10></a><span class=kn>from</span><span class=w> </span><span class=nn>multiprocessing</span><span class=w> </span><span class=kn>import</span> <span class=n>Queue</span>
 <a id=__codelineno-7-11 name=__codelineno-7-11 href=#__codelineno-7-11></a><span class=n>q</span> <span class=o>=</span> <span class=n>Queue</span><span class=p>()</span>
 <a id=__codelineno-7-12 name=__codelineno-7-12 href=#__codelineno-7-12></a><span class=n>q</span><span class=o>.</span><span class=n>put</span><span class=p>([</span><span class=mi>42</span><span class=p>,</span><span class=kc>None</span><span class=p>,</span><span class=s1>&#39;hello&#39;</span><span class=p>])</span>
 <a id=__codelineno-7-13 name=__codelineno-7-13 href=#__codelineno-7-13></a><span class=n>item</span><span class=o>=</span><span class=n>q</span><span class=o>.</span><span class=n>get</span><span class=p>()</span>
 <a id=__codelineno-7-14 name=__codelineno-7-14 href=#__codelineno-7-14></a>
 <a id=__codelineno-7-15 name=__codelineno-7-15 href=#__codelineno-7-15></a>
 <a id=__codelineno-7-16 name=__codelineno-7-16 href=#__codelineno-7-16></a><span class=c1># 线程安全加锁</span>
-<a id=__codelineno-7-17 name=__codelineno-7-17 href=#__codelineno-7-17></a><span class=kn>from</span> <span class=nn>multiprocessing</span> <span class=kn>import</span> <span class=n>Lock</span>
+<a id=__codelineno-7-17 name=__codelineno-7-17 href=#__codelineno-7-17></a><span class=kn>from</span><span class=w> </span><span class=nn>multiprocessing</span><span class=w> </span><span class=kn>import</span> <span class=n>Lock</span>
 <a id=__codelineno-7-18 name=__codelineno-7-18 href=#__codelineno-7-18></a><span class=n>lock</span> <span class=o>=</span> <span class=n>Lock</span><span class=p>()</span>
 <a id=__codelineno-7-19 name=__codelineno-7-19 href=#__codelineno-7-19></a><span class=k>with</span> <span class=n>lock</span><span class=p>:</span>
 <a id=__codelineno-7-20 name=__codelineno-7-20 href=#__codelineno-7-20></a>    <span class=c1># do something</span>
 <a id=__codelineno-7-21 name=__codelineno-7-21 href=#__codelineno-7-21></a>
 <a id=__codelineno-7-22 name=__codelineno-7-22 href=#__codelineno-7-22></a>
 <a id=__codelineno-7-23 name=__codelineno-7-23 href=#__codelineno-7-23></a><span class=c1># 池化技术</span>
-<a id=__codelineno-7-24 name=__codelineno-7-24 href=#__codelineno-7-24></a><span class=kn>from</span> <span class=nn>concurrent.futures</span> <span class=kn>import</span> <span class=n>ProcessPoolExecutor</span>
+<a id=__codelineno-7-24 name=__codelineno-7-24 href=#__codelineno-7-24></a><span class=kn>from</span><span class=w> </span><span class=nn>concurrent.futures</span><span class=w> </span><span class=kn>import</span> <span class=n>ProcessPoolExecutor</span>
 <a id=__codelineno-7-25 name=__codelineno-7-25 href=#__codelineno-7-25></a>
 <a id=__codelineno-7-26 name=__codelineno-7-26 href=#__codelineno-7-26></a><span class=k>with</span> <span class=n>ProcessPoolExecutor</span><span class=p>()</span><span class=k>as</span> <span class=n>executor</span><span class=p>:</span>
 <a id=__codelineno-7-27 name=__codelineno-7-27 href=#__codelineno-7-27></a>   <span class=c1># 方法1</span>

@@ -13,10 +13,10 @@
 <a id=__codelineno-1-7 name=__codelineno-1-7 href=#__codelineno-1-7></a>In<span class=w> </span><span class=o>[</span><span class=m>8</span><span class=o>]</span>:<span class=w> </span>pprint<span class=o>(</span>uname<span class=o>)</span>
 <a id=__codelineno-1-8 name=__codelineno-1-8 href=#__codelineno-1-8></a>uname_result<span class=o>(</span><span class=nv>system</span><span class=o>=</span><span class=s1>&#39;Linux&#39;</span>,<span class=w> </span><span class=nv>node</span><span class=o>=</span><span class=s1>&#39;ubuntu2004-base&#39;</span>,<span class=w> </span><span class=nv>release</span><span class=o>=</span><span class=s1>&#39;5.4.0-77-generic&#39;</span>,<span class=w> </span><span class=nv>version</span><span class=o>=</span><span class=s1>&#39;#86-Ubuntu SMP Thu Jun 17 02:35:03 UTC 2021&#39;</span>,<span class=w> </span><span class=nv>machine</span><span class=o>=</span><span class=s1>&#39;x86_64&#39;</span>,<span class=w> </span><span class=nv>processor</span><span class=o>=</span><span class=s1>&#39;x86_64&#39;</span><span class=o>)</span>
 </code></pre></div> <div class=highlight><pre><span></span><code><a id=__codelineno-2-1 name=__codelineno-2-1 href=#__codelineno-2-1></a><span class=ch>#!/usr/bin/python</span>
-<a id=__codelineno-2-2 name=__codelineno-2-2 href=#__codelineno-2-2></a><span class=kn>import</span> <span class=nn>platform</span>
+<a id=__codelineno-2-2 name=__codelineno-2-2 href=#__codelineno-2-2></a><span class=kn>import</span><span class=w> </span><span class=nn>platform</span>
 <a id=__codelineno-2-3 name=__codelineno-2-3 href=#__codelineno-2-3></a>
 <a id=__codelineno-2-4 name=__codelineno-2-4 href=#__codelineno-2-4></a>
-<a id=__codelineno-2-5 name=__codelineno-2-5 href=#__codelineno-2-5></a><span class=k>def</span> <span class=nf>check_feature</span><span class=p>(</span><span class=n>feature</span><span class=p>,</span> <span class=n>string</span><span class=p>):</span>
+<a id=__codelineno-2-5 name=__codelineno-2-5 href=#__codelineno-2-5></a><span class=k>def</span><span class=w> </span><span class=nf>check_feature</span><span class=p>(</span><span class=n>feature</span><span class=p>,</span> <span class=n>string</span><span class=p>):</span>
 <a id=__codelineno-2-6 name=__codelineno-2-6 href=#__codelineno-2-6></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <a id=__codelineno-2-7 name=__codelineno-2-7 href=#__codelineno-2-7></a><span class=sd>    该函数用于判断给定的字符串中是否包含指定的特征。它对字符串进行小写转换后进行检查，</span>
 <a id=__codelineno-2-8 name=__codelineno-2-8 href=#__codelineno-2-8></a><span class=sd>    这样可以忽略特征在字符串中的大小写形式。</span>
@@ -29,7 +29,7 @@
 <a id=__codelineno-2-15 name=__codelineno-2-15 href=#__codelineno-2-15></a>
 <a id=__codelineno-2-16 name=__codelineno-2-16 href=#__codelineno-2-16></a>
 <a id=__codelineno-2-17 name=__codelineno-2-17 href=#__codelineno-2-17></a>
-<a id=__codelineno-2-18 name=__codelineno-2-18 href=#__codelineno-2-18></a><span class=k>def</span> <span class=nf>get_value_from_string</span><span class=p>(</span><span class=n>key</span><span class=p>,</span> <span class=n>string</span><span class=p>):</span>
+<a id=__codelineno-2-18 name=__codelineno-2-18 href=#__codelineno-2-18></a><span class=k>def</span><span class=w> </span><span class=nf>get_value_from_string</span><span class=p>(</span><span class=n>key</span><span class=p>,</span> <span class=n>string</span><span class=p>):</span>
 <a id=__codelineno-2-19 name=__codelineno-2-19 href=#__codelineno-2-19></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <a id=__codelineno-2-20 name=__codelineno-2-20 href=#__codelineno-2-20></a><span class=sd>    该函数通过分割字符串成行，然后在每一行中查找键。如果找到，它会返回该键对应的值。</span>
 <a id=__codelineno-2-21 name=__codelineno-2-21 href=#__codelineno-2-21></a><span class=sd>    如果字符串中不存在键，函数将返回&quot;NONE&quot;。</span>
@@ -92,7 +92,7 @@
 <a id=__codelineno-2-78 name=__codelineno-2-78 href=#__codelineno-2-78></a>
 <a id=__codelineno-2-79 name=__codelineno-2-79 href=#__codelineno-2-79></a><span class=nb>print</span><span class=p>(</span><span class=s2>&quot;============Memory Information============&quot;</span><span class=p>)</span>
 <a id=__codelineno-2-80 name=__codelineno-2-80 href=#__codelineno-2-80></a><span class=nb>print</span><span class=p>(</span><span class=s2>&quot;</span><span class=se>\n</span><span class=s2>&quot;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>memory_features</span><span class=p>))</span>
-</code></pre></div> <h3 id=使用时间和日期模块>使用时间和日期模块<a class=headerlink href=#使用时间和日期模块 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-3-1 name=__codelineno-3-1 href=#__codelineno-3-1></a><span class=kn>from</span> <span class=nn>datetime</span> <span class=kn>import</span> <span class=n>datetime</span>
+</code></pre></div> <h3 id=使用时间和日期模块>使用时间和日期模块<a class=headerlink href=#使用时间和日期模块 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-3-1 name=__codelineno-3-1 href=#__codelineno-3-1></a><span class=kn>from</span><span class=w> </span><span class=nn>datetime</span><span class=w> </span><span class=kn>import</span> <span class=n>datetime</span>
 <a id=__codelineno-3-2 name=__codelineno-3-2 href=#__codelineno-3-2></a><span class=n>time_now</span> <span class=o>=</span> <span class=n>datetime</span><span class=o>.</span><span class=n>now</span><span class=p>()</span>
 <a id=__codelineno-3-3 name=__codelineno-3-3 href=#__codelineno-3-3></a><span class=n>time_now_string</span> <span class=o>=</span> <span class=n>time_now</span><span class=o>.</span><span class=n>strftime</span><span class=p>(</span><span class=s2>&quot;%Y-%m-</span><span class=si>%d</span><span class=s2> %H:%M:%S&quot;</span><span class=p>)</span>
 <a id=__codelineno-3-4 name=__codelineno-3-4 href=#__codelineno-3-4></a>
@@ -102,21 +102,21 @@
 <a id=__codelineno-3-8 name=__codelineno-3-8 href=#__codelineno-3-8></a><span class=c1># time_now_string</span>
 <a id=__codelineno-3-9 name=__codelineno-3-9 href=#__codelineno-3-9></a><span class=c1># &#39;2024-07-27 11:10:01&#39;</span>
 </code></pre></div> <h3 id=通过电子邮件发送生成的数据>通过电子邮件发送生成的数据<a class=headerlink href=#通过电子邮件发送生成的数据 title="Permanent link">&para;</a></h3> <p>Send_Email.py</p> <div class=highlight><pre><span></span><code><a id=__codelineno-4-1 name=__codelineno-4-1 href=#__codelineno-4-1></a><span class=ch>#!/usr/bin/python</span>
-<a id=__codelineno-4-2 name=__codelineno-4-2 href=#__codelineno-4-2></a><span class=kn>import</span> <span class=nn>smtplib</span>
-<a id=__codelineno-4-3 name=__codelineno-4-3 href=#__codelineno-4-3></a><span class=kn>import</span> <span class=nn>platform</span>
-<a id=__codelineno-4-4 name=__codelineno-4-4 href=#__codelineno-4-4></a><span class=kn>from</span> <span class=nn>datetime</span> <span class=kn>import</span> <span class=n>datetime</span>
+<a id=__codelineno-4-2 name=__codelineno-4-2 href=#__codelineno-4-2></a><span class=kn>import</span><span class=w> </span><span class=nn>smtplib</span>
+<a id=__codelineno-4-3 name=__codelineno-4-3 href=#__codelineno-4-3></a><span class=kn>import</span><span class=w> </span><span class=nn>platform</span>
+<a id=__codelineno-4-4 name=__codelineno-4-4 href=#__codelineno-4-4></a><span class=kn>from</span><span class=w> </span><span class=nn>datetime</span><span class=w> </span><span class=kn>import</span> <span class=n>datetime</span>
 <a id=__codelineno-4-5 name=__codelineno-4-5 href=#__codelineno-4-5></a>
 <a id=__codelineno-4-6 name=__codelineno-4-6 href=#__codelineno-4-6></a><span class=n>time_now</span> <span class=o>=</span> <span class=n>datetime</span><span class=o>.</span><span class=n>now</span><span class=p>()</span>
 <a id=__codelineno-4-7 name=__codelineno-4-7 href=#__codelineno-4-7></a><span class=n>time_now_string</span> <span class=o>=</span> <span class=n>time_now</span><span class=o>.</span><span class=n>strftime</span><span class=p>(</span><span class=s2>&quot;%Y-%m-</span><span class=si>%d</span><span class=s2> %H:%M:%S&quot;</span><span class=p>)</span>
 <a id=__codelineno-4-8 name=__codelineno-4-8 href=#__codelineno-4-8></a>
-<a id=__codelineno-4-9 name=__codelineno-4-9 href=#__codelineno-4-9></a><span class=k>def</span> <span class=nf>check_feature</span><span class=p>(</span><span class=n>feature</span><span class=p>,</span> <span class=n>string</span><span class=p>):</span>
+<a id=__codelineno-4-9 name=__codelineno-4-9 href=#__codelineno-4-9></a><span class=k>def</span><span class=w> </span><span class=nf>check_feature</span><span class=p>(</span><span class=n>feature</span><span class=p>,</span> <span class=n>string</span><span class=p>):</span>
 <a id=__codelineno-4-10 name=__codelineno-4-10 href=#__codelineno-4-10></a>    <span class=k>if</span> <span class=n>feature</span> <span class=ow>in</span> <span class=n>string</span><span class=o>.</span><span class=n>lower</span><span class=p>():</span>
 <a id=__codelineno-4-11 name=__codelineno-4-11 href=#__codelineno-4-11></a>        <span class=k>return</span> <span class=kc>True</span>
 <a id=__codelineno-4-12 name=__codelineno-4-12 href=#__codelineno-4-12></a>    <span class=k>else</span><span class=p>:</span>
 <a id=__codelineno-4-13 name=__codelineno-4-13 href=#__codelineno-4-13></a>        <span class=k>return</span> <span class=kc>False</span>
 <a id=__codelineno-4-14 name=__codelineno-4-14 href=#__codelineno-4-14></a>
 <a id=__codelineno-4-15 name=__codelineno-4-15 href=#__codelineno-4-15></a>
-<a id=__codelineno-4-16 name=__codelineno-4-16 href=#__codelineno-4-16></a><span class=k>def</span> <span class=nf>get_value_from_string</span><span class=p>(</span><span class=n>key</span><span class=p>,</span> <span class=n>string</span><span class=p>):</span>
+<a id=__codelineno-4-16 name=__codelineno-4-16 href=#__codelineno-4-16></a><span class=k>def</span><span class=w> </span><span class=nf>get_value_from_string</span><span class=p>(</span><span class=n>key</span><span class=p>,</span> <span class=n>string</span><span class=p>):</span>
 <a id=__codelineno-4-17 name=__codelineno-4-17 href=#__codelineno-4-17></a>    <span class=n>value</span> <span class=o>=</span> <span class=s2>&quot;NONE&quot;</span>
 <a id=__codelineno-4-18 name=__codelineno-4-18 href=#__codelineno-4-18></a>    <span class=k>for</span> <span class=n>line</span> <span class=ow>in</span> <span class=n>string</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s2>&quot;</span><span class=se>\n</span><span class=s2>&quot;</span><span class=p>):</span>
 <a id=__codelineno-4-19 name=__codelineno-4-19 href=#__codelineno-4-19></a>        <span class=k>if</span> <span class=n>key</span> <span class=ow>in</span> <span class=n>line</span><span class=p>:</span>

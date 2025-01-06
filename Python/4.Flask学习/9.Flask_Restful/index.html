@@ -36,13 +36,13 @@
 <a id=__codelineno-0-36 name=__codelineno-0-36 href=#__codelineno-0-36></a><span class=w>    </span>├──<span class=w> </span>__init__.py
 <a id=__codelineno-0-37 name=__codelineno-0-37 href=#__codelineno-0-37></a><span class=w>    </span>└──<span class=w> </span>test_basics.py
 </code></pre></div> <h4 id=程序管理应用脚本>程序管理应用脚本<a class=headerlink href=#程序管理应用脚本 title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code><a id=__codelineno-1-1 name=__codelineno-1-1 href=#__codelineno-1-1></a><span class=c1># flask 迁移数据</span>
-<a id=__codelineno-1-2 name=__codelineno-1-2 href=#__codelineno-1-2></a><span class=kn>from</span> <span class=nn>flask_migrate</span> <span class=kn>import</span> <span class=n>Migrate</span>
-<a id=__codelineno-1-3 name=__codelineno-1-3 href=#__codelineno-1-3></a><span class=kn>from</span> <span class=nn>app</span> <span class=kn>import</span> <span class=n>create_app</span>
-<a id=__codelineno-1-4 name=__codelineno-1-4 href=#__codelineno-1-4></a><span class=kn>from</span> <span class=nn>ext</span> <span class=kn>import</span> <span class=n>db</span>
-<a id=__codelineno-1-5 name=__codelineno-1-5 href=#__codelineno-1-5></a><span class=kn>from</span> <span class=nn>app.models.users</span> <span class=kn>import</span> <span class=n>User</span><span class=p>,</span> <span class=n>Article</span><span class=p>,</span> <span class=n>ChangeLogs</span><span class=p>,</span> <span class=n>RevokedTokenModel</span>
-<a id=__codelineno-1-6 name=__codelineno-1-6 href=#__codelineno-1-6></a><span class=kn>from</span> <span class=nn>app.models.todo</span> <span class=kn>import</span> <span class=n>Todo</span>
-<a id=__codelineno-1-7 name=__codelineno-1-7 href=#__codelineno-1-7></a><span class=kn>import</span> <span class=nn>click</span>
-<a id=__codelineno-1-8 name=__codelineno-1-8 href=#__codelineno-1-8></a><span class=kn>from</span> <span class=nn>flask</span> <span class=kn>import</span> <span class=n>jsonify</span><span class=p>,</span> <span class=n>make_response</span>
+<a id=__codelineno-1-2 name=__codelineno-1-2 href=#__codelineno-1-2></a><span class=kn>from</span><span class=w> </span><span class=nn>flask_migrate</span><span class=w> </span><span class=kn>import</span> <span class=n>Migrate</span>
+<a id=__codelineno-1-3 name=__codelineno-1-3 href=#__codelineno-1-3></a><span class=kn>from</span><span class=w> </span><span class=nn>app</span><span class=w> </span><span class=kn>import</span> <span class=n>create_app</span>
+<a id=__codelineno-1-4 name=__codelineno-1-4 href=#__codelineno-1-4></a><span class=kn>from</span><span class=w> </span><span class=nn>ext</span><span class=w> </span><span class=kn>import</span> <span class=n>db</span>
+<a id=__codelineno-1-5 name=__codelineno-1-5 href=#__codelineno-1-5></a><span class=kn>from</span><span class=w> </span><span class=nn>app.models.users</span><span class=w> </span><span class=kn>import</span> <span class=n>User</span><span class=p>,</span> <span class=n>Article</span><span class=p>,</span> <span class=n>ChangeLogs</span><span class=p>,</span> <span class=n>RevokedTokenModel</span>
+<a id=__codelineno-1-6 name=__codelineno-1-6 href=#__codelineno-1-6></a><span class=kn>from</span><span class=w> </span><span class=nn>app.models.todo</span><span class=w> </span><span class=kn>import</span> <span class=n>Todo</span>
+<a id=__codelineno-1-7 name=__codelineno-1-7 href=#__codelineno-1-7></a><span class=kn>import</span><span class=w> </span><span class=nn>click</span>
+<a id=__codelineno-1-8 name=__codelineno-1-8 href=#__codelineno-1-8></a><span class=kn>from</span><span class=w> </span><span class=nn>flask</span><span class=w> </span><span class=kn>import</span> <span class=n>jsonify</span><span class=p>,</span> <span class=n>make_response</span>
 <a id=__codelineno-1-9 name=__codelineno-1-9 href=#__codelineno-1-9></a>
 <a id=__codelineno-1-10 name=__codelineno-1-10 href=#__codelineno-1-10></a><span class=n>app</span> <span class=o>=</span> <span class=n>create_app</span><span class=p>(</span><span class=n>config_name</span><span class=o>=</span><span class=s2>&quot;default&quot;</span><span class=p>)</span>
 <a id=__codelineno-1-11 name=__codelineno-1-11 href=#__codelineno-1-11></a>
@@ -54,14 +54,14 @@
 <a id=__codelineno-1-17 name=__codelineno-1-17 href=#__codelineno-1-17></a>
 <a id=__codelineno-1-18 name=__codelineno-1-18 href=#__codelineno-1-18></a>
 <a id=__codelineno-1-19 name=__codelineno-1-19 href=#__codelineno-1-19></a><span class=nd>@app</span><span class=o>.</span><span class=n>shell_context_processor</span>
-<a id=__codelineno-1-20 name=__codelineno-1-20 href=#__codelineno-1-20></a><span class=k>def</span> <span class=nf>make_shell_context</span><span class=p>():</span>
+<a id=__codelineno-1-20 name=__codelineno-1-20 href=#__codelineno-1-20></a><span class=k>def</span><span class=w> </span><span class=nf>make_shell_context</span><span class=p>():</span>
 <a id=__codelineno-1-21 name=__codelineno-1-21 href=#__codelineno-1-21></a>    <span class=k>return</span> <span class=nb>dict</span><span class=p>(</span><span class=n>db</span><span class=o>=</span><span class=n>db</span><span class=p>,</span> <span class=n>Users</span><span class=o>=</span><span class=n>User</span><span class=p>,</span> <span class=n>Todo</span><span class=o>=</span><span class=n>Todo</span><span class=p>,</span> <span class=n>Article</span><span class=o>=</span><span class=n>Article</span><span class=p>,</span> <span class=n>ChangeLogs</span><span class=o>=</span><span class=n>ChangeLogs</span><span class=p>,</span>
 <a id=__codelineno-1-22 name=__codelineno-1-22 href=#__codelineno-1-22></a>                <span class=n>RevokedTokenModel</span><span class=o>=</span><span class=n>RevokedTokenModel</span><span class=p>)</span>
 <a id=__codelineno-1-23 name=__codelineno-1-23 href=#__codelineno-1-23></a>
 <a id=__codelineno-1-24 name=__codelineno-1-24 href=#__codelineno-1-24></a>
 <a id=__codelineno-1-25 name=__codelineno-1-25 href=#__codelineno-1-25></a><span class=nd>@app</span><span class=o>.</span><span class=n>cli</span><span class=o>.</span><span class=n>command</span><span class=p>()</span>
 <a id=__codelineno-1-26 name=__codelineno-1-26 href=#__codelineno-1-26></a><span class=nd>@click</span><span class=o>.</span><span class=n>option</span><span class=p>(</span><span class=s1>&#39;--drop&#39;</span><span class=p>,</span> <span class=n>is_flag</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>help</span><span class=o>=</span><span class=s1>&#39;Create after drop.&#39;</span><span class=p>)</span>
-<a id=__codelineno-1-27 name=__codelineno-1-27 href=#__codelineno-1-27></a><span class=k>def</span> <span class=nf>initdb</span><span class=p>(</span><span class=n>drop</span><span class=p>):</span>
+<a id=__codelineno-1-27 name=__codelineno-1-27 href=#__codelineno-1-27></a><span class=k>def</span><span class=w> </span><span class=nf>initdb</span><span class=p>(</span><span class=n>drop</span><span class=p>):</span>
 <a id=__codelineno-1-28 name=__codelineno-1-28 href=#__codelineno-1-28></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;Init databases.&quot;&quot;&quot;</span>
 <a id=__codelineno-1-29 name=__codelineno-1-29 href=#__codelineno-1-29></a>    <span class=k>if</span> <span class=n>drop</span><span class=p>:</span>
 <a id=__codelineno-1-30 name=__codelineno-1-30 href=#__codelineno-1-30></a>        <span class=n>click</span><span class=o>.</span><span class=n>confirm</span><span class=p>(</span>
@@ -75,9 +75,9 @@
 <a id=__codelineno-1-38 name=__codelineno-1-38 href=#__codelineno-1-38></a>
 <a id=__codelineno-1-39 name=__codelineno-1-39 href=#__codelineno-1-39></a><span class=nd>@app</span><span class=o>.</span><span class=n>cli</span><span class=o>.</span><span class=n>command</span><span class=p>()</span>
 <a id=__codelineno-1-40 name=__codelineno-1-40 href=#__codelineno-1-40></a><span class=nd>@click</span><span class=o>.</span><span class=n>argument</span><span class=p>(</span><span class=s1>&#39;test_names&#39;</span><span class=p>,</span> <span class=n>nargs</span><span class=o>=-</span><span class=mi>1</span><span class=p>)</span>
-<a id=__codelineno-1-41 name=__codelineno-1-41 href=#__codelineno-1-41></a><span class=k>def</span> <span class=nf>test</span><span class=p>(</span><span class=n>test_names</span><span class=p>):</span>
+<a id=__codelineno-1-41 name=__codelineno-1-41 href=#__codelineno-1-41></a><span class=k>def</span><span class=w> </span><span class=nf>test</span><span class=p>(</span><span class=n>test_names</span><span class=p>):</span>
 <a id=__codelineno-1-42 name=__codelineno-1-42 href=#__codelineno-1-42></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;Run the unit tests.&quot;&quot;&quot;</span>
-<a id=__codelineno-1-43 name=__codelineno-1-43 href=#__codelineno-1-43></a>    <span class=kn>import</span> <span class=nn>unittest</span>
+<a id=__codelineno-1-43 name=__codelineno-1-43 href=#__codelineno-1-43></a>    <span class=kn>import</span><span class=w> </span><span class=nn>unittest</span>
 <a id=__codelineno-1-44 name=__codelineno-1-44 href=#__codelineno-1-44></a>    <span class=k>if</span> <span class=n>test_names</span><span class=p>:</span>
 <a id=__codelineno-1-45 name=__codelineno-1-45 href=#__codelineno-1-45></a>        <span class=n>tests</span> <span class=o>=</span> <span class=n>unittest</span><span class=o>.</span><span class=n>TestLoader</span><span class=p>()</span><span class=o>.</span><span class=n>loadTestsFromNames</span><span class=p>(</span><span class=n>test_names</span><span class=p>)</span>
 <a id=__codelineno-1-46 name=__codelineno-1-46 href=#__codelineno-1-46></a>    <span class=k>else</span><span class=p>:</span>
@@ -87,13 +87,13 @@
 <a id=__codelineno-1-50 name=__codelineno-1-50 href=#__codelineno-1-50></a>
 <a id=__codelineno-1-51 name=__codelineno-1-51 href=#__codelineno-1-51></a><span class=c1># 改善404 错误处理程序</span>
 <a id=__codelineno-1-52 name=__codelineno-1-52 href=#__codelineno-1-52></a><span class=nd>@app</span><span class=o>.</span><span class=n>errorhandler</span><span class=p>(</span><span class=mi>404</span><span class=p>)</span>
-<a id=__codelineno-1-53 name=__codelineno-1-53 href=#__codelineno-1-53></a><span class=k>def</span> <span class=nf>not_found</span><span class=p>(</span><span class=n>error</span><span class=p>):</span>
+<a id=__codelineno-1-53 name=__codelineno-1-53 href=#__codelineno-1-53></a><span class=k>def</span><span class=w> </span><span class=nf>not_found</span><span class=p>(</span><span class=n>error</span><span class=p>):</span>
 <a id=__codelineno-1-54 name=__codelineno-1-54 href=#__codelineno-1-54></a>    <span class=k>return</span> <span class=n>make_response</span><span class=p>(</span><span class=n>jsonify</span><span class=p>({</span><span class=s1>&#39;error&#39;</span><span class=p>:</span> <span class=s1>&#39;Not found&#39;</span><span class=p>}),</span> <span class=mi>404</span><span class=p>)</span>
 <a id=__codelineno-1-55 name=__codelineno-1-55 href=#__codelineno-1-55></a>
 <a id=__codelineno-1-56 name=__codelineno-1-56 href=#__codelineno-1-56></a>
 <a id=__codelineno-1-57 name=__codelineno-1-57 href=#__codelineno-1-57></a><span class=c1># 改善400 错误处理程序</span>
 <a id=__codelineno-1-58 name=__codelineno-1-58 href=#__codelineno-1-58></a><span class=nd>@app</span><span class=o>.</span><span class=n>errorhandler</span><span class=p>(</span><span class=mi>400</span><span class=p>)</span>
-<a id=__codelineno-1-59 name=__codelineno-1-59 href=#__codelineno-1-59></a><span class=k>def</span> <span class=nf>not_found</span><span class=p>(</span><span class=n>error</span><span class=p>):</span>
+<a id=__codelineno-1-59 name=__codelineno-1-59 href=#__codelineno-1-59></a><span class=k>def</span><span class=w> </span><span class=nf>not_found</span><span class=p>(</span><span class=n>error</span><span class=p>):</span>
 <a id=__codelineno-1-60 name=__codelineno-1-60 href=#__codelineno-1-60></a>    <span class=k>return</span> <span class=n>make_response</span><span class=p>(</span><span class=n>jsonify</span><span class=p>({</span><span class=s1>&#39;error&#39;</span><span class=p>:</span> <span class=s1>&#39;Bad Request&#39;</span><span class=p>}),</span> <span class=mi>400</span><span class=p>)</span>
 </code></pre></div> <p>式。Linux 和 macOS 用户这样做：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-2-1 name=__codelineno-2-1 href=#__codelineno-2-1></a><span class=o>(</span>venv<span class=o>)</span><span class=w> </span>$<span class=w> </span><span class=nb>export</span><span class=w> </span><span class=nv>FLASK_APP</span><span class=o>=</span>manage.py
 <a id=__codelineno-2-2 name=__codelineno-2-2 href=#__codelineno-2-2></a><span class=o>(</span>venv<span class=o>)</span><span class=w> </span>$<span class=w> </span><span class=nb>export</span><span class=w> </span><span class=nv>FLASK_DEBUG</span><span class=o>=</span><span class=m>1</span>
@@ -110,13 +110,13 @@
 <a id=__codelineno-4-5 name=__codelineno-4-5 href=#__codelineno-4-5></a><span class=o>(</span>venv<span class=o>)</span><span class=w> </span>$<span class=w> </span>flask<span class=w> </span>initdb<span class=w> </span>--drop<span class=w>  </span><span class=c1># 此命令会删除数据重新创建数据库</span>
 </code></pre></div> <p>运行应用</p> <div class=highlight><pre><span></span><code><a id=__codelineno-5-1 name=__codelineno-5-1 href=#__codelineno-5-1></a><span class=o>(</span>venv<span class=o>)</span><span class=w> </span>$<span class=w> </span>flask<span class=w> </span>run
 </code></pre></div> <p>单元测试可使用下面的命令运行：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-6-1 name=__codelineno-6-1 href=#__codelineno-6-1></a><span class=o>(</span>venv<span class=o>)</span><span class=w> </span>$<span class=w> </span>flask<span class=w> </span><span class=nb>test</span>
-</code></pre></div> <h4 id=程序配置文件>程序配置文件<a class=headerlink href=#程序配置文件 title="Permanent link">&para;</a></h4> <p><code>config.py</code></p> <div class=highlight><pre><span></span><code><a id=__codelineno-7-1 name=__codelineno-7-1 href=#__codelineno-7-1></a><span class=kn>import</span> <span class=nn>os</span>
-<a id=__codelineno-7-2 name=__codelineno-7-2 href=#__codelineno-7-2></a><span class=kn>from</span> <span class=nn>apscheduler.jobstores.sqlalchemy</span> <span class=kn>import</span> <span class=n>SQLAlchemyJobStore</span>
+</code></pre></div> <h4 id=程序配置文件>程序配置文件<a class=headerlink href=#程序配置文件 title="Permanent link">&para;</a></h4> <p><code>config.py</code></p> <div class=highlight><pre><span></span><code><a id=__codelineno-7-1 name=__codelineno-7-1 href=#__codelineno-7-1></a><span class=kn>import</span><span class=w> </span><span class=nn>os</span>
+<a id=__codelineno-7-2 name=__codelineno-7-2 href=#__codelineno-7-2></a><span class=kn>from</span><span class=w> </span><span class=nn>apscheduler.jobstores.sqlalchemy</span><span class=w> </span><span class=kn>import</span> <span class=n>SQLAlchemyJobStore</span>
 <a id=__codelineno-7-3 name=__codelineno-7-3 href=#__codelineno-7-3></a>
 <a id=__codelineno-7-4 name=__codelineno-7-4 href=#__codelineno-7-4></a><span class=n>basedir</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>abspath</span><span class=p>(</span><span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>dirname</span><span class=p>(</span><span class=vm>__file__</span><span class=p>))</span>
 <a id=__codelineno-7-5 name=__codelineno-7-5 href=#__codelineno-7-5></a>
 <a id=__codelineno-7-6 name=__codelineno-7-6 href=#__codelineno-7-6></a>
-<a id=__codelineno-7-7 name=__codelineno-7-7 href=#__codelineno-7-7></a><span class=k>class</span> <span class=nc>Config</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
+<a id=__codelineno-7-7 name=__codelineno-7-7 href=#__codelineno-7-7></a><span class=k>class</span><span class=w> </span><span class=nc>Config</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
 <a id=__codelineno-7-8 name=__codelineno-7-8 href=#__codelineno-7-8></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;配置参数&quot;&quot;&quot;</span>
 <a id=__codelineno-7-9 name=__codelineno-7-9 href=#__codelineno-7-9></a>    <span class=n>PORT</span> <span class=o>=</span> <span class=mi>5000</span>
 <a id=__codelineno-7-10 name=__codelineno-7-10 href=#__codelineno-7-10></a>    <span class=n>HOST</span> <span class=o>=</span> <span class=s2>&quot;0.0.0.0&quot;</span>
@@ -205,11 +205,11 @@
 <a id=__codelineno-7-93 name=__codelineno-7-93 href=#__codelineno-7-93></a>
 <a id=__codelineno-7-94 name=__codelineno-7-94 href=#__codelineno-7-94></a>    <span class=c1># 静态方法作为配置的统一接口，暂时为空</span>
 <a id=__codelineno-7-95 name=__codelineno-7-95 href=#__codelineno-7-95></a>    <span class=nd>@staticmethod</span>
-<a id=__codelineno-7-96 name=__codelineno-7-96 href=#__codelineno-7-96></a>    <span class=k>def</span> <span class=nf>init_app</span><span class=p>(</span><span class=n>app</span><span class=p>):</span>
+<a id=__codelineno-7-96 name=__codelineno-7-96 href=#__codelineno-7-96></a>    <span class=k>def</span><span class=w> </span><span class=nf>init_app</span><span class=p>(</span><span class=n>app</span><span class=p>):</span>
 <a id=__codelineno-7-97 name=__codelineno-7-97 href=#__codelineno-7-97></a>        <span class=k>pass</span>
 <a id=__codelineno-7-98 name=__codelineno-7-98 href=#__codelineno-7-98></a>
 <a id=__codelineno-7-99 name=__codelineno-7-99 href=#__codelineno-7-99></a>
-<a id=__codelineno-7-100 name=__codelineno-7-100 href=#__codelineno-7-100></a><span class=k>class</span> <span class=nc>DevelopmentConfig</span><span class=p>(</span><span class=n>Config</span><span class=p>):</span>
+<a id=__codelineno-7-100 name=__codelineno-7-100 href=#__codelineno-7-100></a><span class=k>class</span><span class=w> </span><span class=nc>DevelopmentConfig</span><span class=p>(</span><span class=n>Config</span><span class=p>):</span>
 <a id=__codelineno-7-101 name=__codelineno-7-101 href=#__codelineno-7-101></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;开发模式的配置信息&quot;&quot;&quot;</span>
 <a id=__codelineno-7-102 name=__codelineno-7-102 href=#__codelineno-7-102></a>
 <a id=__codelineno-7-103 name=__codelineno-7-103 href=#__codelineno-7-103></a>    <span class=n>BEBUG</span> <span class=o>=</span> <span class=kc>True</span>
@@ -217,7 +217,7 @@
 <a id=__codelineno-7-105 name=__codelineno-7-105 href=#__codelineno-7-105></a>    <span class=n>SQLALCHEMY_TRACK_MODIFICATIONS</span> <span class=o>=</span> <span class=kc>False</span>
 <a id=__codelineno-7-106 name=__codelineno-7-106 href=#__codelineno-7-106></a>
 <a id=__codelineno-7-107 name=__codelineno-7-107 href=#__codelineno-7-107></a>
-<a id=__codelineno-7-108 name=__codelineno-7-108 href=#__codelineno-7-108></a><span class=k>class</span> <span class=nc>TestingConfig</span><span class=p>(</span><span class=n>Config</span><span class=p>):</span>
+<a id=__codelineno-7-108 name=__codelineno-7-108 href=#__codelineno-7-108></a><span class=k>class</span><span class=w> </span><span class=nc>TestingConfig</span><span class=p>(</span><span class=n>Config</span><span class=p>):</span>
 <a id=__codelineno-7-109 name=__codelineno-7-109 href=#__codelineno-7-109></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <a id=__codelineno-7-110 name=__codelineno-7-110 href=#__codelineno-7-110></a><span class=sd>    测试环境配置信息</span>
 <a id=__codelineno-7-111 name=__codelineno-7-111 href=#__codelineno-7-111></a><span class=sd>    &quot;&quot;&quot;</span>
@@ -228,7 +228,7 @@
 <a id=__codelineno-7-116 name=__codelineno-7-116 href=#__codelineno-7-116></a>        <span class=s1>&#39;sqlite:///&#39;</span> <span class=o>+</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>basedir</span><span class=p>,</span> <span class=n>TESTING_DB_Name</span><span class=p>)</span>
 <a id=__codelineno-7-117 name=__codelineno-7-117 href=#__codelineno-7-117></a>
 <a id=__codelineno-7-118 name=__codelineno-7-118 href=#__codelineno-7-118></a>
-<a id=__codelineno-7-119 name=__codelineno-7-119 href=#__codelineno-7-119></a><span class=k>class</span> <span class=nc>ProductionConfig</span><span class=p>(</span><span class=n>Config</span><span class=p>):</span>
+<a id=__codelineno-7-119 name=__codelineno-7-119 href=#__codelineno-7-119></a><span class=k>class</span><span class=w> </span><span class=nc>ProductionConfig</span><span class=p>(</span><span class=n>Config</span><span class=p>):</span>
 <a id=__codelineno-7-120 name=__codelineno-7-120 href=#__codelineno-7-120></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;生产环境配置信息&quot;&quot;&quot;</span>
 <a id=__codelineno-7-121 name=__codelineno-7-121 href=#__codelineno-7-121></a>    <span class=n>DEBUG</span> <span class=o>=</span> <span class=kc>False</span>
 <a id=__codelineno-7-122 name=__codelineno-7-122 href=#__codelineno-7-122></a>
@@ -248,17 +248,17 @@
 <a id=__codelineno-8-6 name=__codelineno-8-6 href=#__codelineno-8-6></a>
 <a id=__codelineno-8-7 name=__codelineno-8-7 href=#__codelineno-8-7></a><span class=sd>所以最好的办法是把它放在不依赖其他模块的独立文件中。</span>
 <a id=__codelineno-8-8 name=__codelineno-8-8 href=#__codelineno-8-8></a><span class=sd>&#39;&#39;&#39;</span>
-<a id=__codelineno-8-9 name=__codelineno-8-9 href=#__codelineno-8-9></a><span class=kn>from</span> <span class=nn>flask_apscheduler</span> <span class=kn>import</span> <span class=n>APScheduler</span>
+<a id=__codelineno-8-9 name=__codelineno-8-9 href=#__codelineno-8-9></a><span class=kn>from</span><span class=w> </span><span class=nn>flask_apscheduler</span><span class=w> </span><span class=kn>import</span> <span class=n>APScheduler</span>
 <a id=__codelineno-8-10 name=__codelineno-8-10 href=#__codelineno-8-10></a>
 <a id=__codelineno-8-11 name=__codelineno-8-11 href=#__codelineno-8-11></a><span class=c1># db</span>
 <a id=__codelineno-8-12 name=__codelineno-8-12 href=#__codelineno-8-12></a><span class=n>db</span> <span class=o>=</span> <span class=n>SQLAlchemy</span><span class=p>()</span>
-</code></pre></div> <h4 id=模型示例>模型示例<a class=headerlink href=#模型示例 title="Permanent link">&para;</a></h4> <p><code>models/todo.py</code></p> <p>首先定义模型，如下示例</p> <div class=highlight><pre><span></span><code><a id=__codelineno-9-1 name=__codelineno-9-1 href=#__codelineno-9-1></a><span class=kn>from</span> <span class=nn>flask</span> <span class=kn>import</span> <span class=n>url_for</span>
-<a id=__codelineno-9-2 name=__codelineno-9-2 href=#__codelineno-9-2></a><span class=kn>from</span> <span class=nn>sqlalchemy.exc</span> <span class=kn>import</span> <span class=n>SQLAlchemyError</span>
+</code></pre></div> <h4 id=模型示例>模型示例<a class=headerlink href=#模型示例 title="Permanent link">&para;</a></h4> <p><code>models/todo.py</code></p> <p>首先定义模型，如下示例</p> <div class=highlight><pre><span></span><code><a id=__codelineno-9-1 name=__codelineno-9-1 href=#__codelineno-9-1></a><span class=kn>from</span><span class=w> </span><span class=nn>flask</span><span class=w> </span><span class=kn>import</span> <span class=n>url_for</span>
+<a id=__codelineno-9-2 name=__codelineno-9-2 href=#__codelineno-9-2></a><span class=kn>from</span><span class=w> </span><span class=nn>sqlalchemy.exc</span><span class=w> </span><span class=kn>import</span> <span class=n>SQLAlchemyError</span>
 <a id=__codelineno-9-3 name=__codelineno-9-3 href=#__codelineno-9-3></a>
-<a id=__codelineno-9-4 name=__codelineno-9-4 href=#__codelineno-9-4></a><span class=kn>from</span> <span class=nn>ext</span> <span class=kn>import</span> <span class=n>db</span>
+<a id=__codelineno-9-4 name=__codelineno-9-4 href=#__codelineno-9-4></a><span class=kn>from</span><span class=w> </span><span class=nn>ext</span><span class=w> </span><span class=kn>import</span> <span class=n>db</span>
 <a id=__codelineno-9-5 name=__codelineno-9-5 href=#__codelineno-9-5></a>
 <a id=__codelineno-9-6 name=__codelineno-9-6 href=#__codelineno-9-6></a>
-<a id=__codelineno-9-7 name=__codelineno-9-7 href=#__codelineno-9-7></a><span class=k>class</span> <span class=nc>Todo</span><span class=p>(</span><span class=n>db</span><span class=o>.</span><span class=n>Model</span><span class=p>):</span>
+<a id=__codelineno-9-7 name=__codelineno-9-7 href=#__codelineno-9-7></a><span class=k>class</span><span class=w> </span><span class=nc>Todo</span><span class=p>(</span><span class=n>db</span><span class=o>.</span><span class=n>Model</span><span class=p>):</span>
 <a id=__codelineno-9-8 name=__codelineno-9-8 href=#__codelineno-9-8></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <a id=__codelineno-9-9 name=__codelineno-9-9 href=#__codelineno-9-9></a><span class=sd>    任务清单表</span>
 <a id=__codelineno-9-10 name=__codelineno-9-10 href=#__codelineno-9-10></a><span class=sd>    &quot;&quot;&quot;</span>
@@ -268,21 +268,21 @@
 <a id=__codelineno-9-14 name=__codelineno-9-14 href=#__codelineno-9-14></a>    <span class=n>description</span> <span class=o>=</span> <span class=n>db</span><span class=o>.</span><span class=n>Column</span><span class=p>(</span><span class=n>db</span><span class=o>.</span><span class=n>String</span><span class=p>(</span><span class=mi>60</span><span class=p>),</span> <span class=n>nullable</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
 <a id=__codelineno-9-15 name=__codelineno-9-15 href=#__codelineno-9-15></a>    <span class=n>done</span> <span class=o>=</span> <span class=n>db</span><span class=o>.</span><span class=n>Column</span><span class=p>(</span><span class=n>db</span><span class=o>.</span><span class=n>Boolean</span><span class=p>,</span> <span class=n>nullable</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
 <a id=__codelineno-9-16 name=__codelineno-9-16 href=#__codelineno-9-16></a>
-<a id=__codelineno-9-17 name=__codelineno-9-17 href=#__codelineno-9-17></a>    <span class=k>def</span> <span class=nf>get</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=nb>id</span><span class=p>):</span>
+<a id=__codelineno-9-17 name=__codelineno-9-17 href=#__codelineno-9-17></a>    <span class=k>def</span><span class=w> </span><span class=nf>get</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=nb>id</span><span class=p>):</span>
 <a id=__codelineno-9-18 name=__codelineno-9-18 href=#__codelineno-9-18></a>        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>query</span><span class=o>.</span><span class=n>filter_by</span><span class=p>(</span><span class=nb>id</span><span class=o>=</span><span class=nb>id</span><span class=p>)</span><span class=o>.</span><span class=n>first</span><span class=p>()</span>
 <a id=__codelineno-9-19 name=__codelineno-9-19 href=#__codelineno-9-19></a>
-<a id=__codelineno-9-20 name=__codelineno-9-20 href=#__codelineno-9-20></a>    <span class=k>def</span> <span class=nf>add</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>user</span><span class=p>):</span>
+<a id=__codelineno-9-20 name=__codelineno-9-20 href=#__codelineno-9-20></a>    <span class=k>def</span><span class=w> </span><span class=nf>add</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>user</span><span class=p>):</span>
 <a id=__codelineno-9-21 name=__codelineno-9-21 href=#__codelineno-9-21></a>        <span class=n>db</span><span class=o>.</span><span class=n>session</span><span class=o>.</span><span class=n>add</span><span class=p>(</span><span class=n>user</span><span class=p>)</span>
 <a id=__codelineno-9-22 name=__codelineno-9-22 href=#__codelineno-9-22></a>        <span class=k>return</span> <span class=n>session_commit</span><span class=p>()</span>
 <a id=__codelineno-9-23 name=__codelineno-9-23 href=#__codelineno-9-23></a>
-<a id=__codelineno-9-24 name=__codelineno-9-24 href=#__codelineno-9-24></a>    <span class=k>def</span> <span class=nf>update</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-9-24 name=__codelineno-9-24 href=#__codelineno-9-24></a>    <span class=k>def</span><span class=w> </span><span class=nf>update</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-9-25 name=__codelineno-9-25 href=#__codelineno-9-25></a>        <span class=k>return</span> <span class=n>session_commit</span><span class=p>()</span>
 <a id=__codelineno-9-26 name=__codelineno-9-26 href=#__codelineno-9-26></a>
-<a id=__codelineno-9-27 name=__codelineno-9-27 href=#__codelineno-9-27></a>    <span class=k>def</span> <span class=nf>delete</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=nb>id</span><span class=p>):</span>
+<a id=__codelineno-9-27 name=__codelineno-9-27 href=#__codelineno-9-27></a>    <span class=k>def</span><span class=w> </span><span class=nf>delete</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=nb>id</span><span class=p>):</span>
 <a id=__codelineno-9-28 name=__codelineno-9-28 href=#__codelineno-9-28></a>        <span class=bp>self</span><span class=o>.</span><span class=n>query</span><span class=o>.</span><span class=n>filter_by</span><span class=p>(</span><span class=nb>id</span><span class=o>=</span><span class=nb>id</span><span class=p>)</span><span class=o>.</span><span class=n>delete</span><span class=p>()</span>
 <a id=__codelineno-9-29 name=__codelineno-9-29 href=#__codelineno-9-29></a>        <span class=k>return</span> <span class=n>session_commit</span><span class=p>()</span>
 <a id=__codelineno-9-30 name=__codelineno-9-30 href=#__codelineno-9-30></a>
-<a id=__codelineno-9-31 name=__codelineno-9-31 href=#__codelineno-9-31></a>    <span class=k>def</span> <span class=nf>to_json</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-9-31 name=__codelineno-9-31 href=#__codelineno-9-31></a>    <span class=k>def</span><span class=w> </span><span class=nf>to_json</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-9-32 name=__codelineno-9-32 href=#__codelineno-9-32></a>        <span class=n>json_post</span> <span class=o>=</span> <span class=p>{</span>
 <a id=__codelineno-9-33 name=__codelineno-9-33 href=#__codelineno-9-33></a>            <span class=c1># 蓝图名称+视图函数名称</span>
 <a id=__codelineno-9-34 name=__codelineno-9-34 href=#__codelineno-9-34></a>            <span class=s1>&#39;url&#39;</span><span class=p>:</span> <span class=n>url_for</span><span class=p>(</span><span class=s1>&#39;todo_v1.get_tasks_list&#39;</span><span class=p>,</span> <span class=nb>id</span><span class=o>=</span><span class=bp>self</span><span class=o>.</span><span class=n>id</span><span class=p>,</span> <span class=n>_external</span><span class=o>=</span><span class=kc>True</span><span class=p>),</span>
@@ -293,25 +293,25 @@
 <a id=__codelineno-9-39 name=__codelineno-9-39 href=#__codelineno-9-39></a>        <span class=k>return</span> <span class=n>json_post</span>
 <a id=__codelineno-9-40 name=__codelineno-9-40 href=#__codelineno-9-40></a>
 <a id=__codelineno-9-41 name=__codelineno-9-41 href=#__codelineno-9-41></a>
-<a id=__codelineno-9-42 name=__codelineno-9-42 href=#__codelineno-9-42></a><span class=k>def</span> <span class=nf>session_commit</span><span class=p>():</span>
+<a id=__codelineno-9-42 name=__codelineno-9-42 href=#__codelineno-9-42></a><span class=k>def</span><span class=w> </span><span class=nf>session_commit</span><span class=p>():</span>
 <a id=__codelineno-9-43 name=__codelineno-9-43 href=#__codelineno-9-43></a>    <span class=k>try</span><span class=p>:</span>
 <a id=__codelineno-9-44 name=__codelineno-9-44 href=#__codelineno-9-44></a>        <span class=n>db</span><span class=o>.</span><span class=n>session</span><span class=o>.</span><span class=n>commit</span><span class=p>()</span>
 <a id=__codelineno-9-45 name=__codelineno-9-45 href=#__codelineno-9-45></a>    <span class=k>except</span> <span class=n>SQLAlchemyError</span> <span class=k>as</span> <span class=n>e</span><span class=p>:</span>
 <a id=__codelineno-9-46 name=__codelineno-9-46 href=#__codelineno-9-46></a>        <span class=n>db</span><span class=o>.</span><span class=n>session</span><span class=o>.</span><span class=n>rollback</span><span class=p>()</span>
 <a id=__codelineno-9-47 name=__codelineno-9-47 href=#__codelineno-9-47></a>        <span class=n>reason</span> <span class=o>=</span> <span class=nb>str</span><span class=p>(</span><span class=n>e</span><span class=p>)</span>
 <a id=__codelineno-9-48 name=__codelineno-9-48 href=#__codelineno-9-48></a>        <span class=k>return</span> <span class=n>reason</span>
-</code></pre></div> <h4 id=应用工厂函数>应用工厂函数<a class=headerlink href=#应用工厂函数 title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code><a id=__codelineno-10-1 name=__codelineno-10-1 href=#__codelineno-10-1></a><span class=kn>import</span> <span class=nn>os</span>
-<a id=__codelineno-10-2 name=__codelineno-10-2 href=#__codelineno-10-2></a><span class=kn>from</span> <span class=nn>config</span> <span class=kn>import</span> <span class=n>config</span>
-<a id=__codelineno-10-3 name=__codelineno-10-3 href=#__codelineno-10-3></a><span class=kn>from</span> <span class=nn>flask</span> <span class=kn>import</span> <span class=n>Flask</span><span class=p>,</span> <span class=n>request</span>
-<a id=__codelineno-10-4 name=__codelineno-10-4 href=#__codelineno-10-4></a><span class=kn>from</span> <span class=nn>flask_cors</span> <span class=kn>import</span> <span class=n>CORS</span>
-<a id=__codelineno-10-5 name=__codelineno-10-5 href=#__codelineno-10-5></a><span class=kn>from</span> <span class=nn>ext</span> <span class=kn>import</span> <span class=n>db</span><span class=p>,</span> <span class=n>jwt</span><span class=p>,</span> <span class=n>scheduler</span>
-<a id=__codelineno-10-6 name=__codelineno-10-6 href=#__codelineno-10-6></a><span class=kn>from</span> <span class=nn>app.utils.core</span> <span class=kn>import</span> <span class=n>JSONEncoder</span>
+</code></pre></div> <h4 id=应用工厂函数>应用工厂函数<a class=headerlink href=#应用工厂函数 title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code><a id=__codelineno-10-1 name=__codelineno-10-1 href=#__codelineno-10-1></a><span class=kn>import</span><span class=w> </span><span class=nn>os</span>
+<a id=__codelineno-10-2 name=__codelineno-10-2 href=#__codelineno-10-2></a><span class=kn>from</span><span class=w> </span><span class=nn>config</span><span class=w> </span><span class=kn>import</span> <span class=n>config</span>
+<a id=__codelineno-10-3 name=__codelineno-10-3 href=#__codelineno-10-3></a><span class=kn>from</span><span class=w> </span><span class=nn>flask</span><span class=w> </span><span class=kn>import</span> <span class=n>Flask</span><span class=p>,</span> <span class=n>request</span>
+<a id=__codelineno-10-4 name=__codelineno-10-4 href=#__codelineno-10-4></a><span class=kn>from</span><span class=w> </span><span class=nn>flask_cors</span><span class=w> </span><span class=kn>import</span> <span class=n>CORS</span>
+<a id=__codelineno-10-5 name=__codelineno-10-5 href=#__codelineno-10-5></a><span class=kn>from</span><span class=w> </span><span class=nn>ext</span><span class=w> </span><span class=kn>import</span> <span class=n>db</span><span class=p>,</span> <span class=n>jwt</span><span class=p>,</span> <span class=n>scheduler</span>
+<a id=__codelineno-10-6 name=__codelineno-10-6 href=#__codelineno-10-6></a><span class=kn>from</span><span class=w> </span><span class=nn>app.utils.core</span><span class=w> </span><span class=kn>import</span> <span class=n>JSONEncoder</span>
 <a id=__codelineno-10-7 name=__codelineno-10-7 href=#__codelineno-10-7></a><span class=c1># 导入蓝图</span>
-<a id=__codelineno-10-8 name=__codelineno-10-8 href=#__codelineno-10-8></a><span class=kn>from</span> <span class=nn>app.apis.response_msg_tasks.views</span> <span class=kn>import</span> <span class=n>response_msg_bp</span>
+<a id=__codelineno-10-8 name=__codelineno-10-8 href=#__codelineno-10-8></a><span class=kn>from</span><span class=w> </span><span class=nn>app.apis.response_msg_tasks.views</span><span class=w> </span><span class=kn>import</span> <span class=n>response_msg_bp</span>
 <a id=__codelineno-10-9 name=__codelineno-10-9 href=#__codelineno-10-9></a>
 <a id=__codelineno-10-10 name=__codelineno-10-10 href=#__codelineno-10-10></a><span class=c1># v1接口</span>
-<a id=__codelineno-10-11 name=__codelineno-10-11 href=#__codelineno-10-11></a><span class=kn>from</span> <span class=nn>app.apis.v1.todo.views</span> <span class=kn>import</span> <span class=n>todo_v1_bp</span>
-<a id=__codelineno-10-12 name=__codelineno-10-12 href=#__codelineno-10-12></a><span class=kn>from</span> <span class=nn>app.apis.v1.users.views</span> <span class=kn>import</span> <span class=n>user_v1_bp</span>
+<a id=__codelineno-10-11 name=__codelineno-10-11 href=#__codelineno-10-11></a><span class=kn>from</span><span class=w> </span><span class=nn>app.apis.v1.todo.views</span><span class=w> </span><span class=kn>import</span> <span class=n>todo_v1_bp</span>
+<a id=__codelineno-10-12 name=__codelineno-10-12 href=#__codelineno-10-12></a><span class=kn>from</span><span class=w> </span><span class=nn>app.apis.v1.users.views</span><span class=w> </span><span class=kn>import</span> <span class=n>user_v1_bp</span>
 <a id=__codelineno-10-13 name=__codelineno-10-13 href=#__codelineno-10-13></a>
 <a id=__codelineno-10-14 name=__codelineno-10-14 href=#__codelineno-10-14></a>
 <a id=__codelineno-10-15 name=__codelineno-10-15 href=#__codelineno-10-15></a><span class=c1># v2接口</span>
@@ -319,7 +319,7 @@
 <a id=__codelineno-10-17 name=__codelineno-10-17 href=#__codelineno-10-17></a><span class=c1># from app.apis.v2.users import user_v2_bp</span>
 <a id=__codelineno-10-18 name=__codelineno-10-18 href=#__codelineno-10-18></a>
 <a id=__codelineno-10-19 name=__codelineno-10-19 href=#__codelineno-10-19></a>
-<a id=__codelineno-10-20 name=__codelineno-10-20 href=#__codelineno-10-20></a><span class=k>def</span> <span class=nf>create_app</span><span class=p>(</span><span class=n>config_name</span><span class=p>,</span> <span class=n>config_path</span><span class=o>=</span><span class=kc>None</span><span class=p>):</span>
+<a id=__codelineno-10-20 name=__codelineno-10-20 href=#__codelineno-10-20></a><span class=k>def</span><span class=w> </span><span class=nf>create_app</span><span class=p>(</span><span class=n>config_name</span><span class=p>,</span> <span class=n>config_path</span><span class=o>=</span><span class=kc>None</span><span class=p>):</span>
 <a id=__codelineno-10-21 name=__codelineno-10-21 href=#__codelineno-10-21></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;工厂函数&quot;&quot;&quot;</span>
 <a id=__codelineno-10-22 name=__codelineno-10-22 href=#__codelineno-10-22></a>    <span class=n>app</span> <span class=o>=</span> <span class=n>Flask</span><span class=p>(</span><span class=vm>__name__</span><span class=p>)</span>
 <a id=__codelineno-10-23 name=__codelineno-10-23 href=#__codelineno-10-23></a>
@@ -341,7 +341,7 @@
 <a id=__codelineno-10-39 name=__codelineno-10-39 href=#__codelineno-10-39></a>    <span class=k>return</span> <span class=n>app</span>
 <a id=__codelineno-10-40 name=__codelineno-10-40 href=#__codelineno-10-40></a>
 <a id=__codelineno-10-41 name=__codelineno-10-41 href=#__codelineno-10-41></a>
-<a id=__codelineno-10-42 name=__codelineno-10-42 href=#__codelineno-10-42></a><span class=k>def</span> <span class=nf>register_extensions</span><span class=p>(</span><span class=n>app</span><span class=p>):</span>
+<a id=__codelineno-10-42 name=__codelineno-10-42 href=#__codelineno-10-42></a><span class=k>def</span><span class=w> </span><span class=nf>register_extensions</span><span class=p>(</span><span class=n>app</span><span class=p>):</span>
 <a id=__codelineno-10-43 name=__codelineno-10-43 href=#__codelineno-10-43></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;注册扩展&quot;&quot;&quot;</span>
 <a id=__codelineno-10-44 name=__codelineno-10-44 href=#__codelineno-10-44></a>    <span class=c1># 数据库注册</span>
 <a id=__codelineno-10-45 name=__codelineno-10-45 href=#__codelineno-10-45></a>    <span class=n>db</span><span class=o>.</span><span class=n>init_app</span><span class=p>(</span><span class=n>app</span><span class=o>=</span><span class=n>app</span><span class=p>)</span>
@@ -349,7 +349,7 @@
 <a id=__codelineno-10-47 name=__codelineno-10-47 href=#__codelineno-10-47></a>    <span class=n>jwt</span><span class=o>.</span><span class=n>init_app</span><span class=p>(</span><span class=n>app</span><span class=o>=</span><span class=n>app</span><span class=p>)</span>
 <a id=__codelineno-10-48 name=__codelineno-10-48 href=#__codelineno-10-48></a>
 <a id=__codelineno-10-49 name=__codelineno-10-49 href=#__codelineno-10-49></a>
-<a id=__codelineno-10-50 name=__codelineno-10-50 href=#__codelineno-10-50></a><span class=k>def</span> <span class=nf>register_blueprints</span><span class=p>(</span><span class=n>app</span><span class=p>):</span>
+<a id=__codelineno-10-50 name=__codelineno-10-50 href=#__codelineno-10-50></a><span class=k>def</span><span class=w> </span><span class=nf>register_blueprints</span><span class=p>(</span><span class=n>app</span><span class=p>):</span>
 <a id=__codelineno-10-51 name=__codelineno-10-51 href=#__codelineno-10-51></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;注册蓝本&quot;&quot;&quot;</span>
 <a id=__codelineno-10-52 name=__codelineno-10-52 href=#__codelineno-10-52></a>    <span class=c1># task</span>
 <a id=__codelineno-10-53 name=__codelineno-10-53 href=#__codelineno-10-53></a>    <span class=n>app</span><span class=o>.</span><span class=n>register_blueprint</span><span class=p>(</span><span class=n>todo_v1_bp</span><span class=p>)</span>
@@ -358,24 +358,24 @@
 <a id=__codelineno-10-56 name=__codelineno-10-56 href=#__codelineno-10-56></a>    <span class=c1># user</span>
 <a id=__codelineno-10-57 name=__codelineno-10-57 href=#__codelineno-10-57></a>    <span class=n>app</span><span class=o>.</span><span class=n>register_blueprint</span><span class=p>(</span><span class=n>user_v1_bp</span><span class=p>)</span>
 <a id=__codelineno-10-58 name=__codelineno-10-58 href=#__codelineno-10-58></a>    <span class=c1># app.register_blueprint(user_v2_bp)</span>
-</code></pre></div> <h4 id=蓝图示例>蓝图示例<a class=headerlink href=#蓝图示例 title="Permanent link">&para;</a></h4> <p><code>app/apis/v1/todo/__init__.py</code></p> <div class=highlight><pre><span></span><code><a id=__codelineno-11-1 name=__codelineno-11-1 href=#__codelineno-11-1></a><span class=kn>from</span> <span class=nn>flask</span> <span class=kn>import</span> <span class=n>Blueprint</span>
+</code></pre></div> <h4 id=蓝图示例>蓝图示例<a class=headerlink href=#蓝图示例 title="Permanent link">&para;</a></h4> <p><code>app/apis/v1/todo/__init__.py</code></p> <div class=highlight><pre><span></span><code><a id=__codelineno-11-1 name=__codelineno-11-1 href=#__codelineno-11-1></a><span class=kn>from</span><span class=w> </span><span class=nn>flask</span><span class=w> </span><span class=kn>import</span> <span class=n>Blueprint</span>
 <a id=__codelineno-11-2 name=__codelineno-11-2 href=#__codelineno-11-2></a>
 <a id=__codelineno-11-3 name=__codelineno-11-3 href=#__codelineno-11-3></a><span class=c1># 定义蓝图对象todo_v1_bp</span>
 <a id=__codelineno-11-4 name=__codelineno-11-4 href=#__codelineno-11-4></a><span class=c1># 第一个参数：蓝图的名称</span>
 <a id=__codelineno-11-5 name=__codelineno-11-5 href=#__codelineno-11-5></a><span class=c1># 第二个参数：该蓝图所在的模块名称</span>
 <a id=__codelineno-11-6 name=__codelineno-11-6 href=#__codelineno-11-6></a><span class=c1># 第三个参数：指定页面的URL前缀</span>
 <a id=__codelineno-11-7 name=__codelineno-11-7 href=#__codelineno-11-7></a><span class=n>todo_v1_bp</span> <span class=o>=</span> <span class=n>Blueprint</span><span class=p>(</span><span class=s1>&#39;todo_v1_bp&#39;</span><span class=p>,</span> <span class=vm>__name__</span><span class=p>,</span> <span class=n>url_prefix</span><span class=o>=</span><span class=s2>&quot;/api/v1.0&quot;</span><span class=p>)</span>
-</code></pre></div> <h3 id=jsonify-函数>jsonify 函数<a class=headerlink href=#jsonify-函数 title="Permanent link">&para;</a></h3> <h4 id=说明>说明<a class=headerlink href=#说明 title="Permanent link">&para;</a></h4> <p>jsonify 的作用是把数据序列化成 JSON，并且在声明返回头部 application/json， 它返回一个 Response 对象它使用 json.dumps 序列化数据, 但是 args 和 kwargs 会被作为数据，而不是参数。</p> <p>主要功能</p> <p>1.如果返回值是一个字典，那么会调用 jsonify() 来产生一个响应</p> <p>2.jsonify 返回的 Response 的 headers 属性为：Content-Type: application/json ，是标准的 json 格式。</p> <p>3.jsonify 自动去除了 JSON 格式中逗号冒号间的空格，起到了压缩数据的作用。</p> <hr> <p>jsonify 和 json 的区别</p> <ul> <li> <p>使用 jsonify 时，返回的 http response 的 Content-Type 是：Content-Type: application/json</p> </li> <li> <p>使用 json.dumps 时，Content-Type 则是：Content-Type: text/html; charset=utf-8</p> </li> </ul> <h4 id=示例代码>示例代码<a class=headerlink href=#示例代码 title="Permanent link">&para;</a></h4> <p><code>app/apis/v1/todo/views.py</code></p> <div class=highlight><pre><span></span><code><a id=__codelineno-12-1 name=__codelineno-12-1 href=#__codelineno-12-1></a><span class=kn>from</span> <span class=nn>flask</span> <span class=kn>import</span> <span class=n>request</span><span class=p>,</span> <span class=n>abort</span><span class=p>,</span> <span class=n>jsonify</span>
-<a id=__codelineno-12-2 name=__codelineno-12-2 href=#__codelineno-12-2></a><span class=kn>from</span> <span class=nn>.</span> <span class=kn>import</span> <span class=n>todo_v1_bp</span>
-<a id=__codelineno-12-3 name=__codelineno-12-3 href=#__codelineno-12-3></a><span class=kn>from</span> <span class=nn>ext</span> <span class=kn>import</span> <span class=n>db</span>
-<a id=__codelineno-12-4 name=__codelineno-12-4 href=#__codelineno-12-4></a><span class=kn>from</span> <span class=nn>app.models.todo</span> <span class=kn>import</span> <span class=n>Todo</span>
-<a id=__codelineno-12-5 name=__codelineno-12-5 href=#__codelineno-12-5></a><span class=kn>from</span> <span class=nn>flask_jwt_extended</span> <span class=kn>import</span> <span class=n>jwt_required</span>
+</code></pre></div> <h3 id=jsonify-函数>jsonify 函数<a class=headerlink href=#jsonify-函数 title="Permanent link">&para;</a></h3> <h4 id=说明>说明<a class=headerlink href=#说明 title="Permanent link">&para;</a></h4> <p>jsonify 的作用是把数据序列化成 JSON，并且在声明返回头部 application/json， 它返回一个 Response 对象它使用 json.dumps 序列化数据, 但是 args 和 kwargs 会被作为数据，而不是参数。</p> <p>主要功能</p> <p>1.如果返回值是一个字典，那么会调用 jsonify() 来产生一个响应</p> <p>2.jsonify 返回的 Response 的 headers 属性为：Content-Type: application/json ，是标准的 json 格式。</p> <p>3.jsonify 自动去除了 JSON 格式中逗号冒号间的空格，起到了压缩数据的作用。</p> <hr> <p>jsonify 和 json 的区别</p> <ul> <li> <p>使用 jsonify 时，返回的 http response 的 Content-Type 是：Content-Type: application/json</p> </li> <li> <p>使用 json.dumps 时，Content-Type 则是：Content-Type: text/html; charset=utf-8</p> </li> </ul> <h4 id=示例代码>示例代码<a class=headerlink href=#示例代码 title="Permanent link">&para;</a></h4> <p><code>app/apis/v1/todo/views.py</code></p> <div class=highlight><pre><span></span><code><a id=__codelineno-12-1 name=__codelineno-12-1 href=#__codelineno-12-1></a><span class=kn>from</span><span class=w> </span><span class=nn>flask</span><span class=w> </span><span class=kn>import</span> <span class=n>request</span><span class=p>,</span> <span class=n>abort</span><span class=p>,</span> <span class=n>jsonify</span>
+<a id=__codelineno-12-2 name=__codelineno-12-2 href=#__codelineno-12-2></a><span class=kn>from</span><span class=w> </span><span class=nn>.</span><span class=w> </span><span class=kn>import</span> <span class=n>todo_v1_bp</span>
+<a id=__codelineno-12-3 name=__codelineno-12-3 href=#__codelineno-12-3></a><span class=kn>from</span><span class=w> </span><span class=nn>ext</span><span class=w> </span><span class=kn>import</span> <span class=n>db</span>
+<a id=__codelineno-12-4 name=__codelineno-12-4 href=#__codelineno-12-4></a><span class=kn>from</span><span class=w> </span><span class=nn>app.models.todo</span><span class=w> </span><span class=kn>import</span> <span class=n>Todo</span>
+<a id=__codelineno-12-5 name=__codelineno-12-5 href=#__codelineno-12-5></a><span class=kn>from</span><span class=w> </span><span class=nn>flask_jwt_extended</span><span class=w> </span><span class=kn>import</span> <span class=n>jwt_required</span>
 <a id=__codelineno-12-6 name=__codelineno-12-6 href=#__codelineno-12-6></a>
 <a id=__codelineno-12-7 name=__codelineno-12-7 href=#__codelineno-12-7></a>
 <a id=__codelineno-12-8 name=__codelineno-12-8 href=#__codelineno-12-8></a><span class=nd>@todo_v1_bp</span><span class=o>.</span><span class=n>route</span><span class=p>(</span><span class=s1>&#39;/tasks&#39;</span><span class=p>,</span> <span class=n>methods</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;GET&#39;</span><span class=p>])</span>
 <a id=__codelineno-12-9 name=__codelineno-12-9 href=#__codelineno-12-9></a><span class=c1># 需要验证token</span>
 <a id=__codelineno-12-10 name=__codelineno-12-10 href=#__codelineno-12-10></a><span class=nd>@jwt_required</span><span class=p>()</span>
-<a id=__codelineno-12-11 name=__codelineno-12-11 href=#__codelineno-12-11></a><span class=k>def</span> <span class=nf>get_tasks_list</span><span class=p>():</span>
+<a id=__codelineno-12-11 name=__codelineno-12-11 href=#__codelineno-12-11></a><span class=k>def</span><span class=w> </span><span class=nf>get_tasks_list</span><span class=p>():</span>
 <a id=__codelineno-12-12 name=__codelineno-12-12 href=#__codelineno-12-12></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <a id=__codelineno-12-13 name=__codelineno-12-13 href=#__codelineno-12-13></a><span class=sd>    查看所有任务</span>
 <a id=__codelineno-12-14 name=__codelineno-12-14 href=#__codelineno-12-14></a><span class=sd>    &quot;&quot;&quot;</span>
@@ -386,7 +386,7 @@
 <a id=__codelineno-12-19 name=__codelineno-12-19 href=#__codelineno-12-19></a><span class=nd>@todo_v1_bp</span><span class=o>.</span><span class=n>route</span><span class=p>(</span><span class=s1>&#39;/tasks/&lt;int:id&gt;&#39;</span><span class=p>,</span> <span class=n>methods</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;GET&#39;</span><span class=p>])</span>
 <a id=__codelineno-12-20 name=__codelineno-12-20 href=#__codelineno-12-20></a><span class=c1># 需要验证token</span>
 <a id=__codelineno-12-21 name=__codelineno-12-21 href=#__codelineno-12-21></a><span class=nd>@jwt_required</span><span class=p>()</span>
-<a id=__codelineno-12-22 name=__codelineno-12-22 href=#__codelineno-12-22></a><span class=k>def</span> <span class=nf>get_task</span><span class=p>(</span><span class=nb>id</span><span class=p>):</span>
+<a id=__codelineno-12-22 name=__codelineno-12-22 href=#__codelineno-12-22></a><span class=k>def</span><span class=w> </span><span class=nf>get_task</span><span class=p>(</span><span class=nb>id</span><span class=p>):</span>
 <a id=__codelineno-12-23 name=__codelineno-12-23 href=#__codelineno-12-23></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <a id=__codelineno-12-24 name=__codelineno-12-24 href=#__codelineno-12-24></a><span class=sd>    查看单条任务</span>
 <a id=__codelineno-12-25 name=__codelineno-12-25 href=#__codelineno-12-25></a><span class=sd>    &quot;&quot;&quot;</span>
@@ -397,7 +397,7 @@
 <a id=__codelineno-12-30 name=__codelineno-12-30 href=#__codelineno-12-30></a><span class=nd>@todo_v1_bp</span><span class=o>.</span><span class=n>route</span><span class=p>(</span><span class=s1>&#39;/tasks&#39;</span><span class=p>,</span> <span class=n>methods</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;POST&#39;</span><span class=p>])</span>
 <a id=__codelineno-12-31 name=__codelineno-12-31 href=#__codelineno-12-31></a><span class=c1># 需要验证token</span>
 <a id=__codelineno-12-32 name=__codelineno-12-32 href=#__codelineno-12-32></a><span class=nd>@jwt_required</span><span class=p>()</span>
-<a id=__codelineno-12-33 name=__codelineno-12-33 href=#__codelineno-12-33></a><span class=k>def</span> <span class=nf>create_task</span><span class=p>():</span>
+<a id=__codelineno-12-33 name=__codelineno-12-33 href=#__codelineno-12-33></a><span class=k>def</span><span class=w> </span><span class=nf>create_task</span><span class=p>():</span>
 <a id=__codelineno-12-34 name=__codelineno-12-34 href=#__codelineno-12-34></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <a id=__codelineno-12-35 name=__codelineno-12-35 href=#__codelineno-12-35></a><span class=sd>    创建单条任务</span>
 <a id=__codelineno-12-36 name=__codelineno-12-36 href=#__codelineno-12-36></a><span class=sd>    &quot;&quot;&quot;</span>
@@ -415,7 +415,7 @@
 <a id=__codelineno-12-48 name=__codelineno-12-48 href=#__codelineno-12-48></a><span class=nd>@todo_v1_bp</span><span class=o>.</span><span class=n>route</span><span class=p>(</span><span class=s1>&#39;/tasks/&lt;int:id&gt;&#39;</span><span class=p>,</span> <span class=n>methods</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;PUT&#39;</span><span class=p>])</span>
 <a id=__codelineno-12-49 name=__codelineno-12-49 href=#__codelineno-12-49></a><span class=c1># 需要验证token</span>
 <a id=__codelineno-12-50 name=__codelineno-12-50 href=#__codelineno-12-50></a><span class=nd>@jwt_required</span><span class=p>()</span>
-<a id=__codelineno-12-51 name=__codelineno-12-51 href=#__codelineno-12-51></a><span class=k>def</span> <span class=nf>update_task</span><span class=p>(</span><span class=nb>id</span><span class=p>):</span>
+<a id=__codelineno-12-51 name=__codelineno-12-51 href=#__codelineno-12-51></a><span class=k>def</span><span class=w> </span><span class=nf>update_task</span><span class=p>(</span><span class=nb>id</span><span class=p>):</span>
 <a id=__codelineno-12-52 name=__codelineno-12-52 href=#__codelineno-12-52></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <a id=__codelineno-12-53 name=__codelineno-12-53 href=#__codelineno-12-53></a><span class=sd>    更新单条任务</span>
 <a id=__codelineno-12-54 name=__codelineno-12-54 href=#__codelineno-12-54></a><span class=sd>    &quot;&quot;&quot;</span>
@@ -438,7 +438,7 @@
 <a id=__codelineno-12-71 name=__codelineno-12-71 href=#__codelineno-12-71></a><span class=nd>@todo_v1_bp</span><span class=o>.</span><span class=n>route</span><span class=p>(</span><span class=s1>&#39;/tasks/&lt;int:id&gt;&#39;</span><span class=p>,</span> <span class=n>methods</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;DELETE&#39;</span><span class=p>])</span>
 <a id=__codelineno-12-72 name=__codelineno-12-72 href=#__codelineno-12-72></a><span class=c1># 需要验证token</span>
 <a id=__codelineno-12-73 name=__codelineno-12-73 href=#__codelineno-12-73></a><span class=nd>@jwt_required</span><span class=p>()</span>
-<a id=__codelineno-12-74 name=__codelineno-12-74 href=#__codelineno-12-74></a><span class=k>def</span> <span class=nf>delete_task</span><span class=p>(</span><span class=nb>id</span><span class=p>):</span>
+<a id=__codelineno-12-74 name=__codelineno-12-74 href=#__codelineno-12-74></a><span class=k>def</span><span class=w> </span><span class=nf>delete_task</span><span class=p>(</span><span class=nb>id</span><span class=p>):</span>
 <a id=__codelineno-12-75 name=__codelineno-12-75 href=#__codelineno-12-75></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <a id=__codelineno-12-76 name=__codelineno-12-76 href=#__codelineno-12-76></a><span class=sd>    删除单条任务</span>
 <a id=__codelineno-12-77 name=__codelineno-12-77 href=#__codelineno-12-77></a><span class=sd>    &quot;&quot;&quot;</span>
@@ -447,7 +447,7 @@
 <a id=__codelineno-12-80 name=__codelineno-12-80 href=#__codelineno-12-80></a>    <span class=n>post</span> <span class=o>=</span> <span class=n>Todo</span><span class=o>.</span><span class=n>query</span><span class=o>.</span><span class=n>get_or_404</span><span class=p>(</span><span class=nb>id</span><span class=p>)</span>
 <a id=__codelineno-12-81 name=__codelineno-12-81 href=#__codelineno-12-81></a>    <span class=n>Todo</span><span class=o>.</span><span class=n>delete</span><span class=p>(</span><span class=n>post</span><span class=p>,</span> <span class=nb>id</span><span class=p>)</span>
 <a id=__codelineno-12-82 name=__codelineno-12-82 href=#__codelineno-12-82></a>    <span class=k>return</span> <span class=n>jsonify</span><span class=p>({</span><span class=s1>&#39;msg&#39;</span><span class=p>:</span> <span class=s2>&quot;删除成功&quot;</span><span class=p>}),</span> <span class=mi>200</span>
-</code></pre></div> <h4 id=结合蓝图>结合蓝图<a class=headerlink href=#结合蓝图 title="Permanent link">&para;</a></h4> <p><code>app/apis/v1/todo/__init__.py</code></p> <div class=highlight><pre><span></span><code><a id=__codelineno-13-1 name=__codelineno-13-1 href=#__codelineno-13-1></a><span class=kn>from</span> <span class=nn>flask</span> <span class=kn>import</span> <span class=n>Blueprint</span>
+</code></pre></div> <h4 id=结合蓝图>结合蓝图<a class=headerlink href=#结合蓝图 title="Permanent link">&para;</a></h4> <p><code>app/apis/v1/todo/__init__.py</code></p> <div class=highlight><pre><span></span><code><a id=__codelineno-13-1 name=__codelineno-13-1 href=#__codelineno-13-1></a><span class=kn>from</span><span class=w> </span><span class=nn>flask</span><span class=w> </span><span class=kn>import</span> <span class=n>Blueprint</span>
 <a id=__codelineno-13-2 name=__codelineno-13-2 href=#__codelineno-13-2></a>
 <a id=__codelineno-13-3 name=__codelineno-13-3 href=#__codelineno-13-3></a><span class=c1># 定义蓝图对象todo_v1_bp</span>
 <a id=__codelineno-13-4 name=__codelineno-13-4 href=#__codelineno-13-4></a><span class=c1># 第一个参数：蓝图的名称</span>
@@ -455,13 +455,13 @@
 <a id=__codelineno-13-6 name=__codelineno-13-6 href=#__codelineno-13-6></a><span class=c1># 第三个参数：指定页面的URL前缀</span>
 <a id=__codelineno-13-7 name=__codelineno-13-7 href=#__codelineno-13-7></a><span class=n>todo_v1_bp</span> <span class=o>=</span> <span class=n>Blueprint</span><span class=p>(</span><span class=s1>&#39;todo_v1_bp&#39;</span><span class=p>,</span> <span class=vm>__name__</span><span class=p>,</span> <span class=n>url_prefix</span><span class=o>=</span><span class=s2>&quot;/api/v1.0&quot;</span><span class=p>)</span>
 </code></pre></div> <h3 id=flask-restful>Flask-RESTful<a class=headerlink href=#flask-restful title="Permanent link">&para;</a></h3> <h4 id=说明_1>说明<a class=headerlink href=#说明_1 title="Permanent link">&para;</a></h4> <p>Flask-RESTful 是一个快速实现 restful api 开发的扩展库，使用比较方便。</p> <h4 id=安装>安装<a class=headerlink href=#安装 title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code><a id=__codelineno-14-1 name=__codelineno-14-1 href=#__codelineno-14-1></a>pip<span class=w> </span>install<span class=w> </span>flask-restful
-</code></pre></div> <h4 id=文档>文档<a class=headerlink href=#文档 title="Permanent link">&para;</a></h4> <p><a href=https://flask-restful.readthedocs.io/en/latest/ >官方文档</a></p> <h4 id=示例代码_1>示例代码<a class=headerlink href=#示例代码_1 title="Permanent link">&para;</a></h4> <p><code>app/apis/v2/todo/views.py</code></p> <div class=highlight><pre><span></span><code><a id=__codelineno-15-1 name=__codelineno-15-1 href=#__codelineno-15-1></a><span class=kn>from</span> <span class=nn>flask</span> <span class=kn>import</span> <span class=n>abort</span>
+</code></pre></div> <h4 id=文档>文档<a class=headerlink href=#文档 title="Permanent link">&para;</a></h4> <p><a href=https://flask-restful.readthedocs.io/en/latest/ >官方文档</a></p> <h4 id=示例代码_1>示例代码<a class=headerlink href=#示例代码_1 title="Permanent link">&para;</a></h4> <p><code>app/apis/v2/todo/views.py</code></p> <div class=highlight><pre><span></span><code><a id=__codelineno-15-1 name=__codelineno-15-1 href=#__codelineno-15-1></a><span class=kn>from</span><span class=w> </span><span class=nn>flask</span><span class=w> </span><span class=kn>import</span> <span class=n>abort</span>
 <a id=__codelineno-15-2 name=__codelineno-15-2 href=#__codelineno-15-2></a>
-<a id=__codelineno-15-3 name=__codelineno-15-3 href=#__codelineno-15-3></a><span class=kn>from</span> <span class=nn>flask_restful</span> <span class=kn>import</span> <span class=n>Resource</span><span class=p>,</span> <span class=n>reqparse</span><span class=p>,</span> <span class=n>fields</span><span class=p>,</span> <span class=n>marshal</span><span class=p>,</span> <span class=n>marshal_with</span>
-<a id=__codelineno-15-4 name=__codelineno-15-4 href=#__codelineno-15-4></a><span class=kn>from</span> <span class=nn>flask_httpauth</span> <span class=kn>import</span> <span class=n>HTTPBasicAuth</span>
-<a id=__codelineno-15-5 name=__codelineno-15-5 href=#__codelineno-15-5></a><span class=kn>from</span> <span class=nn>app.models.todo</span> <span class=kn>import</span> <span class=n>Todo</span>
-<a id=__codelineno-15-6 name=__codelineno-15-6 href=#__codelineno-15-6></a><span class=kn>from</span> <span class=nn>ext</span> <span class=kn>import</span> <span class=n>db</span><span class=p>,</span> <span class=n>jwt</span>
-<a id=__codelineno-15-7 name=__codelineno-15-7 href=#__codelineno-15-7></a><span class=kn>from</span> <span class=nn>flask_jwt_extended</span> <span class=kn>import</span> <span class=n>jwt_required</span>
+<a id=__codelineno-15-3 name=__codelineno-15-3 href=#__codelineno-15-3></a><span class=kn>from</span><span class=w> </span><span class=nn>flask_restful</span><span class=w> </span><span class=kn>import</span> <span class=n>Resource</span><span class=p>,</span> <span class=n>reqparse</span><span class=p>,</span> <span class=n>fields</span><span class=p>,</span> <span class=n>marshal</span><span class=p>,</span> <span class=n>marshal_with</span>
+<a id=__codelineno-15-4 name=__codelineno-15-4 href=#__codelineno-15-4></a><span class=kn>from</span><span class=w> </span><span class=nn>flask_httpauth</span><span class=w> </span><span class=kn>import</span> <span class=n>HTTPBasicAuth</span>
+<a id=__codelineno-15-5 name=__codelineno-15-5 href=#__codelineno-15-5></a><span class=kn>from</span><span class=w> </span><span class=nn>app.models.todo</span><span class=w> </span><span class=kn>import</span> <span class=n>Todo</span>
+<a id=__codelineno-15-6 name=__codelineno-15-6 href=#__codelineno-15-6></a><span class=kn>from</span><span class=w> </span><span class=nn>ext</span><span class=w> </span><span class=kn>import</span> <span class=n>db</span><span class=p>,</span> <span class=n>jwt</span>
+<a id=__codelineno-15-7 name=__codelineno-15-7 href=#__codelineno-15-7></a><span class=kn>from</span><span class=w> </span><span class=nn>flask_jwt_extended</span><span class=w> </span><span class=kn>import</span> <span class=n>jwt_required</span>
 <a id=__codelineno-15-8 name=__codelineno-15-8 href=#__codelineno-15-8></a>
 <a id=__codelineno-15-9 name=__codelineno-15-9 href=#__codelineno-15-9></a><span class=c1># auth = HTTPBasicAuth()</span>
 <a id=__codelineno-15-10 name=__codelineno-15-10 href=#__codelineno-15-10></a>
@@ -480,11 +480,11 @@
 <a id=__codelineno-15-23 name=__codelineno-15-23 href=#__codelineno-15-23></a><span class=p>}</span>
 <a id=__codelineno-15-24 name=__codelineno-15-24 href=#__codelineno-15-24></a>
 <a id=__codelineno-15-25 name=__codelineno-15-25 href=#__codelineno-15-25></a>
-<a id=__codelineno-15-26 name=__codelineno-15-26 href=#__codelineno-15-26></a><span class=k>class</span> <span class=nc>TaskListAPI</span><span class=p>(</span><span class=n>Resource</span><span class=p>):</span>
+<a id=__codelineno-15-26 name=__codelineno-15-26 href=#__codelineno-15-26></a><span class=k>class</span><span class=w> </span><span class=nc>TaskListAPI</span><span class=p>(</span><span class=n>Resource</span><span class=p>):</span>
 <a id=__codelineno-15-27 name=__codelineno-15-27 href=#__codelineno-15-27></a>    <span class=c1># HTTP 基本身份验</span>
 <a id=__codelineno-15-28 name=__codelineno-15-28 href=#__codelineno-15-28></a>    <span class=c1># decorators = [auth.login_required]</span>
 <a id=__codelineno-15-29 name=__codelineno-15-29 href=#__codelineno-15-29></a>
-<a id=__codelineno-15-30 name=__codelineno-15-30 href=#__codelineno-15-30></a>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-15-30 name=__codelineno-15-30 href=#__codelineno-15-30></a>    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-15-31 name=__codelineno-15-31 href=#__codelineno-15-31></a>        <span class=bp>self</span><span class=o>.</span><span class=n>reqparse</span> <span class=o>=</span> <span class=n>reqparse</span><span class=o>.</span><span class=n>RequestParser</span><span class=p>()</span>
 <a id=__codelineno-15-32 name=__codelineno-15-32 href=#__codelineno-15-32></a>        <span class=bp>self</span><span class=o>.</span><span class=n>reqparse</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=s1>&#39;title&#39;</span><span class=p>,</span> <span class=nb>type</span><span class=o>=</span><span class=nb>str</span><span class=p>,</span> <span class=n>required</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>help</span><span class=o>=</span><span class=s1>&#39;No task title provided&#39;</span><span class=p>,</span> <span class=n>location</span><span class=o>=</span><span class=s1>&#39;json&#39;</span><span class=p>)</span>
 <a id=__codelineno-15-33 name=__codelineno-15-33 href=#__codelineno-15-33></a>        <span class=bp>self</span><span class=o>.</span><span class=n>reqparse</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=s1>&#39;description&#39;</span><span class=p>,</span> <span class=nb>type</span><span class=o>=</span><span class=nb>str</span><span class=p>,</span> <span class=n>required</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>help</span><span class=o>=</span><span class=s1>&#39;=No mission description&#39;</span><span class=p>,</span>
@@ -495,7 +495,7 @@
 <a id=__codelineno-15-38 name=__codelineno-15-38 href=#__codelineno-15-38></a>    <span class=c1># 查看所有任务列表</span>
 <a id=__codelineno-15-39 name=__codelineno-15-39 href=#__codelineno-15-39></a>    <span class=c1># 需要验证token</span>
 <a id=__codelineno-15-40 name=__codelineno-15-40 href=#__codelineno-15-40></a>    <span class=nd>@jwt_required</span><span class=p>()</span>
-<a id=__codelineno-15-41 name=__codelineno-15-41 href=#__codelineno-15-41></a>    <span class=k>def</span> <span class=nf>get</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-15-41 name=__codelineno-15-41 href=#__codelineno-15-41></a>    <span class=k>def</span><span class=w> </span><span class=nf>get</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-15-42 name=__codelineno-15-42 href=#__codelineno-15-42></a>        <span class=n>tasks_list</span> <span class=o>=</span> <span class=n>Todo</span><span class=o>.</span><span class=n>query</span><span class=o>.</span><span class=n>all</span><span class=p>()</span>
 <a id=__codelineno-15-43 name=__codelineno-15-43 href=#__codelineno-15-43></a>        <span class=k>return</span> <span class=n>marshal</span><span class=p>({</span>
 <a id=__codelineno-15-44 name=__codelineno-15-44 href=#__codelineno-15-44></a>            <span class=s1>&#39;count&#39;</span><span class=p>:</span> <span class=nb>len</span><span class=p>(</span><span class=n>tasks_list</span><span class=p>),</span>
@@ -507,7 +507,7 @@
 <a id=__codelineno-15-50 name=__codelineno-15-50 href=#__codelineno-15-50></a>    <span class=nd>@marshal_with</span><span class=p>(</span><span class=n>todo_fields</span><span class=p>)</span>
 <a id=__codelineno-15-51 name=__codelineno-15-51 href=#__codelineno-15-51></a>    <span class=c1># 需要验证token</span>
 <a id=__codelineno-15-52 name=__codelineno-15-52 href=#__codelineno-15-52></a>    <span class=nd>@jwt_required</span><span class=p>()</span>
-<a id=__codelineno-15-53 name=__codelineno-15-53 href=#__codelineno-15-53></a>    <span class=k>def</span> <span class=nf>post</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-15-53 name=__codelineno-15-53 href=#__codelineno-15-53></a>    <span class=k>def</span><span class=w> </span><span class=nf>post</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-15-54 name=__codelineno-15-54 href=#__codelineno-15-54></a>        <span class=c1># if not request.json or not &#39;title&#39; in request.json:</span>
 <a id=__codelineno-15-55 name=__codelineno-15-55 href=#__codelineno-15-55></a>        <span class=c1>#     abort(400)</span>
 <a id=__codelineno-15-56 name=__codelineno-15-56 href=#__codelineno-15-56></a>        <span class=c1># param strict: if req includes args not in parser, throw 400 BadRequest exception</span>
@@ -518,11 +518,11 @@
 <a id=__codelineno-15-61 name=__codelineno-15-61 href=#__codelineno-15-61></a>        <span class=k>return</span> <span class=n>todo</span>
 <a id=__codelineno-15-62 name=__codelineno-15-62 href=#__codelineno-15-62></a>
 <a id=__codelineno-15-63 name=__codelineno-15-63 href=#__codelineno-15-63></a>
-<a id=__codelineno-15-64 name=__codelineno-15-64 href=#__codelineno-15-64></a><span class=k>class</span> <span class=nc>TaskAPI</span><span class=p>(</span><span class=n>Resource</span><span class=p>):</span>
+<a id=__codelineno-15-64 name=__codelineno-15-64 href=#__codelineno-15-64></a><span class=k>class</span><span class=w> </span><span class=nc>TaskAPI</span><span class=p>(</span><span class=n>Resource</span><span class=p>):</span>
 <a id=__codelineno-15-65 name=__codelineno-15-65 href=#__codelineno-15-65></a>    <span class=c1># HTTP 基本身份验</span>
 <a id=__codelineno-15-66 name=__codelineno-15-66 href=#__codelineno-15-66></a>    <span class=c1># decorators = [auth.login_required]</span>
 <a id=__codelineno-15-67 name=__codelineno-15-67 href=#__codelineno-15-67></a>
-<a id=__codelineno-15-68 name=__codelineno-15-68 href=#__codelineno-15-68></a>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-15-68 name=__codelineno-15-68 href=#__codelineno-15-68></a>    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-15-69 name=__codelineno-15-69 href=#__codelineno-15-69></a>        <span class=bp>self</span><span class=o>.</span><span class=n>reqparse</span> <span class=o>=</span> <span class=n>reqparse</span><span class=o>.</span><span class=n>RequestParser</span><span class=p>()</span>
 <a id=__codelineno-15-70 name=__codelineno-15-70 href=#__codelineno-15-70></a>        <span class=bp>self</span><span class=o>.</span><span class=n>reqparse</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=s1>&#39;title&#39;</span><span class=p>,</span> <span class=nb>type</span><span class=o>=</span><span class=nb>str</span><span class=p>,</span> <span class=n>location</span><span class=o>=</span><span class=s1>&#39;json&#39;</span><span class=p>)</span>
 <a id=__codelineno-15-71 name=__codelineno-15-71 href=#__codelineno-15-71></a>        <span class=bp>self</span><span class=o>.</span><span class=n>reqparse</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=s1>&#39;description&#39;</span><span class=p>,</span> <span class=nb>type</span><span class=o>=</span><span class=nb>str</span><span class=p>,</span> <span class=n>location</span><span class=o>=</span><span class=s1>&#39;json&#39;</span><span class=p>)</span>
@@ -533,7 +533,7 @@
 <a id=__codelineno-15-76 name=__codelineno-15-76 href=#__codelineno-15-76></a>    <span class=nd>@marshal_with</span><span class=p>(</span><span class=n>todo_fields</span><span class=p>)</span>
 <a id=__codelineno-15-77 name=__codelineno-15-77 href=#__codelineno-15-77></a>    <span class=c1># 需要验证token</span>
 <a id=__codelineno-15-78 name=__codelineno-15-78 href=#__codelineno-15-78></a>    <span class=nd>@jwt_required</span><span class=p>()</span>
-<a id=__codelineno-15-79 name=__codelineno-15-79 href=#__codelineno-15-79></a>    <span class=k>def</span> <span class=nf>get</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=nb>id</span><span class=p>):</span>
+<a id=__codelineno-15-79 name=__codelineno-15-79 href=#__codelineno-15-79></a>    <span class=k>def</span><span class=w> </span><span class=nf>get</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=nb>id</span><span class=p>):</span>
 <a id=__codelineno-15-80 name=__codelineno-15-80 href=#__codelineno-15-80></a>        <span class=k>if</span> <span class=ow>not</span> <span class=nb>id</span><span class=p>:</span>
 <a id=__codelineno-15-81 name=__codelineno-15-81 href=#__codelineno-15-81></a>            <span class=n>abort</span><span class=p>(</span><span class=mi>400</span><span class=p>)</span>
 <a id=__codelineno-15-82 name=__codelineno-15-82 href=#__codelineno-15-82></a>        <span class=n>todo</span> <span class=o>=</span> <span class=n>Todo</span><span class=o>.</span><span class=n>query</span><span class=o>.</span><span class=n>get_or_404</span><span class=p>(</span><span class=nb>id</span><span class=p>)</span>
@@ -543,7 +543,7 @@
 <a id=__codelineno-15-86 name=__codelineno-15-86 href=#__codelineno-15-86></a>    <span class=nd>@marshal_with</span><span class=p>(</span><span class=n>todo_fields</span><span class=p>)</span>
 <a id=__codelineno-15-87 name=__codelineno-15-87 href=#__codelineno-15-87></a>    <span class=c1># 需要验证token</span>
 <a id=__codelineno-15-88 name=__codelineno-15-88 href=#__codelineno-15-88></a>    <span class=nd>@jwt_required</span><span class=p>()</span>
-<a id=__codelineno-15-89 name=__codelineno-15-89 href=#__codelineno-15-89></a>    <span class=k>def</span> <span class=nf>put</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=nb>id</span><span class=p>):</span>
+<a id=__codelineno-15-89 name=__codelineno-15-89 href=#__codelineno-15-89></a>    <span class=k>def</span><span class=w> </span><span class=nf>put</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=nb>id</span><span class=p>):</span>
 <a id=__codelineno-15-90 name=__codelineno-15-90 href=#__codelineno-15-90></a>        <span class=k>if</span> <span class=ow>not</span> <span class=nb>id</span><span class=p>:</span>
 <a id=__codelineno-15-91 name=__codelineno-15-91 href=#__codelineno-15-91></a>            <span class=n>abort</span><span class=p>(</span><span class=mi>400</span><span class=p>)</span>
 <a id=__codelineno-15-92 name=__codelineno-15-92 href=#__codelineno-15-92></a>        <span class=n>post</span> <span class=o>=</span> <span class=n>Todo</span><span class=o>.</span><span class=n>query</span><span class=o>.</span><span class=n>get_or_404</span><span class=p>(</span><span class=nb>id</span><span class=p>)</span>
@@ -572,7 +572,7 @@
 <a id=__codelineno-15-115 name=__codelineno-15-115 href=#__codelineno-15-115></a>    <span class=nd>@marshal_with</span><span class=p>(</span><span class=n>todo_fields</span><span class=p>)</span>
 <a id=__codelineno-15-116 name=__codelineno-15-116 href=#__codelineno-15-116></a>    <span class=c1># 需要验证token</span>
 <a id=__codelineno-15-117 name=__codelineno-15-117 href=#__codelineno-15-117></a>    <span class=nd>@jwt_required</span><span class=p>()</span>
-<a id=__codelineno-15-118 name=__codelineno-15-118 href=#__codelineno-15-118></a>    <span class=k>def</span> <span class=nf>delete</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=nb>id</span><span class=p>):</span>
+<a id=__codelineno-15-118 name=__codelineno-15-118 href=#__codelineno-15-118></a>    <span class=k>def</span><span class=w> </span><span class=nf>delete</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=nb>id</span><span class=p>):</span>
 <a id=__codelineno-15-119 name=__codelineno-15-119 href=#__codelineno-15-119></a>        <span class=k>if</span> <span class=ow>not</span> <span class=nb>id</span><span class=p>:</span>
 <a id=__codelineno-15-120 name=__codelineno-15-120 href=#__codelineno-15-120></a>            <span class=n>abort</span><span class=p>(</span><span class=mi>400</span><span class=p>)</span>
 <a id=__codelineno-15-121 name=__codelineno-15-121 href=#__codelineno-15-121></a>        <span class=n>post</span> <span class=o>=</span> <span class=n>Todo</span><span class=o>.</span><span class=n>query</span><span class=o>.</span><span class=n>get_or_404</span><span class=p>(</span><span class=nb>id</span><span class=p>)</span>
@@ -580,9 +580,9 @@
 <a id=__codelineno-15-123 name=__codelineno-15-123 href=#__codelineno-15-123></a>        <span class=n>db</span><span class=o>.</span><span class=n>session</span><span class=o>.</span><span class=n>commit</span><span class=p>()</span>
 <a id=__codelineno-15-124 name=__codelineno-15-124 href=#__codelineno-15-124></a>        <span class=c1># return post</span>
 <a id=__codelineno-15-125 name=__codelineno-15-125 href=#__codelineno-15-125></a>        <span class=k>return</span> <span class=p>{</span><span class=s2>&quot;code&quot;</span><span class=p>:</span> <span class=mi>204</span><span class=p>,</span> <span class=s1>&#39;message&#39;</span><span class=p>:</span> <span class=s2>&quot;删除成功&quot;</span><span class=p>},</span> <span class=mi>204</span>
-</code></pre></div> <h4 id=结合蓝图_1>结合蓝图<a class=headerlink href=#结合蓝图_1 title="Permanent link">&para;</a></h4> <p><code>app/apis/v2/todo/__init__.py</code></p> <div class=highlight><pre><span></span><code><a id=__codelineno-16-1 name=__codelineno-16-1 href=#__codelineno-16-1></a><span class=kn>from</span> <span class=nn>flask</span> <span class=kn>import</span> <span class=n>Blueprint</span>
-<a id=__codelineno-16-2 name=__codelineno-16-2 href=#__codelineno-16-2></a><span class=kn>from</span> <span class=nn>.views</span> <span class=kn>import</span> <span class=n>TaskAPI</span><span class=p>,</span> <span class=n>TaskListAPI</span>
-<a id=__codelineno-16-3 name=__codelineno-16-3 href=#__codelineno-16-3></a><span class=kn>from</span> <span class=nn>flask_restful</span> <span class=kn>import</span> <span class=n>Api</span>
+</code></pre></div> <h4 id=结合蓝图_1>结合蓝图<a class=headerlink href=#结合蓝图_1 title="Permanent link">&para;</a></h4> <p><code>app/apis/v2/todo/__init__.py</code></p> <div class=highlight><pre><span></span><code><a id=__codelineno-16-1 name=__codelineno-16-1 href=#__codelineno-16-1></a><span class=kn>from</span><span class=w> </span><span class=nn>flask</span><span class=w> </span><span class=kn>import</span> <span class=n>Blueprint</span>
+<a id=__codelineno-16-2 name=__codelineno-16-2 href=#__codelineno-16-2></a><span class=kn>from</span><span class=w> </span><span class=nn>.views</span><span class=w> </span><span class=kn>import</span> <span class=n>TaskAPI</span><span class=p>,</span> <span class=n>TaskListAPI</span>
+<a id=__codelineno-16-3 name=__codelineno-16-3 href=#__codelineno-16-3></a><span class=kn>from</span><span class=w> </span><span class=nn>flask_restful</span><span class=w> </span><span class=kn>import</span> <span class=n>Api</span>
 <a id=__codelineno-16-4 name=__codelineno-16-4 href=#__codelineno-16-4></a>
 <a id=__codelineno-16-5 name=__codelineno-16-5 href=#__codelineno-16-5></a>
 <a id=__codelineno-16-6 name=__codelineno-16-6 href=#__codelineno-16-6></a><span class=c1># 定义蓝图对象todo_v1_bp</span>

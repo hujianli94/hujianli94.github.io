@@ -30,9 +30,9 @@
 <a id=__codelineno-0-30 name=__codelineno-0-30 href=#__codelineno-0-30></a><span class=w>    </span><span class=nt>mgmt_subnet</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">255.255.255.0</span>
 </code></pre></div> <p>python脚本：读取配置文件</p> <div class=highlight><pre><span></span><code><a id=__codelineno-1-1 name=__codelineno-1-1 href=#__codelineno-1-1></a>pip<span class=w> </span>install<span class=w> </span>pyyaml<span class=w> </span>jinja2
 </code></pre></div> <p>load_yaml_file.py</p> <div class=highlight><pre><span></span><code><a id=__codelineno-2-1 name=__codelineno-2-1 href=#__codelineno-2-1></a><span class=ch>#!/usr/bin/python</span>
-<a id=__codelineno-2-2 name=__codelineno-2-2 href=#__codelineno-2-2></a><span class=kn>import</span> <span class=nn>os</span>
-<a id=__codelineno-2-3 name=__codelineno-2-3 href=#__codelineno-2-3></a><span class=kn>import</span> <span class=nn>yaml</span>
-<a id=__codelineno-2-4 name=__codelineno-2-4 href=#__codelineno-2-4></a><span class=kn>from</span> <span class=nn>pprint</span> <span class=kn>import</span> <span class=n>pprint</span>
+<a id=__codelineno-2-2 name=__codelineno-2-2 href=#__codelineno-2-2></a><span class=kn>import</span><span class=w> </span><span class=nn>os</span>
+<a id=__codelineno-2-3 name=__codelineno-2-3 href=#__codelineno-2-3></a><span class=kn>import</span><span class=w> </span><span class=nn>yaml</span>
+<a id=__codelineno-2-4 name=__codelineno-2-4 href=#__codelineno-2-4></a><span class=kn>from</span><span class=w> </span><span class=nn>pprint</span><span class=w> </span><span class=kn>import</span> <span class=n>pprint</span>
 <a id=__codelineno-2-5 name=__codelineno-2-5 href=#__codelineno-2-5></a><span class=n>current_dir</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>dirname</span><span class=p>(</span><span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>abspath</span><span class=p>(</span><span class=vm>__file__</span><span class=p>))</span>
 <a id=__codelineno-2-6 name=__codelineno-2-6 href=#__codelineno-2-6></a><span class=n>read_file</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>current_dir</span><span class=p>,</span> <span class=s1>&#39;yaml_example.yml&#39;</span><span class=p>)</span>
 <a id=__codelineno-2-7 name=__codelineno-2-7 href=#__codelineno-2-7></a>
@@ -113,7 +113,7 @@
 <a id=__codelineno-5-12 name=__codelineno-5-12 href=#__codelineno-5-12></a>no shut
 <a id=__codelineno-5-13 name=__codelineno-5-13 href=#__codelineno-5-13></a>ip address {{ mgmt_ip }} {{ mgmt_subnet }}
 </code></pre></div> <p>jinja2_generate.py</p> <div class=highlight><pre><span></span><code><a id=__codelineno-6-1 name=__codelineno-6-1 href=#__codelineno-6-1></a><span class=ch>#!/usr/bin/python</span>
-<a id=__codelineno-6-2 name=__codelineno-6-2 href=#__codelineno-6-2></a><span class=kn>from</span> <span class=nn>jinja2</span> <span class=kn>import</span> <span class=n>Template</span>
+<a id=__codelineno-6-2 name=__codelineno-6-2 href=#__codelineno-6-2></a><span class=kn>from</span><span class=w> </span><span class=nn>jinja2</span><span class=w> </span><span class=kn>import</span> <span class=n>Template</span>
 <a id=__codelineno-6-3 name=__codelineno-6-3 href=#__codelineno-6-3></a>
 <a id=__codelineno-6-4 name=__codelineno-6-4 href=#__codelineno-6-4></a><span class=n>template</span> <span class=o>=</span> <span class=n>Template</span><span class=p>(</span><span class=s1>&#39;&#39;&#39;</span>
 <a id=__codelineno-6-5 name=__codelineno-6-5 href=#__codelineno-6-5></a><span class=s1>hostname {{hostname}}</span>
@@ -289,9 +289,9 @@
 <a id=__codelineno-10-136 name=__codelineno-10-136 href=#__codelineno-10-136></a><span class=w>    </span><span class=nt>enabled_ports</span><span class=p>:</span>
 <a id=__codelineno-10-137 name=__codelineno-10-137 href=#__codelineno-10-137></a><span class=w>      </span><span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">gig0/0</span>
 </code></pre></div> <p>下面给出完整的python脚本</p> <p>generate_day0_config_DC.py</p> <div class=highlight><pre><span></span><code><a id=__codelineno-11-1 name=__codelineno-11-1 href=#__codelineno-11-1></a><span class=ch>#!/usr/bin/python</span>
-<a id=__codelineno-11-2 name=__codelineno-11-2 href=#__codelineno-11-2></a><span class=kn>import</span> <span class=nn>os</span>
-<a id=__codelineno-11-3 name=__codelineno-11-3 href=#__codelineno-11-3></a><span class=kn>import</span> <span class=nn>yaml</span>
-<a id=__codelineno-11-4 name=__codelineno-11-4 href=#__codelineno-11-4></a><span class=kn>from</span> <span class=nn>jinja2</span> <span class=kn>import</span> <span class=n>Template</span>
+<a id=__codelineno-11-2 name=__codelineno-11-2 href=#__codelineno-11-2></a><span class=kn>import</span><span class=w> </span><span class=nn>os</span>
+<a id=__codelineno-11-3 name=__codelineno-11-3 href=#__codelineno-11-3></a><span class=kn>import</span><span class=w> </span><span class=nn>yaml</span>
+<a id=__codelineno-11-4 name=__codelineno-11-4 href=#__codelineno-11-4></a><span class=kn>from</span><span class=w> </span><span class=nn>jinja2</span><span class=w> </span><span class=kn>import</span> <span class=n>Template</span>
 <a id=__codelineno-11-5 name=__codelineno-11-5 href=#__codelineno-11-5></a>
 <a id=__codelineno-11-6 name=__codelineno-11-6 href=#__codelineno-11-6></a><span class=n>current_dir</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>dirname</span><span class=p>(</span><span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>abspath</span><span class=p>(</span><span class=vm>__file__</span><span class=p>))</span>
 <a id=__codelineno-11-7 name=__codelineno-11-7 href=#__codelineno-11-7></a><span class=n>read_file</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>current_dir</span><span class=p>,</span> <span class=s1>&#39;network_dc.yml&#39;</span><span class=p>)</span>
@@ -665,9 +665,9 @@
 <a id=__codelineno-21-36 name=__codelineno-21-36 href=#__codelineno-21-36></a><span class=w>    </span><span class="l l-Scalar l-Scalar-Plain">{% endfor %}</span>
 <a id=__codelineno-21-37 name=__codelineno-21-37 href=#__codelineno-21-37></a><span class="l l-Scalar l-Scalar-Plain">{% endif %}</span>
 </code></pre></div> <p>generate_day0_config_DC_FS.py</p> <div class=highlight><pre><span></span><code><a id=__codelineno-22-1 name=__codelineno-22-1 href=#__codelineno-22-1></a><span class=ch>#!/usr/bin/python</span>
-<a id=__codelineno-22-2 name=__codelineno-22-2 href=#__codelineno-22-2></a><span class=kn>import</span> <span class=nn>os</span>
-<a id=__codelineno-22-3 name=__codelineno-22-3 href=#__codelineno-22-3></a><span class=kn>import</span> <span class=nn>yaml</span>
-<a id=__codelineno-22-4 name=__codelineno-22-4 href=#__codelineno-22-4></a><span class=kn>from</span> <span class=nn>jinja2</span> <span class=kn>import</span> <span class=n>FileSystemLoader</span><span class=p>,</span> <span class=n>Environment</span>
+<a id=__codelineno-22-2 name=__codelineno-22-2 href=#__codelineno-22-2></a><span class=kn>import</span><span class=w> </span><span class=nn>os</span>
+<a id=__codelineno-22-3 name=__codelineno-22-3 href=#__codelineno-22-3></a><span class=kn>import</span><span class=w> </span><span class=nn>yaml</span>
+<a id=__codelineno-22-4 name=__codelineno-22-4 href=#__codelineno-22-4></a><span class=kn>from</span><span class=w> </span><span class=nn>jinja2</span><span class=w> </span><span class=kn>import</span> <span class=n>FileSystemLoader</span><span class=p>,</span> <span class=n>Environment</span>
 <a id=__codelineno-22-5 name=__codelineno-22-5 href=#__codelineno-22-5></a>
 <a id=__codelineno-22-6 name=__codelineno-22-6 href=#__codelineno-22-6></a><span class=c1># 获取当前脚本所在目录</span>
 <a id=__codelineno-22-7 name=__codelineno-22-7 href=#__codelineno-22-7></a><span class=n>current_dir</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>dirname</span><span class=p>(</span><span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>abspath</span><span class=p>(</span><span class=vm>__file__</span><span class=p>))</span>

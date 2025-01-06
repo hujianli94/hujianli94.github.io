@@ -6,9 +6,9 @@
 <a id=__codelineno-2-4 name=__codelineno-2-4 href=#__codelineno-2-4></a><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;hello Python&#39;</span><span class=p>)</span>
 </code></pre></div> <h2 id=truefalse>True/False<a class=headerlink href=#truefalse title="Permanent link">&para;</a></h2> <p><code>Python2</code>中<code>True</code>和<code>False</code>并不是保留字而是全局变量，因此我们甚至可以在编程时改变其值。当然这就会非常的危险。</p> <p><code>Python3</code>中自然就解决了这个隐患，<code>True</code>和<code>False</code>正式被作为保留字，且其值也不再可以被更改。</p> <h2 id=nonlocal>nonlocal<a class=headerlink href=#nonlocal title="Permanent link">&para;</a></h2> <p><code>Python3</code>中引入的新的保留字，其作用与<code>global</code>保留字有类型的作用。 所不同的是<code>global</code>是引入全局的变量来替代局部变量；<code>nonlocal</code>则引入全局与局部之间的变量来替代局部变量。</p> <div class=highlight><pre><span></span><code><a id=__codelineno-3-1 name=__codelineno-3-1 href=#__codelineno-3-1></a><span class=c1># global demo</span>
 <a id=__codelineno-3-2 name=__codelineno-3-2 href=#__codelineno-3-2></a><span class=n>j</span> <span class=o>=</span> <span class=mi>1</span>
-<a id=__codelineno-3-3 name=__codelineno-3-3 href=#__codelineno-3-3></a><span class=k>def</span> <span class=nf>foo</span><span class=p>():</span>
+<a id=__codelineno-3-3 name=__codelineno-3-3 href=#__codelineno-3-3></a><span class=k>def</span><span class=w> </span><span class=nf>foo</span><span class=p>():</span>
 <a id=__codelineno-3-4 name=__codelineno-3-4 href=#__codelineno-3-4></a>    <span class=n>j</span> <span class=o>=</span> <span class=mi>2</span>
-<a id=__codelineno-3-5 name=__codelineno-3-5 href=#__codelineno-3-5></a>    <span class=k>def</span> <span class=nf>bar</span><span class=p>():</span>
+<a id=__codelineno-3-5 name=__codelineno-3-5 href=#__codelineno-3-5></a>    <span class=k>def</span><span class=w> </span><span class=nf>bar</span><span class=p>():</span>
 <a id=__codelineno-3-6 name=__codelineno-3-6 href=#__codelineno-3-6></a>        <span class=k>global</span> <span class=n>j</span>
 <a id=__codelineno-3-7 name=__codelineno-3-7 href=#__codelineno-3-7></a>        <span class=n>j</span> <span class=o>+=</span> <span class=mi>1</span>
 <a id=__codelineno-3-8 name=__codelineno-3-8 href=#__codelineno-3-8></a>    <span class=n>bar</span><span class=p>()</span>
@@ -17,9 +17,9 @@
 <a id=__codelineno-3-11 name=__codelineno-3-11 href=#__codelineno-3-11></a><span class=n>foo</span><span class=p>()</span>
 </code></pre></div> <div class=highlight><pre><span></span><code><a id=__codelineno-4-1 name=__codelineno-4-1 href=#__codelineno-4-1></a><span class=c1># nonlocal demo</span>
 <a id=__codelineno-4-2 name=__codelineno-4-2 href=#__codelineno-4-2></a><span class=n>j</span> <span class=o>=</span> <span class=mi>1</span>
-<a id=__codelineno-4-3 name=__codelineno-4-3 href=#__codelineno-4-3></a><span class=k>def</span> <span class=nf>foo</span><span class=p>():</span>
+<a id=__codelineno-4-3 name=__codelineno-4-3 href=#__codelineno-4-3></a><span class=k>def</span><span class=w> </span><span class=nf>foo</span><span class=p>():</span>
 <a id=__codelineno-4-4 name=__codelineno-4-4 href=#__codelineno-4-4></a>    <span class=n>j</span> <span class=o>=</span> <span class=mi>2</span>
-<a id=__codelineno-4-5 name=__codelineno-4-5 href=#__codelineno-4-5></a>    <span class=k>def</span> <span class=nf>bar</span><span class=p>():</span>
+<a id=__codelineno-4-5 name=__codelineno-4-5 href=#__codelineno-4-5></a>    <span class=k>def</span><span class=w> </span><span class=nf>bar</span><span class=p>():</span>
 <a id=__codelineno-4-6 name=__codelineno-4-6 href=#__codelineno-4-6></a>        <span class=k>nonlocal</span> <span class=n>j</span>
 <a id=__codelineno-4-7 name=__codelineno-4-7 href=#__codelineno-4-7></a>        <span class=n>j</span> <span class=o>+=</span> <span class=mi>1</span>
 <a id=__codelineno-4-8 name=__codelineno-4-8 href=#__codelineno-4-8></a>    <span class=n>bar</span><span class=p>()</span>

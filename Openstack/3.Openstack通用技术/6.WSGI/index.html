@@ -2,13 +2,13 @@
 <a id=__codelineno-0-2 name=__codelineno-0-2 href=#__codelineno-0-2></a><span class=c1># -*- coding: utf-8 -*-</span>
 <a id=__codelineno-0-3 name=__codelineno-0-3 href=#__codelineno-0-3></a>
 <a id=__codelineno-0-4 name=__codelineno-0-4 href=#__codelineno-0-4></a>
-<a id=__codelineno-0-5 name=__codelineno-0-5 href=#__codelineno-0-5></a><span class=k>def</span> <span class=nf>application</span><span class=p>(</span><span class=n>environ</span><span class=p>,</span> <span class=n>start_response</span><span class=p>):</span>
+<a id=__codelineno-0-5 name=__codelineno-0-5 href=#__codelineno-0-5></a><span class=k>def</span><span class=w> </span><span class=nf>application</span><span class=p>(</span><span class=n>environ</span><span class=p>,</span> <span class=n>start_response</span><span class=p>):</span>
 <a id=__codelineno-0-6 name=__codelineno-0-6 href=#__codelineno-0-6></a>    <span class=n>start_response</span><span class=p>(</span><span class=s1>&#39;200 OK&#39;</span><span class=p>,</span> <span class=p>[(</span><span class=s1>&#39;Content-Type&#39;</span><span class=p>,</span> <span class=s1>&#39;text/html&#39;</span><span class=p>)])</span>
 <a id=__codelineno-0-7 name=__codelineno-0-7 href=#__codelineno-0-7></a>    <span class=k>return</span> <span class=p>[(</span><span class=s1>&#39;&lt;h1&gt;Hello World&lt;/h1&gt;&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>encode</span><span class=p>(</span><span class=s1>&#39;utf-8&#39;</span><span class=p>)]</span>
 <a id=__codelineno-0-8 name=__codelineno-0-8 href=#__codelineno-0-8></a>
 <a id=__codelineno-0-9 name=__codelineno-0-9 href=#__codelineno-0-9></a>
 <a id=__codelineno-0-10 name=__codelineno-0-10 href=#__codelineno-0-10></a><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s1>&#39;__main__&#39;</span><span class=p>:</span>
-<a id=__codelineno-0-11 name=__codelineno-0-11 href=#__codelineno-0-11></a>    <span class=kn>from</span> <span class=nn>wsgiref.simple_server</span> <span class=kn>import</span> <span class=n>make_server</span>
+<a id=__codelineno-0-11 name=__codelineno-0-11 href=#__codelineno-0-11></a>    <span class=kn>from</span><span class=w> </span><span class=nn>wsgiref.simple_server</span><span class=w> </span><span class=kn>import</span> <span class=n>make_server</span>
 <a id=__codelineno-0-12 name=__codelineno-0-12 href=#__codelineno-0-12></a>
 <a id=__codelineno-0-13 name=__codelineno-0-13 href=#__codelineno-0-13></a>    <span class=n>httpd</span> <span class=o>=</span> <span class=n>make_server</span><span class=p>(</span><span class=s1>&#39;localhost&#39;</span><span class=p>,</span> <span class=mi>8080</span><span class=p>,</span> <span class=n>application</span><span class=p>)</span>
 <a id=__codelineno-0-14 name=__codelineno-0-14 href=#__codelineno-0-14></a>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;Server HTTP on port 8080...&#39;</span><span class=p>)</span>
@@ -18,14 +18,14 @@
 <a id=__codelineno-1-2 name=__codelineno-1-2 href=#__codelineno-1-2></a><span class=c1># -*- coding: utf-8 -*-</span>
 <a id=__codelineno-1-3 name=__codelineno-1-3 href=#__codelineno-1-3></a>
 <a id=__codelineno-1-4 name=__codelineno-1-4 href=#__codelineno-1-4></a>
-<a id=__codelineno-1-5 name=__codelineno-1-5 href=#__codelineno-1-5></a><span class=k>def</span> <span class=nf>application</span><span class=p>(</span><span class=n>environ</span><span class=p>,</span> <span class=n>start_response</span><span class=p>):</span>
+<a id=__codelineno-1-5 name=__codelineno-1-5 href=#__codelineno-1-5></a><span class=k>def</span><span class=w> </span><span class=nf>application</span><span class=p>(</span><span class=n>environ</span><span class=p>,</span> <span class=n>start_response</span><span class=p>):</span>
 <a id=__codelineno-1-6 name=__codelineno-1-6 href=#__codelineno-1-6></a>    <span class=n>start_response</span><span class=p>(</span><span class=s1>&#39;200 OK&#39;</span><span class=p>,</span> <span class=p>[(</span><span class=s1>&#39;Content-Type&#39;</span><span class=p>,</span> <span class=s1>&#39;text/html&#39;</span><span class=p>)])</span>
 <a id=__codelineno-1-7 name=__codelineno-1-7 href=#__codelineno-1-7></a>    <span class=n>body</span> <span class=o>=</span> <span class=s1>&#39;&lt;h1&gt;Hello, </span><span class=si>%s</span><span class=s1>!&lt;/h1&gt;&#39;</span> <span class=o>%</span> <span class=p>(</span><span class=n>environ</span><span class=p>[</span><span class=s1>&#39;PATH_INFO&#39;</span><span class=p>][</span><span class=mi>1</span><span class=p>:]</span> <span class=ow>or</span> <span class=s1>&#39;web&#39;</span><span class=p>)</span>
 <a id=__codelineno-1-8 name=__codelineno-1-8 href=#__codelineno-1-8></a>    <span class=k>return</span> <span class=p>[</span><span class=n>body</span><span class=o>.</span><span class=n>encode</span><span class=p>(</span><span class=s1>&#39;utf-8&#39;</span><span class=p>)]</span>
 <a id=__codelineno-1-9 name=__codelineno-1-9 href=#__codelineno-1-9></a>
 <a id=__codelineno-1-10 name=__codelineno-1-10 href=#__codelineno-1-10></a>
 <a id=__codelineno-1-11 name=__codelineno-1-11 href=#__codelineno-1-11></a><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s1>&#39;__main__&#39;</span><span class=p>:</span>
-<a id=__codelineno-1-12 name=__codelineno-1-12 href=#__codelineno-1-12></a>    <span class=kn>from</span> <span class=nn>wsgiref.simple_server</span> <span class=kn>import</span> <span class=n>make_server</span>
+<a id=__codelineno-1-12 name=__codelineno-1-12 href=#__codelineno-1-12></a>    <span class=kn>from</span><span class=w> </span><span class=nn>wsgiref.simple_server</span><span class=w> </span><span class=kn>import</span> <span class=n>make_server</span>
 <a id=__codelineno-1-13 name=__codelineno-1-13 href=#__codelineno-1-13></a>
 <a id=__codelineno-1-14 name=__codelineno-1-14 href=#__codelineno-1-14></a>    <span class=n>httpd</span> <span class=o>=</span> <span class=n>make_server</span><span class=p>(</span><span class=s1>&#39;localhost&#39;</span><span class=p>,</span> <span class=mi>8888</span><span class=p>,</span> <span class=n>application</span><span class=p>)</span>
 <a id=__codelineno-1-15 name=__codelineno-1-15 href=#__codelineno-1-15></a>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;Server HTTP on port 8888...&#39;</span><span class=p>)</span>
@@ -35,16 +35,16 @@
 <a id=__codelineno-2-2 name=__codelineno-2-2 href=#__codelineno-2-2></a><span class=c1># -*- coding: utf-8 -*-</span>
 <a id=__codelineno-2-3 name=__codelineno-2-3 href=#__codelineno-2-3></a>
 <a id=__codelineno-2-4 name=__codelineno-2-4 href=#__codelineno-2-4></a>
-<a id=__codelineno-2-5 name=__codelineno-2-5 href=#__codelineno-2-5></a><span class=k>def</span> <span class=nf>application</span><span class=p>(</span><span class=n>environ</span><span class=p>,</span> <span class=n>start_response</span><span class=p>):</span>
+<a id=__codelineno-2-5 name=__codelineno-2-5 href=#__codelineno-2-5></a><span class=k>def</span><span class=w> </span><span class=nf>application</span><span class=p>(</span><span class=n>environ</span><span class=p>,</span> <span class=n>start_response</span><span class=p>):</span>
 <a id=__codelineno-2-6 name=__codelineno-2-6 href=#__codelineno-2-6></a>    <span class=n>start_response</span><span class=p>(</span><span class=s1>&#39;200 OK&#39;</span><span class=p>,</span> <span class=p>[(</span><span class=s1>&#39;Content-Type&#39;</span><span class=p>,</span> <span class=s1>&#39;text/html&#39;</span><span class=p>)])</span>
 <a id=__codelineno-2-7 name=__codelineno-2-7 href=#__codelineno-2-7></a>    <span class=k>return</span> <span class=p>[</span><span class=sa>b</span><span class=s1>&#39;&lt;h1&gt;Hello World!&lt;/h1&gt;&#39;</span><span class=p>]</span>
 <a id=__codelineno-2-8 name=__codelineno-2-8 href=#__codelineno-2-8></a>
 <a id=__codelineno-2-9 name=__codelineno-2-9 href=#__codelineno-2-9></a>
-<a id=__codelineno-2-10 name=__codelineno-2-10 href=#__codelineno-2-10></a><span class=k>class</span> <span class=nc>FilterMiddleware</span><span class=p>:</span>
-<a id=__codelineno-2-11 name=__codelineno-2-11 href=#__codelineno-2-11></a>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>app</span><span class=p>):</span>
+<a id=__codelineno-2-10 name=__codelineno-2-10 href=#__codelineno-2-10></a><span class=k>class</span><span class=w> </span><span class=nc>FilterMiddleware</span><span class=p>:</span>
+<a id=__codelineno-2-11 name=__codelineno-2-11 href=#__codelineno-2-11></a>    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>app</span><span class=p>):</span>
 <a id=__codelineno-2-12 name=__codelineno-2-12 href=#__codelineno-2-12></a>        <span class=bp>self</span><span class=o>.</span><span class=n>app</span> <span class=o>=</span> <span class=n>app</span>
 <a id=__codelineno-2-13 name=__codelineno-2-13 href=#__codelineno-2-13></a>
-<a id=__codelineno-2-14 name=__codelineno-2-14 href=#__codelineno-2-14></a>    <span class=k>def</span> <span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>environ</span><span class=p>,</span> <span class=n>start_response</span><span class=p>):</span>
+<a id=__codelineno-2-14 name=__codelineno-2-14 href=#__codelineno-2-14></a>    <span class=k>def</span><span class=w> </span><span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>environ</span><span class=p>,</span> <span class=n>start_response</span><span class=p>):</span>
 <a id=__codelineno-2-15 name=__codelineno-2-15 href=#__codelineno-2-15></a>        <span class=c1># Do some filtering before calling the actual application</span>
 <a id=__codelineno-2-16 name=__codelineno-2-16 href=#__codelineno-2-16></a>        <span class=k>if</span> <span class=s1>&#39;admin&#39;</span> <span class=ow>in</span> <span class=n>environ</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;PATH_INFO&#39;</span><span class=p>,</span> <span class=s1>&#39;&#39;</span><span class=p>):</span>
 <a id=__codelineno-2-17 name=__codelineno-2-17 href=#__codelineno-2-17></a>            <span class=n>start_response</span><span class=p>(</span><span class=s1>&#39;403 Forbidden&#39;</span><span class=p>,</span> <span class=p>[(</span><span class=s1>&#39;Content-Type&#39;</span><span class=p>,</span> <span class=s1>&#39;text/html&#39;</span><span class=p>)])</span>
@@ -53,7 +53,7 @@
 <a id=__codelineno-2-20 name=__codelineno-2-20 href=#__codelineno-2-20></a>
 <a id=__codelineno-2-21 name=__codelineno-2-21 href=#__codelineno-2-21></a>
 <a id=__codelineno-2-22 name=__codelineno-2-22 href=#__codelineno-2-22></a><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s1>&#39;__main__&#39;</span><span class=p>:</span>
-<a id=__codelineno-2-23 name=__codelineno-2-23 href=#__codelineno-2-23></a>    <span class=kn>from</span> <span class=nn>wsgiref.simple_server</span> <span class=kn>import</span> <span class=n>make_server</span>
+<a id=__codelineno-2-23 name=__codelineno-2-23 href=#__codelineno-2-23></a>    <span class=kn>from</span><span class=w> </span><span class=nn>wsgiref.simple_server</span><span class=w> </span><span class=kn>import</span> <span class=n>make_server</span>
 <a id=__codelineno-2-24 name=__codelineno-2-24 href=#__codelineno-2-24></a>
 <a id=__codelineno-2-25 name=__codelineno-2-25 href=#__codelineno-2-25></a>    <span class=n>filtered_app</span> <span class=o>=</span> <span class=n>FilterMiddleware</span><span class=p>(</span><span class=n>application</span><span class=p>)</span>
 <a id=__codelineno-2-26 name=__codelineno-2-26 href=#__codelineno-2-26></a>
@@ -64,16 +64,16 @@
 </code></pre></div> <p>可以添加多个 Middleware 中间件，举例如下：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-3-1 name=__codelineno-3-1 href=#__codelineno-3-1></a><span class=ch>#!/usr/bin/env python</span>
 <a id=__codelineno-3-2 name=__codelineno-3-2 href=#__codelineno-3-2></a><span class=c1># -*- coding: utf-8 -*-</span>
 <a id=__codelineno-3-3 name=__codelineno-3-3 href=#__codelineno-3-3></a>
-<a id=__codelineno-3-4 name=__codelineno-3-4 href=#__codelineno-3-4></a><span class=k>def</span> <span class=nf>application</span><span class=p>(</span><span class=n>environ</span><span class=p>,</span> <span class=n>start_response</span><span class=p>):</span>
+<a id=__codelineno-3-4 name=__codelineno-3-4 href=#__codelineno-3-4></a><span class=k>def</span><span class=w> </span><span class=nf>application</span><span class=p>(</span><span class=n>environ</span><span class=p>,</span> <span class=n>start_response</span><span class=p>):</span>
 <a id=__codelineno-3-5 name=__codelineno-3-5 href=#__codelineno-3-5></a>    <span class=n>start_response</span><span class=p>(</span><span class=s1>&#39;200 OK&#39;</span><span class=p>,</span> <span class=p>[(</span><span class=s1>&#39;Content-Type&#39;</span><span class=p>,</span> <span class=s1>&#39;text/html&#39;</span><span class=p>)])</span>
 <a id=__codelineno-3-6 name=__codelineno-3-6 href=#__codelineno-3-6></a>    <span class=k>return</span> <span class=p>[</span><span class=sa>b</span><span class=s1>&#39;&lt;h1&gt;Hello World!&lt;/h1&gt;&#39;</span><span class=p>]</span>
 <a id=__codelineno-3-7 name=__codelineno-3-7 href=#__codelineno-3-7></a>
 <a id=__codelineno-3-8 name=__codelineno-3-8 href=#__codelineno-3-8></a>
-<a id=__codelineno-3-9 name=__codelineno-3-9 href=#__codelineno-3-9></a><span class=k>class</span> <span class=nc>FilterMiddleware</span><span class=p>:</span>
-<a id=__codelineno-3-10 name=__codelineno-3-10 href=#__codelineno-3-10></a>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>app</span><span class=p>):</span>
+<a id=__codelineno-3-9 name=__codelineno-3-9 href=#__codelineno-3-9></a><span class=k>class</span><span class=w> </span><span class=nc>FilterMiddleware</span><span class=p>:</span>
+<a id=__codelineno-3-10 name=__codelineno-3-10 href=#__codelineno-3-10></a>    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>app</span><span class=p>):</span>
 <a id=__codelineno-3-11 name=__codelineno-3-11 href=#__codelineno-3-11></a>        <span class=bp>self</span><span class=o>.</span><span class=n>app</span> <span class=o>=</span> <span class=n>app</span>
 <a id=__codelineno-3-12 name=__codelineno-3-12 href=#__codelineno-3-12></a>
-<a id=__codelineno-3-13 name=__codelineno-3-13 href=#__codelineno-3-13></a>    <span class=k>def</span> <span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>environ</span><span class=p>,</span> <span class=n>start_response</span><span class=p>):</span>
+<a id=__codelineno-3-13 name=__codelineno-3-13 href=#__codelineno-3-13></a>    <span class=k>def</span><span class=w> </span><span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>environ</span><span class=p>,</span> <span class=n>start_response</span><span class=p>):</span>
 <a id=__codelineno-3-14 name=__codelineno-3-14 href=#__codelineno-3-14></a>        <span class=c1># Do some filtering before calling the actual application</span>
 <a id=__codelineno-3-15 name=__codelineno-3-15 href=#__codelineno-3-15></a>        <span class=k>if</span> <span class=s1>&#39;admin&#39;</span> <span class=ow>in</span> <span class=n>environ</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;PATH_INFO&#39;</span><span class=p>,</span> <span class=s1>&#39;&#39;</span><span class=p>):</span>
 <a id=__codelineno-3-16 name=__codelineno-3-16 href=#__codelineno-3-16></a>            <span class=n>start_response</span><span class=p>(</span><span class=s1>&#39;403 Forbidden&#39;</span><span class=p>,</span> <span class=p>[(</span><span class=s1>&#39;Content-Type&#39;</span><span class=p>,</span> <span class=s1>&#39;text/html&#39;</span><span class=p>)])</span>
@@ -81,18 +81,18 @@
 <a id=__codelineno-3-18 name=__codelineno-3-18 href=#__codelineno-3-18></a>        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>app</span><span class=p>(</span><span class=n>environ</span><span class=p>,</span> <span class=n>start_response</span><span class=p>)</span>
 <a id=__codelineno-3-19 name=__codelineno-3-19 href=#__codelineno-3-19></a>
 <a id=__codelineno-3-20 name=__codelineno-3-20 href=#__codelineno-3-20></a>
-<a id=__codelineno-3-21 name=__codelineno-3-21 href=#__codelineno-3-21></a><span class=k>class</span> <span class=nc>DaemonMiddleware</span><span class=p>:</span>
-<a id=__codelineno-3-22 name=__codelineno-3-22 href=#__codelineno-3-22></a>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>app</span><span class=p>):</span>
+<a id=__codelineno-3-21 name=__codelineno-3-21 href=#__codelineno-3-21></a><span class=k>class</span><span class=w> </span><span class=nc>DaemonMiddleware</span><span class=p>:</span>
+<a id=__codelineno-3-22 name=__codelineno-3-22 href=#__codelineno-3-22></a>    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>app</span><span class=p>):</span>
 <a id=__codelineno-3-23 name=__codelineno-3-23 href=#__codelineno-3-23></a>        <span class=bp>self</span><span class=o>.</span><span class=n>app</span> <span class=o>=</span> <span class=n>app</span>
 <a id=__codelineno-3-24 name=__codelineno-3-24 href=#__codelineno-3-24></a>
-<a id=__codelineno-3-25 name=__codelineno-3-25 href=#__codelineno-3-25></a>    <span class=k>def</span> <span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>environ</span><span class=p>,</span> <span class=n>start_response</span><span class=p>):</span>
+<a id=__codelineno-3-25 name=__codelineno-3-25 href=#__codelineno-3-25></a>    <span class=k>def</span><span class=w> </span><span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>environ</span><span class=p>,</span> <span class=n>start_response</span><span class=p>):</span>
 <a id=__codelineno-3-26 name=__codelineno-3-26 href=#__codelineno-3-26></a>        <span class=c1># Do something as a daemon middleware</span>
 <a id=__codelineno-3-27 name=__codelineno-3-27 href=#__codelineno-3-27></a>        <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;Daemon middleware processing...&#39;</span><span class=p>)</span>
 <a id=__codelineno-3-28 name=__codelineno-3-28 href=#__codelineno-3-28></a>        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>app</span><span class=p>(</span><span class=n>environ</span><span class=p>,</span> <span class=n>start_response</span><span class=p>)</span>
 <a id=__codelineno-3-29 name=__codelineno-3-29 href=#__codelineno-3-29></a>
 <a id=__codelineno-3-30 name=__codelineno-3-30 href=#__codelineno-3-30></a>
 <a id=__codelineno-3-31 name=__codelineno-3-31 href=#__codelineno-3-31></a><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s1>&#39;__main__&#39;</span><span class=p>:</span>
-<a id=__codelineno-3-32 name=__codelineno-3-32 href=#__codelineno-3-32></a>    <span class=kn>from</span> <span class=nn>wsgiref.simple_server</span> <span class=kn>import</span> <span class=n>make_server</span>
+<a id=__codelineno-3-32 name=__codelineno-3-32 href=#__codelineno-3-32></a>    <span class=kn>from</span><span class=w> </span><span class=nn>wsgiref.simple_server</span><span class=w> </span><span class=kn>import</span> <span class=n>make_server</span>
 <a id=__codelineno-3-33 name=__codelineno-3-33 href=#__codelineno-3-33></a>
 <a id=__codelineno-3-34 name=__codelineno-3-34 href=#__codelineno-3-34></a>    <span class=n>filtered_app</span> <span class=o>=</span> <span class=n>FilterMiddleware</span><span class=p>(</span><span class=n>application</span><span class=p>)</span>
 <a id=__codelineno-3-35 name=__codelineno-3-35 href=#__codelineno-3-35></a>    <span class=n>filtered_daemon_app</span> <span class=o>=</span> <span class=n>DaemonMiddleware</span><span class=p>(</span><span class=n>filtered_app</span><span class=p>)</span>
@@ -147,33 +147,33 @@
 <a id=__codelineno-4-44 name=__codelineno-4-44 href=#__codelineno-4-44></a>
 <a id=__codelineno-4-45 name=__codelineno-4-45 href=#__codelineno-4-45></a><span class=k>[filter:filter1]</span>
 <a id=__codelineno-4-46 name=__codelineno-4-46 href=#__codelineno-4-46></a><span class=na>...</span>
-</code></pre></div> <p>参考文献：</p> <p><a href=https://blog.csdn.net/hbeth/article/details/106423928>https://blog.csdn.net/hbeth/article/details/106423928</a></p> <h2 id=5webob>5.WebOb<a class=headerlink href=#5webob title="Permanent link">&para;</a></h2> <p>WebOb 是一个 Python 的包，它主要的作用是对 WSGI 的 request 进行修饰，以及帮助生成 WSGI 的 response。</p> <p>webob 对 WSGI 请求与响应进行封装</p> <p><code>webob.Request</code>: 对 WSGI 请求的 environ 参数进行封装</p> <p><code>webob.Response</code>: 包含所有标准 WSGI 响应要素</p> <p><code>webob.exc</code>: 封装 HTTP 错误代码</p> <p><code>webob.dec.wsgify</code>: 封装 WSGI 参数和返回格式,以便不使用原始的 WSGI 参数和返回格式，而全部使用 WebOb 代替</p> <p>举例：</p> <ul> <li>标准 WSGI 格式</li> </ul> <div class=highlight><pre><span></span><code><a id=__codelineno-5-1 name=__codelineno-5-1 href=#__codelineno-5-1></a><span class=k>def</span> <span class=nf>application</span><span class=p>(</span><span class=n>environ</span><span class=p>,</span> <span class=n>start_response</span><span class=p>):</span>
+</code></pre></div> <p>参考文献：</p> <p><a href=https://blog.csdn.net/hbeth/article/details/106423928>https://blog.csdn.net/hbeth/article/details/106423928</a></p> <h2 id=5webob>5.WebOb<a class=headerlink href=#5webob title="Permanent link">&para;</a></h2> <p>WebOb 是一个 Python 的包，它主要的作用是对 WSGI 的 request 进行修饰，以及帮助生成 WSGI 的 response。</p> <p>webob 对 WSGI 请求与响应进行封装</p> <p><code>webob.Request</code>: 对 WSGI 请求的 environ 参数进行封装</p> <p><code>webob.Response</code>: 包含所有标准 WSGI 响应要素</p> <p><code>webob.exc</code>: 封装 HTTP 错误代码</p> <p><code>webob.dec.wsgify</code>: 封装 WSGI 参数和返回格式,以便不使用原始的 WSGI 参数和返回格式，而全部使用 WebOb 代替</p> <p>举例：</p> <ul> <li>标准 WSGI 格式</li> </ul> <div class=highlight><pre><span></span><code><a id=__codelineno-5-1 name=__codelineno-5-1 href=#__codelineno-5-1></a><span class=k>def</span><span class=w> </span><span class=nf>application</span><span class=p>(</span><span class=n>environ</span><span class=p>,</span> <span class=n>start_response</span><span class=p>):</span>
 <a id=__codelineno-5-2 name=__codelineno-5-2 href=#__codelineno-5-2></a>    <span class=n>start_response</span><span class=p>(</span><span class=s1>&#39;200 OK&#39;</span><span class=p>,</span> <span class=p>[(</span><span class=s1>&#39;Content-Type&#39;</span><span class=p>,</span> <span class=s1>&#39;text/html&#39;</span><span class=p>)])</span>
 <a id=__codelineno-5-3 name=__codelineno-5-3 href=#__codelineno-5-3></a>    <span class=k>return</span> <span class=s1>&#39;&lt;h1&gt;Hello&lt;/h1&gt;&#39;</span>
 </code></pre></div> <ul> <li>webob.dec.wsgify 封装格式</li> </ul> <div class=highlight><pre><span></span><code><a id=__codelineno-6-1 name=__codelineno-6-1 href=#__codelineno-6-1></a><span class=nd>@webob</span><span class=o>.</span><span class=n>dec</span><span class=o>.</span><span class=n>wsgify</span>
-<a id=__codelineno-6-2 name=__codelineno-6-2 href=#__codelineno-6-2></a><span class=k>def</span> <span class=nf>application</span><span class=p>(</span><span class=n>req</span><span class=p>):</span>
+<a id=__codelineno-6-2 name=__codelineno-6-2 href=#__codelineno-6-2></a><span class=k>def</span><span class=w> </span><span class=nf>application</span><span class=p>(</span><span class=n>req</span><span class=p>):</span>
 <a id=__codelineno-6-3 name=__codelineno-6-3 href=#__codelineno-6-3></a>    <span class=k>return</span> <span class=n>webob</span><span class=o>.</span><span class=n>Response</span><span class=p>(</span><span class=s1>&#39;OK&#39;</span><span class=p>)</span>
 </code></pre></div> <h3 id=51-简单示例>5.1 简单示例<a class=headerlink href=#51-简单示例 title="Permanent link">&para;</a></h3> <p>下面的例子实现一个 8080 端口的 wed 功能，并返回简单的信息。</p> <p><code>api-paste.ini</code></p> <div class=highlight><pre><span></span><code><a id=__codelineno-7-1 name=__codelineno-7-1 href=#__codelineno-7-1></a><span class=k>[app:main]</span>
 <a id=__codelineno-7-2 name=__codelineno-7-2 href=#__codelineno-7-2></a><span class=na>paste.app_factory</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>wsgi_webob:app_factory</span>
 </code></pre></div> <p><code>wsgi_webob.py</code></p> <div class=highlight><pre><span></span><code><a id=__codelineno-8-1 name=__codelineno-8-1 href=#__codelineno-8-1></a><span class=ch>#!/usr/bin/env python</span>
 <a id=__codelineno-8-2 name=__codelineno-8-2 href=#__codelineno-8-2></a><span class=c1># -*- coding: utf-8 -*-</span>
-<a id=__codelineno-8-3 name=__codelineno-8-3 href=#__codelineno-8-3></a><span class=kn>from</span> <span class=nn>webob</span> <span class=kn>import</span> <span class=n>Response</span>
-<a id=__codelineno-8-4 name=__codelineno-8-4 href=#__codelineno-8-4></a><span class=kn>from</span> <span class=nn>webob.dec</span> <span class=kn>import</span> <span class=n>wsgify</span>
-<a id=__codelineno-8-5 name=__codelineno-8-5 href=#__codelineno-8-5></a><span class=kn>from</span> <span class=nn>paste</span> <span class=kn>import</span> <span class=n>httpserver</span>
-<a id=__codelineno-8-6 name=__codelineno-8-6 href=#__codelineno-8-6></a><span class=kn>from</span> <span class=nn>paste.deploy</span> <span class=kn>import</span> <span class=n>loadapp</span>
-<a id=__codelineno-8-7 name=__codelineno-8-7 href=#__codelineno-8-7></a><span class=kn>import</span> <span class=nn>os</span>
+<a id=__codelineno-8-3 name=__codelineno-8-3 href=#__codelineno-8-3></a><span class=kn>from</span><span class=w> </span><span class=nn>webob</span><span class=w> </span><span class=kn>import</span> <span class=n>Response</span>
+<a id=__codelineno-8-4 name=__codelineno-8-4 href=#__codelineno-8-4></a><span class=kn>from</span><span class=w> </span><span class=nn>webob.dec</span><span class=w> </span><span class=kn>import</span> <span class=n>wsgify</span>
+<a id=__codelineno-8-5 name=__codelineno-8-5 href=#__codelineno-8-5></a><span class=kn>from</span><span class=w> </span><span class=nn>paste</span><span class=w> </span><span class=kn>import</span> <span class=n>httpserver</span>
+<a id=__codelineno-8-6 name=__codelineno-8-6 href=#__codelineno-8-6></a><span class=kn>from</span><span class=w> </span><span class=nn>paste.deploy</span><span class=w> </span><span class=kn>import</span> <span class=n>loadapp</span>
+<a id=__codelineno-8-7 name=__codelineno-8-7 href=#__codelineno-8-7></a><span class=kn>import</span><span class=w> </span><span class=nn>os</span>
 <a id=__codelineno-8-8 name=__codelineno-8-8 href=#__codelineno-8-8></a>
 <a id=__codelineno-8-9 name=__codelineno-8-9 href=#__codelineno-8-9></a><span class=n>INI_PATH</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>dirname</span><span class=p>(</span><span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>abspath</span><span class=p>(</span><span class=vm>__file__</span><span class=p>))</span> <span class=o>+</span> <span class=s1>&#39;/api-paste.ini&#39;</span>
 <a id=__codelineno-8-10 name=__codelineno-8-10 href=#__codelineno-8-10></a>
 <a id=__codelineno-8-11 name=__codelineno-8-11 href=#__codelineno-8-11></a>
 <a id=__codelineno-8-12 name=__codelineno-8-12 href=#__codelineno-8-12></a><span class=nd>@wsgify</span>
-<a id=__codelineno-8-13 name=__codelineno-8-13 href=#__codelineno-8-13></a><span class=k>def</span> <span class=nf>application</span><span class=p>(</span><span class=n>req</span><span class=p>):</span>
+<a id=__codelineno-8-13 name=__codelineno-8-13 href=#__codelineno-8-13></a><span class=k>def</span><span class=w> </span><span class=nf>application</span><span class=p>(</span><span class=n>req</span><span class=p>):</span>
 <a id=__codelineno-8-14 name=__codelineno-8-14 href=#__codelineno-8-14></a>    <span class=nb>print</span><span class=p>(</span><span class=n>req</span><span class=o>.</span><span class=n>body</span><span class=p>)</span>
 <a id=__codelineno-8-15 name=__codelineno-8-15 href=#__codelineno-8-15></a>    <span class=nb>print</span><span class=p>(</span><span class=n>req</span><span class=o>.</span><span class=n>params</span><span class=p>)</span>
 <a id=__codelineno-8-16 name=__codelineno-8-16 href=#__codelineno-8-16></a>    <span class=k>return</span> <span class=n>Response</span><span class=p>(</span><span class=s1>&#39;Hello, World of WebOb !&#39;</span><span class=p>)</span>
 <a id=__codelineno-8-17 name=__codelineno-8-17 href=#__codelineno-8-17></a>
 <a id=__codelineno-8-18 name=__codelineno-8-18 href=#__codelineno-8-18></a>
-<a id=__codelineno-8-19 name=__codelineno-8-19 href=#__codelineno-8-19></a><span class=k>def</span> <span class=nf>app_factory</span><span class=p>(</span><span class=n>global_config</span><span class=p>,</span> <span class=o>**</span><span class=n>local_config</span><span class=p>):</span>
+<a id=__codelineno-8-19 name=__codelineno-8-19 href=#__codelineno-8-19></a><span class=k>def</span><span class=w> </span><span class=nf>app_factory</span><span class=p>(</span><span class=n>global_config</span><span class=p>,</span> <span class=o>**</span><span class=n>local_config</span><span class=p>):</span>
 <a id=__codelineno-8-20 name=__codelineno-8-20 href=#__codelineno-8-20></a>    <span class=k>return</span> <span class=n>application</span>
 <a id=__codelineno-8-21 name=__codelineno-8-21 href=#__codelineno-8-21></a>
 <a id=__codelineno-8-22 name=__codelineno-8-22 href=#__codelineno-8-22></a>
@@ -188,35 +188,35 @@
 <a id=__codelineno-9-6 name=__codelineno-9-6 href=#__codelineno-9-6></a><span class=na>paste.filter_factory</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>wsgi_webob_mid:filter_factory</span>
 </code></pre></div> <p><code>wsgi_webob_mid.py</code></p> <div class=highlight><pre><span></span><code><a id=__codelineno-10-1 name=__codelineno-10-1 href=#__codelineno-10-1></a><span class=ch>#!/usr/bin/env python</span>
 <a id=__codelineno-10-2 name=__codelineno-10-2 href=#__codelineno-10-2></a><span class=c1># -*- coding: utf-8 -*-</span>
-<a id=__codelineno-10-3 name=__codelineno-10-3 href=#__codelineno-10-3></a><span class=kn>from</span> <span class=nn>webob</span> <span class=kn>import</span> <span class=n>Response</span>
-<a id=__codelineno-10-4 name=__codelineno-10-4 href=#__codelineno-10-4></a><span class=kn>from</span> <span class=nn>webob.dec</span> <span class=kn>import</span> <span class=n>wsgify</span>
-<a id=__codelineno-10-5 name=__codelineno-10-5 href=#__codelineno-10-5></a><span class=kn>from</span> <span class=nn>webob</span> <span class=kn>import</span> <span class=n>exc</span>
-<a id=__codelineno-10-6 name=__codelineno-10-6 href=#__codelineno-10-6></a><span class=kn>from</span> <span class=nn>paste</span> <span class=kn>import</span> <span class=n>httpserver</span>
-<a id=__codelineno-10-7 name=__codelineno-10-7 href=#__codelineno-10-7></a><span class=kn>from</span> <span class=nn>paste.deploy</span> <span class=kn>import</span> <span class=n>loadapp</span>
-<a id=__codelineno-10-8 name=__codelineno-10-8 href=#__codelineno-10-8></a><span class=kn>import</span> <span class=nn>os</span>
+<a id=__codelineno-10-3 name=__codelineno-10-3 href=#__codelineno-10-3></a><span class=kn>from</span><span class=w> </span><span class=nn>webob</span><span class=w> </span><span class=kn>import</span> <span class=n>Response</span>
+<a id=__codelineno-10-4 name=__codelineno-10-4 href=#__codelineno-10-4></a><span class=kn>from</span><span class=w> </span><span class=nn>webob.dec</span><span class=w> </span><span class=kn>import</span> <span class=n>wsgify</span>
+<a id=__codelineno-10-5 name=__codelineno-10-5 href=#__codelineno-10-5></a><span class=kn>from</span><span class=w> </span><span class=nn>webob</span><span class=w> </span><span class=kn>import</span> <span class=n>exc</span>
+<a id=__codelineno-10-6 name=__codelineno-10-6 href=#__codelineno-10-6></a><span class=kn>from</span><span class=w> </span><span class=nn>paste</span><span class=w> </span><span class=kn>import</span> <span class=n>httpserver</span>
+<a id=__codelineno-10-7 name=__codelineno-10-7 href=#__codelineno-10-7></a><span class=kn>from</span><span class=w> </span><span class=nn>paste.deploy</span><span class=w> </span><span class=kn>import</span> <span class=n>loadapp</span>
+<a id=__codelineno-10-8 name=__codelineno-10-8 href=#__codelineno-10-8></a><span class=kn>import</span><span class=w> </span><span class=nn>os</span>
 <a id=__codelineno-10-9 name=__codelineno-10-9 href=#__codelineno-10-9></a>
 <a id=__codelineno-10-10 name=__codelineno-10-10 href=#__codelineno-10-10></a><span class=n>INI_PATH</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>dirname</span><span class=p>(</span><span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>abspath</span><span class=p>(</span><span class=vm>__file__</span><span class=p>))</span> <span class=o>+</span> <span class=s1>&#39;/api-paste.ini&#39;</span>
 <a id=__codelineno-10-11 name=__codelineno-10-11 href=#__codelineno-10-11></a>
 <a id=__codelineno-10-12 name=__codelineno-10-12 href=#__codelineno-10-12></a>
 <a id=__codelineno-10-13 name=__codelineno-10-13 href=#__codelineno-10-13></a><span class=nd>@wsgify</span>
-<a id=__codelineno-10-14 name=__codelineno-10-14 href=#__codelineno-10-14></a><span class=k>def</span> <span class=nf>application</span><span class=p>(</span><span class=n>req</span><span class=p>):</span>
+<a id=__codelineno-10-14 name=__codelineno-10-14 href=#__codelineno-10-14></a><span class=k>def</span><span class=w> </span><span class=nf>application</span><span class=p>(</span><span class=n>req</span><span class=p>):</span>
 <a id=__codelineno-10-15 name=__codelineno-10-15 href=#__codelineno-10-15></a>    <span class=nb>print</span><span class=p>(</span><span class=n>req</span><span class=o>.</span><span class=n>body</span><span class=p>)</span>
 <a id=__codelineno-10-16 name=__codelineno-10-16 href=#__codelineno-10-16></a>    <span class=nb>print</span><span class=p>(</span><span class=n>req</span><span class=o>.</span><span class=n>params</span><span class=p>)</span>
 <a id=__codelineno-10-17 name=__codelineno-10-17 href=#__codelineno-10-17></a>    <span class=k>return</span> <span class=n>Response</span><span class=p>(</span><span class=s1>&#39;Hello, World of WebOb !&#39;</span><span class=p>)</span>
 <a id=__codelineno-10-18 name=__codelineno-10-18 href=#__codelineno-10-18></a>
 <a id=__codelineno-10-19 name=__codelineno-10-19 href=#__codelineno-10-19></a>
-<a id=__codelineno-10-20 name=__codelineno-10-20 href=#__codelineno-10-20></a><span class=k>def</span> <span class=nf>app_factory</span><span class=p>(</span><span class=n>global_config</span><span class=p>,</span> <span class=o>**</span><span class=n>local_config</span><span class=p>):</span>
+<a id=__codelineno-10-20 name=__codelineno-10-20 href=#__codelineno-10-20></a><span class=k>def</span><span class=w> </span><span class=nf>app_factory</span><span class=p>(</span><span class=n>global_config</span><span class=p>,</span> <span class=o>**</span><span class=n>local_config</span><span class=p>):</span>
 <a id=__codelineno-10-21 name=__codelineno-10-21 href=#__codelineno-10-21></a>    <span class=k>return</span> <span class=n>application</span>
 <a id=__codelineno-10-22 name=__codelineno-10-22 href=#__codelineno-10-22></a>
 <a id=__codelineno-10-23 name=__codelineno-10-23 href=#__codelineno-10-23></a>
 <a id=__codelineno-10-24 name=__codelineno-10-24 href=#__codelineno-10-24></a><span class=nd>@wsgify</span><span class=o>.</span><span class=n>middleware</span>
-<a id=__codelineno-10-25 name=__codelineno-10-25 href=#__codelineno-10-25></a><span class=k>def</span> <span class=nf>auth_filter</span><span class=p>(</span><span class=n>req</span><span class=p>,</span> <span class=n>app</span><span class=p>):</span>
+<a id=__codelineno-10-25 name=__codelineno-10-25 href=#__codelineno-10-25></a><span class=k>def</span><span class=w> </span><span class=nf>auth_filter</span><span class=p>(</span><span class=n>req</span><span class=p>,</span> <span class=n>app</span><span class=p>):</span>
 <a id=__codelineno-10-26 name=__codelineno-10-26 href=#__codelineno-10-26></a>    <span class=k>if</span> <span class=n>req</span><span class=o>.</span><span class=n>headers</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;X-Auth&#39;</span><span class=p>)</span> <span class=o>!=</span> <span class=s1>&#39;1234&#39;</span><span class=p>:</span>
 <a id=__codelineno-10-27 name=__codelineno-10-27 href=#__codelineno-10-27></a>        <span class=k>return</span> <span class=n>exc</span><span class=o>.</span><span class=n>HTTPForbidden</span><span class=p>()</span>
 <a id=__codelineno-10-28 name=__codelineno-10-28 href=#__codelineno-10-28></a>    <span class=k>return</span> <span class=n>app</span><span class=p>(</span><span class=n>req</span><span class=p>)</span>
 <a id=__codelineno-10-29 name=__codelineno-10-29 href=#__codelineno-10-29></a>
 <a id=__codelineno-10-30 name=__codelineno-10-30 href=#__codelineno-10-30></a>
-<a id=__codelineno-10-31 name=__codelineno-10-31 href=#__codelineno-10-31></a><span class=k>def</span> <span class=nf>filter_factory</span><span class=p>(</span><span class=n>global_config</span><span class=p>,</span> <span class=o>**</span><span class=n>local_config</span><span class=p>):</span>
+<a id=__codelineno-10-31 name=__codelineno-10-31 href=#__codelineno-10-31></a><span class=k>def</span><span class=w> </span><span class=nf>filter_factory</span><span class=p>(</span><span class=n>global_config</span><span class=p>,</span> <span class=o>**</span><span class=n>local_config</span><span class=p>):</span>
 <a id=__codelineno-10-32 name=__codelineno-10-32 href=#__codelineno-10-32></a>    <span class=k>return</span> <span class=n>auth_filter</span>
 <a id=__codelineno-10-33 name=__codelineno-10-33 href=#__codelineno-10-33></a>
 <a id=__codelineno-10-34 name=__codelineno-10-34 href=#__codelineno-10-34></a>
@@ -225,21 +225,21 @@
 <a id=__codelineno-10-37 name=__codelineno-10-37 href=#__codelineno-10-37></a>    <span class=n>httpserver</span><span class=o>.</span><span class=n>serve</span><span class=p>(</span><span class=n>wsgi_app</span><span class=p>,</span> <span class=n>host</span><span class=o>=</span><span class=s1>&#39;0.0.0.0&#39;</span><span class=p>,</span> <span class=n>port</span><span class=o>=</span><span class=mi>8080</span><span class=p>)</span>
 </code></pre></div> <h3 id=53-其他特性>5.3 其他特性<a class=headerlink href=#53-其他特性 title="Permanent link">&para;</a></h3> <p>WebOb 本身也是 WSGI 标准的一种实现，但具有自己的一些特性：</p> <ul> <li> <p>完全可以只使用 WebOb 构建 WSGI 应用。</p> </li> <li> <p>提供了更好的处理。</p> </li> <li> <p>对 JSON 提供了良好支持。</p> </li> </ul> <h2 id=6routes-模块>6.routes 模块<a class=headerlink href=#6routes-模块 title="Permanent link">&para;</a></h2> <h3 id=61-routes-模块概述>6.1 routes 模块概述<a class=headerlink href=#61-routes-模块概述 title="Permanent link">&para;</a></h3> <p>OpenStack 中所使用的路由模块 routes 源自于对 Rails 路由系统的重新实现。Rails 是 Ruby 语言的 Web 开发框架，采用 MVC 模式，收到浏览器发出的 HTTP 请求后，Rails 路由系统会将这个请求指派到对应的 Controller。</p> <h3 id=62-使用示例>6.2 使用示例<a class=headerlink href=#62-使用示例 title="Permanent link">&para;</a></h3> <p>下面用示例简单了解 routes 模块的使用方法。</p> <div class=highlight><pre><span></span><code><a id=__codelineno-11-1 name=__codelineno-11-1 href=#__codelineno-11-1></a><span class=ch>#!/usr/bin/env python</span>
 <a id=__codelineno-11-2 name=__codelineno-11-2 href=#__codelineno-11-2></a><span class=c1># -*- coding: utf-8 -*-</span>
-<a id=__codelineno-11-3 name=__codelineno-11-3 href=#__codelineno-11-3></a><span class=kn>from</span> <span class=nn>wsgiref.simple_server</span> <span class=kn>import</span> <span class=n>make_server</span>
-<a id=__codelineno-11-4 name=__codelineno-11-4 href=#__codelineno-11-4></a><span class=kn>import</span> <span class=nn>routes.middleware</span>
-<a id=__codelineno-11-5 name=__codelineno-11-5 href=#__codelineno-11-5></a><span class=kn>import</span> <span class=nn>webob.dec</span>
-<a id=__codelineno-11-6 name=__codelineno-11-6 href=#__codelineno-11-6></a><span class=kn>import</span> <span class=nn>webob.exc</span>
+<a id=__codelineno-11-3 name=__codelineno-11-3 href=#__codelineno-11-3></a><span class=kn>from</span><span class=w> </span><span class=nn>wsgiref.simple_server</span><span class=w> </span><span class=kn>import</span> <span class=n>make_server</span>
+<a id=__codelineno-11-4 name=__codelineno-11-4 href=#__codelineno-11-4></a><span class=kn>import</span><span class=w> </span><span class=nn>routes.middleware</span>
+<a id=__codelineno-11-5 name=__codelineno-11-5 href=#__codelineno-11-5></a><span class=kn>import</span><span class=w> </span><span class=nn>webob.dec</span>
+<a id=__codelineno-11-6 name=__codelineno-11-6 href=#__codelineno-11-6></a><span class=kn>import</span><span class=w> </span><span class=nn>webob.exc</span>
 <a id=__codelineno-11-7 name=__codelineno-11-7 href=#__codelineno-11-7></a>
 <a id=__codelineno-11-8 name=__codelineno-11-8 href=#__codelineno-11-8></a>
-<a id=__codelineno-11-9 name=__codelineno-11-9 href=#__codelineno-11-9></a><span class=k>class</span> <span class=nc>Controller</span><span class=p>:</span>
+<a id=__codelineno-11-9 name=__codelineno-11-9 href=#__codelineno-11-9></a><span class=k>class</span><span class=w> </span><span class=nc>Controller</span><span class=p>:</span>
 <a id=__codelineno-11-10 name=__codelineno-11-10 href=#__codelineno-11-10></a>    <span class=nd>@webob</span><span class=o>.</span><span class=n>dec</span><span class=o>.</span><span class=n>wsgify</span>
-<a id=__codelineno-11-11 name=__codelineno-11-11 href=#__codelineno-11-11></a>    <span class=k>def</span> <span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>req</span><span class=p>):</span>
+<a id=__codelineno-11-11 name=__codelineno-11-11 href=#__codelineno-11-11></a>    <span class=k>def</span><span class=w> </span><span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>req</span><span class=p>):</span>
 <a id=__codelineno-11-12 name=__codelineno-11-12 href=#__codelineno-11-12></a>        <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;Received request:&quot;</span><span class=p>,</span> <span class=n>req</span><span class=p>)</span>
 <a id=__codelineno-11-13 name=__codelineno-11-13 href=#__codelineno-11-13></a>        <span class=k>return</span> <span class=n>webob</span><span class=o>.</span><span class=n>Response</span><span class=p>(</span><span class=s2>&quot;Hello World!&quot;</span><span class=p>)</span>
 <a id=__codelineno-11-14 name=__codelineno-11-14 href=#__codelineno-11-14></a>
 <a id=__codelineno-11-15 name=__codelineno-11-15 href=#__codelineno-11-15></a>
-<a id=__codelineno-11-16 name=__codelineno-11-16 href=#__codelineno-11-16></a><span class=k>class</span> <span class=nc>Routes</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
-<a id=__codelineno-11-17 name=__codelineno-11-17 href=#__codelineno-11-17></a>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-11-16 name=__codelineno-11-16 href=#__codelineno-11-16></a><span class=k>class</span><span class=w> </span><span class=nc>Routes</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
+<a id=__codelineno-11-17 name=__codelineno-11-17 href=#__codelineno-11-17></a>    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-11-18 name=__codelineno-11-18 href=#__codelineno-11-18></a>        <span class=bp>self</span><span class=o>.</span><span class=n>_mapper</span> <span class=o>=</span> <span class=n>routes</span><span class=o>.</span><span class=n>Mapper</span><span class=p>()</span>
 <a id=__codelineno-11-19 name=__codelineno-11-19 href=#__codelineno-11-19></a>        <span class=bp>self</span><span class=o>.</span><span class=n>_mapper</span><span class=o>.</span><span class=n>connect</span><span class=p>(</span><span class=s1>&#39;/spch&#39;</span><span class=p>,</span>
 <a id=__codelineno-11-20 name=__codelineno-11-20 href=#__codelineno-11-20></a>                             <span class=n>controller</span><span class=o>=</span><span class=n>Controller</span><span class=p>(),</span>
@@ -248,12 +248,12 @@
 <a id=__codelineno-11-23 name=__codelineno-11-23 href=#__codelineno-11-23></a>        <span class=bp>self</span><span class=o>.</span><span class=n>_router</span> <span class=o>=</span> <span class=n>routes</span><span class=o>.</span><span class=n>middleware</span><span class=o>.</span><span class=n>RoutesMiddleware</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>_dispatch</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>_mapper</span><span class=p>)</span>
 <a id=__codelineno-11-24 name=__codelineno-11-24 href=#__codelineno-11-24></a>
 <a id=__codelineno-11-25 name=__codelineno-11-25 href=#__codelineno-11-25></a>    <span class=nd>@webob</span><span class=o>.</span><span class=n>dec</span><span class=o>.</span><span class=n>wsgify</span>
-<a id=__codelineno-11-26 name=__codelineno-11-26 href=#__codelineno-11-26></a>    <span class=k>def</span> <span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>req</span><span class=p>):</span>
+<a id=__codelineno-11-26 name=__codelineno-11-26 href=#__codelineno-11-26></a>    <span class=k>def</span><span class=w> </span><span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>req</span><span class=p>):</span>
 <a id=__codelineno-11-27 name=__codelineno-11-27 href=#__codelineno-11-27></a>        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>_router</span>
 <a id=__codelineno-11-28 name=__codelineno-11-28 href=#__codelineno-11-28></a>
 <a id=__codelineno-11-29 name=__codelineno-11-29 href=#__codelineno-11-29></a>    <span class=nd>@staticmethod</span>
 <a id=__codelineno-11-30 name=__codelineno-11-30 href=#__codelineno-11-30></a>    <span class=nd>@webob</span><span class=o>.</span><span class=n>dec</span><span class=o>.</span><span class=n>wsgify</span>
-<a id=__codelineno-11-31 name=__codelineno-11-31 href=#__codelineno-11-31></a>    <span class=k>def</span> <span class=nf>_dispatch</span><span class=p>(</span><span class=n>req</span><span class=p>):</span>
+<a id=__codelineno-11-31 name=__codelineno-11-31 href=#__codelineno-11-31></a>    <span class=k>def</span><span class=w> </span><span class=nf>_dispatch</span><span class=p>(</span><span class=n>req</span><span class=p>):</span>
 <a id=__codelineno-11-32 name=__codelineno-11-32 href=#__codelineno-11-32></a>        <span class=n>match</span> <span class=o>=</span> <span class=n>req</span><span class=o>.</span><span class=n>environ</span><span class=p>[</span><span class=s1>&#39;wsgiorg.routing_args&#39;</span><span class=p>][</span><span class=mi>1</span><span class=p>]</span>
 <a id=__codelineno-11-33 name=__codelineno-11-33 href=#__codelineno-11-33></a>        <span class=k>if</span> <span class=ow>not</span> <span class=n>match</span><span class=p>:</span>
 <a id=__codelineno-11-34 name=__codelineno-11-34 href=#__codelineno-11-34></a>            <span class=k>return</span> <span class=n>webob</span><span class=o>.</span><span class=n>exc</span><span class=o>.</span><span class=n>HTTPNotFound</span><span class=p>()</span>
@@ -280,34 +280,34 @@
 <a id=__codelineno-12-11 name=__codelineno-12-11 href=#__codelineno-12-11></a><span class=na>paste.app_factory</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>tsroutes:Router.app_factory</span>
 </code></pre></div> <p><code>tsroutes.py</code></p> <div class=highlight><pre><span></span><code><a id=__codelineno-13-1 name=__codelineno-13-1 href=#__codelineno-13-1></a><span class=c1># tsroutes.py</span>
 <a id=__codelineno-13-2 name=__codelineno-13-2 href=#__codelineno-13-2></a>
-<a id=__codelineno-13-3 name=__codelineno-13-3 href=#__codelineno-13-3></a><span class=kn>import</span> <span class=nn>logging</span>
-<a id=__codelineno-13-4 name=__codelineno-13-4 href=#__codelineno-13-4></a><span class=kn>import</span> <span class=nn>os</span>
+<a id=__codelineno-13-3 name=__codelineno-13-3 href=#__codelineno-13-3></a><span class=kn>import</span><span class=w> </span><span class=nn>logging</span>
+<a id=__codelineno-13-4 name=__codelineno-13-4 href=#__codelineno-13-4></a><span class=kn>import</span><span class=w> </span><span class=nn>os</span>
 <a id=__codelineno-13-5 name=__codelineno-13-5 href=#__codelineno-13-5></a>
-<a id=__codelineno-13-6 name=__codelineno-13-6 href=#__codelineno-13-6></a><span class=kn>import</span> <span class=nn>webob.dec</span>
-<a id=__codelineno-13-7 name=__codelineno-13-7 href=#__codelineno-13-7></a><span class=kn>import</span> <span class=nn>webob.exc</span>
+<a id=__codelineno-13-6 name=__codelineno-13-6 href=#__codelineno-13-6></a><span class=kn>import</span><span class=w> </span><span class=nn>webob.dec</span>
+<a id=__codelineno-13-7 name=__codelineno-13-7 href=#__codelineno-13-7></a><span class=kn>import</span><span class=w> </span><span class=nn>webob.exc</span>
 <a id=__codelineno-13-8 name=__codelineno-13-8 href=#__codelineno-13-8></a>
-<a id=__codelineno-13-9 name=__codelineno-13-9 href=#__codelineno-13-9></a><span class=kn>from</span> <span class=nn>paste.deploy</span> <span class=kn>import</span> <span class=n>loadapp</span>
-<a id=__codelineno-13-10 name=__codelineno-13-10 href=#__codelineno-13-10></a><span class=kn>from</span> <span class=nn>wsgiref.simple_server</span> <span class=kn>import</span> <span class=n>make_server</span>
+<a id=__codelineno-13-9 name=__codelineno-13-9 href=#__codelineno-13-9></a><span class=kn>from</span><span class=w> </span><span class=nn>paste.deploy</span><span class=w> </span><span class=kn>import</span> <span class=n>loadapp</span>
+<a id=__codelineno-13-10 name=__codelineno-13-10 href=#__codelineno-13-10></a><span class=kn>from</span><span class=w> </span><span class=nn>wsgiref.simple_server</span><span class=w> </span><span class=kn>import</span> <span class=n>make_server</span>
 <a id=__codelineno-13-11 name=__codelineno-13-11 href=#__codelineno-13-11></a>
-<a id=__codelineno-13-12 name=__codelineno-13-12 href=#__codelineno-13-12></a><span class=kn>import</span> <span class=nn>routes.middleware</span>
+<a id=__codelineno-13-12 name=__codelineno-13-12 href=#__codelineno-13-12></a><span class=kn>import</span><span class=w> </span><span class=nn>routes.middleware</span>
 <a id=__codelineno-13-13 name=__codelineno-13-13 href=#__codelineno-13-13></a>
 <a id=__codelineno-13-14 name=__codelineno-13-14 href=#__codelineno-13-14></a><span class=n>LOG</span> <span class=o>=</span> <span class=n>logging</span><span class=o>.</span><span class=n>getLogger</span><span class=p>(</span><span class=vm>__name__</span><span class=p>)</span>
 <a id=__codelineno-13-15 name=__codelineno-13-15 href=#__codelineno-13-15></a>
 <a id=__codelineno-13-16 name=__codelineno-13-16 href=#__codelineno-13-16></a>
-<a id=__codelineno-13-17 name=__codelineno-13-17 href=#__codelineno-13-17></a><span class=k>class</span> <span class=nc>Controller</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
+<a id=__codelineno-13-17 name=__codelineno-13-17 href=#__codelineno-13-17></a><span class=k>class</span><span class=w> </span><span class=nc>Controller</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
 <a id=__codelineno-13-18 name=__codelineno-13-18 href=#__codelineno-13-18></a>    <span class=nd>@webob</span><span class=o>.</span><span class=n>dec</span><span class=o>.</span><span class=n>wsgify</span>
-<a id=__codelineno-13-19 name=__codelineno-13-19 href=#__codelineno-13-19></a>    <span class=k>def</span> <span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>req</span><span class=p>):</span>
+<a id=__codelineno-13-19 name=__codelineno-13-19 href=#__codelineno-13-19></a>    <span class=k>def</span><span class=w> </span><span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>req</span><span class=p>):</span>
 <a id=__codelineno-13-20 name=__codelineno-13-20 href=#__codelineno-13-20></a>        <span class=n>arg_dict</span> <span class=o>=</span> <span class=n>req</span><span class=o>.</span><span class=n>environ</span><span class=p>[</span><span class=s1>&#39;wsgiorg.routing_args&#39;</span><span class=p>][</span><span class=mi>1</span><span class=p>]</span>
 <a id=__codelineno-13-21 name=__codelineno-13-21 href=#__codelineno-13-21></a>        <span class=n>action</span> <span class=o>=</span> <span class=n>arg_dict</span><span class=o>.</span><span class=n>pop</span><span class=p>(</span><span class=s1>&#39;action&#39;</span><span class=p>)</span>
 <a id=__codelineno-13-22 name=__codelineno-13-22 href=#__codelineno-13-22></a>
 <a id=__codelineno-13-23 name=__codelineno-13-23 href=#__codelineno-13-23></a>        <span class=k>return</span> <span class=n>webob</span><span class=o>.</span><span class=n>Response</span><span class=p>(</span><span class=s1>&#39;OK, </span><span class=si>%s</span><span class=s1>&#39;</span> <span class=o>%</span> <span class=n>action</span><span class=p>)</span>
 <a id=__codelineno-13-24 name=__codelineno-13-24 href=#__codelineno-13-24></a>
-<a id=__codelineno-13-25 name=__codelineno-13-25 href=#__codelineno-13-25></a>    <span class=k>def</span> <span class=nf>getMessage</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>context</span><span class=p>,</span> <span class=n>user_id</span><span class=p>):</span>
+<a id=__codelineno-13-25 name=__codelineno-13-25 href=#__codelineno-13-25></a>    <span class=k>def</span><span class=w> </span><span class=nf>getMessage</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>context</span><span class=p>,</span> <span class=n>user_id</span><span class=p>):</span>
 <a id=__codelineno-13-26 name=__codelineno-13-26 href=#__codelineno-13-26></a>        <span class=k>return</span> <span class=p>{</span><span class=s1>&#39;Message&#39;</span><span class=p>:</span> <span class=s1>&#39;TestMessage&#39;</span><span class=p>}</span>
 <a id=__codelineno-13-27 name=__codelineno-13-27 href=#__codelineno-13-27></a>
 <a id=__codelineno-13-28 name=__codelineno-13-28 href=#__codelineno-13-28></a>
-<a id=__codelineno-13-29 name=__codelineno-13-29 href=#__codelineno-13-29></a><span class=k>class</span> <span class=nc>Router</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
-<a id=__codelineno-13-30 name=__codelineno-13-30 href=#__codelineno-13-30></a>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-13-29 name=__codelineno-13-29 href=#__codelineno-13-29></a><span class=k>class</span><span class=w> </span><span class=nc>Router</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
+<a id=__codelineno-13-30 name=__codelineno-13-30 href=#__codelineno-13-30></a>    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-13-31 name=__codelineno-13-31 href=#__codelineno-13-31></a>        <span class=bp>self</span><span class=o>.</span><span class=n>_mapper</span> <span class=o>=</span> <span class=n>routes</span><span class=o>.</span><span class=n>Mapper</span><span class=p>()</span>
 <a id=__codelineno-13-32 name=__codelineno-13-32 href=#__codelineno-13-32></a>        <span class=bp>self</span><span class=o>.</span><span class=n>_mapper</span><span class=o>.</span><span class=n>connect</span><span class=p>(</span><span class=s1>&#39;/test/</span><span class=si>{user_id}</span><span class=s1>&#39;</span><span class=p>,</span>
 <a id=__codelineno-13-33 name=__codelineno-13-33 href=#__codelineno-13-33></a>                             <span class=n>controller</span><span class=o>=</span><span class=n>Controller</span><span class=p>(),</span>
@@ -316,12 +316,12 @@
 <a id=__codelineno-13-36 name=__codelineno-13-36 href=#__codelineno-13-36></a>        <span class=bp>self</span><span class=o>.</span><span class=n>_router</span> <span class=o>=</span> <span class=n>routes</span><span class=o>.</span><span class=n>middleware</span><span class=o>.</span><span class=n>RoutesMiddleware</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>_dispatch</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>_mapper</span><span class=p>)</span>
 <a id=__codelineno-13-37 name=__codelineno-13-37 href=#__codelineno-13-37></a>
 <a id=__codelineno-13-38 name=__codelineno-13-38 href=#__codelineno-13-38></a>    <span class=nd>@webob</span><span class=o>.</span><span class=n>dec</span><span class=o>.</span><span class=n>wsgify</span>
-<a id=__codelineno-13-39 name=__codelineno-13-39 href=#__codelineno-13-39></a>    <span class=k>def</span> <span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>req</span><span class=p>):</span>
+<a id=__codelineno-13-39 name=__codelineno-13-39 href=#__codelineno-13-39></a>    <span class=k>def</span><span class=w> </span><span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>req</span><span class=p>):</span>
 <a id=__codelineno-13-40 name=__codelineno-13-40 href=#__codelineno-13-40></a>        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>_router</span>
 <a id=__codelineno-13-41 name=__codelineno-13-41 href=#__codelineno-13-41></a>
 <a id=__codelineno-13-42 name=__codelineno-13-42 href=#__codelineno-13-42></a>    <span class=nd>@staticmethod</span>
 <a id=__codelineno-13-43 name=__codelineno-13-43 href=#__codelineno-13-43></a>    <span class=nd>@webob</span><span class=o>.</span><span class=n>dec</span><span class=o>.</span><span class=n>wsgify</span>
-<a id=__codelineno-13-44 name=__codelineno-13-44 href=#__codelineno-13-44></a>    <span class=k>def</span> <span class=nf>_dispatch</span><span class=p>(</span><span class=n>req</span><span class=p>):</span>
+<a id=__codelineno-13-44 name=__codelineno-13-44 href=#__codelineno-13-44></a>    <span class=k>def</span><span class=w> </span><span class=nf>_dispatch</span><span class=p>(</span><span class=n>req</span><span class=p>):</span>
 <a id=__codelineno-13-45 name=__codelineno-13-45 href=#__codelineno-13-45></a>        <span class=n>match</span> <span class=o>=</span> <span class=n>req</span><span class=o>.</span><span class=n>environ</span><span class=p>[</span><span class=s1>&#39;wsgiorg.routing_args&#39;</span><span class=p>][</span><span class=mi>1</span><span class=p>]</span>
 <a id=__codelineno-13-46 name=__codelineno-13-46 href=#__codelineno-13-46></a>
 <a id=__codelineno-13-47 name=__codelineno-13-47 href=#__codelineno-13-47></a>        <span class=k>if</span> <span class=ow>not</span> <span class=n>match</span><span class=p>:</span>
@@ -331,7 +331,7 @@
 <a id=__codelineno-13-51 name=__codelineno-13-51 href=#__codelineno-13-51></a>        <span class=k>return</span> <span class=n>app</span>
 <a id=__codelineno-13-52 name=__codelineno-13-52 href=#__codelineno-13-52></a>
 <a id=__codelineno-13-53 name=__codelineno-13-53 href=#__codelineno-13-53></a>    <span class=nd>@classmethod</span>
-<a id=__codelineno-13-54 name=__codelineno-13-54 href=#__codelineno-13-54></a>    <span class=k>def</span> <span class=nf>app_factory</span><span class=p>(</span><span class=bp>cls</span><span class=p>,</span> <span class=n>global_config</span><span class=p>,</span> <span class=o>**</span><span class=n>local_config</span><span class=p>):</span>
+<a id=__codelineno-13-54 name=__codelineno-13-54 href=#__codelineno-13-54></a>    <span class=k>def</span><span class=w> </span><span class=nf>app_factory</span><span class=p>(</span><span class=bp>cls</span><span class=p>,</span> <span class=n>global_config</span><span class=p>,</span> <span class=o>**</span><span class=n>local_config</span><span class=p>):</span>
 <a id=__codelineno-13-55 name=__codelineno-13-55 href=#__codelineno-13-55></a>        <span class=k>return</span> <span class=bp>cls</span><span class=p>()</span>
 <a id=__codelineno-13-56 name=__codelineno-13-56 href=#__codelineno-13-56></a>
 <a id=__codelineno-13-57 name=__codelineno-13-57 href=#__codelineno-13-57></a>
@@ -356,27 +356,27 @@
 <a id=__codelineno-15-9 name=__codelineno-15-9 href=#__codelineno-15-9></a><span class=k>[filter:auth]</span>
 <a id=__codelineno-15-10 name=__codelineno-15-10 href=#__codelineno-15-10></a><span class=c1>;定义了auth过滤器，引用了WSGIService包的filter_factory方法作为工厂方法</span>
 <a id=__codelineno-15-11 name=__codelineno-15-11 href=#__codelineno-15-11></a><span class=na>paste.filter_factory</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>WSGIService:filter_factory</span>
-</code></pre></div> <h3 id=2url-映射的实现>2.URL 映射的实现<a class=headerlink href=#2url-映射的实现 title="Permanent link">&para;</a></h3> <p><code>WSGIService.py</code></p> <div class=highlight><pre><span></span><code><a id=__codelineno-16-1 name=__codelineno-16-1 href=#__codelineno-16-1></a><span class=kn>import</span> <span class=nn>os</span>
-<a id=__codelineno-16-2 name=__codelineno-16-2 href=#__codelineno-16-2></a><span class=kn>from</span> <span class=nn>paste.deploy</span> <span class=kn>import</span> <span class=n>loadapp</span>
-<a id=__codelineno-16-3 name=__codelineno-16-3 href=#__codelineno-16-3></a><span class=kn>from</span> <span class=nn>wsgiref.simple_server</span> <span class=kn>import</span> <span class=n>make_server</span>
-<a id=__codelineno-16-4 name=__codelineno-16-4 href=#__codelineno-16-4></a><span class=kn>from</span> <span class=nn>webob.dec</span> <span class=kn>import</span> <span class=o>*</span>
-<a id=__codelineno-16-5 name=__codelineno-16-5 href=#__codelineno-16-5></a><span class=kn>from</span> <span class=nn>webob</span> <span class=kn>import</span> <span class=n>Request</span><span class=p>,</span> <span class=n>Response</span><span class=p>,</span> <span class=n>exc</span>
-<a id=__codelineno-16-6 name=__codelineno-16-6 href=#__codelineno-16-6></a><span class=kn>from</span> <span class=nn>routes</span> <span class=kn>import</span> <span class=n>Mapper</span><span class=p>,</span> <span class=n>middleware</span>
-<a id=__codelineno-16-7 name=__codelineno-16-7 href=#__codelineno-16-7></a><span class=kn>import</span> <span class=nn>controllers</span>
+</code></pre></div> <h3 id=2url-映射的实现>2.URL 映射的实现<a class=headerlink href=#2url-映射的实现 title="Permanent link">&para;</a></h3> <p><code>WSGIService.py</code></p> <div class=highlight><pre><span></span><code><a id=__codelineno-16-1 name=__codelineno-16-1 href=#__codelineno-16-1></a><span class=kn>import</span><span class=w> </span><span class=nn>os</span>
+<a id=__codelineno-16-2 name=__codelineno-16-2 href=#__codelineno-16-2></a><span class=kn>from</span><span class=w> </span><span class=nn>paste.deploy</span><span class=w> </span><span class=kn>import</span> <span class=n>loadapp</span>
+<a id=__codelineno-16-3 name=__codelineno-16-3 href=#__codelineno-16-3></a><span class=kn>from</span><span class=w> </span><span class=nn>wsgiref.simple_server</span><span class=w> </span><span class=kn>import</span> <span class=n>make_server</span>
+<a id=__codelineno-16-4 name=__codelineno-16-4 href=#__codelineno-16-4></a><span class=kn>from</span><span class=w> </span><span class=nn>webob.dec</span><span class=w> </span><span class=kn>import</span> <span class=o>*</span>
+<a id=__codelineno-16-5 name=__codelineno-16-5 href=#__codelineno-16-5></a><span class=kn>from</span><span class=w> </span><span class=nn>webob</span><span class=w> </span><span class=kn>import</span> <span class=n>Request</span><span class=p>,</span> <span class=n>Response</span><span class=p>,</span> <span class=n>exc</span>
+<a id=__codelineno-16-6 name=__codelineno-16-6 href=#__codelineno-16-6></a><span class=kn>from</span><span class=w> </span><span class=nn>routes</span><span class=w> </span><span class=kn>import</span> <span class=n>Mapper</span><span class=p>,</span> <span class=n>middleware</span>
+<a id=__codelineno-16-7 name=__codelineno-16-7 href=#__codelineno-16-7></a><span class=kn>import</span><span class=w> </span><span class=nn>controllers</span>
 <a id=__codelineno-16-8 name=__codelineno-16-8 href=#__codelineno-16-8></a>
 <a id=__codelineno-16-9 name=__codelineno-16-9 href=#__codelineno-16-9></a>
-<a id=__codelineno-16-10 name=__codelineno-16-10 href=#__codelineno-16-10></a><span class=k>class</span> <span class=nc>Router</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
-<a id=__codelineno-16-11 name=__codelineno-16-11 href=#__codelineno-16-11></a>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-16-10 name=__codelineno-16-10 href=#__codelineno-16-10></a><span class=k>class</span><span class=w> </span><span class=nc>Router</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
+<a id=__codelineno-16-11 name=__codelineno-16-11 href=#__codelineno-16-11></a>    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-16-12 name=__codelineno-16-12 href=#__codelineno-16-12></a>        <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;INFO: Initializing routes...&quot;</span><span class=p>)</span>
 <a id=__codelineno-16-13 name=__codelineno-16-13 href=#__codelineno-16-13></a>        <span class=bp>self</span><span class=o>.</span><span class=n>mapper</span> <span class=o>=</span> <span class=n>Mapper</span><span class=p>()</span>
 <a id=__codelineno-16-14 name=__codelineno-16-14 href=#__codelineno-16-14></a>        <span class=bp>self</span><span class=o>.</span><span class=n>add_routes</span><span class=p>()</span>
 <a id=__codelineno-16-15 name=__codelineno-16-15 href=#__codelineno-16-15></a>        <span class=bp>self</span><span class=o>.</span><span class=n>router</span> <span class=o>=</span> <span class=n>middleware</span><span class=o>.</span><span class=n>RoutesMiddleware</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>_dispatch</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>mapper</span><span class=p>)</span>
 <a id=__codelineno-16-16 name=__codelineno-16-16 href=#__codelineno-16-16></a>
 <a id=__codelineno-16-17 name=__codelineno-16-17 href=#__codelineno-16-17></a>    <span class=nd>@wsgify</span>
-<a id=__codelineno-16-18 name=__codelineno-16-18 href=#__codelineno-16-18></a>    <span class=k>def</span> <span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>req</span><span class=p>):</span>
+<a id=__codelineno-16-18 name=__codelineno-16-18 href=#__codelineno-16-18></a>    <span class=k>def</span><span class=w> </span><span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>req</span><span class=p>):</span>
 <a id=__codelineno-16-19 name=__codelineno-16-19 href=#__codelineno-16-19></a>        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>router</span>
 <a id=__codelineno-16-20 name=__codelineno-16-20 href=#__codelineno-16-20></a>
-<a id=__codelineno-16-21 name=__codelineno-16-21 href=#__codelineno-16-21></a>    <span class=k>def</span> <span class=nf>add_routes</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-16-21 name=__codelineno-16-21 href=#__codelineno-16-21></a>    <span class=k>def</span><span class=w> </span><span class=nf>add_routes</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-16-22 name=__codelineno-16-22 href=#__codelineno-16-22></a>        <span class=n>controller</span> <span class=o>=</span> <span class=n>controllers</span><span class=o>.</span><span class=n>Controller</span><span class=p>()</span>
 <a id=__codelineno-16-23 name=__codelineno-16-23 href=#__codelineno-16-23></a>        <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;INFO: Adding routes...&quot;</span><span class=p>)</span>
 <a id=__codelineno-16-24 name=__codelineno-16-24 href=#__codelineno-16-24></a>        <span class=bp>self</span><span class=o>.</span><span class=n>mapper</span><span class=o>.</span><span class=n>connect</span><span class=p>(</span><span class=s1>&#39;/instances&#39;</span><span class=p>,</span> <span class=n>controller</span><span class=o>=</span><span class=n>controller</span><span class=p>,</span> <span class=n>action</span><span class=o>=</span><span class=s1>&#39;create&#39;</span><span class=p>,</span> <span class=n>conditions</span><span class=o>=</span><span class=p>{</span><span class=s1>&#39;method&#39;</span><span class=p>:</span> <span class=p>[</span><span class=s1>&#39;POST&#39;</span><span class=p>]})</span>
@@ -390,7 +390,7 @@
 <a id=__codelineno-16-32 name=__codelineno-16-32 href=#__codelineno-16-32></a>
 <a id=__codelineno-16-33 name=__codelineno-16-33 href=#__codelineno-16-33></a>    <span class=nd>@staticmethod</span>
 <a id=__codelineno-16-34 name=__codelineno-16-34 href=#__codelineno-16-34></a>    <span class=nd>@wsgify</span>
-<a id=__codelineno-16-35 name=__codelineno-16-35 href=#__codelineno-16-35></a>    <span class=k>def</span> <span class=nf>_dispatch</span><span class=p>(</span><span class=n>req</span><span class=p>):</span>
+<a id=__codelineno-16-35 name=__codelineno-16-35 href=#__codelineno-16-35></a>    <span class=k>def</span><span class=w> </span><span class=nf>_dispatch</span><span class=p>(</span><span class=n>req</span><span class=p>):</span>
 <a id=__codelineno-16-36 name=__codelineno-16-36 href=#__codelineno-16-36></a>        <span class=n>match</span> <span class=o>=</span> <span class=n>req</span><span class=o>.</span><span class=n>environ</span><span class=p>[</span><span class=s1>&#39;wsgiorg.routing_args&#39;</span><span class=p>][</span><span class=mi>1</span><span class=p>]</span>  <span class=c1># 获取URL解析结果</span>
 <a id=__codelineno-16-37 name=__codelineno-16-37 href=#__codelineno-16-37></a>        <span class=k>if</span> <span class=ow>not</span> <span class=n>match</span><span class=p>:</span>  <span class=c1># 如果解析结果为空，则输出错误信息</span>
 <a id=__codelineno-16-38 name=__codelineno-16-38 href=#__codelineno-16-38></a>            <span class=k>return</span> <span class=n>exc</span><span class=o>.</span><span class=n>HTTPNotFound</span><span class=p>()</span>
@@ -399,18 +399,18 @@
 <a id=__codelineno-16-41 name=__codelineno-16-41 href=#__codelineno-16-41></a>        <span class=k>return</span> <span class=n>app</span>
 <a id=__codelineno-16-42 name=__codelineno-16-42 href=#__codelineno-16-42></a>
 <a id=__codelineno-16-43 name=__codelineno-16-43 href=#__codelineno-16-43></a>
-<a id=__codelineno-16-44 name=__codelineno-16-44 href=#__codelineno-16-44></a><span class=k>def</span> <span class=nf>app_factory</span><span class=p>(</span><span class=n>global_config</span><span class=p>,</span> <span class=o>**</span><span class=n>local_config</span><span class=p>):</span>
+<a id=__codelineno-16-44 name=__codelineno-16-44 href=#__codelineno-16-44></a><span class=k>def</span><span class=w> </span><span class=nf>app_factory</span><span class=p>(</span><span class=n>global_config</span><span class=p>,</span> <span class=o>**</span><span class=n>local_config</span><span class=p>):</span>
 <a id=__codelineno-16-45 name=__codelineno-16-45 href=#__codelineno-16-45></a>    <span class=k>return</span> <span class=n>Router</span><span class=p>()</span>
 <a id=__codelineno-16-46 name=__codelineno-16-46 href=#__codelineno-16-46></a>
 <a id=__codelineno-16-47 name=__codelineno-16-47 href=#__codelineno-16-47></a>
 <a id=__codelineno-16-48 name=__codelineno-16-48 href=#__codelineno-16-48></a><span class=nd>@wsgify</span><span class=o>.</span><span class=n>middleware</span>
-<a id=__codelineno-16-49 name=__codelineno-16-49 href=#__codelineno-16-49></a><span class=k>def</span> <span class=nf>auth_filter</span><span class=p>(</span><span class=n>req</span><span class=p>,</span> <span class=n>app</span><span class=p>):</span>
+<a id=__codelineno-16-49 name=__codelineno-16-49 href=#__codelineno-16-49></a><span class=k>def</span><span class=w> </span><span class=nf>auth_filter</span><span class=p>(</span><span class=n>req</span><span class=p>,</span> <span class=n>app</span><span class=p>):</span>
 <a id=__codelineno-16-50 name=__codelineno-16-50 href=#__codelineno-16-50></a>    <span class=k>if</span> <span class=n>req</span><span class=o>.</span><span class=n>headers</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;X-Auth&#39;</span><span class=p>)</span> <span class=o>!=</span> <span class=s1>&#39;1234&#39;</span><span class=p>:</span>
 <a id=__codelineno-16-51 name=__codelineno-16-51 href=#__codelineno-16-51></a>        <span class=k>return</span> <span class=n>exc</span><span class=o>.</span><span class=n>HTTPForbidden</span><span class=p>()</span>
 <a id=__codelineno-16-52 name=__codelineno-16-52 href=#__codelineno-16-52></a>    <span class=k>return</span> <span class=n>app</span><span class=p>(</span><span class=n>req</span><span class=p>)</span>
 <a id=__codelineno-16-53 name=__codelineno-16-53 href=#__codelineno-16-53></a>
 <a id=__codelineno-16-54 name=__codelineno-16-54 href=#__codelineno-16-54></a>
-<a id=__codelineno-16-55 name=__codelineno-16-55 href=#__codelineno-16-55></a><span class=k>def</span> <span class=nf>filter_factory</span><span class=p>(</span><span class=n>global_config</span><span class=p>,</span> <span class=o>**</span><span class=n>local_config</span><span class=p>):</span>
+<a id=__codelineno-16-55 name=__codelineno-16-55 href=#__codelineno-16-55></a><span class=k>def</span><span class=w> </span><span class=nf>filter_factory</span><span class=p>(</span><span class=n>global_config</span><span class=p>,</span> <span class=o>**</span><span class=n>local_config</span><span class=p>):</span>
 <a id=__codelineno-16-56 name=__codelineno-16-56 href=#__codelineno-16-56></a>    <span class=k>return</span> <span class=n>auth_filter</span>
 <a id=__codelineno-16-57 name=__codelineno-16-57 href=#__codelineno-16-57></a>
 <a id=__codelineno-16-58 name=__codelineno-16-58 href=#__codelineno-16-58></a>
@@ -423,17 +423,17 @@
 <a id=__codelineno-16-65 name=__codelineno-16-65 href=#__codelineno-16-65></a>    <span class=n>httpd</span><span class=o>.</span><span class=n>serve_forever</span><span class=p>()</span>
 </code></pre></div> <h3 id=2controller-类的实现>2.Controller 类的实现<a class=headerlink href=#2controller-类的实现 title="Permanent link">&para;</a></h3> <p><code>controllers.py</code></p> <div class=highlight><pre><span></span><code><a id=__codelineno-17-1 name=__codelineno-17-1 href=#__codelineno-17-1></a><span class=ch>#!/usr/bin/env python</span>
 <a id=__codelineno-17-2 name=__codelineno-17-2 href=#__codelineno-17-2></a><span class=c1># -*- coding: utf-8 -*-</span>
-<a id=__codelineno-17-3 name=__codelineno-17-3 href=#__codelineno-17-3></a><span class=kn>import</span> <span class=nn>uuid</span>
+<a id=__codelineno-17-3 name=__codelineno-17-3 href=#__codelineno-17-3></a><span class=kn>import</span><span class=w> </span><span class=nn>uuid</span>
 <a id=__codelineno-17-4 name=__codelineno-17-4 href=#__codelineno-17-4></a>
-<a id=__codelineno-17-5 name=__codelineno-17-5 href=#__codelineno-17-5></a><span class=kn>import</span> <span class=nn>simplejson</span>
-<a id=__codelineno-17-6 name=__codelineno-17-6 href=#__codelineno-17-6></a><span class=kn>import</span> <span class=nn>webob.exc</span>
-<a id=__codelineno-17-7 name=__codelineno-17-7 href=#__codelineno-17-7></a><span class=kn>from</span> <span class=nn>webob</span> <span class=kn>import</span> <span class=n>Request</span><span class=p>,</span> <span class=n>Response</span>
-<a id=__codelineno-17-8 name=__codelineno-17-8 href=#__codelineno-17-8></a><span class=kn>import</span> <span class=nn>json</span>
-<a id=__codelineno-17-9 name=__codelineno-17-9 href=#__codelineno-17-9></a><span class=kn>from</span> <span class=nn>webob.dec</span> <span class=kn>import</span> <span class=n>wsgify</span>
+<a id=__codelineno-17-5 name=__codelineno-17-5 href=#__codelineno-17-5></a><span class=kn>import</span><span class=w> </span><span class=nn>simplejson</span>
+<a id=__codelineno-17-6 name=__codelineno-17-6 href=#__codelineno-17-6></a><span class=kn>import</span><span class=w> </span><span class=nn>webob.exc</span>
+<a id=__codelineno-17-7 name=__codelineno-17-7 href=#__codelineno-17-7></a><span class=kn>from</span><span class=w> </span><span class=nn>webob</span><span class=w> </span><span class=kn>import</span> <span class=n>Request</span><span class=p>,</span> <span class=n>Response</span>
+<a id=__codelineno-17-8 name=__codelineno-17-8 href=#__codelineno-17-8></a><span class=kn>import</span><span class=w> </span><span class=nn>json</span>
+<a id=__codelineno-17-9 name=__codelineno-17-9 href=#__codelineno-17-9></a><span class=kn>from</span><span class=w> </span><span class=nn>webob.dec</span><span class=w> </span><span class=kn>import</span> <span class=n>wsgify</span>
 <a id=__codelineno-17-10 name=__codelineno-17-10 href=#__codelineno-17-10></a>
 <a id=__codelineno-17-11 name=__codelineno-17-11 href=#__codelineno-17-11></a>
-<a id=__codelineno-17-12 name=__codelineno-17-12 href=#__codelineno-17-12></a><span class=k>class</span> <span class=nc>Controller</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
-<a id=__codelineno-17-13 name=__codelineno-17-13 href=#__codelineno-17-13></a>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-17-12 name=__codelineno-17-12 href=#__codelineno-17-12></a><span class=k>class</span><span class=w> </span><span class=nc>Controller</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
+<a id=__codelineno-17-13 name=__codelineno-17-13 href=#__codelineno-17-13></a>    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-17-14 name=__codelineno-17-14 href=#__codelineno-17-14></a>        <span class=bp>self</span><span class=o>.</span><span class=n>instances</span> <span class=o>=</span> <span class=p>{}</span>
 <a id=__codelineno-17-15 name=__codelineno-17-15 href=#__codelineno-17-15></a>        <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>3</span><span class=p>):</span>
 <a id=__codelineno-17-16 name=__codelineno-17-16 href=#__codelineno-17-16></a>            <span class=n>inst_id</span> <span class=o>=</span> <span class=nb>str</span><span class=p>(</span><span class=n>uuid</span><span class=o>.</span><span class=n>uuid4</span><span class=p>())</span>
@@ -441,7 +441,7 @@
 <a id=__codelineno-17-18 name=__codelineno-17-18 href=#__codelineno-17-18></a>        <span class=nb>print</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>instances</span><span class=p>)</span>
 <a id=__codelineno-17-19 name=__codelineno-17-19 href=#__codelineno-17-19></a>
 <a id=__codelineno-17-20 name=__codelineno-17-20 href=#__codelineno-17-20></a>    <span class=nd>@wsgify</span>
-<a id=__codelineno-17-21 name=__codelineno-17-21 href=#__codelineno-17-21></a>    <span class=k>def</span> <span class=nf>create</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>req</span><span class=p>):</span>
+<a id=__codelineno-17-21 name=__codelineno-17-21 href=#__codelineno-17-21></a>    <span class=k>def</span><span class=w> </span><span class=nf>create</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>req</span><span class=p>):</span>
 <a id=__codelineno-17-22 name=__codelineno-17-22 href=#__codelineno-17-22></a>        <span class=c1># print(req.json)</span>
 <a id=__codelineno-17-23 name=__codelineno-17-23 href=#__codelineno-17-23></a>        <span class=n>name</span> <span class=o>=</span> <span class=n>req</span><span class=o>.</span><span class=n>json</span><span class=p>[</span><span class=s1>&#39;name&#39;</span><span class=p>]</span>
 <a id=__codelineno-17-24 name=__codelineno-17-24 href=#__codelineno-17-24></a>        <span class=k>if</span> <span class=n>name</span><span class=p>:</span>
@@ -452,12 +452,12 @@
 <a id=__codelineno-17-29 name=__codelineno-17-29 href=#__codelineno-17-29></a>            <span class=k>return</span> <span class=p>{</span><span class=s1>&#39;instance&#39;</span><span class=p>:</span> <span class=n>inst</span><span class=p>}</span>
 <a id=__codelineno-17-30 name=__codelineno-17-30 href=#__codelineno-17-30></a>
 <a id=__codelineno-17-31 name=__codelineno-17-31 href=#__codelineno-17-31></a>    <span class=nd>@wsgify</span>
-<a id=__codelineno-17-32 name=__codelineno-17-32 href=#__codelineno-17-32></a>    <span class=k>def</span> <span class=nf>show</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>req</span><span class=p>,</span> <span class=n>instance_id</span><span class=p>):</span>
+<a id=__codelineno-17-32 name=__codelineno-17-32 href=#__codelineno-17-32></a>    <span class=k>def</span><span class=w> </span><span class=nf>show</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>req</span><span class=p>,</span> <span class=n>instance_id</span><span class=p>):</span>
 <a id=__codelineno-17-33 name=__codelineno-17-33 href=#__codelineno-17-33></a>        <span class=n>inst</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>instances</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>instance_id</span><span class=p>)</span>
 <a id=__codelineno-17-34 name=__codelineno-17-34 href=#__codelineno-17-34></a>        <span class=k>return</span> <span class=p>{</span><span class=s1>&#39;instance&#39;</span><span class=p>:</span> <span class=n>inst</span><span class=p>}</span>
 <a id=__codelineno-17-35 name=__codelineno-17-35 href=#__codelineno-17-35></a>
 <a id=__codelineno-17-36 name=__codelineno-17-36 href=#__codelineno-17-36></a>    <span class=nd>@wsgify</span>
-<a id=__codelineno-17-37 name=__codelineno-17-37 href=#__codelineno-17-37></a>    <span class=k>def</span> <span class=nf>index</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>req</span><span class=p>):</span>
+<a id=__codelineno-17-37 name=__codelineno-17-37 href=#__codelineno-17-37></a>    <span class=k>def</span><span class=w> </span><span class=nf>index</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>req</span><span class=p>):</span>
 <a id=__codelineno-17-38 name=__codelineno-17-38 href=#__codelineno-17-38></a>        <span class=c1># 返回所有实例的列表</span>
 <a id=__codelineno-17-39 name=__codelineno-17-39 href=#__codelineno-17-39></a>        <span class=c1># print(self.instances.values())</span>
 <a id=__codelineno-17-40 name=__codelineno-17-40 href=#__codelineno-17-40></a>        <span class=n>result</span> <span class=o>=</span> <span class=nb>list</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>instances</span><span class=o>.</span><span class=n>values</span><span class=p>())</span>
@@ -465,12 +465,12 @@
 <a id=__codelineno-17-42 name=__codelineno-17-42 href=#__codelineno-17-42></a>        <span class=k>return</span> <span class=p>{</span><span class=s1>&#39;instances&#39;</span><span class=p>:</span> <span class=n>result</span><span class=p>}</span>
 <a id=__codelineno-17-43 name=__codelineno-17-43 href=#__codelineno-17-43></a>
 <a id=__codelineno-17-44 name=__codelineno-17-44 href=#__codelineno-17-44></a>    <span class=nd>@wsgify</span>
-<a id=__codelineno-17-45 name=__codelineno-17-45 href=#__codelineno-17-45></a>    <span class=k>def</span> <span class=nf>delete</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>req</span><span class=p>,</span> <span class=n>instance_id</span><span class=p>):</span>
+<a id=__codelineno-17-45 name=__codelineno-17-45 href=#__codelineno-17-45></a>    <span class=k>def</span><span class=w> </span><span class=nf>delete</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>req</span><span class=p>,</span> <span class=n>instance_id</span><span class=p>):</span>
 <a id=__codelineno-17-46 name=__codelineno-17-46 href=#__codelineno-17-46></a>        <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>instances</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>instance_id</span><span class=p>):</span>
 <a id=__codelineno-17-47 name=__codelineno-17-47 href=#__codelineno-17-47></a>            <span class=bp>self</span><span class=o>.</span><span class=n>instances</span><span class=o>.</span><span class=n>pop</span><span class=p>(</span><span class=n>instance_id</span><span class=p>)</span>
 <a id=__codelineno-17-48 name=__codelineno-17-48 href=#__codelineno-17-48></a>
 <a id=__codelineno-17-49 name=__codelineno-17-49 href=#__codelineno-17-49></a>    <span class=nd>@wsgify</span>
-<a id=__codelineno-17-50 name=__codelineno-17-50 href=#__codelineno-17-50></a>    <span class=k>def</span> <span class=nf>update</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>req</span><span class=p>,</span> <span class=n>instance_id</span><span class=p>):</span>
+<a id=__codelineno-17-50 name=__codelineno-17-50 href=#__codelineno-17-50></a>    <span class=k>def</span><span class=w> </span><span class=nf>update</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>req</span><span class=p>,</span> <span class=n>instance_id</span><span class=p>):</span>
 <a id=__codelineno-17-51 name=__codelineno-17-51 href=#__codelineno-17-51></a>        <span class=n>inst</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>instances</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>instance_id</span><span class=p>)</span>
 <a id=__codelineno-17-52 name=__codelineno-17-52 href=#__codelineno-17-52></a>        <span class=n>name</span> <span class=o>=</span> <span class=n>req</span><span class=o>.</span><span class=n>json</span><span class=p>[</span><span class=s1>&#39;name&#39;</span><span class=p>]</span>
 <a id=__codelineno-17-53 name=__codelineno-17-53 href=#__codelineno-17-53></a>        <span class=k>if</span> <span class=n>inst</span> <span class=ow>and</span> <span class=n>name</span><span class=p>:</span>
@@ -478,7 +478,7 @@
 <a id=__codelineno-17-55 name=__codelineno-17-55 href=#__codelineno-17-55></a>            <span class=k>return</span> <span class=p>{</span><span class=s1>&#39;instance&#39;</span><span class=p>:</span> <span class=n>inst</span><span class=p>}</span>
 <a id=__codelineno-17-56 name=__codelineno-17-56 href=#__codelineno-17-56></a>
 <a id=__codelineno-17-57 name=__codelineno-17-57 href=#__codelineno-17-57></a>    <span class=nd>@wsgify</span>
-<a id=__codelineno-17-58 name=__codelineno-17-58 href=#__codelineno-17-58></a>    <span class=k>def</span> <span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>req</span><span class=p>):</span>
+<a id=__codelineno-17-58 name=__codelineno-17-58 href=#__codelineno-17-58></a>    <span class=k>def</span><span class=w> </span><span class=fm>__call__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>req</span><span class=p>):</span>
 <a id=__codelineno-17-59 name=__codelineno-17-59 href=#__codelineno-17-59></a>        <span class=n>arg_dict</span> <span class=o>=</span> <span class=n>req</span><span class=o>.</span><span class=n>environ</span><span class=p>[</span><span class=s1>&#39;wsgiorg.routing_args&#39;</span><span class=p>][</span><span class=mi>1</span><span class=p>]</span>  <span class=c1># 获取URL解析结果</span>
 <a id=__codelineno-17-60 name=__codelineno-17-60 href=#__codelineno-17-60></a>        <span class=n>action</span> <span class=o>=</span> <span class=n>arg_dict</span><span class=o>.</span><span class=n>pop</span><span class=p>(</span><span class=s1>&#39;action&#39;</span><span class=p>)</span>  <span class=c1># 获取处理的方法</span>
 <a id=__codelineno-17-61 name=__codelineno-17-61 href=#__codelineno-17-61></a>        <span class=k>del</span> <span class=n>arg_dict</span><span class=p>[</span><span class=s1>&#39;controller&#39;</span><span class=p>]</span>  <span class=c1># 删除 controller项，剩下的都是参数列表</span>

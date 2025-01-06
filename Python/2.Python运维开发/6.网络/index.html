@@ -7,17 +7,17 @@
 <a id=__codelineno-0-7 name=__codelineno-0-7 href=#__codelineno-0-7></a><span class=w>        </span><span class=nb>echo</span><span class=w> </span><span class=s2>&quot;</span><span class=nv>$ip</span><span class=s2> is unreachable&quot;</span>
 <a id=__codelineno-0-8 name=__codelineno-0-8 href=#__codelineno-0-8></a><span class=w>    </span><span class=k>fi</span>
 <a id=__codelineno-0-9 name=__codelineno-0-9 href=#__codelineno-0-9></a><span class=k>done</span>
-</code></pre></div> <h3 id=612-python实现>6.1.2 Python实现<a class=headerlink href=#612-python实现 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-1-1 name=__codelineno-1-1 href=#__codelineno-1-1></a><span class=kn>from</span> <span class=nn>__future__</span> <span class=kn>import</span> <span class=n>print_function</span>
-<a id=__codelineno-1-2 name=__codelineno-1-2 href=#__codelineno-1-2></a><span class=kn>import</span> <span class=nn>subprocess</span>
-<a id=__codelineno-1-3 name=__codelineno-1-3 href=#__codelineno-1-3></a><span class=kn>import</span> <span class=nn>threading</span>
+</code></pre></div> <h3 id=612-python实现>6.1.2 Python实现<a class=headerlink href=#612-python实现 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-1-1 name=__codelineno-1-1 href=#__codelineno-1-1></a><span class=kn>from</span><span class=w> </span><span class=nn>__future__</span><span class=w> </span><span class=kn>import</span> <span class=n>print_function</span>
+<a id=__codelineno-1-2 name=__codelineno-1-2 href=#__codelineno-1-2></a><span class=kn>import</span><span class=w> </span><span class=nn>subprocess</span>
+<a id=__codelineno-1-3 name=__codelineno-1-3 href=#__codelineno-1-3></a><span class=kn>import</span><span class=w> </span><span class=nn>threading</span>
 <a id=__codelineno-1-4 name=__codelineno-1-4 href=#__codelineno-1-4></a>
-<a id=__codelineno-1-5 name=__codelineno-1-5 href=#__codelineno-1-5></a><span class=k>def</span> <span class=nf>is_reacheable</span><span class=p>(</span><span class=n>ip</span><span class=p>):</span>
+<a id=__codelineno-1-5 name=__codelineno-1-5 href=#__codelineno-1-5></a><span class=k>def</span><span class=w> </span><span class=nf>is_reacheable</span><span class=p>(</span><span class=n>ip</span><span class=p>):</span>
 <a id=__codelineno-1-6 name=__codelineno-1-6 href=#__codelineno-1-6></a>    <span class=k>if</span> <span class=n>subprocess</span><span class=o>.</span><span class=n>call</span><span class=p>([</span><span class=s2>&quot;ping&quot;</span><span class=p>,</span> <span class=s2>&quot;-c&quot;</span><span class=p>,</span> <span class=s2>&quot;1&quot;</span><span class=p>,</span> <span class=n>ip</span><span class=p>]):</span>
 <a id=__codelineno-1-7 name=__codelineno-1-7 href=#__codelineno-1-7></a>        <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;</span><span class=si>{0}</span><span class=s2> is alive&quot;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>ip</span><span class=p>))</span>
 <a id=__codelineno-1-8 name=__codelineno-1-8 href=#__codelineno-1-8></a>    <span class=k>else</span><span class=p>:</span>
 <a id=__codelineno-1-9 name=__codelineno-1-9 href=#__codelineno-1-9></a>        <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;</span><span class=si>{0}</span><span class=s2> is unreacheable&quot;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>ip</span><span class=p>))</span>
 <a id=__codelineno-1-10 name=__codelineno-1-10 href=#__codelineno-1-10></a>
-<a id=__codelineno-1-11 name=__codelineno-1-11 href=#__codelineno-1-11></a><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<a id=__codelineno-1-11 name=__codelineno-1-11 href=#__codelineno-1-11></a><span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
 <a id=__codelineno-1-12 name=__codelineno-1-12 href=#__codelineno-1-12></a>    <span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=s1>&#39;ips.txt&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
 <a id=__codelineno-1-13 name=__codelineno-1-13 href=#__codelineno-1-13></a>        <span class=n>lines</span> <span class=o>=</span> <span class=n>f</span><span class=o>.</span><span class=n>readlines</span><span class=p>()</span>
 <a id=__codelineno-1-14 name=__codelineno-1-14 href=#__codelineno-1-14></a>        <span class=n>threads</span> <span class=o>=</span> <span class=p>[]</span>
@@ -31,12 +31,12 @@
 <a id=__codelineno-1-22 name=__codelineno-1-22 href=#__codelineno-1-22></a>
 <a id=__codelineno-1-23 name=__codelineno-1-23 href=#__codelineno-1-23></a><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s1>&#39;__main__&#39;</span><span class=p>:</span>
 <a id=__codelineno-1-24 name=__codelineno-1-24 href=#__codelineno-1-24></a>    <span class=n>main</span><span class=p>()</span>
-</code></pre></div> <h3 id=613-使用生产者消费者模型减少线程数量>6.1.3 使用生产者消费者模型减少线程数量<a class=headerlink href=#613-使用生产者消费者模型减少线程数量 title="Permanent link">&para;</a></h3> <p>生产者和消费者模型的好处是，生产者不需要关心有多少消费者、消费者何时消费、以怎样的速度进行消费。</p> <p>消费者也不需要关心生产者，这就实现了程序模块的解耦。</p> <p>我们这里的问题比生产者和消费者模型还要简单，只需要一次性将所有的IP地址读入到内存中，然后交由多个线程去处理。</p> <p>也就是说，我们一开始就生产好了所有的商品，只需要消费者消费完这些商品即可。如下所示：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-2-1 name=__codelineno-2-1 href=#__codelineno-2-1></a><span class=kn>import</span> <span class=nn>subprocess</span>
-<a id=__codelineno-2-2 name=__codelineno-2-2 href=#__codelineno-2-2></a><span class=kn>import</span> <span class=nn>threading</span>
-<a id=__codelineno-2-3 name=__codelineno-2-3 href=#__codelineno-2-3></a><span class=kn>from</span> <span class=nn>queue</span> <span class=kn>import</span> <span class=n>Queue</span>
+</code></pre></div> <h3 id=613-使用生产者消费者模型减少线程数量>6.1.3 使用生产者消费者模型减少线程数量<a class=headerlink href=#613-使用生产者消费者模型减少线程数量 title="Permanent link">&para;</a></h3> <p>生产者和消费者模型的好处是，生产者不需要关心有多少消费者、消费者何时消费、以怎样的速度进行消费。</p> <p>消费者也不需要关心生产者，这就实现了程序模块的解耦。</p> <p>我们这里的问题比生产者和消费者模型还要简单，只需要一次性将所有的IP地址读入到内存中，然后交由多个线程去处理。</p> <p>也就是说，我们一开始就生产好了所有的商品，只需要消费者消费完这些商品即可。如下所示：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-2-1 name=__codelineno-2-1 href=#__codelineno-2-1></a><span class=kn>import</span><span class=w> </span><span class=nn>subprocess</span>
+<a id=__codelineno-2-2 name=__codelineno-2-2 href=#__codelineno-2-2></a><span class=kn>import</span><span class=w> </span><span class=nn>threading</span>
+<a id=__codelineno-2-3 name=__codelineno-2-3 href=#__codelineno-2-3></a><span class=kn>from</span><span class=w> </span><span class=nn>queue</span><span class=w> </span><span class=kn>import</span> <span class=n>Queue</span>
 <a id=__codelineno-2-4 name=__codelineno-2-4 href=#__codelineno-2-4></a>
 <a id=__codelineno-2-5 name=__codelineno-2-5 href=#__codelineno-2-5></a>
-<a id=__codelineno-2-6 name=__codelineno-2-6 href=#__codelineno-2-6></a><span class=k>def</span> <span class=nf>call_ping</span><span class=p>(</span><span class=n>ip</span><span class=p>):</span>
+<a id=__codelineno-2-6 name=__codelineno-2-6 href=#__codelineno-2-6></a><span class=k>def</span><span class=w> </span><span class=nf>call_ping</span><span class=p>(</span><span class=n>ip</span><span class=p>):</span>
 <a id=__codelineno-2-7 name=__codelineno-2-7 href=#__codelineno-2-7></a>    <span class=n>result</span> <span class=o>=</span> <span class=n>subprocess</span><span class=o>.</span><span class=n>run</span><span class=p>([</span><span class=s2>&quot;ping&quot;</span><span class=p>,</span> <span class=s2>&quot;-c&quot;</span><span class=p>,</span> <span class=s2>&quot;1&quot;</span><span class=p>,</span> <span class=n>ip</span><span class=p>],</span> <span class=n>capture_output</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
 <a id=__codelineno-2-8 name=__codelineno-2-8 href=#__codelineno-2-8></a>    <span class=k>if</span> <span class=n>result</span><span class=o>.</span><span class=n>returncode</span> <span class=o>==</span> <span class=mi>0</span><span class=p>:</span>
 <a id=__codelineno-2-9 name=__codelineno-2-9 href=#__codelineno-2-9></a>        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&quot;</span><span class=si>{</span><span class=n>ip</span><span class=si>}</span><span class=s2> is alive&quot;</span><span class=p>)</span>
@@ -44,7 +44,7 @@
 <a id=__codelineno-2-11 name=__codelineno-2-11 href=#__codelineno-2-11></a>        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&quot;</span><span class=si>{</span><span class=n>ip</span><span class=si>}</span><span class=s2> is unreachable&quot;</span><span class=p>)</span>
 <a id=__codelineno-2-12 name=__codelineno-2-12 href=#__codelineno-2-12></a>
 <a id=__codelineno-2-13 name=__codelineno-2-13 href=#__codelineno-2-13></a>
-<a id=__codelineno-2-14 name=__codelineno-2-14 href=#__codelineno-2-14></a><span class=k>def</span> <span class=nf>is_reachable</span><span class=p>(</span><span class=n>q</span><span class=p>):</span>
+<a id=__codelineno-2-14 name=__codelineno-2-14 href=#__codelineno-2-14></a><span class=k>def</span><span class=w> </span><span class=nf>is_reachable</span><span class=p>(</span><span class=n>q</span><span class=p>):</span>
 <a id=__codelineno-2-15 name=__codelineno-2-15 href=#__codelineno-2-15></a>    <span class=k>while</span> <span class=kc>True</span><span class=p>:</span>
 <a id=__codelineno-2-16 name=__codelineno-2-16 href=#__codelineno-2-16></a>        <span class=k>try</span><span class=p>:</span>
 <a id=__codelineno-2-17 name=__codelineno-2-17 href=#__codelineno-2-17></a>            <span class=n>ip</span> <span class=o>=</span> <span class=n>q</span><span class=o>.</span><span class=n>get_nowait</span><span class=p>()</span>
@@ -53,7 +53,7 @@
 <a id=__codelineno-2-20 name=__codelineno-2-20 href=#__codelineno-2-20></a>            <span class=k>break</span>
 <a id=__codelineno-2-21 name=__codelineno-2-21 href=#__codelineno-2-21></a>
 <a id=__codelineno-2-22 name=__codelineno-2-22 href=#__codelineno-2-22></a>
-<a id=__codelineno-2-23 name=__codelineno-2-23 href=#__codelineno-2-23></a><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<a id=__codelineno-2-23 name=__codelineno-2-23 href=#__codelineno-2-23></a><span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
 <a id=__codelineno-2-24 name=__codelineno-2-24 href=#__codelineno-2-24></a>    <span class=n>q</span> <span class=o>=</span> <span class=n>Queue</span><span class=p>()</span>
 <a id=__codelineno-2-25 name=__codelineno-2-25 href=#__codelineno-2-25></a>    <span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=s1>&#39;ips.txt&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
 <a id=__codelineno-2-26 name=__codelineno-2-26 href=#__codelineno-2-26></a>        <span class=k>for</span> <span class=n>line</span> <span class=ow>in</span> <span class=n>f</span><span class=p>:</span>
@@ -71,10 +71,10 @@
 <a id=__codelineno-2-38 name=__codelineno-2-38 href=#__codelineno-2-38></a>
 <a id=__codelineno-2-39 name=__codelineno-2-39 href=#__codelineno-2-39></a><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s1>&#39;__main__&#39;</span><span class=p>:</span>
 <a id=__codelineno-2-40 name=__codelineno-2-40 href=#__codelineno-2-40></a>    <span class=n>main</span><span class=p>()</span>
-</code></pre></div> <p>在这个例子中创建了10个线程作为消费者线程，我们可以修改range函数的参数控制线程的个数。</p> <p>此外，我们还用到了一个新的数据结构，即Queue。引入Queue是因为多个消费者之间存在并发访问的问题，即多个消费者可能同时从缓冲区中获取商品。</p> <p>为了解决并发问题，我们使用了Python标准库的queue。</p> <p>Queue是标准库中线程安全的队列(FIFO)实现，提供了一个适用于多线程编程的先进先出的数据结构，非常适合用于生产者和消费者线程之间的数据传递。</p> <p>在这段程序中，我们首先将所有IP地址读入内存并放人Queue中，消费者不断从Queue中获取商品。</p> <p>需要注意的是，如果我们使用Queue的get方法，当Queue中没有商品时，线程将会阻塞等待直到有新的商品为止。</p> <p>而在这个例子中不需要消费者阻塞等待，因此，使用了Queue的<code>get_nowait</code>方法。</p> <p>该方法在有商品时直接返回商品，没有商品时抛出Empty异常。</p> <p>消费者线程不断从Queue中获取IP地址，获取到IP地址以后调用<code>call_ping</code>函数判断主机是否可达，直到没有商品以后退出线程。</p> <h2 id=62-端口扫描>6.2 端口扫描<a class=headerlink href=#62-端口扫描 title="Permanent link">&para;</a></h2> <h3 id=621-使用python编写端口扫描器>6.2.1 使用Python编写端口扫描器<a class=headerlink href=#621-使用python编写端口扫描器 title="Permanent link">&para;</a></h3> <h4 id=使用socket套接字>使用socket套接字<a class=headerlink href=#使用socket套接字 title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code><a id=__codelineno-3-1 name=__codelineno-3-1 href=#__codelineno-3-1></a><span class=kn>from</span> <span class=nn>__future__</span> <span class=kn>import</span> <span class=n>print_function</span>
-<a id=__codelineno-3-2 name=__codelineno-3-2 href=#__codelineno-3-2></a><span class=kn>from</span> <span class=nn>socket</span> <span class=kn>import</span> <span class=o>*</span>
+</code></pre></div> <p>在这个例子中创建了10个线程作为消费者线程，我们可以修改range函数的参数控制线程的个数。</p> <p>此外，我们还用到了一个新的数据结构，即Queue。引入Queue是因为多个消费者之间存在并发访问的问题，即多个消费者可能同时从缓冲区中获取商品。</p> <p>为了解决并发问题，我们使用了Python标准库的queue。</p> <p>Queue是标准库中线程安全的队列(FIFO)实现，提供了一个适用于多线程编程的先进先出的数据结构，非常适合用于生产者和消费者线程之间的数据传递。</p> <p>在这段程序中，我们首先将所有IP地址读入内存并放人Queue中，消费者不断从Queue中获取商品。</p> <p>需要注意的是，如果我们使用Queue的get方法，当Queue中没有商品时，线程将会阻塞等待直到有新的商品为止。</p> <p>而在这个例子中不需要消费者阻塞等待，因此，使用了Queue的<code>get_nowait</code>方法。</p> <p>该方法在有商品时直接返回商品，没有商品时抛出Empty异常。</p> <p>消费者线程不断从Queue中获取IP地址，获取到IP地址以后调用<code>call_ping</code>函数判断主机是否可达，直到没有商品以后退出线程。</p> <h2 id=62-端口扫描>6.2 端口扫描<a class=headerlink href=#62-端口扫描 title="Permanent link">&para;</a></h2> <h3 id=621-使用python编写端口扫描器>6.2.1 使用Python编写端口扫描器<a class=headerlink href=#621-使用python编写端口扫描器 title="Permanent link">&para;</a></h3> <h4 id=使用socket套接字>使用socket套接字<a class=headerlink href=#使用socket套接字 title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code><a id=__codelineno-3-1 name=__codelineno-3-1 href=#__codelineno-3-1></a><span class=kn>from</span><span class=w> </span><span class=nn>__future__</span><span class=w> </span><span class=kn>import</span> <span class=n>print_function</span>
+<a id=__codelineno-3-2 name=__codelineno-3-2 href=#__codelineno-3-2></a><span class=kn>from</span><span class=w> </span><span class=nn>socket</span><span class=w> </span><span class=kn>import</span> <span class=o>*</span>
 <a id=__codelineno-3-3 name=__codelineno-3-3 href=#__codelineno-3-3></a>
-<a id=__codelineno-3-4 name=__codelineno-3-4 href=#__codelineno-3-4></a><span class=k>def</span> <span class=nf>conn_scan</span><span class=p>(</span><span class=n>host</span><span class=p>,</span> <span class=n>port</span><span class=p>):</span>
+<a id=__codelineno-3-4 name=__codelineno-3-4 href=#__codelineno-3-4></a><span class=k>def</span><span class=w> </span><span class=nf>conn_scan</span><span class=p>(</span><span class=n>host</span><span class=p>,</span> <span class=n>port</span><span class=p>):</span>
 <a id=__codelineno-3-5 name=__codelineno-3-5 href=#__codelineno-3-5></a>    <span class=n>conn</span> <span class=o>=</span> <span class=n>socket</span><span class=p>(</span><span class=n>AF_INET</span><span class=p>,</span> <span class=n>SOCK_STREAM</span><span class=p>)</span>
 <a id=__codelineno-3-6 name=__codelineno-3-6 href=#__codelineno-3-6></a>    <span class=k>try</span><span class=p>:</span>
 <a id=__codelineno-3-7 name=__codelineno-3-7 href=#__codelineno-3-7></a>        <span class=n>conn</span><span class=o>.</span><span class=n>connect</span><span class=p>((</span><span class=n>host</span><span class=p>,</span> <span class=n>port</span><span class=p>))</span>
@@ -84,7 +84,7 @@
 <a id=__codelineno-3-11 name=__codelineno-3-11 href=#__codelineno-3-11></a>    <span class=k>finally</span><span class=p>:</span>
 <a id=__codelineno-3-12 name=__codelineno-3-12 href=#__codelineno-3-12></a>        <span class=n>conn</span><span class=o>.</span><span class=n>close</span><span class=p>()</span>
 <a id=__codelineno-3-13 name=__codelineno-3-13 href=#__codelineno-3-13></a>
-<a id=__codelineno-3-14 name=__codelineno-3-14 href=#__codelineno-3-14></a><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<a id=__codelineno-3-14 name=__codelineno-3-14 href=#__codelineno-3-14></a><span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
 <a id=__codelineno-3-15 name=__codelineno-3-15 href=#__codelineno-3-15></a>    <span class=n>host</span> <span class=o>=</span> <span class=s2>&quot;10.166.224.14&quot;</span>
 <a id=__codelineno-3-16 name=__codelineno-3-16 href=#__codelineno-3-16></a>    <span class=k>for</span> <span class=n>port</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>20</span><span class=p>,</span> <span class=mi>5000</span><span class=p>):</span>
 <a id=__codelineno-3-17 name=__codelineno-3-17 href=#__codelineno-3-17></a>        <span class=n>conn_scan</span><span class=p>(</span><span class=n>host</span><span class=p>,</span> <span class=n>port</span><span class=p>)</span>
@@ -92,10 +92,10 @@
 <a id=__codelineno-3-19 name=__codelineno-3-19 href=#__codelineno-3-19></a><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s1>&#39;__main__&#39;</span><span class=p>:</span>
 <a id=__codelineno-3-20 name=__codelineno-3-20 href=#__codelineno-3-20></a>    <span class=n>main</span><span class=p>()</span>
 </code></pre></div> <h4 id=标准库telnet模块>标准库telnet模块<a class=headerlink href=#标准库telnet模块 title="Permanent link">&para;</a></h4> <p>该模块中包含了一个Telnet类，该类的对象表示一个telnet的连接。</p> <p>创建一个Telnet对象并不会建立到远程主机的连接，需要显示地使用open方法建立连接。open方法接受三个参数，分别是主机名、端口号和超时时间。如下所示：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-4-1 name=__codelineno-4-1 href=#__codelineno-4-1></a><span class=ch>#!/usr/bin/python</span>
-<a id=__codelineno-4-2 name=__codelineno-4-2 href=#__codelineno-4-2></a><span class=kn>from</span> <span class=nn>__future__</span> <span class=kn>import</span> <span class=n>print_function</span>
-<a id=__codelineno-4-3 name=__codelineno-4-3 href=#__codelineno-4-3></a><span class=kn>import</span> <span class=nn>telnetlib</span>
+<a id=__codelineno-4-2 name=__codelineno-4-2 href=#__codelineno-4-2></a><span class=kn>from</span><span class=w> </span><span class=nn>__future__</span><span class=w> </span><span class=kn>import</span> <span class=n>print_function</span>
+<a id=__codelineno-4-3 name=__codelineno-4-3 href=#__codelineno-4-3></a><span class=kn>import</span><span class=w> </span><span class=nn>telnetlib</span>
 <a id=__codelineno-4-4 name=__codelineno-4-4 href=#__codelineno-4-4></a>
-<a id=__codelineno-4-5 name=__codelineno-4-5 href=#__codelineno-4-5></a><span class=k>def</span> <span class=nf>conn_scan</span><span class=p>(</span><span class=n>host</span><span class=p>,</span> <span class=n>port</span><span class=p>):</span>
+<a id=__codelineno-4-5 name=__codelineno-4-5 href=#__codelineno-4-5></a><span class=k>def</span><span class=w> </span><span class=nf>conn_scan</span><span class=p>(</span><span class=n>host</span><span class=p>,</span> <span class=n>port</span><span class=p>):</span>
 <a id=__codelineno-4-6 name=__codelineno-4-6 href=#__codelineno-4-6></a>    <span class=n>t</span> <span class=o>=</span> <span class=n>telnetlib</span><span class=o>.</span><span class=n>Telnet</span><span class=p>()</span>
 <a id=__codelineno-4-7 name=__codelineno-4-7 href=#__codelineno-4-7></a>    <span class=k>try</span><span class=p>:</span>
 <a id=__codelineno-4-8 name=__codelineno-4-8 href=#__codelineno-4-8></a>        <span class=n>t</span><span class=o>.</span><span class=n>open</span><span class=p>(</span><span class=n>host</span><span class=p>,</span> <span class=n>port</span><span class=p>,</span> <span class=n>timeout</span><span class=o>=</span><span class=mi>1</span><span class=p>)</span>
@@ -105,7 +105,7 @@
 <a id=__codelineno-4-12 name=__codelineno-4-12 href=#__codelineno-4-12></a>    <span class=k>finally</span><span class=p>:</span>
 <a id=__codelineno-4-13 name=__codelineno-4-13 href=#__codelineno-4-13></a>        <span class=n>t</span><span class=o>.</span><span class=n>close</span><span class=p>()</span>
 <a id=__codelineno-4-14 name=__codelineno-4-14 href=#__codelineno-4-14></a>
-<a id=__codelineno-4-15 name=__codelineno-4-15 href=#__codelineno-4-15></a><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<a id=__codelineno-4-15 name=__codelineno-4-15 href=#__codelineno-4-15></a><span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
 <a id=__codelineno-4-16 name=__codelineno-4-16 href=#__codelineno-4-16></a>    <span class=n>host</span> <span class=o>=</span> <span class=s1>&#39;10.166.224.14&#39;</span>
 <a id=__codelineno-4-17 name=__codelineno-4-17 href=#__codelineno-4-17></a>    <span class=k>for</span> <span class=n>port</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>80</span><span class=p>,</span> <span class=mi>5000</span><span class=p>):</span>
 <a id=__codelineno-4-18 name=__codelineno-4-18 href=#__codelineno-4-18></a>        <span class=n>conn_scan</span><span class=p>(</span><span class=n>host</span><span class=p>,</span> <span class=n>port</span><span class=p>)</span>
@@ -125,10 +125,10 @@
 <a id=__codelineno-7-6 name=__codelineno-7-6 href=#__codelineno-7-6></a><span class=c1># @Email:    1879324764@qq.com</span>
 <a id=__codelineno-7-7 name=__codelineno-7-7 href=#__codelineno-7-7></a><span class=c1># @Software: PyCharm</span>
 <a id=__codelineno-7-8 name=__codelineno-7-8 href=#__codelineno-7-8></a>
-<a id=__codelineno-7-9 name=__codelineno-7-9 href=#__codelineno-7-9></a><span class=kn>from</span> <span class=nn>IPy</span> <span class=kn>import</span> <span class=n>IP</span>
+<a id=__codelineno-7-9 name=__codelineno-7-9 href=#__codelineno-7-9></a><span class=kn>from</span><span class=w> </span><span class=nn>IPy</span><span class=w> </span><span class=kn>import</span> <span class=n>IP</span>
 <a id=__codelineno-7-10 name=__codelineno-7-10 href=#__codelineno-7-10></a>
 <a id=__codelineno-7-11 name=__codelineno-7-11 href=#__codelineno-7-11></a>
-<a id=__codelineno-7-12 name=__codelineno-7-12 href=#__codelineno-7-12></a><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<a id=__codelineno-7-12 name=__codelineno-7-12 href=#__codelineno-7-12></a><span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
 <a id=__codelineno-7-13 name=__codelineno-7-13 href=#__codelineno-7-13></a>    <span class=n>ip_s</span> <span class=o>=</span> <span class=nb>input</span><span class=p>(</span><span class=s1>&#39;Please input an IP or net-range: &#39;</span><span class=p>)</span>
 <a id=__codelineno-7-14 name=__codelineno-7-14 href=#__codelineno-7-14></a>    <span class=n>ips</span> <span class=o>=</span> <span class=n>IP</span><span class=p>(</span><span class=n>ip_s</span><span class=p>)</span>
 <a id=__codelineno-7-15 name=__codelineno-7-15 href=#__codelineno-7-15></a>
@@ -160,7 +160,7 @@
 <a id=__codelineno-10-5 name=__codelineno-10-5 href=#__codelineno-10-5></a><span class=c1># @filename: 03.dns1.py</span>
 <a id=__codelineno-10-6 name=__codelineno-10-6 href=#__codelineno-10-6></a><span class=c1># @Email:    1879324764@qq.com</span>
 <a id=__codelineno-10-7 name=__codelineno-10-7 href=#__codelineno-10-7></a><span class=c1># @Software: PyCharm</span>
-<a id=__codelineno-10-8 name=__codelineno-10-8 href=#__codelineno-10-8></a><span class=kn>import</span> <span class=nn>dns.resolver</span>
+<a id=__codelineno-10-8 name=__codelineno-10-8 href=#__codelineno-10-8></a><span class=kn>import</span><span class=w> </span><span class=nn>dns.resolver</span>
 <a id=__codelineno-10-9 name=__codelineno-10-9 href=#__codelineno-10-9></a>
 <a id=__codelineno-10-10 name=__codelineno-10-10 href=#__codelineno-10-10></a><span class=n>domain</span> <span class=o>=</span> <span class=nb>input</span><span class=p>(</span><span class=s1>&#39;请输入域名地址:&#39;</span><span class=p>)</span>
 <a id=__codelineno-10-11 name=__codelineno-10-11 href=#__codelineno-10-11></a>
@@ -185,7 +185,7 @@
 <a id=__codelineno-11-6 name=__codelineno-11-6 href=#__codelineno-11-6></a><span class=c1># @Email:    1879324764@qq.com</span>
 <a id=__codelineno-11-7 name=__codelineno-11-7 href=#__codelineno-11-7></a><span class=c1># @Software: PyCharm</span>
 <a id=__codelineno-11-8 name=__codelineno-11-8 href=#__codelineno-11-8></a>
-<a id=__codelineno-11-9 name=__codelineno-11-9 href=#__codelineno-11-9></a><span class=kn>import</span> <span class=nn>dns.resolver</span>
+<a id=__codelineno-11-9 name=__codelineno-11-9 href=#__codelineno-11-9></a><span class=kn>import</span><span class=w> </span><span class=nn>dns.resolver</span>
 <a id=__codelineno-11-10 name=__codelineno-11-10 href=#__codelineno-11-10></a>
 <a id=__codelineno-11-11 name=__codelineno-11-11 href=#__codelineno-11-11></a>
 <a id=__codelineno-11-12 name=__codelineno-11-12 href=#__codelineno-11-12></a><span class=n>mx</span> <span class=o>=</span> <span class=n>dns</span><span class=o>.</span><span class=n>resolver</span><span class=o>.</span><span class=n>query</span><span class=p>(</span><span class=s1>&#39;163.com&#39;</span><span class=p>,</span> <span class=s1>&#39;MX&#39;</span><span class=p>)</span>
@@ -202,14 +202,14 @@
 <a id=__codelineno-13-4 name=__codelineno-13-4 href=#__codelineno-13-4></a>        <span class=nb>print</span> <span class=p>(</span><span class=n>j</span><span class=p>)</span>
 </code></pre></div> <p>代码示例</p> <div class=highlight><pre><span></span><code><a id=__codelineno-14-1 name=__codelineno-14-1 href=#__codelineno-14-1></a><span class=ch>#!/usr/bin/python</span>
 <a id=__codelineno-14-2 name=__codelineno-14-2 href=#__codelineno-14-2></a>
-<a id=__codelineno-14-3 name=__codelineno-14-3 href=#__codelineno-14-3></a><span class=kn>import</span> <span class=nn>dns.resolver</span>
-<a id=__codelineno-14-4 name=__codelineno-14-4 href=#__codelineno-14-4></a><span class=kn>import</span> <span class=nn>os</span>
-<a id=__codelineno-14-5 name=__codelineno-14-5 href=#__codelineno-14-5></a><span class=kn>import</span> <span class=nn>httplib</span>
+<a id=__codelineno-14-3 name=__codelineno-14-3 href=#__codelineno-14-3></a><span class=kn>import</span><span class=w> </span><span class=nn>dns.resolver</span>
+<a id=__codelineno-14-4 name=__codelineno-14-4 href=#__codelineno-14-4></a><span class=kn>import</span><span class=w> </span><span class=nn>os</span>
+<a id=__codelineno-14-5 name=__codelineno-14-5 href=#__codelineno-14-5></a><span class=kn>import</span><span class=w> </span><span class=nn>httplib</span>
 <a id=__codelineno-14-6 name=__codelineno-14-6 href=#__codelineno-14-6></a>
 <a id=__codelineno-14-7 name=__codelineno-14-7 href=#__codelineno-14-7></a><span class=n>iplist</span><span class=o>=</span><span class=p>[]</span>    <span class=c1>#定义域名IP列表变量</span>
 <a id=__codelineno-14-8 name=__codelineno-14-8 href=#__codelineno-14-8></a><span class=n>appdomain</span><span class=o>=</span><span class=s2>&quot;www.google.com.hk&quot;</span>    <span class=c1>#定义业务域名</span>
 <a id=__codelineno-14-9 name=__codelineno-14-9 href=#__codelineno-14-9></a>
-<a id=__codelineno-14-10 name=__codelineno-14-10 href=#__codelineno-14-10></a><span class=k>def</span> <span class=nf>get_iplist</span><span class=p>(</span><span class=n>domain</span><span class=o>=</span><span class=s2>&quot;&quot;</span><span class=p>):</span>    <span class=c1>#域名解析函数，解析成功IP将追加到iplist</span>
+<a id=__codelineno-14-10 name=__codelineno-14-10 href=#__codelineno-14-10></a><span class=k>def</span><span class=w> </span><span class=nf>get_iplist</span><span class=p>(</span><span class=n>domain</span><span class=o>=</span><span class=s2>&quot;&quot;</span><span class=p>):</span>    <span class=c1>#域名解析函数，解析成功IP将追加到iplist</span>
 <a id=__codelineno-14-11 name=__codelineno-14-11 href=#__codelineno-14-11></a>    <span class=k>try</span><span class=p>:</span>
 <a id=__codelineno-14-12 name=__codelineno-14-12 href=#__codelineno-14-12></a>        <span class=n>A</span> <span class=o>=</span> <span class=n>dns</span><span class=o>.</span><span class=n>resolver</span><span class=o>.</span><span class=n>query</span><span class=p>(</span><span class=n>domain</span><span class=p>,</span> <span class=s1>&#39;A&#39;</span><span class=p>)</span>    <span class=c1>#解析A记录类型</span>
 <a id=__codelineno-14-13 name=__codelineno-14-13 href=#__codelineno-14-13></a>    <span class=k>except</span> <span class=ne>Exception</span><span class=p>,</span><span class=n>e</span><span class=p>:</span>
@@ -220,7 +220,7 @@
 <a id=__codelineno-14-18 name=__codelineno-14-18 href=#__codelineno-14-18></a>            <span class=n>iplist</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>j</span><span class=o>.</span><span class=n>address</span><span class=p>)</span>    <span class=c1>#追加到iplist</span>
 <a id=__codelineno-14-19 name=__codelineno-14-19 href=#__codelineno-14-19></a>    <span class=k>return</span> <span class=kc>True</span>
 <a id=__codelineno-14-20 name=__codelineno-14-20 href=#__codelineno-14-20></a>
-<a id=__codelineno-14-21 name=__codelineno-14-21 href=#__codelineno-14-21></a><span class=k>def</span> <span class=nf>checkip</span><span class=p>(</span><span class=n>ip</span><span class=p>):</span>
+<a id=__codelineno-14-21 name=__codelineno-14-21 href=#__codelineno-14-21></a><span class=k>def</span><span class=w> </span><span class=nf>checkip</span><span class=p>(</span><span class=n>ip</span><span class=p>):</span>
 <a id=__codelineno-14-22 name=__codelineno-14-22 href=#__codelineno-14-22></a>    <span class=n>checkurl</span><span class=o>=</span><span class=n>ip</span><span class=o>+</span><span class=s2>&quot;:80&quot;</span>
 <a id=__codelineno-14-23 name=__codelineno-14-23 href=#__codelineno-14-23></a>    <span class=n>getcontent</span><span class=o>=</span><span class=s2>&quot;&quot;</span>
 <a id=__codelineno-14-24 name=__codelineno-14-24 href=#__codelineno-14-24></a>    <span class=n>httplib</span><span class=o>.</span><span class=n>socket</span><span class=o>.</span><span class=n>setdefaulttimeout</span><span class=p>(</span><span class=mi>5</span><span class=p>)</span>    <span class=c1>#定义http连接超时时间(5秒)</span>

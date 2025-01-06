@@ -41,8 +41,8 @@
 <a id=__codelineno-1-40 name=__codelineno-1-40 href=#__codelineno-1-40></a>    <span class=p>&lt;/</span><span class=nt>form</span><span class=p>&gt;</span>
 <a id=__codelineno-1-41 name=__codelineno-1-41 href=#__codelineno-1-41></a><span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span>
 <a id=__codelineno-1-42 name=__codelineno-1-42 href=#__codelineno-1-42></a><span class=p>&lt;/</span><span class=nt>html</span><span class=p>&gt;</span>
-</code></pre></div> <p>模板写好后，再用一个视图函数渲染，示例代码如下。</p> <div class=highlight><pre><span></span><code><a id=__codelineno-2-1 name=__codelineno-2-1 href=#__codelineno-2-1></a><span class=kn>from</span> <span class=nn>flask</span> <span class=kn>import</span> <span class=n>Flask</span><span class=p>,</span> <span class=n>request</span><span class=p>,</span> <span class=n>render_template</span>
-<a id=__codelineno-2-2 name=__codelineno-2-2 href=#__codelineno-2-2></a><span class=kn>from</span> <span class=nn>flask_wtf.csrf</span> <span class=kn>import</span> <span class=n>CSRFProtect</span>
+</code></pre></div> <p>模板写好后，再用一个视图函数渲染，示例代码如下。</p> <div class=highlight><pre><span></span><code><a id=__codelineno-2-1 name=__codelineno-2-1 href=#__codelineno-2-1></a><span class=kn>from</span><span class=w> </span><span class=nn>flask</span><span class=w> </span><span class=kn>import</span> <span class=n>Flask</span><span class=p>,</span> <span class=n>request</span><span class=p>,</span> <span class=n>render_template</span>
+<a id=__codelineno-2-2 name=__codelineno-2-2 href=#__codelineno-2-2></a><span class=kn>from</span><span class=w> </span><span class=nn>flask_wtf.csrf</span><span class=w> </span><span class=kn>import</span> <span class=n>CSRFProtect</span>
 <a id=__codelineno-2-3 name=__codelineno-2-3 href=#__codelineno-2-3></a>
 <a id=__codelineno-2-4 name=__codelineno-2-4 href=#__codelineno-2-4></a><span class=n>app</span> <span class=o>=</span> <span class=n>Flask</span><span class=p>(</span><span class=vm>__name__</span><span class=p>)</span>
 <a id=__codelineno-2-5 name=__codelineno-2-5 href=#__codelineno-2-5></a><span class=n>app</span><span class=o>.</span><span class=n>config</span><span class=p>[</span><span class=s1>&#39;SECRET_KEY&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=s1>&#39;VhU1YZFArUAAmBwE6s8j4QE2iK9IFCPGx&#39;</span>
@@ -50,12 +50,12 @@
 <a id=__codelineno-2-7 name=__codelineno-2-7 href=#__codelineno-2-7></a>
 <a id=__codelineno-2-8 name=__codelineno-2-8 href=#__codelineno-2-8></a>
 <a id=__codelineno-2-9 name=__codelineno-2-9 href=#__codelineno-2-9></a><span class=nd>@app</span><span class=o>.</span><span class=n>route</span><span class=p>(</span><span class=s1>&#39;/&#39;</span><span class=p>)</span>
-<a id=__codelineno-2-10 name=__codelineno-2-10 href=#__codelineno-2-10></a><span class=k>def</span> <span class=nf>hello_world</span><span class=p>():</span>
+<a id=__codelineno-2-10 name=__codelineno-2-10 href=#__codelineno-2-10></a><span class=k>def</span><span class=w> </span><span class=nf>hello_world</span><span class=p>():</span>
 <a id=__codelineno-2-11 name=__codelineno-2-11 href=#__codelineno-2-11></a>    <span class=k>return</span> <span class=s1>&#39;Hello World!&#39;</span>
 <a id=__codelineno-2-12 name=__codelineno-2-12 href=#__codelineno-2-12></a>
 <a id=__codelineno-2-13 name=__codelineno-2-13 href=#__codelineno-2-13></a>
 <a id=__codelineno-2-14 name=__codelineno-2-14 href=#__codelineno-2-14></a><span class=nd>@app</span><span class=o>.</span><span class=n>route</span><span class=p>(</span><span class=s2>&quot;/register&quot;</span><span class=p>,</span> <span class=n>methods</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;GET&#39;</span><span class=p>,</span> <span class=s1>&#39;POST&#39;</span><span class=p>])</span>
-<a id=__codelineno-2-15 name=__codelineno-2-15 href=#__codelineno-2-15></a><span class=k>def</span> <span class=nf>register</span><span class=p>():</span>
+<a id=__codelineno-2-15 name=__codelineno-2-15 href=#__codelineno-2-15></a><span class=k>def</span><span class=w> </span><span class=nf>register</span><span class=p>():</span>
 <a id=__codelineno-2-16 name=__codelineno-2-16 href=#__codelineno-2-16></a>    <span class=k>if</span> <span class=n>request</span><span class=o>.</span><span class=n>method</span> <span class=o>==</span> <span class=s1>&#39;GET&#39;</span><span class=p>:</span>
 <a id=__codelineno-2-17 name=__codelineno-2-17 href=#__codelineno-2-17></a>        <span class=k>return</span> <span class=n>render_template</span><span class=p>(</span><span class=s2>&quot;register.html&quot;</span><span class=p>)</span>
 <a id=__codelineno-2-18 name=__codelineno-2-18 href=#__codelineno-2-18></a>    <span class=k>else</span><span class=p>:</span>

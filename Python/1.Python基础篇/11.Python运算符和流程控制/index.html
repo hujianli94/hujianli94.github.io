@@ -74,7 +74,7 @@
 <a id=__codelineno-8-6 name=__codelineno-8-6 href=#__codelineno-8-6></a>        <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;It&#39;s 5&quot;</span><span class=p>)</span>
 <a id=__codelineno-8-7 name=__codelineno-8-7 href=#__codelineno-8-7></a>    <span class=k>case</span><span class=w> </span><span class=k>_</span><span class=p>:</span>
 <a id=__codelineno-8-8 name=__codelineno-8-8 href=#__codelineno-8-8></a>        <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;Something else&quot;</span><span class=p>)</span>
-</code></pre></div> <p>在 Python 3.8 中可以通过一些方式来模拟实现类似  <code>match   case</code>  的结构，以下是一种简单的方法：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-9-1 name=__codelineno-9-1 href=#__codelineno-9-1></a><span class=k>def</span> <span class=nf>match_case</span><span class=p>(</span><span class=n>value</span><span class=p>,</span> <span class=n>cases</span><span class=p>):</span>
+</code></pre></div> <p>在 Python 3.8 中可以通过一些方式来模拟实现类似  <code>match   case</code>  的结构，以下是一种简单的方法：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-9-1 name=__codelineno-9-1 href=#__codelineno-9-1></a><span class=k>def</span><span class=w> </span><span class=nf>match_case</span><span class=p>(</span><span class=n>value</span><span class=p>,</span> <span class=n>cases</span><span class=p>):</span>
 <a id=__codelineno-9-2 name=__codelineno-9-2 href=#__codelineno-9-2></a>    <span class=k>for</span> <span class=n>key</span><span class=p>,</span> <span class=n>action</span> <span class=ow>in</span> <span class=n>cases</span><span class=o>.</span><span class=n>items</span><span class=p>():</span>
 <a id=__codelineno-9-3 name=__codelineno-9-3 href=#__codelineno-9-3></a>        <span class=k>if</span> <span class=n>value</span> <span class=o>==</span> <span class=n>key</span><span class=p>:</span>
 <a id=__codelineno-9-4 name=__codelineno-9-4 href=#__codelineno-9-4></a>            <span class=k>return</span> <span class=n>action</span><span class=p>()</span>
@@ -91,7 +91,7 @@
 <a id=__codelineno-9-15 name=__codelineno-9-15 href=#__codelineno-9-15></a><span class=n>match_case</span><span class=p>(</span><span class=n>number</span><span class=p>,</span> <span class=n>cases</span><span class=p>)</span>
 </code></pre></div> <h4 id=4switch-语句实现>4.switch 语句实现<a class=headerlink href=#4switch-语句实现 title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code><a id=__codelineno-10-1 name=__codelineno-10-1 href=#__codelineno-10-1></a><span class=ch>#!/usr/bin/env python</span>
 <a id=__codelineno-10-2 name=__codelineno-10-2 href=#__codelineno-10-2></a><span class=c1>#-*- coding:utf8 -*-</span>
-<a id=__codelineno-10-3 name=__codelineno-10-3 href=#__codelineno-10-3></a><span class=kn>from</span> <span class=nn>__future__</span> <span class=kn>import</span> <span class=n>division</span>
+<a id=__codelineno-10-3 name=__codelineno-10-3 href=#__codelineno-10-3></a><span class=kn>from</span><span class=w> </span><span class=nn>__future__</span><span class=w> </span><span class=kn>import</span> <span class=n>division</span>
 <a id=__codelineno-10-4 name=__codelineno-10-4 href=#__codelineno-10-4></a>
 <a id=__codelineno-10-5 name=__codelineno-10-5 href=#__codelineno-10-5></a><span class=n>x</span> <span class=o>=</span><span class=mi>1</span>
 <a id=__codelineno-10-6 name=__codelineno-10-6 href=#__codelineno-10-6></a><span class=n>y</span> <span class=o>=</span><span class=mi>2</span>
@@ -108,13 +108,13 @@
 <a id=__codelineno-10-17 name=__codelineno-10-17 href=#__codelineno-10-17></a><span class=nb>print</span><span class=p>(</span><span class=n>result</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>operator</span><span class=p>,</span> <span class=s1>&#39;wrong value&#39;</span><span class=p>))</span>
 <a id=__codelineno-10-18 name=__codelineno-10-18 href=#__codelineno-10-18></a>
 <a id=__codelineno-10-19 name=__codelineno-10-19 href=#__codelineno-10-19></a>
-<a id=__codelineno-10-20 name=__codelineno-10-20 href=#__codelineno-10-20></a><span class=k>def</span> <span class=nf>zero</span><span class=p>():</span>
+<a id=__codelineno-10-20 name=__codelineno-10-20 href=#__codelineno-10-20></a><span class=k>def</span><span class=w> </span><span class=nf>zero</span><span class=p>():</span>
 <a id=__codelineno-10-21 name=__codelineno-10-21 href=#__codelineno-10-21></a>    <span class=k>return</span> <span class=s2>&quot;zero&quot;</span>
 <a id=__codelineno-10-22 name=__codelineno-10-22 href=#__codelineno-10-22></a>
-<a id=__codelineno-10-23 name=__codelineno-10-23 href=#__codelineno-10-23></a><span class=k>def</span> <span class=nf>one</span><span class=p>():</span>
+<a id=__codelineno-10-23 name=__codelineno-10-23 href=#__codelineno-10-23></a><span class=k>def</span><span class=w> </span><span class=nf>one</span><span class=p>():</span>
 <a id=__codelineno-10-24 name=__codelineno-10-24 href=#__codelineno-10-24></a>    <span class=k>return</span> <span class=s2>&quot;one&quot;</span>
 <a id=__codelineno-10-25 name=__codelineno-10-25 href=#__codelineno-10-25></a>
-<a id=__codelineno-10-26 name=__codelineno-10-26 href=#__codelineno-10-26></a><span class=k>def</span> <span class=nf>switch_case</span><span class=p>(</span><span class=n>value</span><span class=p>):</span>
+<a id=__codelineno-10-26 name=__codelineno-10-26 href=#__codelineno-10-26></a><span class=k>def</span><span class=w> </span><span class=nf>switch_case</span><span class=p>(</span><span class=n>value</span><span class=p>):</span>
 <a id=__codelineno-10-27 name=__codelineno-10-27 href=#__codelineno-10-27></a>    <span class=n>switcher</span> <span class=o>=</span> <span class=p>{</span>
 <a id=__codelineno-10-28 name=__codelineno-10-28 href=#__codelineno-10-28></a>        <span class=mi>0</span><span class=p>:</span> <span class=n>zero</span><span class=p>,</span>
 <a id=__codelineno-10-29 name=__codelineno-10-29 href=#__codelineno-10-29></a>        <span class=mi>1</span><span class=p>:</span> <span class=n>one</span><span class=p>,</span>
@@ -130,17 +130,17 @@
 </code></pre></div> <div class=highlight><pre><span></span><code><a id=__codelineno-11-1 name=__codelineno-11-1 href=#__codelineno-11-1></a><span class=ch>#!/usr/bin/env python</span>
 <a id=__codelineno-11-2 name=__codelineno-11-2 href=#__codelineno-11-2></a><span class=c1>#-*- coding:utf8 -*-</span>
 <a id=__codelineno-11-3 name=__codelineno-11-3 href=#__codelineno-11-3></a>
-<a id=__codelineno-11-4 name=__codelineno-11-4 href=#__codelineno-11-4></a><span class=k>class</span> <span class=nc>switch</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
-<a id=__codelineno-11-5 name=__codelineno-11-5 href=#__codelineno-11-5></a>  <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>value</span><span class=p>):</span>
+<a id=__codelineno-11-4 name=__codelineno-11-4 href=#__codelineno-11-4></a><span class=k>class</span><span class=w> </span><span class=nc>switch</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
+<a id=__codelineno-11-5 name=__codelineno-11-5 href=#__codelineno-11-5></a>  <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>value</span><span class=p>):</span>
 <a id=__codelineno-11-6 name=__codelineno-11-6 href=#__codelineno-11-6></a>    <span class=bp>self</span><span class=o>.</span><span class=n>value</span> <span class=o>=</span> <span class=n>value</span>
 <a id=__codelineno-11-7 name=__codelineno-11-7 href=#__codelineno-11-7></a>    <span class=bp>self</span><span class=o>.</span><span class=n>fall</span> <span class=o>=</span> <span class=kc>False</span>
 <a id=__codelineno-11-8 name=__codelineno-11-8 href=#__codelineno-11-8></a>
-<a id=__codelineno-11-9 name=__codelineno-11-9 href=#__codelineno-11-9></a>  <span class=k>def</span> <span class=fm>__iter__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-11-9 name=__codelineno-11-9 href=#__codelineno-11-9></a>  <span class=k>def</span><span class=w> </span><span class=fm>__iter__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-11-10 name=__codelineno-11-10 href=#__codelineno-11-10></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;Return the match method once, then stop&quot;&quot;&quot;</span>
 <a id=__codelineno-11-11 name=__codelineno-11-11 href=#__codelineno-11-11></a>    <span class=k>yield</span> <span class=bp>self</span><span class=o>.</span><span class=n>match</span>
 <a id=__codelineno-11-12 name=__codelineno-11-12 href=#__codelineno-11-12></a>    <span class=k>raise</span> <span class=ne>StopIteration</span>
 <a id=__codelineno-11-13 name=__codelineno-11-13 href=#__codelineno-11-13></a>
-<a id=__codelineno-11-14 name=__codelineno-11-14 href=#__codelineno-11-14></a>  <span class=k>def</span> <span class=nf>match</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>):</span>
+<a id=__codelineno-11-14 name=__codelineno-11-14 href=#__codelineno-11-14></a>  <span class=k>def</span><span class=w> </span><span class=nf>match</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>):</span>
 <a id=__codelineno-11-15 name=__codelineno-11-15 href=#__codelineno-11-15></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;Indicate whether or not to enter a case suite&quot;&quot;&quot;</span>
 <a id=__codelineno-11-16 name=__codelineno-11-16 href=#__codelineno-11-16></a>    <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>fall</span> <span class=ow>or</span> <span class=ow>not</span> <span class=n>args</span><span class=p>:</span>
 <a id=__codelineno-11-17 name=__codelineno-11-17 href=#__codelineno-11-17></a>      <span class=k>return</span> <span class=kc>True</span>
@@ -344,7 +344,7 @@
 <a id=__codelineno-36-14 name=__codelineno-36-14 href=#__codelineno-36-14></a>    <span class=k>else</span><span class=p>:</span>
 <a id=__codelineno-36-15 name=__codelineno-36-15 href=#__codelineno-36-15></a>        <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;超出错误次数, 退出!&quot;</span><span class=p>)</span>
 <a id=__codelineno-36-16 name=__codelineno-36-16 href=#__codelineno-36-16></a>        <span class=k>break</span>
-</code></pre></div> <h4 id=4中断嵌套循环的方式>4.中断嵌套循环的方式<a class=headerlink href=#4中断嵌套循环的方式 title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code><a id=__codelineno-37-1 name=__codelineno-37-1 href=#__codelineno-37-1></a><span class=k>def</span> <span class=nf>find_first_world</span><span class=p>(</span><span class=n>fp</span><span class=p>,</span><span class=n>prefix</span><span class=p>):</span>
+</code></pre></div> <h4 id=4中断嵌套循环的方式>4.中断嵌套循环的方式<a class=headerlink href=#4中断嵌套循环的方式 title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code><a id=__codelineno-37-1 name=__codelineno-37-1 href=#__codelineno-37-1></a><span class=k>def</span><span class=w> </span><span class=nf>find_first_world</span><span class=p>(</span><span class=n>fp</span><span class=p>,</span><span class=n>prefix</span><span class=p>):</span>
 <a id=__codelineno-37-2 name=__codelineno-37-2 href=#__codelineno-37-2></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <a id=__codelineno-37-3 name=__codelineno-37-3 href=#__codelineno-37-3></a><span class=sd>    找到文件里第一个指定单词的前缀并打印</span>
 <a id=__codelineno-37-4 name=__codelineno-37-4 href=#__codelineno-37-4></a><span class=sd>    :param fp: 可读文件对象</span>
@@ -359,7 +359,7 @@
 <a id=__codelineno-37-13 name=__codelineno-37-13 href=#__codelineno-37-13></a>    <span class=k>return</span> <span class=kc>None</span>
 <a id=__codelineno-37-14 name=__codelineno-37-14 href=#__codelineno-37-14></a>
 <a id=__codelineno-37-15 name=__codelineno-37-15 href=#__codelineno-37-15></a>
-<a id=__codelineno-37-16 name=__codelineno-37-16 href=#__codelineno-37-16></a><span class=k>def</span> <span class=nf>print_first_world2</span><span class=p>(</span><span class=n>fp</span><span class=p>,</span><span class=n>prefix</span><span class=p>):</span>
+<a id=__codelineno-37-16 name=__codelineno-37-16 href=#__codelineno-37-16></a><span class=k>def</span><span class=w> </span><span class=nf>print_first_world2</span><span class=p>(</span><span class=n>fp</span><span class=p>,</span><span class=n>prefix</span><span class=p>):</span>
 <a id=__codelineno-37-17 name=__codelineno-37-17 href=#__codelineno-37-17></a>    <span class=n>first_word</span> <span class=o>=</span> <span class=n>find_first_world</span><span class=p>(</span><span class=n>fp</span><span class=p>,</span><span class=n>prefix</span><span class=p>)</span>
 <a id=__codelineno-37-18 name=__codelineno-37-18 href=#__codelineno-37-18></a>    <span class=k>if</span> <span class=n>first_word</span><span class=p>:</span>
 <a id=__codelineno-37-19 name=__codelineno-37-19 href=#__codelineno-37-19></a>        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s1>&#39;Found the first word startswith &quot;</span><span class=si>{</span><span class=n>prefix</span><span class=si>}</span><span class=s1>&quot;&quot; &quot;</span><span class=si>{</span><span class=n>first_word</span><span class=si>}</span><span class=s1>&quot;&#39;</span><span class=p>)</span>
@@ -367,7 +367,7 @@
 <a id=__codelineno-37-21 name=__codelineno-37-21 href=#__codelineno-37-21></a>        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s1>&#39;Word starts with &quot;</span><span class=si>{</span><span class=n>prefix</span><span class=si>}</span><span class=s1>&quot; was not found.&#39;</span><span class=p>)</span>
 </code></pre></div> <h4 id=5return-语句>5.return 语句<a class=headerlink href=#5return-语句 title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code><a id=__codelineno-38-1 name=__codelineno-38-1 href=#__codelineno-38-1></a><span class=ch>#!/usr/bin/env python</span>
 <a id=__codelineno-38-2 name=__codelineno-38-2 href=#__codelineno-38-2></a><span class=c1>#-*- coding:utf8 -*-</span>
-<a id=__codelineno-38-3 name=__codelineno-38-3 href=#__codelineno-38-3></a><span class=k>def</span> <span class=nf>test</span><span class=p>():</span>
+<a id=__codelineno-38-3 name=__codelineno-38-3 href=#__codelineno-38-3></a><span class=k>def</span><span class=w> </span><span class=nf>test</span><span class=p>():</span>
 <a id=__codelineno-38-4 name=__codelineno-38-4 href=#__codelineno-38-4></a>    <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>10</span><span class=p>):</span>
 <a id=__codelineno-38-5 name=__codelineno-38-5 href=#__codelineno-38-5></a>        <span class=k>for</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>10</span><span class=p>):</span>
 <a id=__codelineno-38-6 name=__codelineno-38-6 href=#__codelineno-38-6></a>            <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;i的值是：</span><span class=si>%d</span><span class=s2>,j的值是：</span><span class=si>%d</span><span class=s2>&quot;</span> <span class=o>%</span> <span class=p>(</span><span class=n>i</span><span class=p>,</span> <span class=n>j</span><span class=p>))</span>

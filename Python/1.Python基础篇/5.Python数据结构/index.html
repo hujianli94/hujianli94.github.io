@@ -47,14 +47,14 @@
 <a id=__codelineno-3-8 name=__codelineno-3-8 href=#__codelineno-3-8></a><span class=c1># (&#39;hu1&#39;, &#39;python1&#39;)</span>
 <a id=__codelineno-3-9 name=__codelineno-3-9 href=#__codelineno-3-9></a><span class=c1># (&#39;hu2&#39;, &#39;python2&#39;)</span>
 <a id=__codelineno-3-10 name=__codelineno-3-10 href=#__codelineno-3-10></a><span class=c1># (&#39;hu3&#39;, &#39;python3&#39;)</span>
-</code></pre></div> <h3 id=24-具名元祖>2.4 具名元祖<a class=headerlink href=#24-具名元祖 title="Permanent link">&para;</a></h3> <p>具名元组在保留普通元组功能的基础上，允许为元组的每个成员命名，这样你便能通过名称而不止是数字索引访问成员。</p> <p>在<code>Python 3.6版本以后，除了使用namedtuple()函数以外，你还可以用typing.NamedTuple和类型注解语法来定义具名元组类型</code>。这种方式在可读性上更胜一筹：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-4-1 name=__codelineno-4-1 href=#__codelineno-4-1></a><span class=kn>from</span> <span class=nn>collections</span> <span class=kn>import</span> <span class=n>namedtuple</span>
+</code></pre></div> <h3 id=24-具名元祖>2.4 具名元祖<a class=headerlink href=#24-具名元祖 title="Permanent link">&para;</a></h3> <p>具名元组在保留普通元组功能的基础上，允许为元组的每个成员命名，这样你便能通过名称而不止是数字索引访问成员。</p> <p>在<code>Python 3.6版本以后，除了使用namedtuple()函数以外，你还可以用typing.NamedTuple和类型注解语法来定义具名元组类型</code>。这种方式在可读性上更胜一筹：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-4-1 name=__codelineno-4-1 href=#__codelineno-4-1></a><span class=kn>from</span><span class=w> </span><span class=nn>collections</span><span class=w> </span><span class=kn>import</span> <span class=n>namedtuple</span>
 <a id=__codelineno-4-2 name=__codelineno-4-2 href=#__codelineno-4-2></a>
 <a id=__codelineno-4-3 name=__codelineno-4-3 href=#__codelineno-4-3></a><span class=n>Rectangle</span> <span class=o>=</span> <span class=n>namedtuple</span><span class=p>(</span><span class=s1>&#39;Rectangle&#39;</span><span class=p>,</span> <span class=s1>&#39;width,height&#39;</span><span class=p>)</span>
 <a id=__codelineno-4-4 name=__codelineno-4-4 href=#__codelineno-4-4></a>
-<a id=__codelineno-4-5 name=__codelineno-4-5 href=#__codelineno-4-5></a><span class=kn>from</span> <span class=nn>typing</span> <span class=kn>import</span> <span class=n>NamedTuple</span>
+<a id=__codelineno-4-5 name=__codelineno-4-5 href=#__codelineno-4-5></a><span class=kn>from</span><span class=w> </span><span class=nn>typing</span><span class=w> </span><span class=kn>import</span> <span class=n>NamedTuple</span>
 <a id=__codelineno-4-6 name=__codelineno-4-6 href=#__codelineno-4-6></a>
 <a id=__codelineno-4-7 name=__codelineno-4-7 href=#__codelineno-4-7></a>
-<a id=__codelineno-4-8 name=__codelineno-4-8 href=#__codelineno-4-8></a><span class=k>class</span> <span class=nc>Rectangle1</span><span class=p>(</span><span class=n>NamedTuple</span><span class=p>):</span>
+<a id=__codelineno-4-8 name=__codelineno-4-8 href=#__codelineno-4-8></a><span class=k>class</span><span class=w> </span><span class=nc>Rectangle1</span><span class=p>(</span><span class=n>NamedTuple</span><span class=p>):</span>
 <a id=__codelineno-4-9 name=__codelineno-4-9 href=#__codelineno-4-9></a>    <span class=n>width</span><span class=p>:</span> <span class=nb>int</span>
 <a id=__codelineno-4-10 name=__codelineno-4-10 href=#__codelineno-4-10></a>    <span class=n>height</span><span class=p>:</span> <span class=nb>int</span>
 <a id=__codelineno-4-11 name=__codelineno-4-11 href=#__codelineno-4-11></a>
@@ -101,7 +101,7 @@
 <a id=__codelineno-6-5 name=__codelineno-6-5 href=#__codelineno-6-5></a><span class=sd>&#39;&#39;&#39;</span>
 <a id=__codelineno-6-6 name=__codelineno-6-6 href=#__codelineno-6-6></a><span class=sd>{键表达式：值表达式 for 循环}</span>
 <a id=__codelineno-6-7 name=__codelineno-6-7 href=#__codelineno-6-7></a><span class=sd>&#39;&#39;&#39;</span>
-<a id=__codelineno-6-8 name=__codelineno-6-8 href=#__codelineno-6-8></a><span class=kn>import</span> <span class=nn>random</span>
+<a id=__codelineno-6-8 name=__codelineno-6-8 href=#__codelineno-6-8></a><span class=kn>import</span><span class=w> </span><span class=nn>random</span>
 <a id=__codelineno-6-9 name=__codelineno-6-9 href=#__codelineno-6-9></a><span class=c1>#生成随机数字典，键为1~4，值为10~100的随机数</span>
 <a id=__codelineno-6-10 name=__codelineno-6-10 href=#__codelineno-6-10></a><span class=n>randomdict</span> <span class=o>=</span> <span class=p>{</span><span class=n>i</span><span class=p>:</span> <span class=n>random</span><span class=o>.</span><span class=n>randint</span><span class=p>(</span><span class=mi>10</span><span class=p>,</span><span class=mi>100</span><span class=p>)</span> <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span><span class=mi>5</span><span class=p>)}</span>
 <a id=__codelineno-6-11 name=__codelineno-6-11 href=#__codelineno-6-11></a><span class=nb>print</span><span class=p>(</span><span class=n>randomdict</span><span class=p>)</span>
@@ -140,16 +140,16 @@
 <a id=__codelineno-8-5 name=__codelineno-8-5 href=#__codelineno-8-5></a><span class=nb>print</span><span class=p>(</span><span class=n>temp</span> <span class=o>%</span> <span class=n>book2</span><span class=p>)</span>
 </code></pre></div> <h3 id=36-用字典分支构建程序>3.6 用字典分支构建程序<a class=headerlink href=#36-用字典分支构建程序 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-9-1 name=__codelineno-9-1 href=#__codelineno-9-1></a><span class=ch>#!/usr/bin/env python</span>
 <a id=__codelineno-9-2 name=__codelineno-9-2 href=#__codelineno-9-2></a><span class=c1>#-*- coding:utf8 -*-</span>
-<a id=__codelineno-9-3 name=__codelineno-9-3 href=#__codelineno-9-3></a><span class=kn>import</span> <span class=nn>random</span>
+<a id=__codelineno-9-3 name=__codelineno-9-3 href=#__codelineno-9-3></a><span class=kn>import</span><span class=w> </span><span class=nn>random</span>
 <a id=__codelineno-9-4 name=__codelineno-9-4 href=#__codelineno-9-4></a>
 <a id=__codelineno-9-5 name=__codelineno-9-5 href=#__codelineno-9-5></a><span class=c1>#定义3个分支函数</span>
-<a id=__codelineno-9-6 name=__codelineno-9-6 href=#__codelineno-9-6></a><span class=k>def</span> <span class=nf>print_a</span><span class=p>():</span>
+<a id=__codelineno-9-6 name=__codelineno-9-6 href=#__codelineno-9-6></a><span class=k>def</span><span class=w> </span><span class=nf>print_a</span><span class=p>():</span>
 <a id=__codelineno-9-7 name=__codelineno-9-7 href=#__codelineno-9-7></a>    <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;路径分支A&quot;</span><span class=p>)</span>
 <a id=__codelineno-9-8 name=__codelineno-9-8 href=#__codelineno-9-8></a>
-<a id=__codelineno-9-9 name=__codelineno-9-9 href=#__codelineno-9-9></a><span class=k>def</span> <span class=nf>print_b</span><span class=p>():</span>
+<a id=__codelineno-9-9 name=__codelineno-9-9 href=#__codelineno-9-9></a><span class=k>def</span><span class=w> </span><span class=nf>print_b</span><span class=p>():</span>
 <a id=__codelineno-9-10 name=__codelineno-9-10 href=#__codelineno-9-10></a>    <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;路径分支B&quot;</span><span class=p>)</span>
 <a id=__codelineno-9-11 name=__codelineno-9-11 href=#__codelineno-9-11></a>
-<a id=__codelineno-9-12 name=__codelineno-9-12 href=#__codelineno-9-12></a><span class=k>def</span> <span class=nf>print_c</span><span class=p>():</span>
+<a id=__codelineno-9-12 name=__codelineno-9-12 href=#__codelineno-9-12></a><span class=k>def</span><span class=w> </span><span class=nf>print_c</span><span class=p>():</span>
 <a id=__codelineno-9-13 name=__codelineno-9-13 href=#__codelineno-9-13></a>    <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;路径分支C&quot;</span><span class=p>)</span>
 <a id=__codelineno-9-14 name=__codelineno-9-14 href=#__codelineno-9-14></a>
 <a id=__codelineno-9-15 name=__codelineno-9-15 href=#__codelineno-9-15></a><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s1>&#39;__main__&#39;</span><span class=p>:</span>
@@ -185,7 +185,7 @@
 <a id=__codelineno-11-14 name=__codelineno-11-14 href=#__codelineno-11-14></a>  <span class=c1># 或者使用 setdefault 方法</span>
 <a id=__codelineno-11-15 name=__codelineno-11-15 href=#__codelineno-11-15></a>  <span class=n>navs</span><span class=o>.</span><span class=n>setdefault</span><span class=p>(</span><span class=n>portfolio</span><span class=p>,</span> <span class=mi>0</span><span class=p>)</span>
 <a id=__codelineno-11-16 name=__codelineno-11-16 href=#__codelineno-11-16></a>  <span class=n>navs</span><span class=p>[</span><span class=n>portfolio</span><span class=p>]</span> <span class=o>+=</span> <span class=n>position</span> <span class=o>*</span> <span class=n>prices</span><span class=p>[</span><span class=n>equity</span><span class=p>]</span>
-</code></pre></div> get 的用法示例</p> <div class=highlight><pre><span></span><code><a id=__codelineno-12-1 name=__codelineno-12-1 href=#__codelineno-12-1></a><span class=k>def</span> <span class=nf>color_print</span><span class=p>(</span><span class=n>msg</span><span class=p>,</span> <span class=n>color</span><span class=o>=</span><span class=s1>&#39;red&#39;</span><span class=p>,</span> <span class=n>exits</span><span class=o>=</span><span class=kc>False</span><span class=p>):</span>
+</code></pre></div> get 的用法示例</p> <div class=highlight><pre><span></span><code><a id=__codelineno-12-1 name=__codelineno-12-1 href=#__codelineno-12-1></a><span class=k>def</span><span class=w> </span><span class=nf>color_print</span><span class=p>(</span><span class=n>msg</span><span class=p>,</span> <span class=n>color</span><span class=o>=</span><span class=s1>&#39;red&#39;</span><span class=p>,</span> <span class=n>exits</span><span class=o>=</span><span class=kc>False</span><span class=p>):</span>
 <a id=__codelineno-12-2 name=__codelineno-12-2 href=#__codelineno-12-2></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;</span>
 <a id=__codelineno-12-3 name=__codelineno-12-3 href=#__codelineno-12-3></a><span class=sd>    Print colorful string.</span>
 <a id=__codelineno-12-4 name=__codelineno-12-4 href=#__codelineno-12-4></a><span class=sd>    颜色打印字符或者退出</span>
@@ -329,7 +329,7 @@
 <a id=__codelineno-19-16 name=__codelineno-19-16 href=#__codelineno-19-16></a><span class=n>Out</span><span class=p>[</span><span class=mi>27</span><span class=p>]:</span> <span class=p>{</span><span class=s1>&#39;a&#39;</span><span class=p>:</span> <span class=mi>1</span><span class=p>,</span> <span class=s1>&#39;b&#39;</span><span class=p>:</span> <span class=mi>2</span><span class=p>,</span> <span class=s1>&#39;c&#39;</span><span class=p>:</span> <span class=mi>3</span><span class=p>}</span>
 <a id=__codelineno-19-17 name=__codelineno-19-17 href=#__codelineno-19-17></a>
 <a id=__codelineno-19-18 name=__codelineno-19-18 href=#__codelineno-19-18></a><span class=c1>#方式二</span>
-<a id=__codelineno-19-19 name=__codelineno-19-19 href=#__codelineno-19-19></a><span class=n>In</span> <span class=p>[</span><span class=mi>32</span><span class=p>]:</span> <span class=kn>import</span> <span class=nn>json</span>
+<a id=__codelineno-19-19 name=__codelineno-19-19 href=#__codelineno-19-19></a><span class=n>In</span> <span class=p>[</span><span class=mi>32</span><span class=p>]:</span> <span class=kn>import</span><span class=w> </span><span class=nn>json</span>
 <a id=__codelineno-19-20 name=__codelineno-19-20 href=#__codelineno-19-20></a><span class=n>In</span> <span class=p>[</span><span class=mi>33</span><span class=p>]:</span> <span class=n>s</span> <span class=o>=</span> <span class=s1>&#39;{&quot;a&quot;: 1, &quot;b&quot;: 2, &quot;c&quot;: 3}&#39;</span>
 <a id=__codelineno-19-21 name=__codelineno-19-21 href=#__codelineno-19-21></a><span class=n>In</span> <span class=p>[</span><span class=mi>34</span><span class=p>]:</span> <span class=nb>type</span><span class=p>(</span><span class=n>s</span><span class=p>)</span>
 <a id=__codelineno-19-22 name=__codelineno-19-22 href=#__codelineno-19-22></a><span class=n>Out</span><span class=p>[</span><span class=mi>34</span><span class=p>]:</span> <span class=nb>str</span>
@@ -367,16 +367,16 @@
 <a id=__codelineno-20-26 name=__codelineno-20-26 href=#__codelineno-20-26></a><span class=c1># 字符串转bytes方式二</span>
 <a id=__codelineno-20-27 name=__codelineno-20-27 href=#__codelineno-20-27></a><span class=n>b</span><span class=o>=</span><span class=n>str1</span><span class=o>.</span><span class=n>encode</span><span class=p>(</span><span class=s1>&#39;utf-8&#39;</span><span class=p>)</span>
 <a id=__codelineno-20-28 name=__codelineno-20-28 href=#__codelineno-20-28></a><span class=nb>print</span><span class=p>(</span><span class=n>b</span><span class=p>)</span>
-</code></pre></div> <h3 id=66-整数和-bytes-互相转换>6.6 整数和 bytes 互相转换<a class=headerlink href=#66-整数和-bytes-互相转换 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-21-1 name=__codelineno-21-1 href=#__codelineno-21-1></a><span class=kn>import</span> <span class=nn>struct</span>
+</code></pre></div> <h3 id=66-整数和-bytes-互相转换>6.6 整数和 bytes 互相转换<a class=headerlink href=#66-整数和-bytes-互相转换 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-21-1 name=__codelineno-21-1 href=#__codelineno-21-1></a><span class=kn>import</span><span class=w> </span><span class=nn>struct</span>
 <a id=__codelineno-21-2 name=__codelineno-21-2 href=#__codelineno-21-2></a>
-<a id=__codelineno-21-3 name=__codelineno-21-3 href=#__codelineno-21-3></a><span class=k>def</span> <span class=nf>byte2int</span><span class=p>(</span><span class=n>b</span><span class=p>):</span>
+<a id=__codelineno-21-3 name=__codelineno-21-3 href=#__codelineno-21-3></a><span class=k>def</span><span class=w> </span><span class=nf>byte2int</span><span class=p>(</span><span class=n>b</span><span class=p>):</span>
 <a id=__codelineno-21-4 name=__codelineno-21-4 href=#__codelineno-21-4></a>    <span class=k>if</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>b</span><span class=p>,</span> <span class=nb>int</span><span class=p>):</span>
 <a id=__codelineno-21-5 name=__codelineno-21-5 href=#__codelineno-21-5></a>        <span class=k>return</span> <span class=n>b</span>
 <a id=__codelineno-21-6 name=__codelineno-21-6 href=#__codelineno-21-6></a>    <span class=k>else</span><span class=p>:</span>
 <a id=__codelineno-21-7 name=__codelineno-21-7 href=#__codelineno-21-7></a>        <span class=k>return</span> <span class=n>struct</span><span class=o>.</span><span class=n>unpack</span><span class=p>(</span><span class=s2>&quot;!B&quot;</span><span class=p>,</span> <span class=n>b</span><span class=p>)[</span><span class=mi>0</span><span class=p>]</span>
 <a id=__codelineno-21-8 name=__codelineno-21-8 href=#__codelineno-21-8></a>
 <a id=__codelineno-21-9 name=__codelineno-21-9 href=#__codelineno-21-9></a>
-<a id=__codelineno-21-10 name=__codelineno-21-10 href=#__codelineno-21-10></a><span class=k>def</span> <span class=nf>int2byte</span><span class=p>(</span><span class=n>i</span><span class=p>):</span>
+<a id=__codelineno-21-10 name=__codelineno-21-10 href=#__codelineno-21-10></a><span class=k>def</span><span class=w> </span><span class=nf>int2byte</span><span class=p>(</span><span class=n>i</span><span class=p>):</span>
 <a id=__codelineno-21-11 name=__codelineno-21-11 href=#__codelineno-21-11></a>    <span class=k>return</span> <span class=n>struct</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=s2>&quot;!B&quot;</span><span class=p>,</span> <span class=n>i</span><span class=p>)</span>
 <a id=__codelineno-21-12 name=__codelineno-21-12 href=#__codelineno-21-12></a>
 <a id=__codelineno-21-13 name=__codelineno-21-13 href=#__codelineno-21-13></a><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s1>&#39;__main__&#39;</span><span class=p>:</span>
@@ -442,7 +442,7 @@
 <a id=__codelineno-24-6 name=__codelineno-24-6 href=#__codelineno-24-6></a><span class=sd>&quot;&quot;&quot;</span>
 <a id=__codelineno-24-7 name=__codelineno-24-7 href=#__codelineno-24-7></a>
 <a id=__codelineno-24-8 name=__codelineno-24-8 href=#__codelineno-24-8></a>
-<a id=__codelineno-24-9 name=__codelineno-24-9 href=#__codelineno-24-9></a><span class=kn>import</span> <span class=nn>copy</span>
+<a id=__codelineno-24-9 name=__codelineno-24-9 href=#__codelineno-24-9></a><span class=kn>import</span><span class=w> </span><span class=nn>copy</span>
 <a id=__codelineno-24-10 name=__codelineno-24-10 href=#__codelineno-24-10></a><span class=n>d</span> <span class=o>=</span> <span class=p>{</span><span class=s1>&#39;name&#39;</span><span class=p>:</span><span class=s1>&#39;hujianli&#39;</span><span class=p>,</span><span class=s1>&#39;age&#39;</span><span class=p>:</span><span class=s1>&#39;22&#39;</span><span class=p>}</span>
 <a id=__codelineno-24-11 name=__codelineno-24-11 href=#__codelineno-24-11></a><span class=n>c1</span> <span class=o>=</span> <span class=n>copy</span><span class=o>.</span><span class=n>copy</span><span class=p>(</span><span class=n>d</span><span class=p>)</span>       <span class=c1>#浅拷贝</span>
 <a id=__codelineno-24-12 name=__codelineno-24-12 href=#__codelineno-24-12></a><span class=n>c2</span> <span class=o>=</span> <span class=n>copy</span><span class=o>.</span><span class=n>deepcopy</span><span class=p>(</span><span class=n>d</span><span class=p>)</span>   <span class=c1>#深拷贝</span>

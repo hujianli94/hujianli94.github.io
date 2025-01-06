@@ -5,8 +5,8 @@
 <a id=__codelineno-2-2 name=__codelineno-2-2 href=#__codelineno-2-2></a><span class=n>__author__</span> <span class=o>=</span> <span class=s2>&quot;Bassim Aly&quot;</span>
 <a id=__codelineno-2-3 name=__codelineno-2-3 href=#__codelineno-2-3></a><span class=n>__EMAIL__</span> <span class=o>=</span> <span class=s2>&quot;basim.alyy@gmail.com&quot;</span>
 <a id=__codelineno-2-4 name=__codelineno-2-4 href=#__codelineno-2-4></a>
-<a id=__codelineno-2-5 name=__codelineno-2-5 href=#__codelineno-2-5></a><span class=kn>import</span> <span class=nn>paramiko</span>
-<a id=__codelineno-2-6 name=__codelineno-2-6 href=#__codelineno-2-6></a><span class=kn>import</span> <span class=nn>time</span>
+<a id=__codelineno-2-5 name=__codelineno-2-5 href=#__codelineno-2-5></a><span class=kn>import</span><span class=w> </span><span class=nn>paramiko</span>
+<a id=__codelineno-2-6 name=__codelineno-2-6 href=#__codelineno-2-6></a><span class=kn>import</span><span class=w> </span><span class=nn>time</span>
 <a id=__codelineno-2-7 name=__codelineno-2-7 href=#__codelineno-2-7></a>
 <a id=__codelineno-2-8 name=__codelineno-2-8 href=#__codelineno-2-8></a><span class=n>Channel</span> <span class=o>=</span> <span class=n>paramiko</span><span class=o>.</span><span class=n>SSHClient</span><span class=p>()</span>
 <a id=__codelineno-2-9 name=__codelineno-2-9 href=#__codelineno-2-9></a>
@@ -41,7 +41,7 @@
 <a id=__codelineno-5-4 name=__codelineno-5-4 href=#__codelineno-5-4></a><span class=w>  </span><span class=s1>&#39;username&#39;</span>:<span class=w> </span><span class=s1>&#39;admin&#39;</span>,
 <a id=__codelineno-5-5 name=__codelineno-5-5 href=#__codelineno-5-5></a><span class=w>  </span><span class=s1>&#39;password&#39;</span>:<span class=w> </span><span class=s1>&#39;access123&#39;</span>,
 <a id=__codelineno-5-6 name=__codelineno-5-6 href=#__codelineno-5-6></a><span class=w>  </span><span class=s1>&#39;secret&#39;</span>:<span class=w> </span><span class=s1>&#39;access123&#39;</span>,<span class=w>  </span><span class=o>}</span>
-</code></pre></div> <p>第一个参数是 <code>device_type</code>，用于定义平台供应商，以便执行正确的命令。然后，我们需要 SSH 的 ip 地址。如果已经通过 DNS 解析了设备主机名，这个参数可以是设备主机名，或者只是 IP 地址。然后我们提供 username，password，和 secret 中的启用模式密码。请注意，您可以使用 <code>getpass()</code>模块隐藏密码，并且只在脚本执行期间提示密码。</p> <p>虽然变量内的键的顺序并不重要，但键的名称应与前面的示例中提供的完全相同，以便 netmiko 正确解析字典并开始建立与设备的连接。</p> <p>接下来，我们将从 netmiko 模块中导入 <code>ConnectHandler</code> 函数，并给它定义的字典以开始连接。</p> <p>由于我们所有的设备都配置了启用模式密码，我们需要通过提供<code>.enable()</code>来访问启用模式到创建的连接。我们将使用<code>.send_command()</code>在路由器终端上执行命令，该命令将执行命令并将设备输出返回到变量中：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-6-1 name=__codelineno-6-1 href=#__codelineno-6-1></a><span class=kn>from</span> <span class=nn>netmiko</span> <span class=kn>import</span> <span class=n>ConnectHandler</span>
+</code></pre></div> <p>第一个参数是 <code>device_type</code>，用于定义平台供应商，以便执行正确的命令。然后，我们需要 SSH 的 ip 地址。如果已经通过 DNS 解析了设备主机名，这个参数可以是设备主机名，或者只是 IP 地址。然后我们提供 username，password，和 secret 中的启用模式密码。请注意，您可以使用 <code>getpass()</code>模块隐藏密码，并且只在脚本执行期间提示密码。</p> <p>虽然变量内的键的顺序并不重要，但键的名称应与前面的示例中提供的完全相同，以便 netmiko 正确解析字典并开始建立与设备的连接。</p> <p>接下来，我们将从 netmiko 模块中导入 <code>ConnectHandler</code> 函数，并给它定义的字典以开始连接。</p> <p>由于我们所有的设备都配置了启用模式密码，我们需要通过提供<code>.enable()</code>来访问启用模式到创建的连接。我们将使用<code>.send_command()</code>在路由器终端上执行命令，该命令将执行命令并将设备输出返回到变量中：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-6-1 name=__codelineno-6-1 href=#__codelineno-6-1></a><span class=kn>from</span><span class=w> </span><span class=nn>netmiko</span><span class=w> </span><span class=kn>import</span> <span class=n>ConnectHandler</span>
 <a id=__codelineno-6-2 name=__codelineno-6-2 href=#__codelineno-6-2></a>
 <a id=__codelineno-6-3 name=__codelineno-6-3 href=#__codelineno-6-3></a><span class=n>R1</span> <span class=o>=</span> <span class=p>{</span>
 <a id=__codelineno-6-4 name=__codelineno-6-4 href=#__codelineno-6-4></a>    <span class=s1>&#39;device_type&#39;</span><span class=p>:</span> <span class=s1>&#39;cisco_ios&#39;</span><span class=p>,</span>
@@ -63,7 +63,7 @@
 </code></pre></div> <h3 id=使用-netmiko-配置设备>使用 netmiko 配置设备<a class=headerlink href=#使用-netmiko-配置设备 title="Permanent link">&para;</a></h3> <p>Netmiko 可以用于通过 SSH 配置远程设备。它通过使用<code>.config</code> 方法访问配置模式，然后应用以 list 格式给出的配置来实现这一点。</p> <p>列表本身可以在 Python 脚本中提供，也可以从文件中读取，然后使用 readlines()方法转换为列表：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-7-1 name=__codelineno-7-1 href=#__codelineno-7-1></a><span class=n>__author__</span> <span class=o>=</span> <span class=s2>&quot;Bassim Aly&quot;</span>
 <a id=__codelineno-7-2 name=__codelineno-7-2 href=#__codelineno-7-2></a><span class=n>__EMAIL__</span> <span class=o>=</span> <span class=s2>&quot;basim.alyy@gmail.com&quot;</span>
 <a id=__codelineno-7-3 name=__codelineno-7-3 href=#__codelineno-7-3></a>
-<a id=__codelineno-7-4 name=__codelineno-7-4 href=#__codelineno-7-4></a><span class=kn>from</span> <span class=nn>netmiko</span> <span class=kn>import</span> <span class=n>ConnectHandler</span>
+<a id=__codelineno-7-4 name=__codelineno-7-4 href=#__codelineno-7-4></a><span class=kn>from</span><span class=w> </span><span class=nn>netmiko</span><span class=w> </span><span class=kn>import</span> <span class=n>ConnectHandler</span>
 <a id=__codelineno-7-5 name=__codelineno-7-5 href=#__codelineno-7-5></a>
 <a id=__codelineno-7-6 name=__codelineno-7-6 href=#__codelineno-7-6></a><span class=n>SW2</span> <span class=o>=</span> <span class=p>{</span>
 <a id=__codelineno-7-7 name=__codelineno-7-7 href=#__codelineno-7-7></a>    <span class=s1>&#39;device_type&#39;</span><span class=p>:</span> <span class=s1>&#39;cisco_ios&#39;</span><span class=p>,</span>
@@ -89,7 +89,7 @@
 <a id=__codelineno-7-27 name=__codelineno-7-27 href=#__codelineno-7-27></a><span class=c1># Send Configuration from file</span>
 <a id=__codelineno-7-28 name=__codelineno-7-28 href=#__codelineno-7-28></a>
 <a id=__codelineno-7-29 name=__codelineno-7-29 href=#__codelineno-7-29></a>
-<a id=__codelineno-7-30 name=__codelineno-7-30 href=#__codelineno-7-30></a><span class=kn>from</span> <span class=nn>netmiko</span> <span class=kn>import</span> <span class=n>ConnectHandler</span>
+<a id=__codelineno-7-30 name=__codelineno-7-30 href=#__codelineno-7-30></a><span class=kn>from</span><span class=w> </span><span class=nn>netmiko</span><span class=w> </span><span class=kn>import</span> <span class=n>ConnectHandler</span>
 <a id=__codelineno-7-31 name=__codelineno-7-31 href=#__codelineno-7-31></a>
 <a id=__codelineno-7-32 name=__codelineno-7-32 href=#__codelineno-7-32></a><span class=n>connect_sw2</span> <span class=o>=</span> <span class=n>ConnectHandler</span><span class=p>(</span><span class=o>**</span><span class=n>SW2</span><span class=p>)</span>
 <a id=__codelineno-7-33 name=__codelineno-7-33 href=#__codelineno-7-33></a>
@@ -100,8 +100,8 @@
 </code></pre></div> <p>在上一个脚本中，我们做了与之前连接到 SW2 并进入启用模式相同的事情，但这次我们利用了另一个 netmiko 方法，称为<code>send_config_set()</code>，它以列表格式接收配置并访问设备配置模式并开始应用。</p> <p>我们有一个简单的配置，修改了 gig0/1 和 gig0/2，并对它们应用了干线配置。您可以通过在设备上运行 show run 命令来检查命令是否成功执行；</p> <h3 id=netmiko-中的异常处理>netmiko 中的异常处理<a class=headerlink href=#netmiko-中的异常处理 title="Permanent link">&para;</a></h3> <p>当设计 Python 脚本时，我们假设设备正在运行，并且用户已经提供了正确的凭据，这并不总是情况。</p> <p>有时 Python 和远程设备之间存在网络连接问题，或者用户输入了错误的凭据。通常，如果发生这种情况，Python 会抛出异常并退出，这并不是最佳解决方案。</p> <p>netmiko 中的异常处理模块 <code>netmiko.ssh_exception</code> 提供了一些可以处理这种情况的异常类。</p> <p>第一个是 <code>AuthenticationException</code>，将捕获远程设备中的身份验证错误。第二个类是 <code>NetMikoTimeoutException</code>，将捕获 netmiko 和设备之间的超时或任何连接问题。</p> <p>我们需要做的是用 try-except 子句包装我们的 <code>ConnectHandler()</code>方法，并捕获超时和身份验证异常：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-8-1 name=__codelineno-8-1 href=#__codelineno-8-1></a><span class=n>__author__</span> <span class=o>=</span> <span class=s2>&quot;Bassim Aly&quot;</span>
 <a id=__codelineno-8-2 name=__codelineno-8-2 href=#__codelineno-8-2></a><span class=n>__EMAIL__</span> <span class=o>=</span> <span class=s2>&quot;basim.alyy@gmail.com&quot;</span>
 <a id=__codelineno-8-3 name=__codelineno-8-3 href=#__codelineno-8-3></a>
-<a id=__codelineno-8-4 name=__codelineno-8-4 href=#__codelineno-8-4></a><span class=kn>from</span> <span class=nn>netmiko</span> <span class=kn>import</span> <span class=n>ConnectHandler</span>
-<a id=__codelineno-8-5 name=__codelineno-8-5 href=#__codelineno-8-5></a><span class=kn>from</span> <span class=nn>netmiko.ssh_exception</span> <span class=kn>import</span> <span class=n>AuthenticationException</span><span class=p>,</span> <span class=n>NetMikoTimeoutException</span>
+<a id=__codelineno-8-4 name=__codelineno-8-4 href=#__codelineno-8-4></a><span class=kn>from</span><span class=w> </span><span class=nn>netmiko</span><span class=w> </span><span class=kn>import</span> <span class=n>ConnectHandler</span>
+<a id=__codelineno-8-5 name=__codelineno-8-5 href=#__codelineno-8-5></a><span class=kn>from</span><span class=w> </span><span class=nn>netmiko.ssh_exception</span><span class=w> </span><span class=kn>import</span> <span class=n>AuthenticationException</span><span class=p>,</span> <span class=n>NetMikoTimeoutException</span>
 <a id=__codelineno-8-6 name=__codelineno-8-6 href=#__codelineno-8-6></a>
 <a id=__codelineno-8-7 name=__codelineno-8-7 href=#__codelineno-8-7></a><span class=n>device</span> <span class=o>=</span> <span class=p>{</span>
 <a id=__codelineno-8-8 name=__codelineno-8-8 href=#__codelineno-8-8></a>    <span class=s1>&#39;device_type&#39;</span><span class=p>:</span> <span class=s1>&#39;cisco_ios&#39;</span><span class=p>,</span>
@@ -134,7 +134,7 @@
 <a id=__codelineno-9-2 name=__codelineno-9-2 href=#__codelineno-9-2></a><span class=n>__author__</span> <span class=o>=</span> <span class=s2>&quot;Bassim Aly&quot;</span>
 <a id=__codelineno-9-3 name=__codelineno-9-3 href=#__codelineno-9-3></a><span class=n>__EMAIL__</span> <span class=o>=</span> <span class=s2>&quot;basim.alyy@gmail.com&quot;</span>
 <a id=__codelineno-9-4 name=__codelineno-9-4 href=#__codelineno-9-4></a>
-<a id=__codelineno-9-5 name=__codelineno-9-5 href=#__codelineno-9-5></a><span class=kn>from</span> <span class=nn>netmiko</span> <span class=kn>import</span> <span class=n>SSHDetect</span><span class=p>,</span> <span class=n>Netmiko</span>
+<a id=__codelineno-9-5 name=__codelineno-9-5 href=#__codelineno-9-5></a><span class=kn>from</span><span class=w> </span><span class=nn>netmiko</span><span class=w> </span><span class=kn>import</span> <span class=n>SSHDetect</span><span class=p>,</span> <span class=n>Netmiko</span>
 <a id=__codelineno-9-6 name=__codelineno-9-6 href=#__codelineno-9-6></a>
 <a id=__codelineno-9-7 name=__codelineno-9-7 href=#__codelineno-9-7></a><span class=n>device</span> <span class=o>=</span> <span class=p>{</span>
 <a id=__codelineno-9-8 name=__codelineno-9-8 href=#__codelineno-9-8></a>    <span class=s1>&#39;device_type&#39;</span><span class=p>:</span> <span class=s1>&#39;autodetect&#39;</span><span class=p>,</span>
@@ -153,7 +153,7 @@
 </code></pre></div> <p>在上一个脚本中：</p> <p>设备字典中的 <code>device_type</code> 将是 <code>autodetect</code>，这将告诉 netmiko 等待并不加载驱动程序，直到 netmiko 猜测到它。</p> <p>然后我们指示 netmiko 使用 <code>SSHDetect()</code>类执行设备检测。该类将使用 SSH 连接到设备，并执行一些发现命令来定义操作系统类型。</p> <p>返回的结果将是一个字典，并且最佳匹配将使用 <code>autodetect()</code>函数分配给 <code>device_type</code> 变量。</p> <p>您可以通过打印 <code>potential_matches</code> 来查看所有匹配的结果。</p> <p>现在我们可以更新设备字典并为其分配新的 <code>device_type</code>。</p> <h2 id=44-使用-python-中的-telnet-协议>4.4 使用 Python 中的 telnet 协议<a class=headerlink href=#44-使用-python-中的-telnet-协议 title="Permanent link">&para;</a></h2> <div class=highlight><pre><span></span><code><a id=__codelineno-10-1 name=__codelineno-10-1 href=#__codelineno-10-1></a><span class=n>__author__</span> <span class=o>=</span> <span class=s2>&quot;Bassim Aly&quot;</span>
 <a id=__codelineno-10-2 name=__codelineno-10-2 href=#__codelineno-10-2></a><span class=n>__EMAIL__</span> <span class=o>=</span> <span class=s2>&quot;basim.alyy@gmail.com&quot;</span>
 <a id=__codelineno-10-3 name=__codelineno-10-3 href=#__codelineno-10-3></a>
-<a id=__codelineno-10-4 name=__codelineno-10-4 href=#__codelineno-10-4></a><span class=kn>import</span> <span class=nn>telnetlib</span>
+<a id=__codelineno-10-4 name=__codelineno-10-4 href=#__codelineno-10-4></a><span class=kn>import</span><span class=w> </span><span class=nn>telnetlib</span>
 <a id=__codelineno-10-5 name=__codelineno-10-5 href=#__codelineno-10-5></a>
 <a id=__codelineno-10-6 name=__codelineno-10-6 href=#__codelineno-10-6></a><span class=n>username</span> <span class=o>=</span> <span class=s2>&quot;admin&quot;</span>
 <a id=__codelineno-10-7 name=__codelineno-10-7 href=#__codelineno-10-7></a><span class=n>password</span> <span class=o>=</span> <span class=s2>&quot;access123&quot;</span>
@@ -176,8 +176,8 @@
 <a id=__codelineno-10-24 name=__codelineno-10-24 href=#__codelineno-10-24></a><span class=n>exit</span><span class=p>()</span>
 </code></pre></div> <p>Ask users to enter the username and password</p> <div class=highlight><pre><span></span><code><a id=__codelineno-11-1 name=__codelineno-11-1 href=#__codelineno-11-1></a><span class=c1># Ask users to enter the username and password</span>
 <a id=__codelineno-11-2 name=__codelineno-11-2 href=#__codelineno-11-2></a>
-<a id=__codelineno-11-3 name=__codelineno-11-3 href=#__codelineno-11-3></a><span class=kn>import</span> <span class=nn>telnetlib</span>
-<a id=__codelineno-11-4 name=__codelineno-11-4 href=#__codelineno-11-4></a><span class=kn>import</span> <span class=nn>time</span>
+<a id=__codelineno-11-3 name=__codelineno-11-3 href=#__codelineno-11-3></a><span class=kn>import</span><span class=w> </span><span class=nn>telnetlib</span>
+<a id=__codelineno-11-4 name=__codelineno-11-4 href=#__codelineno-11-4></a><span class=kn>import</span><span class=w> </span><span class=nn>time</span>
 <a id=__codelineno-11-5 name=__codelineno-11-5 href=#__codelineno-11-5></a>
 <a id=__codelineno-11-6 name=__codelineno-11-6 href=#__codelineno-11-6></a><span class=n>username</span> <span class=o>=</span> <span class=n>raw_input</span><span class=p>(</span><span class=s2>&quot;please Enter your username:&quot;</span><span class=p>)</span>
 <a id=__codelineno-11-7 name=__codelineno-11-7 href=#__codelineno-11-7></a><span class=n>password</span> <span class=o>=</span> <span class=n>raw_input</span><span class=p>(</span><span class=s2>&quot;please Enter your password:&quot;</span><span class=p>)</span>
@@ -199,9 +199,9 @@
 <a id=__codelineno-11-23 name=__codelineno-11-23 href=#__codelineno-11-23></a><span class=nb>print</span> <span class=n>output</span>
 </code></pre></div> <p>Hide the password</p> <div class=highlight><pre><span></span><code><a id=__codelineno-12-1 name=__codelineno-12-1 href=#__codelineno-12-1></a><span class=c1># Hide the password</span>
 <a id=__codelineno-12-2 name=__codelineno-12-2 href=#__codelineno-12-2></a>
-<a id=__codelineno-12-3 name=__codelineno-12-3 href=#__codelineno-12-3></a><span class=kn>import</span> <span class=nn>telnetlib</span>
-<a id=__codelineno-12-4 name=__codelineno-12-4 href=#__codelineno-12-4></a><span class=kn>import</span> <span class=nn>time</span>
-<a id=__codelineno-12-5 name=__codelineno-12-5 href=#__codelineno-12-5></a><span class=kn>import</span> <span class=nn>getpass</span>
+<a id=__codelineno-12-3 name=__codelineno-12-3 href=#__codelineno-12-3></a><span class=kn>import</span><span class=w> </span><span class=nn>telnetlib</span>
+<a id=__codelineno-12-4 name=__codelineno-12-4 href=#__codelineno-12-4></a><span class=kn>import</span><span class=w> </span><span class=nn>time</span>
+<a id=__codelineno-12-5 name=__codelineno-12-5 href=#__codelineno-12-5></a><span class=kn>import</span><span class=w> </span><span class=nn>getpass</span>
 <a id=__codelineno-12-6 name=__codelineno-12-6 href=#__codelineno-12-6></a>
 <a id=__codelineno-12-7 name=__codelineno-12-7 href=#__codelineno-12-7></a><span class=n>username</span> <span class=o>=</span> <span class=n>raw_input</span><span class=p>(</span><span class=s2>&quot;please Enter your username:&quot;</span><span class=p>)</span>
 <a id=__codelineno-12-8 name=__codelineno-12-8 href=#__codelineno-12-8></a><span class=n>password</span> <span class=o>=</span> <span class=n>getpass</span><span class=o>.</span><span class=n>getpass</span><span class=p>(</span><span class=s2>&quot;please Enter your password:&quot;</span><span class=p>)</span>
@@ -248,9 +248,9 @@
 <a id=__codelineno-12-49 name=__codelineno-12-49 href=#__codelineno-12-49></a>
 <a id=__codelineno-12-50 name=__codelineno-12-50 href=#__codelineno-12-50></a>    <span class=n>cnx</span><span class=o>.</span><span class=n>close</span><span class=p>()</span>
 </code></pre></div> <h3 id=使用-telnetlib-推送配置>使用 telnetlib 推送配置<a class=headerlink href=#使用-telnetlib-推送配置 title="Permanent link">&para;</a></h3> <p>在上面的示例中，我们通过执行 <code>show ip int brief</code> 来简化 telnetlib 的操作。</p> <p>现在我们需要利用它来将 VLAN 配置推送到拓扑中的四个交换机。我们可以使用 python 的 <code>range()</code>函数创建一个 VLAN 列表，并迭代它以将 <code>VLAN ID</code> 推送到当前交换机。</p> <p>请注意，我们将交换机 IP 地址定义为列表中的一个项目，这个列表将是我们外部的 for 循环。</p> <p>此外，我将使用另一个内置模块称为 <code>getpass</code> 来隐藏控制台中的密码，并且只在脚本运行时提供它：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-13-1 name=__codelineno-13-1 href=#__codelineno-13-1></a><span class=ch>#!/usr/bin/python</span>
-<a id=__codelineno-13-2 name=__codelineno-13-2 href=#__codelineno-13-2></a><span class=kn>import</span> <span class=nn>telnetlib</span>
-<a id=__codelineno-13-3 name=__codelineno-13-3 href=#__codelineno-13-3></a><span class=kn>import</span> <span class=nn>getpass</span>
-<a id=__codelineno-13-4 name=__codelineno-13-4 href=#__codelineno-13-4></a><span class=kn>import</span> <span class=nn>time</span>
+<a id=__codelineno-13-2 name=__codelineno-13-2 href=#__codelineno-13-2></a><span class=kn>import</span><span class=w> </span><span class=nn>telnetlib</span>
+<a id=__codelineno-13-3 name=__codelineno-13-3 href=#__codelineno-13-3></a><span class=kn>import</span><span class=w> </span><span class=nn>getpass</span>
+<a id=__codelineno-13-4 name=__codelineno-13-4 href=#__codelineno-13-4></a><span class=kn>import</span><span class=w> </span><span class=nn>time</span>
 <a id=__codelineno-13-5 name=__codelineno-13-5 href=#__codelineno-13-5></a>
 <a id=__codelineno-13-6 name=__codelineno-13-6 href=#__codelineno-13-6></a><span class=n>switch_ips</span> <span class=o>=</span> <span class=p>[</span><span class=s2>&quot;10.10.88.111&quot;</span><span class=p>,</span> <span class=s2>&quot;10.10.88.112&quot;</span><span class=p>,</span> <span class=s2>&quot;10.10.88.113&quot;</span><span class=p>,</span> <span class=s2>&quot;10.10.88.114&quot;</span><span class=p>]</span>
 <a id=__codelineno-13-7 name=__codelineno-13-7 href=#__codelineno-13-7></a><span class=n>username</span> <span class=o>=</span> <span class=nb>input</span><span class=p>(</span><span class=s2>&quot;Please Enter your username:&quot;</span><span class=p>)</span>
@@ -310,10 +310,10 @@
 <a id=__codelineno-19-2 name=__codelineno-19-2 href=#__codelineno-19-2></a><span class=n>__author__</span> <span class=o>=</span> <span class=s2>&quot;Bassim Aly&quot;</span>
 <a id=__codelineno-19-3 name=__codelineno-19-3 href=#__codelineno-19-3></a><span class=n>__EMAIL__</span> <span class=o>=</span> <span class=s2>&quot;basim.alyy@gmail.com&quot;</span>
 <a id=__codelineno-19-4 name=__codelineno-19-4 href=#__codelineno-19-4></a>
-<a id=__codelineno-19-5 name=__codelineno-19-5 href=#__codelineno-19-5></a><span class=kn>from</span> <span class=nn>netaddr</span> <span class=kn>import</span> <span class=n>IPNetwork</span><span class=p>,</span> <span class=n>IPAddress</span>
+<a id=__codelineno-19-5 name=__codelineno-19-5 href=#__codelineno-19-5></a><span class=kn>from</span><span class=w> </span><span class=nn>netaddr</span><span class=w> </span><span class=kn>import</span> <span class=n>IPNetwork</span><span class=p>,</span> <span class=n>IPAddress</span>
 <a id=__codelineno-19-6 name=__codelineno-19-6 href=#__codelineno-19-6></a>
 <a id=__codelineno-19-7 name=__codelineno-19-7 href=#__codelineno-19-7></a>
-<a id=__codelineno-19-8 name=__codelineno-19-8 href=#__codelineno-19-8></a><span class=k>def</span> <span class=nf>check_ip_address</span><span class=p>(</span><span class=n>ipaddr</span><span class=p>):</span>
+<a id=__codelineno-19-8 name=__codelineno-19-8 href=#__codelineno-19-8></a><span class=k>def</span><span class=w> </span><span class=nf>check_ip_address</span><span class=p>(</span><span class=n>ipaddr</span><span class=p>):</span>
 <a id=__codelineno-19-9 name=__codelineno-19-9 href=#__codelineno-19-9></a>    <span class=n>ip_attributes</span> <span class=o>=</span> <span class=p>[]</span>
 <a id=__codelineno-19-10 name=__codelineno-19-10 href=#__codelineno-19-10></a>    <span class=n>ipaddress</span> <span class=o>=</span> <span class=n>IPAddress</span><span class=p>(</span><span class=n>ipaddr</span><span class=p>)</span>
 <a id=__codelineno-19-11 name=__codelineno-19-11 href=#__codelineno-19-11></a>
@@ -334,7 +334,7 @@
 <a id=__codelineno-19-26 name=__codelineno-19-26 href=#__codelineno-19-26></a>    <span class=k>return</span> <span class=s2>&quot;</span><span class=se>\n</span><span class=s2>&quot;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>ip_attributes</span><span class=p>)</span>
 <a id=__codelineno-19-27 name=__codelineno-19-27 href=#__codelineno-19-27></a>
 <a id=__codelineno-19-28 name=__codelineno-19-28 href=#__codelineno-19-28></a>
-<a id=__codelineno-19-29 name=__codelineno-19-29 href=#__codelineno-19-29></a><span class=k>def</span> <span class=nf>operate_on_ip_network</span><span class=p>(</span><span class=n>ipnet</span><span class=p>):</span>
+<a id=__codelineno-19-29 name=__codelineno-19-29 href=#__codelineno-19-29></a><span class=k>def</span><span class=w> </span><span class=nf>operate_on_ip_network</span><span class=p>(</span><span class=n>ipnet</span><span class=p>):</span>
 <a id=__codelineno-19-30 name=__codelineno-19-30 href=#__codelineno-19-30></a>    <span class=n>net_attributes</span> <span class=o>=</span> <span class=p>[]</span>
 <a id=__codelineno-19-31 name=__codelineno-19-31 href=#__codelineno-19-31></a>    <span class=n>net</span> <span class=o>=</span> <span class=n>IPNetwork</span><span class=p>(</span><span class=n>ipnet</span><span class=p>)</span>
 <a id=__codelineno-19-32 name=__codelineno-19-32 href=#__codelineno-19-32></a>
@@ -368,8 +368,8 @@
 <a id=__codelineno-21-3 name=__codelineno-21-3 href=#__codelineno-21-3></a><span class=n>__author__</span> <span class=o>=</span> <span class=s2>&quot;Bassim Aly&quot;</span>
 <a id=__codelineno-21-4 name=__codelineno-21-4 href=#__codelineno-21-4></a><span class=n>__EMAIL__</span> <span class=o>=</span> <span class=s2>&quot;basim.alyy@gmail.com&quot;</span>
 <a id=__codelineno-21-5 name=__codelineno-21-5 href=#__codelineno-21-5></a>
-<a id=__codelineno-21-6 name=__codelineno-21-6 href=#__codelineno-21-6></a><span class=kn>from</span> <span class=nn>netmiko</span> <span class=kn>import</span> <span class=n>ConnectHandler</span>
-<a id=__codelineno-21-7 name=__codelineno-21-7 href=#__codelineno-21-7></a><span class=kn>from</span> <span class=nn>datetime</span> <span class=kn>import</span> <span class=n>datetime</span>
+<a id=__codelineno-21-6 name=__codelineno-21-6 href=#__codelineno-21-6></a><span class=kn>from</span><span class=w> </span><span class=nn>netmiko</span><span class=w> </span><span class=kn>import</span> <span class=n>ConnectHandler</span>
+<a id=__codelineno-21-7 name=__codelineno-21-7 href=#__codelineno-21-7></a><span class=kn>from</span><span class=w> </span><span class=nn>datetime</span><span class=w> </span><span class=kn>import</span> <span class=n>datetime</span>
 <a id=__codelineno-21-8 name=__codelineno-21-8 href=#__codelineno-21-8></a>
 <a id=__codelineno-21-9 name=__codelineno-21-9 href=#__codelineno-21-9></a><span class=k>with</span> <span class=nb>open</span><span class=p>(</span>
 <a id=__codelineno-21-10 name=__codelineno-21-10 href=#__codelineno-21-10></a>        <span class=s2>&quot;/media/bassim/DATA/GoogleDrive/Packt/EnterpriseAutomationProject/Chapter5_Using_Python_to_manage_network_devices/UC1_devices.txt&quot;</span><span class=p>)</span> <span class=k>as</span> <span class=n>devices_file</span><span class=p>:</span>
@@ -417,7 +417,7 @@
 <a id=__codelineno-22-2 name=__codelineno-22-2 href=#__codelineno-22-2></a><span class=n>__author__</span> <span class=o>=</span> <span class=s2>&quot;Bassim Aly&quot;</span>
 <a id=__codelineno-22-3 name=__codelineno-22-3 href=#__codelineno-22-3></a><span class=n>__EMAIL__</span> <span class=o>=</span> <span class=s2>&quot;basim.alyy@gmail.com&quot;</span>
 <a id=__codelineno-22-4 name=__codelineno-22-4 href=#__codelineno-22-4></a>
-<a id=__codelineno-22-5 name=__codelineno-22-5 href=#__codelineno-22-5></a><span class=kn>import</span> <span class=nn>telnetlib</span>
+<a id=__codelineno-22-5 name=__codelineno-22-5 href=#__codelineno-22-5></a><span class=kn>import</span><span class=w> </span><span class=nn>telnetlib</span>
 <a id=__codelineno-22-6 name=__codelineno-22-6 href=#__codelineno-22-6></a>
 <a id=__codelineno-22-7 name=__codelineno-22-7 href=#__codelineno-22-7></a><span class=n>connection</span> <span class=o>=</span> <span class=n>telnetlib</span><span class=o>.</span><span class=n>Telnet</span><span class=p>(</span><span class=n>host</span><span class=o>=</span><span class=s2>&quot;10.10.88.110&quot;</span><span class=p>)</span>
 <a id=__codelineno-22-8 name=__codelineno-22-8 href=#__codelineno-22-8></a><span class=n>connection</span><span class=o>.</span><span class=n>read_until</span><span class=p>(</span><span class=s2>&quot;Username:&quot;</span><span class=p>)</span>
@@ -456,10 +456,10 @@
 </code></pre></div> <p>Python 脚本：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-24-1 name=__codelineno-24-1 href=#__codelineno-24-1></a><span class=n>__author__</span> <span class=o>=</span> <span class=s2>&quot;Bassim Aly&quot;</span>
 <a id=__codelineno-24-2 name=__codelineno-24-2 href=#__codelineno-24-2></a><span class=n>__EMAIL__</span> <span class=o>=</span> <span class=s2>&quot;basim.alyy@gmail.com&quot;</span>
 <a id=__codelineno-24-3 name=__codelineno-24-3 href=#__codelineno-24-3></a>
-<a id=__codelineno-24-4 name=__codelineno-24-4 href=#__codelineno-24-4></a><span class=kn>from</span> <span class=nn>netmiko</span> <span class=kn>import</span> <span class=n>ConnectHandler</span>
-<a id=__codelineno-24-5 name=__codelineno-24-5 href=#__codelineno-24-5></a><span class=kn>from</span> <span class=nn>netmiko.ssh_exception</span> <span class=kn>import</span> <span class=n>AuthenticationException</span><span class=p>,</span> <span class=n>NetMikoTimeoutException</span>
-<a id=__codelineno-24-6 name=__codelineno-24-6 href=#__codelineno-24-6></a><span class=kn>import</span> <span class=nn>xlrd</span>
-<a id=__codelineno-24-7 name=__codelineno-24-7 href=#__codelineno-24-7></a><span class=kn>from</span> <span class=nn>pprint</span> <span class=kn>import</span> <span class=n>pprint</span>
+<a id=__codelineno-24-4 name=__codelineno-24-4 href=#__codelineno-24-4></a><span class=kn>from</span><span class=w> </span><span class=nn>netmiko</span><span class=w> </span><span class=kn>import</span> <span class=n>ConnectHandler</span>
+<a id=__codelineno-24-5 name=__codelineno-24-5 href=#__codelineno-24-5></a><span class=kn>from</span><span class=w> </span><span class=nn>netmiko.ssh_exception</span><span class=w> </span><span class=kn>import</span> <span class=n>AuthenticationException</span><span class=p>,</span> <span class=n>NetMikoTimeoutException</span>
+<a id=__codelineno-24-6 name=__codelineno-24-6 href=#__codelineno-24-6></a><span class=kn>import</span><span class=w> </span><span class=nn>xlrd</span>
+<a id=__codelineno-24-7 name=__codelineno-24-7 href=#__codelineno-24-7></a><span class=kn>from</span><span class=w> </span><span class=nn>pprint</span><span class=w> </span><span class=kn>import</span> <span class=n>pprint</span>
 <a id=__codelineno-24-8 name=__codelineno-24-8 href=#__codelineno-24-8></a>
 <a id=__codelineno-24-9 name=__codelineno-24-9 href=#__codelineno-24-9></a><span class=n>workbook</span> <span class=o>=</span> <span class=n>xlrd</span><span class=o>.</span><span class=n>open_workbook</span><span class=p>(</span>
 <a id=__codelineno-24-10 name=__codelineno-24-10 href=#__codelineno-24-10></a>    <span class=sa>r</span><span class=s2>&quot;/media/bassim/DATA/GoogleDrive/Packt/EnterpriseAutomationProject/Chapter4_Using_Python_to_manage_network_devices/UC3_devices.xlsx&quot;</span><span class=p>)</span>

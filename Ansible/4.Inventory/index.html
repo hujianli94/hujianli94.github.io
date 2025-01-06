@@ -114,18 +114,18 @@
 <a id=__codelineno-18-4 name=__codelineno-18-4 href=#__codelineno-18-4></a><span class=sd>Example custom dynamic inventory script for Ansible, in Python.</span>
 <a id=__codelineno-18-5 name=__codelineno-18-5 href=#__codelineno-18-5></a><span class=sd>&#39;&#39;&#39;</span>
 <a id=__codelineno-18-6 name=__codelineno-18-6 href=#__codelineno-18-6></a>
-<a id=__codelineno-18-7 name=__codelineno-18-7 href=#__codelineno-18-7></a><span class=kn>import</span> <span class=nn>os</span>
-<a id=__codelineno-18-8 name=__codelineno-18-8 href=#__codelineno-18-8></a><span class=kn>import</span> <span class=nn>sys</span>
-<a id=__codelineno-18-9 name=__codelineno-18-9 href=#__codelineno-18-9></a><span class=kn>import</span> <span class=nn>argparse</span>
+<a id=__codelineno-18-7 name=__codelineno-18-7 href=#__codelineno-18-7></a><span class=kn>import</span><span class=w> </span><span class=nn>os</span>
+<a id=__codelineno-18-8 name=__codelineno-18-8 href=#__codelineno-18-8></a><span class=kn>import</span><span class=w> </span><span class=nn>sys</span>
+<a id=__codelineno-18-9 name=__codelineno-18-9 href=#__codelineno-18-9></a><span class=kn>import</span><span class=w> </span><span class=nn>argparse</span>
 <a id=__codelineno-18-10 name=__codelineno-18-10 href=#__codelineno-18-10></a>
 <a id=__codelineno-18-11 name=__codelineno-18-11 href=#__codelineno-18-11></a><span class=k>try</span><span class=p>:</span>
-<a id=__codelineno-18-12 name=__codelineno-18-12 href=#__codelineno-18-12></a>    <span class=kn>import</span> <span class=nn>json</span>
+<a id=__codelineno-18-12 name=__codelineno-18-12 href=#__codelineno-18-12></a>    <span class=kn>import</span><span class=w> </span><span class=nn>json</span>
 <a id=__codelineno-18-13 name=__codelineno-18-13 href=#__codelineno-18-13></a><span class=k>except</span> <span class=ne>ImportError</span><span class=p>:</span>
-<a id=__codelineno-18-14 name=__codelineno-18-14 href=#__codelineno-18-14></a>    <span class=kn>import</span> <span class=nn>simplejson</span> <span class=k>as</span> <span class=nn>json</span>
+<a id=__codelineno-18-14 name=__codelineno-18-14 href=#__codelineno-18-14></a>    <span class=kn>import</span><span class=w> </span><span class=nn>simplejson</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=nn>json</span>
 <a id=__codelineno-18-15 name=__codelineno-18-15 href=#__codelineno-18-15></a>
-<a id=__codelineno-18-16 name=__codelineno-18-16 href=#__codelineno-18-16></a><span class=k>class</span> <span class=nc>ExampleInventory</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
+<a id=__codelineno-18-16 name=__codelineno-18-16 href=#__codelineno-18-16></a><span class=k>class</span><span class=w> </span><span class=nc>ExampleInventory</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
 <a id=__codelineno-18-17 name=__codelineno-18-17 href=#__codelineno-18-17></a>
-<a id=__codelineno-18-18 name=__codelineno-18-18 href=#__codelineno-18-18></a>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-18-18 name=__codelineno-18-18 href=#__codelineno-18-18></a>    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-18-19 name=__codelineno-18-19 href=#__codelineno-18-19></a>        <span class=bp>self</span><span class=o>.</span><span class=n>inventory</span> <span class=o>=</span> <span class=p>{}</span>
 <a id=__codelineno-18-20 name=__codelineno-18-20 href=#__codelineno-18-20></a>        <span class=bp>self</span><span class=o>.</span><span class=n>read_cli_args</span><span class=p>()</span>
 <a id=__codelineno-18-21 name=__codelineno-18-21 href=#__codelineno-18-21></a>
@@ -143,7 +143,7 @@
 <a id=__codelineno-18-33 name=__codelineno-18-33 href=#__codelineno-18-33></a>        <span class=nb>print</span> <span class=n>json</span><span class=o>.</span><span class=n>dumps</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>inventory</span><span class=p>);</span>
 <a id=__codelineno-18-34 name=__codelineno-18-34 href=#__codelineno-18-34></a>
 <a id=__codelineno-18-35 name=__codelineno-18-35 href=#__codelineno-18-35></a>    <span class=c1># Example inventory for testing.</span>
-<a id=__codelineno-18-36 name=__codelineno-18-36 href=#__codelineno-18-36></a>    <span class=k>def</span> <span class=nf>example_inventory</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-18-36 name=__codelineno-18-36 href=#__codelineno-18-36></a>    <span class=k>def</span><span class=w> </span><span class=nf>example_inventory</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-18-37 name=__codelineno-18-37 href=#__codelineno-18-37></a>        <span class=k>return</span> <span class=p>{</span>
 <a id=__codelineno-18-38 name=__codelineno-18-38 href=#__codelineno-18-38></a>            <span class=s1>&#39;group&#39;</span><span class=p>:</span> <span class=p>{</span>
 <a id=__codelineno-18-39 name=__codelineno-18-39 href=#__codelineno-18-39></a>                <span class=s1>&#39;hosts&#39;</span><span class=p>:</span> <span class=p>[</span><span class=s1>&#39;192.168.77.xx&#39;</span><span class=p>,</span> <span class=s1>&#39;192.168.77.xx&#39;</span><span class=p>],</span>
@@ -166,11 +166,11 @@
 <a id=__codelineno-18-56 name=__codelineno-18-56 href=#__codelineno-18-56></a>        <span class=p>}</span>
 <a id=__codelineno-18-57 name=__codelineno-18-57 href=#__codelineno-18-57></a>
 <a id=__codelineno-18-58 name=__codelineno-18-58 href=#__codelineno-18-58></a>    <span class=c1># Empty inventory for testing.</span>
-<a id=__codelineno-18-59 name=__codelineno-18-59 href=#__codelineno-18-59></a>    <span class=k>def</span> <span class=nf>empty_inventory</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-18-59 name=__codelineno-18-59 href=#__codelineno-18-59></a>    <span class=k>def</span><span class=w> </span><span class=nf>empty_inventory</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-18-60 name=__codelineno-18-60 href=#__codelineno-18-60></a>        <span class=k>return</span> <span class=p>{</span><span class=s1>&#39;_meta&#39;</span><span class=p>:</span> <span class=p>{</span><span class=s1>&#39;hostvars&#39;</span><span class=p>:</span> <span class=p>{}}}</span>
 <a id=__codelineno-18-61 name=__codelineno-18-61 href=#__codelineno-18-61></a>
 <a id=__codelineno-18-62 name=__codelineno-18-62 href=#__codelineno-18-62></a>    <span class=c1># Read the command line args passed to the script.</span>
-<a id=__codelineno-18-63 name=__codelineno-18-63 href=#__codelineno-18-63></a>    <span class=k>def</span> <span class=nf>read_cli_args</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-18-63 name=__codelineno-18-63 href=#__codelineno-18-63></a>    <span class=k>def</span><span class=w> </span><span class=nf>read_cli_args</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-18-64 name=__codelineno-18-64 href=#__codelineno-18-64></a>        <span class=n>parser</span> <span class=o>=</span> <span class=n>argparse</span><span class=o>.</span><span class=n>ArgumentParser</span><span class=p>()</span>
 <a id=__codelineno-18-65 name=__codelineno-18-65 href=#__codelineno-18-65></a>        <span class=n>parser</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=s1>&#39;--list&#39;</span><span class=p>,</span> <span class=n>action</span> <span class=o>=</span> <span class=s1>&#39;store_true&#39;</span><span class=p>)</span>
 <a id=__codelineno-18-66 name=__codelineno-18-66 href=#__codelineno-18-66></a>        <span class=n>parser</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=s1>&#39;--host&#39;</span><span class=p>,</span> <span class=n>action</span> <span class=o>=</span> <span class=s1>&#39;store&#39;</span><span class=p>)</span>
@@ -297,11 +297,11 @@
 <a id=__codelineno-25-5 name=__codelineno-25-5 href=#__codelineno-25-5></a><span class=sd>通过操作文件形式动态生成ansible的hosts文件</span>
 <a id=__codelineno-25-6 name=__codelineno-25-6 href=#__codelineno-25-6></a><span class=sd>&quot;&quot;&quot;</span>
 <a id=__codelineno-25-7 name=__codelineno-25-7 href=#__codelineno-25-7></a>
-<a id=__codelineno-25-8 name=__codelineno-25-8 href=#__codelineno-25-8></a><span class=kn>import</span> <span class=nn>sys</span>
+<a id=__codelineno-25-8 name=__codelineno-25-8 href=#__codelineno-25-8></a><span class=kn>import</span><span class=w> </span><span class=nn>sys</span>
 <a id=__codelineno-25-9 name=__codelineno-25-9 href=#__codelineno-25-9></a>
 <a id=__codelineno-25-10 name=__codelineno-25-10 href=#__codelineno-25-10></a>
-<a id=__codelineno-25-11 name=__codelineno-25-11 href=#__codelineno-25-11></a><span class=k>class</span> <span class=nc>Inventory</span><span class=p>:</span>
-<a id=__codelineno-25-12 name=__codelineno-25-12 href=#__codelineno-25-12></a>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-25-11 name=__codelineno-25-11 href=#__codelineno-25-11></a><span class=k>class</span><span class=w> </span><span class=nc>Inventory</span><span class=p>:</span>
+<a id=__codelineno-25-12 name=__codelineno-25-12 href=#__codelineno-25-12></a>    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-25-13 name=__codelineno-25-13 href=#__codelineno-25-13></a>        <span class=c1># ansible的hosts文件路径</span>
 <a id=__codelineno-25-14 name=__codelineno-25-14 href=#__codelineno-25-14></a>        <span class=bp>self</span><span class=o>.</span><span class=n>_hostsfile</span> <span class=o>=</span> <span class=s2>&quot;/tmp/hosts&quot;</span>
 <a id=__codelineno-25-15 name=__codelineno-25-15 href=#__codelineno-25-15></a>        <span class=bp>self</span><span class=o>.</span><span class=n>_data</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>_getInventoryInfo</span><span class=p>()</span>
@@ -310,7 +310,7 @@
 <a id=__codelineno-25-18 name=__codelineno-25-18 href=#__codelineno-25-18></a>        <span class=k>else</span><span class=p>:</span>
 <a id=__codelineno-25-19 name=__codelineno-25-19 href=#__codelineno-25-19></a>            <span class=nb>print</span><span class=p>(</span><span class=s2>&quot;创建失败&quot;</span><span class=p>)</span>
 <a id=__codelineno-25-20 name=__codelineno-25-20 href=#__codelineno-25-20></a>
-<a id=__codelineno-25-21 name=__codelineno-25-21 href=#__codelineno-25-21></a>    <span class=k>def</span> <span class=nf>_getInventoryInfo</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-25-21 name=__codelineno-25-21 href=#__codelineno-25-21></a>    <span class=k>def</span><span class=w> </span><span class=nf>_getInventoryInfo</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-25-22 name=__codelineno-25-22 href=#__codelineno-25-22></a><span class=w>        </span><span class=sd>&quot;&quot;&quot;</span>
 <a id=__codelineno-25-23 name=__codelineno-25-23 href=#__codelineno-25-23></a><span class=sd>        假设我们已经从数据库中获取资产信息,那么然后拼成下面的信息效果</span>
 <a id=__codelineno-25-24 name=__codelineno-25-24 href=#__codelineno-25-24></a><span class=sd>        &quot;&quot;&quot;</span>
@@ -338,7 +338,7 @@
 <a id=__codelineno-25-46 name=__codelineno-25-46 href=#__codelineno-25-46></a>
 <a id=__codelineno-25-47 name=__codelineno-25-47 href=#__codelineno-25-47></a>        <span class=k>return</span> <span class=n>hostdata</span>
 <a id=__codelineno-25-48 name=__codelineno-25-48 href=#__codelineno-25-48></a>
-<a id=__codelineno-25-49 name=__codelineno-25-49 href=#__codelineno-25-49></a>    <span class=k>def</span> <span class=nf>_genHostsFile</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-25-49 name=__codelineno-25-49 href=#__codelineno-25-49></a>    <span class=k>def</span><span class=w> </span><span class=nf>_genHostsFile</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-25-50 name=__codelineno-25-50 href=#__codelineno-25-50></a><span class=w>        </span><span class=sd>&quot;&quot;&quot;</span>
 <a id=__codelineno-25-51 name=__codelineno-25-51 href=#__codelineno-25-51></a><span class=sd>        生成资产hosts文件,生成成功返回True</span>
 <a id=__codelineno-25-52 name=__codelineno-25-52 href=#__codelineno-25-52></a><span class=sd>        &quot;&quot;&quot;</span>
@@ -363,7 +363,7 @@
 <a id=__codelineno-25-71 name=__codelineno-25-71 href=#__codelineno-25-71></a>            <span class=k>return</span> <span class=kc>False</span>
 <a id=__codelineno-25-72 name=__codelineno-25-72 href=#__codelineno-25-72></a>        <span class=k>return</span> <span class=kc>True</span>
 <a id=__codelineno-25-73 name=__codelineno-25-73 href=#__codelineno-25-73></a>
-<a id=__codelineno-25-74 name=__codelineno-25-74 href=#__codelineno-25-74></a><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<a id=__codelineno-25-74 name=__codelineno-25-74 href=#__codelineno-25-74></a><span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
 <a id=__codelineno-25-75 name=__codelineno-25-75 href=#__codelineno-25-75></a>    <span class=n>Inventory</span><span class=p>()</span>
 <a id=__codelineno-25-76 name=__codelineno-25-76 href=#__codelineno-25-76></a>
 <a id=__codelineno-25-77 name=__codelineno-25-77 href=#__codelineno-25-77></a><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&quot;__main__&quot;</span><span class=p>:</span>

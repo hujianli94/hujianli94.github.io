@@ -19,7 +19,7 @@
 <a id=__codelineno-0-19 name=__codelineno-0-19 href=#__codelineno-0-19></a><span class=w>    </span><span class=s2>&quot;ping&quot;</span>:<span class=w> </span><span class=s2>&quot;hello, ansible&quot;</span>
 <a id=__codelineno-0-20 name=__codelineno-0-20 href=#__codelineno-0-20></a><span class=o>}</span>
 </code></pre></div> <p>ansible 命令的使用非常简单。</p> <div class=highlight><pre><span></span><code><a id=__codelineno-1-1 name=__codelineno-1-1 href=#__codelineno-1-1></a>ansible<span class=w> </span>&lt;目标主机&gt;<span class=w> </span><span class=o>[</span>-i<span class=w> </span>指定目标主机的文件<span class=o>]</span><span class=w> </span><span class=o>[</span>-m<span class=w> </span>模块<span class=o>]</span><span class=w> </span><span class=o>[</span>-a<span class=w> </span>参数<span class=o>]</span><span class=w> </span><span class=o>[</span>其他选项<span class=o>]</span>
-</code></pre></div> <p>以下是 ping 模块的代码，该部分代码位于源码目录的 library 下的 ping 文件中。</p> <div class=highlight><pre><span></span><code><a id=__codelineno-2-1 name=__codelineno-2-1 href=#__codelineno-2-1></a><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+</code></pre></div> <p>以下是 ping 模块的代码，该部分代码位于源码目录的 library 下的 ping 文件中。</p> <div class=highlight><pre><span></span><code><a id=__codelineno-2-1 name=__codelineno-2-1 href=#__codelineno-2-1></a><span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
 <a id=__codelineno-2-2 name=__codelineno-2-2 href=#__codelineno-2-2></a>    <span class=n>module</span> <span class=o>=</span> <span class=n>AnsibleModule</span><span class=p>(</span>
 <a id=__codelineno-2-3 name=__codelineno-2-3 href=#__codelineno-2-3></a>        <span class=c1># 定义模块支持的参数, 该模块支持 data 参数</span>
 <a id=__codelineno-2-4 name=__codelineno-2-4 href=#__codelineno-2-4></a>        <span class=n>argument_spec</span> <span class=o>=</span> <span class=nb>dict</span><span class=p>(</span>
@@ -73,7 +73,7 @@
 <a id=__codelineno-4-10 name=__codelineno-4-10 href=#__codelineno-4-10></a><span class=w> </span><span class=k>for</span><span class=w> </span>additional<span class=w> </span><span class=nb>help</span><span class=w> </span>text.
 <a id=__codelineno-4-11 name=__codelineno-4-11 href=#__codelineno-4-11></a>
 <a id=__codelineno-4-12 name=__codelineno-4-12 href=#__codelineno-4-12></a>For<span class=w> </span>more<span class=w> </span>details<span class=w> </span>see<span class=w> </span>ps<span class=o>(</span><span class=m>1</span><span class=o>)</span>.
-</code></pre></div> <p>那究竟是什么原因造成 shell 和 command 模块的运行差别呢？</p> <p>通过查找 shell 模块的代码发现，shell 模块文件中仅有相关的模块说明而没有相关代码。</p> <p>通过后续的学习可知：shell 模块复用了 command 模块中的代码，但 Ansible 会在 shell 模块的参数中添加一个#USE_SHELL 标识，用于标明本次执行的是 shell 模块；如果没有该标识，则会被认为是 command 模块。command 模块中的代码内容如下：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-5-1 name=__codelineno-5-1 href=#__codelineno-5-1></a><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+</code></pre></div> <p>那究竟是什么原因造成 shell 和 command 模块的运行差别呢？</p> <p>通过查找 shell 模块的代码发现，shell 模块文件中仅有相关的模块说明而没有相关代码。</p> <p>通过后续的学习可知：shell 模块复用了 command 模块中的代码，但 Ansible 会在 shell 模块的参数中添加一个#USE_SHELL 标识，用于标明本次执行的是 shell 模块；如果没有该标识，则会被认为是 command 模块。command 模块中的代码内容如下：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-5-1 name=__codelineno-5-1 href=#__codelineno-5-1></a><span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
 <a id=__codelineno-5-2 name=__codelineno-5-2 href=#__codelineno-5-2></a>
 <a id=__codelineno-5-3 name=__codelineno-5-3 href=#__codelineno-5-3></a>    <span class=c1># command模块的参数提取比较特殊，不能直接通过AnsibleModule对象获取</span>
 <a id=__codelineno-5-4 name=__codelineno-5-4 href=#__codelineno-5-4></a>    <span class=n>module</span> <span class=o>=</span> <span class=n>CommandModule</span><span class=p>(</span><span class=n>argument_spec</span><span class=o>=</span><span class=nb>dict</span><span class=p>())</span>
@@ -145,9 +145,9 @@
 <a id=__codelineno-5-70 name=__codelineno-5-70 href=#__codelineno-5-70></a>    <span class=p>)</span>
 <a id=__codelineno-5-71 name=__codelineno-5-71 href=#__codelineno-5-71></a>
 <a id=__codelineno-5-72 name=__codelineno-5-72 href=#__codelineno-5-72></a><span class=c1># 只有command模块的参数需要这样单独处理，其他模块参数必须是key=value的形式</span>
-<a id=__codelineno-5-73 name=__codelineno-5-73 href=#__codelineno-5-73></a><span class=k>class</span> <span class=nc>CommandModule</span><span class=p>(</span><span class=n>AnsibleModule</span><span class=p>):</span>
+<a id=__codelineno-5-73 name=__codelineno-5-73 href=#__codelineno-5-73></a><span class=k>class</span><span class=w> </span><span class=nc>CommandModule</span><span class=p>(</span><span class=n>AnsibleModule</span><span class=p>):</span>
 <a id=__codelineno-5-74 name=__codelineno-5-74 href=#__codelineno-5-74></a><span class=c1># ....</span>
-<a id=__codelineno-5-75 name=__codelineno-5-75 href=#__codelineno-5-75></a>    <span class=k>def</span> <span class=nf>_load_params</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-5-75 name=__codelineno-5-75 href=#__codelineno-5-75></a>    <span class=k>def</span><span class=w> </span><span class=nf>_load_params</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-5-76 name=__codelineno-5-76 href=#__codelineno-5-76></a>        <span class=c1># 读取输入，返回字典信息及参数字符串</span>
 <a id=__codelineno-5-77 name=__codelineno-5-77 href=#__codelineno-5-77></a>        <span class=n>args</span> <span class=o>=</span> <span class=n>MODULE_ARGS</span>
 <a id=__codelineno-5-78 name=__codelineno-5-78 href=#__codelineno-5-78></a>        <span class=n>params</span> <span class=o>=</span> <span class=p>{}</span>
@@ -219,7 +219,7 @@
 </code></pre></div> <p>这里的 run_command()方法是通过 subprocess 模块执行 shell 命令的，该方法通过传入的命令参数（args）判断是否需要 shell。</p> <p>如果 args 为数组形式，则为 command 模块，设置 shell 参数为 False；否则为 shell 模块，设置 shell 参数为 True。</p> <p>subprocess 模块能否支持 <code>ps-ef|grep sshd</code>这样带管道或重定向符的命令，依赖于 <code>subprocess.Popen()</code>方法中输入的 shell 参数。</p> <p>关于这些参数的更详细的介绍，可以直接参考 Python 的官方文档，因为 subprocess 模块是 Python 内置的标准模块。</p> <p>此外，可以在 command 模块的 main()方法的最后一个 module.exit_json()中添加额外的输出信息，用于检验上面分析过程的正确性，具体代码如下：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-8-1 name=__codelineno-8-1 href=#__codelineno-8-1></a><span class=c1># 源码位置：library/command</span>
 <a id=__codelineno-8-2 name=__codelineno-8-2 href=#__codelineno-8-2></a><span class=c1># ...</span>
 <a id=__codelineno-8-3 name=__codelineno-8-3 href=#__codelineno-8-3></a>
-<a id=__codelineno-8-4 name=__codelineno-8-4 href=#__codelineno-8-4></a><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<a id=__codelineno-8-4 name=__codelineno-8-4 href=#__codelineno-8-4></a><span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
 <a id=__codelineno-8-5 name=__codelineno-8-5 href=#__codelineno-8-5></a>    <span class=c1># ...</span>
 <a id=__codelineno-8-6 name=__codelineno-8-6 href=#__codelineno-8-6></a>
 <a id=__codelineno-8-7 name=__codelineno-8-7 href=#__codelineno-8-7></a>    <span class=n>module</span><span class=o>.</span><span class=n>exit_json</span><span class=p>(</span>
@@ -369,11 +369,11 @@
 <a id=__codelineno-16-13 name=__codelineno-16-13 href=#__codelineno-16-13></a><span class=o>[</span>root@ceph-1<span class=w> </span>~<span class=o>]</span><span class=c1># cat /tmp/test_content.txt</span>
 <a id=__codelineno-16-14 name=__codelineno-16-14 href=#__codelineno-16-14></a>xxxxxxx<span class=se>\n</span><span class=o>[</span>root@ceph-1<span class=w> </span>~<span class=o>]</span><span class=c1>#</span>
 </code></pre></div> <p>从上面的例子中可以看到，当 content 参数值中包含转义符如\n 时，Ansible 的 copy 模块无法对其进行转义，而是原封不动地输出。</p> <p>那么如何才能得到想要的结果呢？</p> <p>接下来将分析 copy 模块的代码，厘清该模块的执行逻辑。copy 模块的代码位于源码目录下的 library/copy 文件中，具体代码如下：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-17-1 name=__codelineno-17-1 href=#__codelineno-17-1></a><span class=c1># 代码位置: library/copy</span>
-<a id=__codelineno-17-2 name=__codelineno-17-2 href=#__codelineno-17-2></a><span class=kn>import</span> <span class=nn>os</span>
-<a id=__codelineno-17-3 name=__codelineno-17-3 href=#__codelineno-17-3></a><span class=kn>import</span> <span class=nn>shutil</span>
-<a id=__codelineno-17-4 name=__codelineno-17-4 href=#__codelineno-17-4></a><span class=kn>import</span> <span class=nn>time</span>
+<a id=__codelineno-17-2 name=__codelineno-17-2 href=#__codelineno-17-2></a><span class=kn>import</span><span class=w> </span><span class=nn>os</span>
+<a id=__codelineno-17-3 name=__codelineno-17-3 href=#__codelineno-17-3></a><span class=kn>import</span><span class=w> </span><span class=nn>shutil</span>
+<a id=__codelineno-17-4 name=__codelineno-17-4 href=#__codelineno-17-4></a><span class=kn>import</span><span class=w> </span><span class=nn>time</span>
 <a id=__codelineno-17-5 name=__codelineno-17-5 href=#__codelineno-17-5></a>
-<a id=__codelineno-17-6 name=__codelineno-17-6 href=#__codelineno-17-6></a><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<a id=__codelineno-17-6 name=__codelineno-17-6 href=#__codelineno-17-6></a><span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
 <a id=__codelineno-17-7 name=__codelineno-17-7 href=#__codelineno-17-7></a>
 <a id=__codelineno-17-8 name=__codelineno-17-8 href=#__codelineno-17-8></a>    <span class=c1># 获取通用的Ansible模块对象，简化写法</span>
 <a id=__codelineno-17-9 name=__codelineno-17-9 href=#__codelineno-17-9></a>    <span class=n>module</span> <span class=o>=</span> <span class=n>AnsibleModule</span><span class=p>(</span><span class=o>...</span><span class=p>)</span>
@@ -463,7 +463,7 @@
 </code></pre></div> <p>上面的代码中给出了详细的注释，整个 copy 模块的代码清晰、明了，并且实现过程对新手非常友好，没有任何复杂的写法。</p> <p>copy 模块中的代码主要是将源文件移动到目的路径上，即在 copy 模块代码执行之前，本地的文件就已经被上传到了目标主机的某个临时目录下。</p> <p>因此，如果 content 参数中出现无法正确转义的情况，便不能在 copy 模块中修改了，只能在生成该源文件的地方进行修改。</p> <p>为此，可以在获取 src 值的代码后面加上调试信息，打印源文件位置及源文件内容，方便进行查看与分析，具体如下：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-18-1 name=__codelineno-18-1 href=#__codelineno-18-1></a><span class=c1># 代码位置: library/copy</span>
 <a id=__codelineno-18-2 name=__codelineno-18-2 href=#__codelineno-18-2></a><span class=c1># ...</span>
 <a id=__codelineno-18-3 name=__codelineno-18-3 href=#__codelineno-18-3></a>
-<a id=__codelineno-18-4 name=__codelineno-18-4 href=#__codelineno-18-4></a><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<a id=__codelineno-18-4 name=__codelineno-18-4 href=#__codelineno-18-4></a><span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
 <a id=__codelineno-18-5 name=__codelineno-18-5 href=#__codelineno-18-5></a>
 <a id=__codelineno-18-6 name=__codelineno-18-6 href=#__codelineno-18-6></a>    <span class=c1># ...</span>
 <a id=__codelineno-18-7 name=__codelineno-18-7 href=#__codelineno-18-7></a>
@@ -518,13 +518,13 @@
 <a id=__codelineno-20-28 name=__codelineno-20-28 href=#__codelineno-20-28></a>drw-------<span class=w> </span><span class=m>2</span><span class=w> </span>root<span class=w> </span>root<span class=w> </span><span class=m>6</span><span class=w> </span>Oct<span class=w> </span><span class=m>21</span><span class=w> </span><span class=m>14</span>:11<span class=w> </span>test_file/
 </code></pre></div> <p>在基本了解了 file 模块的使用后，可以继续阅读 file 模块中的代码，具体如下（笔者注释掉了与 selinux 相关的代码以方便阅读）：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-21-1 name=__codelineno-21-1 href=#__codelineno-21-1></a><span class=c1># 源码位置: library/file</span>
 <a id=__codelineno-21-2 name=__codelineno-21-2 href=#__codelineno-21-2></a>
-<a id=__codelineno-21-3 name=__codelineno-21-3 href=#__codelineno-21-3></a><span class=kn>import</span> <span class=nn>shutil</span>
-<a id=__codelineno-21-4 name=__codelineno-21-4 href=#__codelineno-21-4></a><span class=kn>import</span> <span class=nn>stat</span>
-<a id=__codelineno-21-5 name=__codelineno-21-5 href=#__codelineno-21-5></a><span class=kn>import</span> <span class=nn>grp</span>
-<a id=__codelineno-21-6 name=__codelineno-21-6 href=#__codelineno-21-6></a><span class=kn>import</span> <span class=nn>pwd</span>
+<a id=__codelineno-21-3 name=__codelineno-21-3 href=#__codelineno-21-3></a><span class=kn>import</span><span class=w> </span><span class=nn>shutil</span>
+<a id=__codelineno-21-4 name=__codelineno-21-4 href=#__codelineno-21-4></a><span class=kn>import</span><span class=w> </span><span class=nn>stat</span>
+<a id=__codelineno-21-5 name=__codelineno-21-5 href=#__codelineno-21-5></a><span class=kn>import</span><span class=w> </span><span class=nn>grp</span>
+<a id=__codelineno-21-6 name=__codelineno-21-6 href=#__codelineno-21-6></a><span class=kn>import</span><span class=w> </span><span class=nn>pwd</span>
 <a id=__codelineno-21-7 name=__codelineno-21-7 href=#__codelineno-21-7></a><span class=k>try</span><span class=p>:</span>
 <a id=__codelineno-21-8 name=__codelineno-21-8 href=#__codelineno-21-8></a>    <span class=c1># 判断是否有selinux模块</span>
-<a id=__codelineno-21-9 name=__codelineno-21-9 href=#__codelineno-21-9></a>    <span class=kn>import</span> <span class=nn>selinux</span>
+<a id=__codelineno-21-9 name=__codelineno-21-9 href=#__codelineno-21-9></a>    <span class=kn>import</span><span class=w> </span><span class=nn>selinux</span>
 <a id=__codelineno-21-10 name=__codelineno-21-10 href=#__codelineno-21-10></a>    <span class=n>HAVE_SELINUX</span><span class=o>=</span><span class=kc>True</span>
 <a id=__codelineno-21-11 name=__codelineno-21-11 href=#__codelineno-21-11></a><span class=k>except</span> <span class=ne>ImportError</span><span class=p>:</span>
 <a id=__codelineno-21-12 name=__codelineno-21-12 href=#__codelineno-21-12></a>    <span class=n>HAVE_SELINUX</span><span class=o>=</span><span class=kc>False</span>
@@ -532,7 +532,7 @@
 <a id=__codelineno-21-14 name=__codelineno-21-14 href=#__codelineno-21-14></a><span class=c1># 模块说明，使用该模块前请仔细阅读</span>
 <a id=__codelineno-21-15 name=__codelineno-21-15 href=#__codelineno-21-15></a><span class=c1># ...</span>
 <a id=__codelineno-21-16 name=__codelineno-21-16 href=#__codelineno-21-16></a>
-<a id=__codelineno-21-17 name=__codelineno-21-17 href=#__codelineno-21-17></a><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<a id=__codelineno-21-17 name=__codelineno-21-17 href=#__codelineno-21-17></a><span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
 <a id=__codelineno-21-18 name=__codelineno-21-18 href=#__codelineno-21-18></a>
 <a id=__codelineno-21-19 name=__codelineno-21-19 href=#__codelineno-21-19></a>    <span class=c1># 不应该是全局变量</span>
 <a id=__codelineno-21-20 name=__codelineno-21-20 href=#__codelineno-21-20></a>    <span class=k>global</span> <span class=n>module</span>

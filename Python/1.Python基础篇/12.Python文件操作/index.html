@@ -81,7 +81,7 @@
 <a id=__codelineno-14-2 name=__codelineno-14-2 href=#__codelineno-14-2></a><span class=c1># 遍历文件的每一行，寻找包含 [plugins.&quot;io.containerd.grpc.v1.cri&quot;.registry.configs] 的行。</span>
 <a id=__codelineno-14-3 name=__codelineno-14-3 href=#__codelineno-14-3></a><span class=c1># 在找到的行后面插入 registry_config 的内容。</span>
 <a id=__codelineno-14-4 name=__codelineno-14-4 href=#__codelineno-14-4></a><span class=c1># 将修改后的内容写回文件。</span>
-<a id=__codelineno-14-5 name=__codelineno-14-5 href=#__codelineno-14-5></a><span class=kn>import</span> <span class=nn>sys</span>
+<a id=__codelineno-14-5 name=__codelineno-14-5 href=#__codelineno-14-5></a><span class=kn>import</span><span class=w> </span><span class=nn>sys</span>
 <a id=__codelineno-14-6 name=__codelineno-14-6 href=#__codelineno-14-6></a>
 <a id=__codelineno-14-7 name=__codelineno-14-7 href=#__codelineno-14-7></a><span class=n>private_hub</span> <span class=o>=</span> <span class=n>sys</span><span class=o>.</span><span class=n>argv</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span>
 <a id=__codelineno-14-8 name=__codelineno-14-8 href=#__codelineno-14-8></a><span class=n>private_hub_auth</span> <span class=o>=</span> <span class=n>sys</span><span class=o>.</span><span class=n>argv</span><span class=p>[</span><span class=mi>2</span><span class=p>]</span>
@@ -189,7 +189,7 @@
 <a id=__codelineno-19-8 name=__codelineno-19-8 href=#__codelineno-19-8></a>        <span class=nb>print</span><span class=p>(</span><span class=n>line</span><span class=p>)</span>
 </code></pre></div> <p>while 是个一直循环读取最新行，比较消耗性能，这时我们可以加个休眠来改善。</p> <p>例如每秒读取一次：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-20-1 name=__codelineno-20-1 href=#__codelineno-20-1></a><span class=ch>#!/usr/bin/env python</span>
 <a id=__codelineno-20-2 name=__codelineno-20-2 href=#__codelineno-20-2></a><span class=c1># -*- coding: utf-8 -*-</span>
-<a id=__codelineno-20-3 name=__codelineno-20-3 href=#__codelineno-20-3></a><span class=kn>import</span> <span class=nn>time</span>
+<a id=__codelineno-20-3 name=__codelineno-20-3 href=#__codelineno-20-3></a><span class=kn>import</span><span class=w> </span><span class=nn>time</span>
 <a id=__codelineno-20-4 name=__codelineno-20-4 href=#__codelineno-20-4></a>
 <a id=__codelineno-20-5 name=__codelineno-20-5 href=#__codelineno-20-5></a><span class=n>f</span> <span class=o>=</span> <span class=nb>open</span><span class=p>(</span><span class=s2>&quot;computer.txt&quot;</span><span class=p>,</span> <span class=n>encoding</span><span class=o>=</span><span class=s2>&quot;utf8&quot;</span><span class=p>)</span>
 <a id=__codelineno-20-6 name=__codelineno-20-6 href=#__codelineno-20-6></a><span class=n>f</span><span class=o>.</span><span class=n>seek</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>2</span><span class=p>)</span>  <span class=c1># 每次打开文件都将文件指针移动到末尾</span>
@@ -315,7 +315,7 @@
 </code></pre></div> <h3 id=315-读写数据文件>3.15 读写数据文件<a class=headerlink href=#315-读写数据文件 title="Permanent link">&para;</a></h3> <p>数据文件通常包括 CSV、JSON、XML 等格式，用于存储结构化数据。使用 open() 函数，可以读取或写入这些数据文件，进行数据分析、转换或备份。</p> <div class=highlight><pre><span></span><code><a id=__codelineno-30-1 name=__codelineno-30-1 href=#__codelineno-30-1></a><span class=ch>#!/usr/bin/env python</span>
 <a id=__codelineno-30-2 name=__codelineno-30-2 href=#__codelineno-30-2></a><span class=c1># -*- coding: utf-8 -*-</span>
 <a id=__codelineno-30-3 name=__codelineno-30-3 href=#__codelineno-30-3></a><span class=c1># 读取CSV文件</span>
-<a id=__codelineno-30-4 name=__codelineno-30-4 href=#__codelineno-30-4></a><span class=kn>import</span> <span class=nn>csv</span>
+<a id=__codelineno-30-4 name=__codelineno-30-4 href=#__codelineno-30-4></a><span class=kn>import</span><span class=w> </span><span class=nn>csv</span>
 <a id=__codelineno-30-5 name=__codelineno-30-5 href=#__codelineno-30-5></a>
 <a id=__codelineno-30-6 name=__codelineno-30-6 href=#__codelineno-30-6></a><span class=n>csv_file_path</span> <span class=o>=</span> <span class=s2>&quot;data.csv&quot;</span>
 <a id=__codelineno-30-7 name=__codelineno-30-7 href=#__codelineno-30-7></a><span class=n>data</span> <span class=o>=</span> <span class=p>[]</span>
@@ -326,7 +326,7 @@
 <a id=__codelineno-30-12 name=__codelineno-30-12 href=#__codelineno-30-12></a>        <span class=n>data</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>row</span><span class=p>)</span>
 <a id=__codelineno-30-13 name=__codelineno-30-13 href=#__codelineno-30-13></a>
 <a id=__codelineno-30-14 name=__codelineno-30-14 href=#__codelineno-30-14></a><span class=c1># 写入JSON文件</span>
-<a id=__codelineno-30-15 name=__codelineno-30-15 href=#__codelineno-30-15></a><span class=kn>import</span> <span class=nn>json</span>
+<a id=__codelineno-30-15 name=__codelineno-30-15 href=#__codelineno-30-15></a><span class=kn>import</span><span class=w> </span><span class=nn>json</span>
 <a id=__codelineno-30-16 name=__codelineno-30-16 href=#__codelineno-30-16></a>
 <a id=__codelineno-30-17 name=__codelineno-30-17 href=#__codelineno-30-17></a><span class=n>json_file_path</span> <span class=o>=</span> <span class=s2>&quot;data.json&quot;</span>
 <a id=__codelineno-30-18 name=__codelineno-30-18 href=#__codelineno-30-18></a><span class=n>data_to_write</span> <span class=o>=</span> <span class=p>{</span><span class=s2>&quot;data&quot;</span><span class=p>:</span> <span class=n>data</span><span class=p>}</span>
@@ -343,13 +343,13 @@
 <a id=__codelineno-31-8 name=__codelineno-31-8 href=#__codelineno-31-8></a>        <span class=c1># 处理每一行文本</span>
 <a id=__codelineno-31-9 name=__codelineno-31-9 href=#__codelineno-31-9></a>        <span class=nb>print</span><span class=p>(</span><span class=n>line</span><span class=o>.</span><span class=n>strip</span><span class=p>())</span>
 </code></pre></div> <h3 id=317-文件综合操作实例>3.17 文件综合操作实例<a class=headerlink href=#317-文件综合操作实例 title="Permanent link">&para;</a></h3> <p>将文件夹下所有图片名称加上'_fc'</p> <div class=highlight><pre><span></span><code><a id=__codelineno-32-1 name=__codelineno-32-1 href=#__codelineno-32-1></a><span class=c1># -*- coding:utf-8 -*-</span>
-<a id=__codelineno-32-2 name=__codelineno-32-2 href=#__codelineno-32-2></a><span class=kn>import</span> <span class=nn>re</span>
-<a id=__codelineno-32-3 name=__codelineno-32-3 href=#__codelineno-32-3></a><span class=kn>import</span> <span class=nn>os</span>
-<a id=__codelineno-32-4 name=__codelineno-32-4 href=#__codelineno-32-4></a><span class=kn>import</span> <span class=nn>time</span>
+<a id=__codelineno-32-2 name=__codelineno-32-2 href=#__codelineno-32-2></a><span class=kn>import</span><span class=w> </span><span class=nn>re</span>
+<a id=__codelineno-32-3 name=__codelineno-32-3 href=#__codelineno-32-3></a><span class=kn>import</span><span class=w> </span><span class=nn>os</span>
+<a id=__codelineno-32-4 name=__codelineno-32-4 href=#__codelineno-32-4></a><span class=kn>import</span><span class=w> </span><span class=nn>time</span>
 <a id=__codelineno-32-5 name=__codelineno-32-5 href=#__codelineno-32-5></a>
 <a id=__codelineno-32-6 name=__codelineno-32-6 href=#__codelineno-32-6></a><span class=c1># str.split(string)分割字符串</span>
 <a id=__codelineno-32-7 name=__codelineno-32-7 href=#__codelineno-32-7></a><span class=c1>#&#39;连接符&#39;.join(list) 将列表组成字符串</span>
-<a id=__codelineno-32-8 name=__codelineno-32-8 href=#__codelineno-32-8></a><span class=k>def</span> <span class=nf>change_name</span><span class=p>(</span><span class=n>path</span><span class=p>):</span>
+<a id=__codelineno-32-8 name=__codelineno-32-8 href=#__codelineno-32-8></a><span class=k>def</span><span class=w> </span><span class=nf>change_name</span><span class=p>(</span><span class=n>path</span><span class=p>):</span>
 <a id=__codelineno-32-9 name=__codelineno-32-9 href=#__codelineno-32-9></a>    <span class=k>global</span> <span class=n>i</span>
 <a id=__codelineno-32-10 name=__codelineno-32-10 href=#__codelineno-32-10></a>    <span class=k>if</span> <span class=ow>not</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>isdir</span><span class=p>(</span><span class=n>path</span><span class=p>)</span> <span class=ow>and</span> <span class=ow>not</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>isfile</span><span class=p>(</span><span class=n>path</span><span class=p>):</span>
 <a id=__codelineno-32-11 name=__codelineno-32-11 href=#__codelineno-32-11></a>        <span class=k>return</span> <span class=kc>False</span>
@@ -386,9 +386,9 @@
 <a id=__codelineno-33-7 name=__codelineno-33-7 href=#__codelineno-33-7></a><span class=sd>&quot;&quot;&quot;</span>
 <a id=__codelineno-33-8 name=__codelineno-33-8 href=#__codelineno-33-8></a>
 <a id=__codelineno-33-9 name=__codelineno-33-9 href=#__codelineno-33-9></a>
-<a id=__codelineno-33-10 name=__codelineno-33-10 href=#__codelineno-33-10></a><span class=k>def</span> <span class=nf>remove_one_dir</span><span class=p>(</span><span class=n>top_path</span><span class=p>):</span>
+<a id=__codelineno-33-10 name=__codelineno-33-10 href=#__codelineno-33-10></a><span class=k>def</span><span class=w> </span><span class=nf>remove_one_dir</span><span class=p>(</span><span class=n>top_path</span><span class=p>):</span>
 <a id=__codelineno-33-11 name=__codelineno-33-11 href=#__codelineno-33-11></a>    <span class=c1># 删除顶层目录top_path下的所有文件</span>
-<a id=__codelineno-33-12 name=__codelineno-33-12 href=#__codelineno-33-12></a>    <span class=kn>import</span> <span class=nn>os</span>
+<a id=__codelineno-33-12 name=__codelineno-33-12 href=#__codelineno-33-12></a>    <span class=kn>import</span><span class=w> </span><span class=nn>os</span>
 <a id=__codelineno-33-13 name=__codelineno-33-13 href=#__codelineno-33-13></a>    <span class=k>if</span> <span class=ow>not</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>exists</span><span class=p>(</span><span class=n>top_path</span><span class=p>):</span>
 <a id=__codelineno-33-14 name=__codelineno-33-14 href=#__codelineno-33-14></a>        <span class=nb>print</span><span class=p>(</span><span class=n>top_path</span><span class=p>,</span> <span class=s1>&#39;not exists&#39;</span><span class=p>)</span>
 <a id=__codelineno-33-15 name=__codelineno-33-15 href=#__codelineno-33-15></a>        <span class=k>return</span>
@@ -412,8 +412,8 @@
 </code></pre></div> <h3 id=319-创建-pip-的源配置文件>3.19 创建 pip 的源配置文件<a class=headerlink href=#319-创建-pip-的源配置文件 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-34-1 name=__codelineno-34-1 href=#__codelineno-34-1></a><span class=c1># -*- coding:utf-8 -*-</span>
 <a id=__codelineno-34-2 name=__codelineno-34-2 href=#__codelineno-34-2></a><span class=c1># 2018-11-20</span>
 <a id=__codelineno-34-3 name=__codelineno-34-3 href=#__codelineno-34-3></a><span class=c1># 创建pip的源配置文件</span>
-<a id=__codelineno-34-4 name=__codelineno-34-4 href=#__codelineno-34-4></a><span class=kn>import</span> <span class=nn>os</span>
-<a id=__codelineno-34-5 name=__codelineno-34-5 href=#__codelineno-34-5></a><span class=kn>import</span> <span class=nn>platform</span>
+<a id=__codelineno-34-4 name=__codelineno-34-4 href=#__codelineno-34-4></a><span class=kn>import</span><span class=w> </span><span class=nn>os</span>
+<a id=__codelineno-34-5 name=__codelineno-34-5 href=#__codelineno-34-5></a><span class=kn>import</span><span class=w> </span><span class=nn>platform</span>
 <a id=__codelineno-34-6 name=__codelineno-34-6 href=#__codelineno-34-6></a>
 <a id=__codelineno-34-7 name=__codelineno-34-7 href=#__codelineno-34-7></a><span class=n>PIP_CONFIG</span> <span class=o>=</span> <span class=s1>&#39;&#39;&#39;[global]</span>
 <a id=__codelineno-34-8 name=__codelineno-34-8 href=#__codelineno-34-8></a><span class=s1>index-url = http://mirrors.aliyun.com/pypi/simple/</span>
@@ -422,7 +422,7 @@
 <a id=__codelineno-34-11 name=__codelineno-34-11 href=#__codelineno-34-11></a><span class=s1>trusted-host=mirrors.aliyun.com</span>
 <a id=__codelineno-34-12 name=__codelineno-34-12 href=#__codelineno-34-12></a><span class=s1>&#39;&#39;&#39;</span>
 <a id=__codelineno-34-13 name=__codelineno-34-13 href=#__codelineno-34-13></a>
-<a id=__codelineno-34-14 name=__codelineno-34-14 href=#__codelineno-34-14></a><span class=k>def</span> <span class=nf>create_file</span><span class=p>():</span>
+<a id=__codelineno-34-14 name=__codelineno-34-14 href=#__codelineno-34-14></a><span class=k>def</span><span class=w> </span><span class=nf>create_file</span><span class=p>():</span>
 <a id=__codelineno-34-15 name=__codelineno-34-15 href=#__codelineno-34-15></a>    <span class=n>file_name</span> <span class=o>=</span> <span class=n>get_file_path</span><span class=p>()</span>
 <a id=__codelineno-34-16 name=__codelineno-34-16 href=#__codelineno-34-16></a>    <span class=n>dirname</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>dirname</span><span class=p>(</span><span class=n>file_name</span><span class=p>)</span>
 <a id=__codelineno-34-17 name=__codelineno-34-17 href=#__codelineno-34-17></a>    <span class=n>filename</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>basename</span><span class=p>(</span><span class=n>file_name</span><span class=p>)</span>
@@ -440,7 +440,7 @@
 <a id=__codelineno-34-29 name=__codelineno-34-29 href=#__codelineno-34-29></a>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;生成配置文件 </span><span class=si>%s</span><span class=s1>&#39;</span> <span class=o>%</span> <span class=n>file_name</span><span class=p>)</span>
 <a id=__codelineno-34-30 name=__codelineno-34-30 href=#__codelineno-34-30></a>
 <a id=__codelineno-34-31 name=__codelineno-34-31 href=#__codelineno-34-31></a>
-<a id=__codelineno-34-32 name=__codelineno-34-32 href=#__codelineno-34-32></a><span class=k>def</span> <span class=nf>get_file_path</span><span class=p>():</span>
+<a id=__codelineno-34-32 name=__codelineno-34-32 href=#__codelineno-34-32></a><span class=k>def</span><span class=w> </span><span class=nf>get_file_path</span><span class=p>():</span>
 <a id=__codelineno-34-33 name=__codelineno-34-33 href=#__codelineno-34-33></a>    <span class=n>user_dir</span> <span class=o>=</span> <span class=n>expanduser</span><span class=p>(</span><span class=s1>&#39;~&#39;</span><span class=p>)</span>
 <a id=__codelineno-34-34 name=__codelineno-34-34 href=#__codelineno-34-34></a>    <span class=n>SYSTEM</span> <span class=o>=</span> <span class=n>platform</span><span class=o>.</span><span class=n>system</span><span class=p>()</span>
 <a id=__codelineno-34-35 name=__codelineno-34-35 href=#__codelineno-34-35></a>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;当前系统类型是 </span><span class=si>%s</span><span class=s1>&#39;</span> <span class=o>%</span> <span class=n>SYSTEM</span><span class=p>)</span>
@@ -457,7 +457,7 @@
 <a id=__codelineno-34-46 name=__codelineno-34-46 href=#__codelineno-34-46></a>    <span class=k>return</span> <span class=n>legacy_config_file</span>
 <a id=__codelineno-34-47 name=__codelineno-34-47 href=#__codelineno-34-47></a>
 <a id=__codelineno-34-48 name=__codelineno-34-48 href=#__codelineno-34-48></a>
-<a id=__codelineno-34-49 name=__codelineno-34-49 href=#__codelineno-34-49></a><span class=k>def</span> <span class=nf>expanduser</span><span class=p>(</span><span class=n>path</span><span class=p>):</span>
+<a id=__codelineno-34-49 name=__codelineno-34-49 href=#__codelineno-34-49></a><span class=k>def</span><span class=w> </span><span class=nf>expanduser</span><span class=p>(</span><span class=n>path</span><span class=p>):</span>
 <a id=__codelineno-34-50 name=__codelineno-34-50 href=#__codelineno-34-50></a>    <span class=n>expanded</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>expanduser</span><span class=p>(</span><span class=n>path</span><span class=p>)</span>
 <a id=__codelineno-34-51 name=__codelineno-34-51 href=#__codelineno-34-51></a>    <span class=k>if</span> <span class=n>path</span><span class=o>.</span><span class=n>startswith</span><span class=p>(</span><span class=s1>&#39;~/&#39;</span><span class=p>)</span> <span class=ow>and</span> <span class=n>expanded</span><span class=o>.</span><span class=n>startswith</span><span class=p>(</span><span class=s1>&#39;//&#39;</span><span class=p>):</span>
 <a id=__codelineno-34-52 name=__codelineno-34-52 href=#__codelineno-34-52></a>        <span class=n>expanded</span> <span class=o>=</span> <span class=n>expanded</span><span class=p>[</span><span class=mi>1</span><span class=p>:]</span>
@@ -487,7 +487,7 @@
 <a id=__codelineno-35-19 name=__codelineno-35-19 href=#__codelineno-35-19></a>    <span class=n>lines</span> <span class=o>=</span> <span class=n>file</span><span class=o>.</span><span class=n>readlines</span><span class=p>()</span>
 <a id=__codelineno-35-20 name=__codelineno-35-20 href=#__codelineno-35-20></a>    <span class=n>content</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>lines</span><span class=p>[:</span><span class=o>-</span><span class=mi>1</span><span class=p>])</span>  <span class=c1># 取除了最后一行的所有行</span>
 <a id=__codelineno-35-21 name=__codelineno-35-21 href=#__codelineno-35-21></a>    <span class=nb>print</span><span class=p>(</span><span class=n>content</span><span class=p>)</span>
-</code></pre></div> <h2 id=4文件夹管理的-5-个高效代码示例>4.文件夹管理的 5 个高效代码示例<a class=headerlink href=#4文件夹管理的-5-个高效代码示例 title="Permanent link">&para;</a></h2> <h3 id=41-创建文件夹>4.1 创建文件夹<a class=headerlink href=#41-创建文件夹 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-36-1 name=__codelineno-36-1 href=#__codelineno-36-1></a><span class=kn>import</span> <span class=nn>os</span>
+</code></pre></div> <h2 id=4文件夹管理的-5-个高效代码示例>4.文件夹管理的 5 个高效代码示例<a class=headerlink href=#4文件夹管理的-5-个高效代码示例 title="Permanent link">&para;</a></h2> <h3 id=41-创建文件夹>4.1 创建文件夹<a class=headerlink href=#41-创建文件夹 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-36-1 name=__codelineno-36-1 href=#__codelineno-36-1></a><span class=kn>import</span><span class=w> </span><span class=nn>os</span>
 <a id=__codelineno-36-2 name=__codelineno-36-2 href=#__codelineno-36-2></a>
 <a id=__codelineno-36-3 name=__codelineno-36-3 href=#__codelineno-36-3></a><span class=c1># 指定要创建的目录路径</span>
 <a id=__codelineno-36-4 name=__codelineno-36-4 href=#__codelineno-36-4></a><span class=n>folder_path</span> <span class=o>=</span> <span class=s1>&#39;test_folder&#39;</span>
@@ -498,8 +498,8 @@
 <a id=__codelineno-36-9 name=__codelineno-36-9 href=#__codelineno-36-9></a>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&quot;成功创建文件夹: </span><span class=si>{</span><span class=n>folder_path</span><span class=si>}</span><span class=s2>&quot;</span><span class=p>)</span>
 <a id=__codelineno-36-10 name=__codelineno-36-10 href=#__codelineno-36-10></a><span class=k>except</span> <span class=ne>FileExistsError</span><span class=p>:</span>
 <a id=__codelineno-36-11 name=__codelineno-36-11 href=#__codelineno-36-11></a>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&quot;文件夹已存在: </span><span class=si>{</span><span class=n>folder_path</span><span class=si>}</span><span class=s2>&quot;</span><span class=p>)</span>
-</code></pre></div> <p>创建多级目录，如 test_folder/sub_folder。提示：可以使用 os.makedirs()。</p> <h3 id=42-删除文件夹>4.2 删除文件夹<a class=headerlink href=#42-删除文件夹 title="Permanent link">&para;</a></h3> <p>删除文件夹可以通过 os 模块中的 rmdir()或 shutil.rmtree()实现。rmdir()只能删除空目录，而 shutil.rmtree()可以删除整个目录树。</p> <div class=highlight><pre><span></span><code><a id=__codelineno-37-1 name=__codelineno-37-1 href=#__codelineno-37-1></a><span class=kn>import</span> <span class=nn>os</span>
-<a id=__codelineno-37-2 name=__codelineno-37-2 href=#__codelineno-37-2></a><span class=kn>import</span> <span class=nn>shutil</span>
+</code></pre></div> <p>创建多级目录，如 test_folder/sub_folder。提示：可以使用 os.makedirs()。</p> <h3 id=42-删除文件夹>4.2 删除文件夹<a class=headerlink href=#42-删除文件夹 title="Permanent link">&para;</a></h3> <p>删除文件夹可以通过 os 模块中的 rmdir()或 shutil.rmtree()实现。rmdir()只能删除空目录，而 shutil.rmtree()可以删除整个目录树。</p> <div class=highlight><pre><span></span><code><a id=__codelineno-37-1 name=__codelineno-37-1 href=#__codelineno-37-1></a><span class=kn>import</span><span class=w> </span><span class=nn>os</span>
+<a id=__codelineno-37-2 name=__codelineno-37-2 href=#__codelineno-37-2></a><span class=kn>import</span><span class=w> </span><span class=nn>shutil</span>
 <a id=__codelineno-37-3 name=__codelineno-37-3 href=#__codelineno-37-3></a>
 <a id=__codelineno-37-4 name=__codelineno-37-4 href=#__codelineno-37-4></a><span class=c1># 指定要删除的目录路径</span>
 <a id=__codelineno-37-5 name=__codelineno-37-5 href=#__codelineno-37-5></a><span class=n>folder_path</span> <span class=o>=</span> <span class=s1>&#39;test_folder&#39;</span>
@@ -516,7 +516,7 @@
 <a id=__codelineno-37-16 name=__codelineno-37-16 href=#__codelineno-37-16></a><span class=k>if</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>exists</span><span class=p>(</span><span class=n>folder_path</span><span class=p>):</span>
 <a id=__codelineno-37-17 name=__codelineno-37-17 href=#__codelineno-37-17></a>    <span class=n>shutil</span><span class=o>.</span><span class=n>rmtree</span><span class=p>(</span><span class=n>folder_path</span><span class=p>)</span>
 <a id=__codelineno-37-18 name=__codelineno-37-18 href=#__codelineno-37-18></a>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&quot;成功删除文件夹及其所有内容: </span><span class=si>{</span><span class=n>folder_path</span><span class=si>}</span><span class=s2>&quot;</span><span class=p>)</span>
-</code></pre></div> <h3 id=43-列出文件夹内容>4.3 列出文件夹内容<a class=headerlink href=#43-列出文件夹内容 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-38-1 name=__codelineno-38-1 href=#__codelineno-38-1></a><span class=kn>import</span> <span class=nn>os</span>
+</code></pre></div> <h3 id=43-列出文件夹内容>4.3 列出文件夹内容<a class=headerlink href=#43-列出文件夹内容 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-38-1 name=__codelineno-38-1 href=#__codelineno-38-1></a><span class=kn>import</span><span class=w> </span><span class=nn>os</span>
 <a id=__codelineno-38-2 name=__codelineno-38-2 href=#__codelineno-38-2></a>
 <a id=__codelineno-38-3 name=__codelineno-38-3 href=#__codelineno-38-3></a><span class=c1># 指定要列出内容的目录路径</span>
 <a id=__codelineno-38-4 name=__codelineno-38-4 href=#__codelineno-38-4></a><span class=n>folder_path</span> <span class=o>=</span> <span class=s1>&#39;.&#39;</span>
@@ -531,8 +531,8 @@
 <a id=__codelineno-38-13 name=__codelineno-38-13 href=#__codelineno-38-13></a>        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&quot;目录: </span><span class=si>{</span><span class=n>file</span><span class=si>}</span><span class=s2>&quot;</span><span class=p>)</span>
 <a id=__codelineno-38-14 name=__codelineno-38-14 href=#__codelineno-38-14></a>    <span class=k>else</span><span class=p>:</span>
 <a id=__codelineno-38-15 name=__codelineno-38-15 href=#__codelineno-38-15></a>        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&quot;文件: </span><span class=si>{</span><span class=n>file</span><span class=si>}</span><span class=s2>&quot;</span><span class=p>)</span>
-</code></pre></div> <h3 id=44-移动文件夹>4.4 移动文件夹<a class=headerlink href=#44-移动文件夹 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-39-1 name=__codelineno-39-1 href=#__codelineno-39-1></a><span class=kn>import</span> <span class=nn>os</span>
-<a id=__codelineno-39-2 name=__codelineno-39-2 href=#__codelineno-39-2></a><span class=kn>import</span> <span class=nn>shutil</span>
+</code></pre></div> <h3 id=44-移动文件夹>4.4 移动文件夹<a class=headerlink href=#44-移动文件夹 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-39-1 name=__codelineno-39-1 href=#__codelineno-39-1></a><span class=kn>import</span><span class=w> </span><span class=nn>os</span>
+<a id=__codelineno-39-2 name=__codelineno-39-2 href=#__codelineno-39-2></a><span class=kn>import</span><span class=w> </span><span class=nn>shutil</span>
 <a id=__codelineno-39-3 name=__codelineno-39-3 href=#__codelineno-39-3></a>
 <a id=__codelineno-39-4 name=__codelineno-39-4 href=#__codelineno-39-4></a><span class=c1># 源目录和目标目录</span>
 <a id=__codelineno-39-5 name=__codelineno-39-5 href=#__codelineno-39-5></a><span class=n>src_folder</span> <span class=o>=</span> <span class=s1>&#39;source_folder&#39;</span>
@@ -556,9 +556,9 @@
 <a id=__codelineno-40-13 name=__codelineno-40-13 href=#__codelineno-40-13></a>    print(f&quot;目标文件夹已存在: {dst_folder}&quot;)
 <a id=__codelineno-40-14 name=__codelineno-40-14 href=#__codelineno-40-14></a>except FileNotFoundError:
 <a id=__codelineno-40-15 name=__codelineno-40-15 href=#__codelineno-40-15></a>    print(f&quot;源文件夹不存在: {src_folder}&quot;)
-</code></pre></div> <h3 id=实战案例自动化备份脚本>实战案例：自动化备份脚本<a class=headerlink href=#实战案例自动化备份脚本 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-41-1 name=__codelineno-41-1 href=#__codelineno-41-1></a><span class=kn>import</span> <span class=nn>os</span>
-<a id=__codelineno-41-2 name=__codelineno-41-2 href=#__codelineno-41-2></a><span class=kn>import</span> <span class=nn>shutil</span>
-<a id=__codelineno-41-3 name=__codelineno-41-3 href=#__codelineno-41-3></a><span class=kn>from</span> <span class=nn>datetime</span> <span class=kn>import</span> <span class=n>datetime</span>
+</code></pre></div> <h3 id=实战案例自动化备份脚本>实战案例：自动化备份脚本<a class=headerlink href=#实战案例自动化备份脚本 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><a id=__codelineno-41-1 name=__codelineno-41-1 href=#__codelineno-41-1></a><span class=kn>import</span><span class=w> </span><span class=nn>os</span>
+<a id=__codelineno-41-2 name=__codelineno-41-2 href=#__codelineno-41-2></a><span class=kn>import</span><span class=w> </span><span class=nn>shutil</span>
+<a id=__codelineno-41-3 name=__codelineno-41-3 href=#__codelineno-41-3></a><span class=kn>from</span><span class=w> </span><span class=nn>datetime</span><span class=w> </span><span class=kn>import</span> <span class=n>datetime</span>
 <a id=__codelineno-41-4 name=__codelineno-41-4 href=#__codelineno-41-4></a>
 <a id=__codelineno-41-5 name=__codelineno-41-5 href=#__codelineno-41-5></a><span class=c1># 源目录和目标目录</span>
 <a id=__codelineno-41-6 name=__codelineno-41-6 href=#__codelineno-41-6></a><span class=n>src_folder</span> <span class=o>=</span> <span class=s1>&#39;/path/to/source_folder&#39;</span>
@@ -583,20 +583,20 @@
 <a id=__codelineno-42-2 name=__codelineno-42-2 href=#__codelineno-42-2></a><span class=c1>#</span>
 <a id=__codelineno-42-3 name=__codelineno-42-3 href=#__codelineno-42-3></a><span class=c1># Code from: http://www.evanfosmark.com/2009/01/cross-platform-file-locking-support-in-python/</span>
 <a id=__codelineno-42-4 name=__codelineno-42-4 href=#__codelineno-42-4></a>
-<a id=__codelineno-42-5 name=__codelineno-42-5 href=#__codelineno-42-5></a><span class=kn>import</span> <span class=nn>os</span>
-<a id=__codelineno-42-6 name=__codelineno-42-6 href=#__codelineno-42-6></a><span class=kn>import</span> <span class=nn>time</span>
-<a id=__codelineno-42-7 name=__codelineno-42-7 href=#__codelineno-42-7></a><span class=kn>import</span> <span class=nn>errno</span>
+<a id=__codelineno-42-5 name=__codelineno-42-5 href=#__codelineno-42-5></a><span class=kn>import</span><span class=w> </span><span class=nn>os</span>
+<a id=__codelineno-42-6 name=__codelineno-42-6 href=#__codelineno-42-6></a><span class=kn>import</span><span class=w> </span><span class=nn>time</span>
+<a id=__codelineno-42-7 name=__codelineno-42-7 href=#__codelineno-42-7></a><span class=kn>import</span><span class=w> </span><span class=nn>errno</span>
 <a id=__codelineno-42-8 name=__codelineno-42-8 href=#__codelineno-42-8></a>
-<a id=__codelineno-42-9 name=__codelineno-42-9 href=#__codelineno-42-9></a><span class=k>class</span> <span class=nc>FileLockException</span><span class=p>(</span><span class=ne>Exception</span><span class=p>):</span>
+<a id=__codelineno-42-9 name=__codelineno-42-9 href=#__codelineno-42-9></a><span class=k>class</span><span class=w> </span><span class=nc>FileLockException</span><span class=p>(</span><span class=ne>Exception</span><span class=p>):</span>
 <a id=__codelineno-42-10 name=__codelineno-42-10 href=#__codelineno-42-10></a>    <span class=k>pass</span>
 <a id=__codelineno-42-11 name=__codelineno-42-11 href=#__codelineno-42-11></a>
-<a id=__codelineno-42-12 name=__codelineno-42-12 href=#__codelineno-42-12></a><span class=k>class</span> <span class=nc>FileLock</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
+<a id=__codelineno-42-12 name=__codelineno-42-12 href=#__codelineno-42-12></a><span class=k>class</span><span class=w> </span><span class=nc>FileLock</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
 <a id=__codelineno-42-13 name=__codelineno-42-13 href=#__codelineno-42-13></a><span class=w>    </span><span class=sd>&quot;&quot;&quot; A file locking mechanism that has context-manager support so</span>
 <a id=__codelineno-42-14 name=__codelineno-42-14 href=#__codelineno-42-14></a><span class=sd>        you can use it in a with statement. This should be relatively cross</span>
 <a id=__codelineno-42-15 name=__codelineno-42-15 href=#__codelineno-42-15></a><span class=sd>        compatible as it doesn&#39;t rely on msvcrt or fcntl for the locking.</span>
 <a id=__codelineno-42-16 name=__codelineno-42-16 href=#__codelineno-42-16></a><span class=sd>    &quot;&quot;&quot;</span>
 <a id=__codelineno-42-17 name=__codelineno-42-17 href=#__codelineno-42-17></a>
-<a id=__codelineno-42-18 name=__codelineno-42-18 href=#__codelineno-42-18></a>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>file_name</span><span class=p>,</span> <span class=n>timeout</span><span class=o>=</span><span class=mi>10</span><span class=p>,</span> <span class=n>delay</span><span class=o>=</span><span class=mf>.05</span><span class=p>):</span>
+<a id=__codelineno-42-18 name=__codelineno-42-18 href=#__codelineno-42-18></a>    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>file_name</span><span class=p>,</span> <span class=n>timeout</span><span class=o>=</span><span class=mi>10</span><span class=p>,</span> <span class=n>delay</span><span class=o>=</span><span class=mf>.05</span><span class=p>):</span>
 <a id=__codelineno-42-19 name=__codelineno-42-19 href=#__codelineno-42-19></a><span class=w>        </span><span class=sd>&quot;&quot;&quot; Prepare the file locker. Specify the file to lock and optionally</span>
 <a id=__codelineno-42-20 name=__codelineno-42-20 href=#__codelineno-42-20></a><span class=sd>            the maximum timeout and the delay between each attempt to lock.</span>
 <a id=__codelineno-42-21 name=__codelineno-42-21 href=#__codelineno-42-21></a><span class=sd>        &quot;&quot;&quot;</span>
@@ -607,7 +607,7 @@
 <a id=__codelineno-42-26 name=__codelineno-42-26 href=#__codelineno-42-26></a>        <span class=bp>self</span><span class=o>.</span><span class=n>delay</span> <span class=o>=</span> <span class=n>delay</span>
 <a id=__codelineno-42-27 name=__codelineno-42-27 href=#__codelineno-42-27></a>
 <a id=__codelineno-42-28 name=__codelineno-42-28 href=#__codelineno-42-28></a>
-<a id=__codelineno-42-29 name=__codelineno-42-29 href=#__codelineno-42-29></a>    <span class=k>def</span> <span class=nf>acquire</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-42-29 name=__codelineno-42-29 href=#__codelineno-42-29></a>    <span class=k>def</span><span class=w> </span><span class=nf>acquire</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-42-30 name=__codelineno-42-30 href=#__codelineno-42-30></a><span class=w>        </span><span class=sd>&quot;&quot;&quot; Acquire the lock, if possible. If the lock is in use, it check again</span>
 <a id=__codelineno-42-31 name=__codelineno-42-31 href=#__codelineno-42-31></a><span class=sd>            every `wait` seconds. It does this until it either gets the lock or</span>
 <a id=__codelineno-42-32 name=__codelineno-42-32 href=#__codelineno-42-32></a><span class=sd>            exceeds `timeout` number of seconds, in which case it throws</span>
@@ -627,7 +627,7 @@
 <a id=__codelineno-42-46 name=__codelineno-42-46 href=#__codelineno-42-46></a>        <span class=bp>self</span><span class=o>.</span><span class=n>is_locked</span> <span class=o>=</span> <span class=kc>True</span>
 <a id=__codelineno-42-47 name=__codelineno-42-47 href=#__codelineno-42-47></a>
 <a id=__codelineno-42-48 name=__codelineno-42-48 href=#__codelineno-42-48></a>
-<a id=__codelineno-42-49 name=__codelineno-42-49 href=#__codelineno-42-49></a>    <span class=k>def</span> <span class=nf>release</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-42-49 name=__codelineno-42-49 href=#__codelineno-42-49></a>    <span class=k>def</span><span class=w> </span><span class=nf>release</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-42-50 name=__codelineno-42-50 href=#__codelineno-42-50></a><span class=w>        </span><span class=sd>&quot;&quot;&quot; Get rid of the lock by deleting the lockfile.</span>
 <a id=__codelineno-42-51 name=__codelineno-42-51 href=#__codelineno-42-51></a><span class=sd>            When working in a `with` statement, this gets automatically</span>
 <a id=__codelineno-42-52 name=__codelineno-42-52 href=#__codelineno-42-52></a><span class=sd>            called at the end.</span>
@@ -638,7 +638,7 @@
 <a id=__codelineno-42-57 name=__codelineno-42-57 href=#__codelineno-42-57></a>            <span class=bp>self</span><span class=o>.</span><span class=n>is_locked</span> <span class=o>=</span> <span class=kc>False</span>
 <a id=__codelineno-42-58 name=__codelineno-42-58 href=#__codelineno-42-58></a>
 <a id=__codelineno-42-59 name=__codelineno-42-59 href=#__codelineno-42-59></a>
-<a id=__codelineno-42-60 name=__codelineno-42-60 href=#__codelineno-42-60></a>    <span class=k>def</span> <span class=fm>__enter__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-42-60 name=__codelineno-42-60 href=#__codelineno-42-60></a>    <span class=k>def</span><span class=w> </span><span class=fm>__enter__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-42-61 name=__codelineno-42-61 href=#__codelineno-42-61></a><span class=w>        </span><span class=sd>&quot;&quot;&quot; Activated when used in the with statement.</span>
 <a id=__codelineno-42-62 name=__codelineno-42-62 href=#__codelineno-42-62></a><span class=sd>            Should automatically acquire a lock to be used in the with block.</span>
 <a id=__codelineno-42-63 name=__codelineno-42-63 href=#__codelineno-42-63></a><span class=sd>        &quot;&quot;&quot;</span>
@@ -647,7 +647,7 @@
 <a id=__codelineno-42-66 name=__codelineno-42-66 href=#__codelineno-42-66></a>        <span class=k>return</span> <span class=bp>self</span>
 <a id=__codelineno-42-67 name=__codelineno-42-67 href=#__codelineno-42-67></a>
 <a id=__codelineno-42-68 name=__codelineno-42-68 href=#__codelineno-42-68></a>
-<a id=__codelineno-42-69 name=__codelineno-42-69 href=#__codelineno-42-69></a>    <span class=k>def</span> <span class=fm>__exit__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=nb>type</span><span class=p>,</span> <span class=n>value</span><span class=p>,</span> <span class=n>traceback</span><span class=p>):</span>
+<a id=__codelineno-42-69 name=__codelineno-42-69 href=#__codelineno-42-69></a>    <span class=k>def</span><span class=w> </span><span class=fm>__exit__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=nb>type</span><span class=p>,</span> <span class=n>value</span><span class=p>,</span> <span class=n>traceback</span><span class=p>):</span>
 <a id=__codelineno-42-70 name=__codelineno-42-70 href=#__codelineno-42-70></a><span class=w>        </span><span class=sd>&quot;&quot;&quot; Activated at the end of the with statement.</span>
 <a id=__codelineno-42-71 name=__codelineno-42-71 href=#__codelineno-42-71></a><span class=sd>            It automatically releases the lock if it isn&#39;t locked.</span>
 <a id=__codelineno-42-72 name=__codelineno-42-72 href=#__codelineno-42-72></a><span class=sd>        &quot;&quot;&quot;</span>
@@ -655,25 +655,25 @@
 <a id=__codelineno-42-74 name=__codelineno-42-74 href=#__codelineno-42-74></a>            <span class=bp>self</span><span class=o>.</span><span class=n>release</span><span class=p>()</span>
 <a id=__codelineno-42-75 name=__codelineno-42-75 href=#__codelineno-42-75></a>
 <a id=__codelineno-42-76 name=__codelineno-42-76 href=#__codelineno-42-76></a>
-<a id=__codelineno-42-77 name=__codelineno-42-77 href=#__codelineno-42-77></a>    <span class=k>def</span> <span class=fm>__del__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-42-77 name=__codelineno-42-77 href=#__codelineno-42-77></a>    <span class=k>def</span><span class=w> </span><span class=fm>__del__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-42-78 name=__codelineno-42-78 href=#__codelineno-42-78></a><span class=w>        </span><span class=sd>&quot;&quot;&quot; Make sure that the FileLock instance doesn&#39;t leave a lockfile</span>
 <a id=__codelineno-42-79 name=__codelineno-42-79 href=#__codelineno-42-79></a><span class=sd>            lying around.</span>
 <a id=__codelineno-42-80 name=__codelineno-42-80 href=#__codelineno-42-80></a><span class=sd>        &quot;&quot;&quot;</span>
 <a id=__codelineno-42-81 name=__codelineno-42-81 href=#__codelineno-42-81></a>        <span class=bp>self</span><span class=o>.</span><span class=n>release</span><span class=p>()</span>
-</code></pre></div> <p>这段 Python 代码实现了一个文件锁机制,可以用于在多线程或多进程环境下对文件访问进行互斥锁定。 主要类是 FileLock,它在文件打开期间对一个锁文件进行排他锁定,从而避免同时打开同一个文件。 使用方式:</p> <div class=highlight><pre><span></span><code><a id=__codelineno-43-1 name=__codelineno-43-1 href=#__codelineno-43-1></a><span class=kn>import</span> <span class=nn>filelock</span>
+</code></pre></div> <p>这段 Python 代码实现了一个文件锁机制,可以用于在多线程或多进程环境下对文件访问进行互斥锁定。 主要类是 FileLock,它在文件打开期间对一个锁文件进行排他锁定,从而避免同时打开同一个文件。 使用方式:</p> <div class=highlight><pre><span></span><code><a id=__codelineno-43-1 name=__codelineno-43-1 href=#__codelineno-43-1></a><span class=kn>import</span><span class=w> </span><span class=nn>filelock</span>
 <a id=__codelineno-43-2 name=__codelineno-43-2 href=#__codelineno-43-2></a>
 <a id=__codelineno-43-3 name=__codelineno-43-3 href=#__codelineno-43-3></a><span class=k>with</span> <span class=n>filelock</span><span class=o>.</span><span class=n>FileLock</span><span class=p>(</span><span class=s2>&quot;file.txt&quot;</span><span class=p>):</span>
 <a id=__codelineno-43-4 name=__codelineno-43-4 href=#__codelineno-43-4></a>    <span class=c1># 访问或修改file.txt</span>
-</code></pre></div> <p>这样就可以确保在 with 块内对 file.txt 的访问是互斥的。如果其他地方也使用 FileLock 对同一个文件加锁,那么会阻塞等待文件锁被释放。</p> <p>主要功能有:</p> <ul> <li>支持 with 语句进行上下文管理,自动加锁和释放锁</li> <li>设置超时时间,避免永久等待锁</li> <li>设置重试间隔时间</li> <li>锁文件的命名为原文件名+".lock"</li> <li>使用非阻塞的系统调用 open()来实现锁定</li> <li>这种文件锁机制跨平台兼容性较好,不依赖特定平台的锁定函数,可以用于 Python 多线程和多进程程序做同步互斥访问文件。</li> </ul> <p>仓库地址：</p> <p><a href=https://github.com/dmfrey/FileLock.git>https://github.com/dmfrey/FileLock.git</a></p> <p>示例 2</p> <div class=highlight><pre><span></span><code><a id=__codelineno-44-1 name=__codelineno-44-1 href=#__codelineno-44-1></a><span class=kn>import</span> <span class=nn>os</span>
-<a id=__codelineno-44-2 name=__codelineno-44-2 href=#__codelineno-44-2></a><span class=kn>import</span> <span class=nn>threading</span>
+</code></pre></div> <p>这样就可以确保在 with 块内对 file.txt 的访问是互斥的。如果其他地方也使用 FileLock 对同一个文件加锁,那么会阻塞等待文件锁被释放。</p> <p>主要功能有:</p> <ul> <li>支持 with 语句进行上下文管理,自动加锁和释放锁</li> <li>设置超时时间,避免永久等待锁</li> <li>设置重试间隔时间</li> <li>锁文件的命名为原文件名+".lock"</li> <li>使用非阻塞的系统调用 open()来实现锁定</li> <li>这种文件锁机制跨平台兼容性较好,不依赖特定平台的锁定函数,可以用于 Python 多线程和多进程程序做同步互斥访问文件。</li> </ul> <p>仓库地址：</p> <p><a href=https://github.com/dmfrey/FileLock.git>https://github.com/dmfrey/FileLock.git</a></p> <p>示例 2</p> <div class=highlight><pre><span></span><code><a id=__codelineno-44-1 name=__codelineno-44-1 href=#__codelineno-44-1></a><span class=kn>import</span><span class=w> </span><span class=nn>os</span>
+<a id=__codelineno-44-2 name=__codelineno-44-2 href=#__codelineno-44-2></a><span class=kn>import</span><span class=w> </span><span class=nn>threading</span>
 <a id=__codelineno-44-3 name=__codelineno-44-3 href=#__codelineno-44-3></a>
-<a id=__codelineno-44-4 name=__codelineno-44-4 href=#__codelineno-44-4></a><span class=k>class</span> <span class=nc>FileLock</span><span class=p>:</span>
-<a id=__codelineno-44-5 name=__codelineno-44-5 href=#__codelineno-44-5></a>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>file_path</span><span class=p>):</span>
+<a id=__codelineno-44-4 name=__codelineno-44-4 href=#__codelineno-44-4></a><span class=k>class</span><span class=w> </span><span class=nc>FileLock</span><span class=p>:</span>
+<a id=__codelineno-44-5 name=__codelineno-44-5 href=#__codelineno-44-5></a>    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>file_path</span><span class=p>):</span>
 <a id=__codelineno-44-6 name=__codelineno-44-6 href=#__codelineno-44-6></a>        <span class=bp>self</span><span class=o>.</span><span class=n>file_path</span> <span class=o>=</span> <span class=n>file_path</span>
 <a id=__codelineno-44-7 name=__codelineno-44-7 href=#__codelineno-44-7></a>        <span class=bp>self</span><span class=o>.</span><span class=n>lock_file_path</span> <span class=o>=</span> <span class=n>file_path</span> <span class=o>+</span> <span class=s2>&quot;.lock&quot;</span>
 <a id=__codelineno-44-8 name=__codelineno-44-8 href=#__codelineno-44-8></a>        <span class=bp>self</span><span class=o>.</span><span class=n>lock_file</span> <span class=o>=</span> <span class=kc>None</span>
 <a id=__codelineno-44-9 name=__codelineno-44-9 href=#__codelineno-44-9></a>
-<a id=__codelineno-44-10 name=__codelineno-44-10 href=#__codelineno-44-10></a>    <span class=k>def</span> <span class=nf>acquire</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-44-10 name=__codelineno-44-10 href=#__codelineno-44-10></a>    <span class=k>def</span><span class=w> </span><span class=nf>acquire</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-44-11 name=__codelineno-44-11 href=#__codelineno-44-11></a><span class=w>        </span><span class=sd>&quot;&quot;&quot;获取文件锁&quot;&quot;&quot;</span>
 <a id=__codelineno-44-12 name=__codelineno-44-12 href=#__codelineno-44-12></a>        <span class=bp>self</span><span class=o>.</span><span class=n>lock_file</span> <span class=o>=</span> <span class=nb>open</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>lock_file_path</span><span class=p>,</span> <span class=s1>&#39;w&#39;</span><span class=p>)</span>
 <a id=__codelineno-44-13 name=__codelineno-44-13 href=#__codelineno-44-13></a>        <span class=k>try</span><span class=p>:</span>
@@ -685,19 +685,19 @@
 <a id=__codelineno-44-19 name=__codelineno-44-19 href=#__codelineno-44-19></a>            <span class=bp>self</span><span class=o>.</span><span class=n>lock_file</span> <span class=o>=</span> <span class=kc>None</span>
 <a id=__codelineno-44-20 name=__codelineno-44-20 href=#__codelineno-44-20></a>            <span class=k>raise</span>
 <a id=__codelineno-44-21 name=__codelineno-44-21 href=#__codelineno-44-21></a>
-<a id=__codelineno-44-22 name=__codelineno-44-22 href=#__codelineno-44-22></a>    <span class=k>def</span> <span class=nf>release</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-44-22 name=__codelineno-44-22 href=#__codelineno-44-22></a>    <span class=k>def</span><span class=w> </span><span class=nf>release</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-44-23 name=__codelineno-44-23 href=#__codelineno-44-23></a><span class=w>        </span><span class=sd>&quot;&quot;&quot;释放文件锁&quot;&quot;&quot;</span>
 <a id=__codelineno-44-24 name=__codelineno-44-24 href=#__codelineno-44-24></a>        <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>lock_file</span><span class=p>:</span>
 <a id=__codelineno-44-25 name=__codelineno-44-25 href=#__codelineno-44-25></a>            <span class=bp>self</span><span class=o>.</span><span class=n>lock_file</span><span class=o>.</span><span class=n>close</span><span class=p>()</span>
 <a id=__codelineno-44-26 name=__codelineno-44-26 href=#__codelineno-44-26></a>            <span class=n>os</span><span class=o>.</span><span class=n>remove</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>lock_file_path</span><span class=p>)</span>
 <a id=__codelineno-44-27 name=__codelineno-44-27 href=#__codelineno-44-27></a>            <span class=bp>self</span><span class=o>.</span><span class=n>lock_file</span> <span class=o>=</span> <span class=kc>None</span>
 <a id=__codelineno-44-28 name=__codelineno-44-28 href=#__codelineno-44-28></a>
-<a id=__codelineno-44-29 name=__codelineno-44-29 href=#__codelineno-44-29></a>    <span class=k>def</span> <span class=fm>__enter__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-44-29 name=__codelineno-44-29 href=#__codelineno-44-29></a>    <span class=k>def</span><span class=w> </span><span class=fm>__enter__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-44-30 name=__codelineno-44-30 href=#__codelineno-44-30></a><span class=w>        </span><span class=sd>&quot;&quot;&quot;支持with语句&quot;&quot;&quot;</span>
 <a id=__codelineno-44-31 name=__codelineno-44-31 href=#__codelineno-44-31></a>        <span class=bp>self</span><span class=o>.</span><span class=n>acquire</span><span class=p>()</span>
 <a id=__codelineno-44-32 name=__codelineno-44-32 href=#__codelineno-44-32></a>        <span class=k>return</span> <span class=bp>self</span>
 <a id=__codelineno-44-33 name=__codelineno-44-33 href=#__codelineno-44-33></a>
-<a id=__codelineno-44-34 name=__codelineno-44-34 href=#__codelineno-44-34></a>    <span class=k>def</span> <span class=fm>__exit__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>exc_type</span><span class=p>,</span> <span class=n>exc_val</span><span class=p>,</span> <span class=n>exc_tb</span><span class=p>):</span>
+<a id=__codelineno-44-34 name=__codelineno-44-34 href=#__codelineno-44-34></a>    <span class=k>def</span><span class=w> </span><span class=fm>__exit__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>exc_type</span><span class=p>,</span> <span class=n>exc_val</span><span class=p>,</span> <span class=n>exc_tb</span><span class=p>):</span>
 <a id=__codelineno-44-35 name=__codelineno-44-35 href=#__codelineno-44-35></a><span class=w>        </span><span class=sd>&quot;&quot;&quot;支持with语句&quot;&quot;&quot;</span>
 <a id=__codelineno-44-36 name=__codelineno-44-36 href=#__codelineno-44-36></a>        <span class=bp>self</span><span class=o>.</span><span class=n>release</span><span class=p>()</span>
 <a id=__codelineno-44-37 name=__codelineno-44-37 href=#__codelineno-44-37></a>
@@ -708,18 +708,18 @@
 <a id=__codelineno-44-42 name=__codelineno-44-42 href=#__codelineno-44-42></a>        <span class=c1># 在这里执行需要文件锁的操作</span>
 <a id=__codelineno-44-43 name=__codelineno-44-43 href=#__codelineno-44-43></a>        <span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=n>file_path</span><span class=p>,</span> <span class=s1>&#39;a&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
 <a id=__codelineno-44-44 name=__codelineno-44-44 href=#__codelineno-44-44></a>            <span class=n>f</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=s2>&quot;Hello, World!</span><span class=se>\n</span><span class=s2>&quot;</span><span class=p>)</span>
-</code></pre></div> <div class=highlight><pre><span></span><code><a id=__codelineno-45-1 name=__codelineno-45-1 href=#__codelineno-45-1></a><span class=k>class</span> <span class=nc>FileLock</span><span class=p>:</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><a id=__codelineno-45-1 name=__codelineno-45-1 href=#__codelineno-45-1></a><span class=k>class</span><span class=w> </span><span class=nc>FileLock</span><span class=p>:</span>
 <a id=__codelineno-45-2 name=__codelineno-45-2 href=#__codelineno-45-2></a><span class=w>    </span><span class=sd>&#39;&#39;&#39;</span>
 <a id=__codelineno-45-3 name=__codelineno-45-3 href=#__codelineno-45-3></a><span class=sd>    Currently FileLock is implemented via fcntl.flock on a lock file, however this</span>
 <a id=__codelineno-45-4 name=__codelineno-45-4 href=#__codelineno-45-4></a><span class=sd>    behaviour may change in the future. Avoid mixing lock types fcntl.flock,</span>
 <a id=__codelineno-45-5 name=__codelineno-45-5 href=#__codelineno-45-5></a><span class=sd>    fcntl.lockf and module_utils.common.file.FileLock as it will certainly cause</span>
 <a id=__codelineno-45-6 name=__codelineno-45-6 href=#__codelineno-45-6></a><span class=sd>    unwanted and/or unexpected behaviour</span>
 <a id=__codelineno-45-7 name=__codelineno-45-7 href=#__codelineno-45-7></a><span class=sd>    &#39;&#39;&#39;</span>
-<a id=__codelineno-45-8 name=__codelineno-45-8 href=#__codelineno-45-8></a>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-45-8 name=__codelineno-45-8 href=#__codelineno-45-8></a>    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-45-9 name=__codelineno-45-9 href=#__codelineno-45-9></a>        <span class=bp>self</span><span class=o>.</span><span class=n>lockfd</span> <span class=o>=</span> <span class=kc>None</span>
 <a id=__codelineno-45-10 name=__codelineno-45-10 href=#__codelineno-45-10></a>
 <a id=__codelineno-45-11 name=__codelineno-45-11 href=#__codelineno-45-11></a>    <span class=nd>@contextmanager</span>
-<a id=__codelineno-45-12 name=__codelineno-45-12 href=#__codelineno-45-12></a>    <span class=k>def</span> <span class=nf>lock_file</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>path</span><span class=p>,</span> <span class=n>tmpdir</span><span class=p>,</span> <span class=n>lock_timeout</span><span class=o>=</span><span class=kc>None</span><span class=p>):</span>
+<a id=__codelineno-45-12 name=__codelineno-45-12 href=#__codelineno-45-12></a>    <span class=k>def</span><span class=w> </span><span class=nf>lock_file</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>path</span><span class=p>,</span> <span class=n>tmpdir</span><span class=p>,</span> <span class=n>lock_timeout</span><span class=o>=</span><span class=kc>None</span><span class=p>):</span>
 <a id=__codelineno-45-13 name=__codelineno-45-13 href=#__codelineno-45-13></a><span class=w>        </span><span class=sd>&#39;&#39;&#39;</span>
 <a id=__codelineno-45-14 name=__codelineno-45-14 href=#__codelineno-45-14></a><span class=sd>        Context for lock acquisition</span>
 <a id=__codelineno-45-15 name=__codelineno-45-15 href=#__codelineno-45-15></a><span class=sd>        &#39;&#39;&#39;</span>
@@ -729,7 +729,7 @@
 <a id=__codelineno-45-19 name=__codelineno-45-19 href=#__codelineno-45-19></a>        <span class=k>finally</span><span class=p>:</span>
 <a id=__codelineno-45-20 name=__codelineno-45-20 href=#__codelineno-45-20></a>            <span class=bp>self</span><span class=o>.</span><span class=n>unlock</span><span class=p>()</span>
 <a id=__codelineno-45-21 name=__codelineno-45-21 href=#__codelineno-45-21></a>
-<a id=__codelineno-45-22 name=__codelineno-45-22 href=#__codelineno-45-22></a>    <span class=k>def</span> <span class=nf>set_lock</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>path</span><span class=p>,</span> <span class=n>tmpdir</span><span class=p>,</span> <span class=n>lock_timeout</span><span class=o>=</span><span class=kc>None</span><span class=p>):</span>
+<a id=__codelineno-45-22 name=__codelineno-45-22 href=#__codelineno-45-22></a>    <span class=k>def</span><span class=w> </span><span class=nf>set_lock</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>path</span><span class=p>,</span> <span class=n>tmpdir</span><span class=p>,</span> <span class=n>lock_timeout</span><span class=o>=</span><span class=kc>None</span><span class=p>):</span>
 <a id=__codelineno-45-23 name=__codelineno-45-23 href=#__codelineno-45-23></a><span class=w>        </span><span class=sd>&#39;&#39;&#39;</span>
 <a id=__codelineno-45-24 name=__codelineno-45-24 href=#__codelineno-45-24></a><span class=sd>        Create a lock file based on path with flock to prevent other processes</span>
 <a id=__codelineno-45-25 name=__codelineno-45-25 href=#__codelineno-45-25></a><span class=sd>        using given path.</span>
@@ -777,7 +777,7 @@
 <a id=__codelineno-45-67 name=__codelineno-45-67 href=#__codelineno-45-67></a>
 <a id=__codelineno-45-68 name=__codelineno-45-68 href=#__codelineno-45-68></a>        <span class=k>return</span> <span class=kc>True</span>
 <a id=__codelineno-45-69 name=__codelineno-45-69 href=#__codelineno-45-69></a>
-<a id=__codelineno-45-70 name=__codelineno-45-70 href=#__codelineno-45-70></a>    <span class=k>def</span> <span class=nf>unlock</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-45-70 name=__codelineno-45-70 href=#__codelineno-45-70></a>    <span class=k>def</span><span class=w> </span><span class=nf>unlock</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-45-71 name=__codelineno-45-71 href=#__codelineno-45-71></a><span class=w>        </span><span class=sd>&#39;&#39;&#39;</span>
 <a id=__codelineno-45-72 name=__codelineno-45-72 href=#__codelineno-45-72></a><span class=sd>        Make sure lock file is available for everyone and Unlock the file descriptor</span>
 <a id=__codelineno-45-73 name=__codelineno-45-73 href=#__codelineno-45-73></a><span class=sd>        locked by set_lock</span>
@@ -807,22 +807,22 @@
 <a id=__codelineno-46-11 name=__codelineno-46-11 href=#__codelineno-46-11></a><span class=w>      </span><span class=nt>format</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">yum</span>
 <a id=__codelineno-46-12 name=__codelineno-46-12 href=#__codelineno-46-12></a><span class=w>      </span><span class=nt>remote_url</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">https://mirrors.tuna.tsinghua.edu.cn/epel/</span>
 <a id=__codelineno-46-13 name=__codelineno-46-13 href=#__codelineno-46-13></a><span class=w>      </span><span class=nt>user_agent</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">Sync yum repo</span>
-</code></pre></div> <p>我们使用 PyYAML 来读取该配置文件：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-47-1 name=__codelineno-47-1 href=#__codelineno-47-1></a><span class=kn>import</span> <span class=nn>os</span>
-<a id=__codelineno-47-2 name=__codelineno-47-2 href=#__codelineno-47-2></a><span class=kn>import</span> <span class=nn>yaml</span>
+</code></pre></div> <p>我们使用 PyYAML 来读取该配置文件：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-47-1 name=__codelineno-47-1 href=#__codelineno-47-1></a><span class=kn>import</span><span class=w> </span><span class=nn>os</span>
+<a id=__codelineno-47-2 name=__codelineno-47-2 href=#__codelineno-47-2></a><span class=kn>import</span><span class=w> </span><span class=nn>yaml</span>
 <a id=__codelineno-47-3 name=__codelineno-47-3 href=#__codelineno-47-3></a>
 <a id=__codelineno-47-4 name=__codelineno-47-4 href=#__codelineno-47-4></a><span class=c1># 当前文件所在的目录</span>
 <a id=__codelineno-47-5 name=__codelineno-47-5 href=#__codelineno-47-5></a><span class=n>BASE_DIR</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>dirname</span><span class=p>(</span><span class=vm>__file__</span><span class=p>)</span>
 <a id=__codelineno-47-6 name=__codelineno-47-6 href=#__codelineno-47-6></a><span class=n>YAML_CONFIG</span> <span class=o>=</span> <span class=sa>f</span><span class=s1>&#39;</span><span class=si>{</span><span class=n>BASE_DIR</span><span class=si>}</span><span class=s1>/nexus.yaml&#39;</span>
 <a id=__codelineno-47-7 name=__codelineno-47-7 href=#__codelineno-47-7></a>
-<a id=__codelineno-47-8 name=__codelineno-47-8 href=#__codelineno-47-8></a><span class=k>class</span> <span class=nc>Nexus</span><span class=p>:</span>
-<a id=__codelineno-47-9 name=__codelineno-47-9 href=#__codelineno-47-9></a>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-47-8 name=__codelineno-47-8 href=#__codelineno-47-8></a><span class=k>class</span><span class=w> </span><span class=nc>Nexus</span><span class=p>:</span>
+<a id=__codelineno-47-9 name=__codelineno-47-9 href=#__codelineno-47-9></a>    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-47-10 name=__codelineno-47-10 href=#__codelineno-47-10></a><span class=w>        </span><span class=sd>&quot;&quot;&quot;构造函数&quot;&quot;&quot;</span>
 <a id=__codelineno-47-11 name=__codelineno-47-11 href=#__codelineno-47-11></a>        <span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=n>YAML_CONFIG</span><span class=p>,</span> <span class=n>encoding</span><span class=o>=</span><span class=s1>&#39;utf-8&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>yaml_file</span><span class=p>:</span>
 <a id=__codelineno-47-12 name=__codelineno-47-12 href=#__codelineno-47-12></a>            <span class=bp>self</span><span class=o>.</span><span class=n>_nexus</span> <span class=o>=</span> <span class=n>yaml</span><span class=o>.</span><span class=n>safe_load</span><span class=p>(</span><span class=n>yaml_file</span><span class=p>)</span>
 <a id=__codelineno-47-13 name=__codelineno-47-13 href=#__codelineno-47-13></a>        <span class=bp>self</span><span class=o>.</span><span class=n>_nexus_info</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>_nexus</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;nexus_info&#39;</span><span class=p>)</span>
 <a id=__codelineno-47-14 name=__codelineno-47-14 href=#__codelineno-47-14></a>        <span class=bp>self</span><span class=o>.</span><span class=n>_repositories</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>_nexus_info</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;Repositories&#39;</span><span class=p>)</span>
 <a id=__codelineno-47-15 name=__codelineno-47-15 href=#__codelineno-47-15></a>
-<a id=__codelineno-47-16 name=__codelineno-47-16 href=#__codelineno-47-16></a>    <span class=k>def</span> <span class=nf>create_repositories</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-47-16 name=__codelineno-47-16 href=#__codelineno-47-16></a>    <span class=k>def</span><span class=w> </span><span class=nf>create_repositories</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-47-17 name=__codelineno-47-17 href=#__codelineno-47-17></a><span class=w>        </span><span class=sd>&quot;&quot;&quot;创建仓库&quot;&quot;&quot;</span>
 <a id=__codelineno-47-18 name=__codelineno-47-18 href=#__codelineno-47-18></a>        <span class=k>for</span> <span class=n>repo</span> <span class=ow>in</span> <span class=bp>self</span><span class=o>.</span><span class=n>_repositories</span><span class=p>:</span>
 <a id=__codelineno-47-19 name=__codelineno-47-19 href=#__codelineno-47-19></a>            <span class=n>name</span> <span class=o>=</span> <span class=n>repo</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;name&#39;</span><span class=p>)</span>

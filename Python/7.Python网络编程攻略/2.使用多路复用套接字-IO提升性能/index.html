@@ -4,55 +4,55 @@
 <a id=__codelineno-0-4 name=__codelineno-0-4 href=#__codelineno-0-4></a><span class=c1># It may run on any other version with/without modifications.</span>
 <a id=__codelineno-0-5 name=__codelineno-0-5 href=#__codelineno-0-5></a><span class=c1># See more: http://docs.python.org/2/library/socketserver.html</span>
 <a id=__codelineno-0-6 name=__codelineno-0-6 href=#__codelineno-0-6></a>
-<a id=__codelineno-0-7 name=__codelineno-0-7 href=#__codelineno-0-7></a><span class=kn>import</span> <span class=nn>os</span>
-<a id=__codelineno-0-8 name=__codelineno-0-8 href=#__codelineno-0-8></a><span class=kn>import</span> <span class=nn>socket</span>
-<a id=__codelineno-0-9 name=__codelineno-0-9 href=#__codelineno-0-9></a><span class=kn>import</span> <span class=nn>socketserver</span>
-<a id=__codelineno-0-10 name=__codelineno-0-10 href=#__codelineno-0-10></a><span class=kn>import</span> <span class=nn>threading</span>
+<a id=__codelineno-0-7 name=__codelineno-0-7 href=#__codelineno-0-7></a><span class=kn>import</span><span class=w> </span><span class=nn>os</span>
+<a id=__codelineno-0-8 name=__codelineno-0-8 href=#__codelineno-0-8></a><span class=kn>import</span><span class=w> </span><span class=nn>socket</span>
+<a id=__codelineno-0-9 name=__codelineno-0-9 href=#__codelineno-0-9></a><span class=kn>import</span><span class=w> </span><span class=nn>socketserver</span>
+<a id=__codelineno-0-10 name=__codelineno-0-10 href=#__codelineno-0-10></a><span class=kn>import</span><span class=w> </span><span class=nn>threading</span>
 <a id=__codelineno-0-11 name=__codelineno-0-11 href=#__codelineno-0-11></a>
 <a id=__codelineno-0-12 name=__codelineno-0-12 href=#__codelineno-0-12></a><span class=n>SERVER_HOST</span> <span class=o>=</span> <span class=s1>&#39;localhost&#39;</span>
 <a id=__codelineno-0-13 name=__codelineno-0-13 href=#__codelineno-0-13></a><span class=n>SERVER_PORT</span> <span class=o>=</span> <span class=mi>0</span>  <span class=c1># 动态分配端口</span>
 <a id=__codelineno-0-14 name=__codelineno-0-14 href=#__codelineno-0-14></a><span class=n>BUF_SIZE</span> <span class=o>=</span> <span class=mi>1024</span>
 <a id=__codelineno-0-15 name=__codelineno-0-15 href=#__codelineno-0-15></a>
 <a id=__codelineno-0-16 name=__codelineno-0-16 href=#__codelineno-0-16></a>
-<a id=__codelineno-0-17 name=__codelineno-0-17 href=#__codelineno-0-17></a><span class=k>class</span> <span class=nc>ForkingServerRequestHandler</span><span class=p>(</span><span class=n>socketserver</span><span class=o>.</span><span class=n>BaseRequestHandler</span><span class=p>):</span>
-<a id=__codelineno-0-18 name=__codelineno-0-18 href=#__codelineno-0-18></a>    <span class=k>def</span> <span class=nf>handle</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-0-17 name=__codelineno-0-17 href=#__codelineno-0-17></a><span class=k>class</span><span class=w> </span><span class=nc>ForkingServerRequestHandler</span><span class=p>(</span><span class=n>socketserver</span><span class=o>.</span><span class=n>BaseRequestHandler</span><span class=p>):</span>
+<a id=__codelineno-0-18 name=__codelineno-0-18 href=#__codelineno-0-18></a>    <span class=k>def</span><span class=w> </span><span class=nf>handle</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-0-19 name=__codelineno-0-19 href=#__codelineno-0-19></a>        <span class=n>data</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>recv</span><span class=p>(</span><span class=n>BUF_SIZE</span><span class=p>)</span><span class=o>.</span><span class=n>strip</span><span class=p>()</span>
 <a id=__codelineno-0-20 name=__codelineno-0-20 href=#__codelineno-0-20></a>        <span class=n>response</span> <span class=o>=</span> <span class=sa>f</span><span class=s2>&quot;Echo from server: </span><span class=si>{</span><span class=n>data</span><span class=si>}</span><span class=s2>&quot;</span>
 <a id=__codelineno-0-21 name=__codelineno-0-21 href=#__codelineno-0-21></a>        <span class=bp>self</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>sendall</span><span class=p>(</span><span class=n>response</span><span class=o>.</span><span class=n>encode</span><span class=p>())</span>
 <a id=__codelineno-0-22 name=__codelineno-0-22 href=#__codelineno-0-22></a>        <span class=n>logging</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=sa>f</span><span class=s2>&quot;Server received: </span><span class=si>{</span><span class=n>data</span><span class=si>}</span><span class=s2>, sent back: </span><span class=si>{</span><span class=n>response</span><span class=si>}</span><span class=s2>&quot;</span><span class=p>)</span>
 <a id=__codelineno-0-23 name=__codelineno-0-23 href=#__codelineno-0-23></a>
 <a id=__codelineno-0-24 name=__codelineno-0-24 href=#__codelineno-0-24></a>
-<a id=__codelineno-0-25 name=__codelineno-0-25 href=#__codelineno-0-25></a><span class=k>class</span> <span class=nc>ForkingServer</span><span class=p>(</span><span class=n>socketserver</span><span class=o>.</span><span class=n>ForkingMixIn</span><span class=p>,</span> <span class=n>socketserver</span><span class=o>.</span><span class=n>TCPServer</span><span class=p>):</span>
+<a id=__codelineno-0-25 name=__codelineno-0-25 href=#__codelineno-0-25></a><span class=k>class</span><span class=w> </span><span class=nc>ForkingServer</span><span class=p>(</span><span class=n>socketserver</span><span class=o>.</span><span class=n>ForkingMixIn</span><span class=p>,</span> <span class=n>socketserver</span><span class=o>.</span><span class=n>TCPServer</span><span class=p>):</span>
 <a id=__codelineno-0-26 name=__codelineno-0-26 href=#__codelineno-0-26></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;继承自TCPServer和ForkingMixIn，实现多进程处理客户端请求&quot;&quot;&quot;</span>
 <a id=__codelineno-0-27 name=__codelineno-0-27 href=#__codelineno-0-27></a>
 <a id=__codelineno-0-28 name=__codelineno-0-28 href=#__codelineno-0-28></a>    <span class=n>daemon_threads</span> <span class=o>=</span> <span class=kc>True</span>  <span class=c1># 确保子线程在主进程退出时也能结束</span>
 <a id=__codelineno-0-29 name=__codelineno-0-29 href=#__codelineno-0-29></a>
-<a id=__codelineno-0-30 name=__codelineno-0-30 href=#__codelineno-0-30></a>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>server_address</span><span class=p>,</span> <span class=n>handler_class</span><span class=p>):</span>
+<a id=__codelineno-0-30 name=__codelineno-0-30 href=#__codelineno-0-30></a>    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>server_address</span><span class=p>,</span> <span class=n>handler_class</span><span class=p>):</span>
 <a id=__codelineno-0-31 name=__codelineno-0-31 href=#__codelineno-0-31></a>        <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__init__</span><span class=p>(</span><span class=n>server_address</span><span class=p>,</span> <span class=n>handler_class</span><span class=p>)</span>
 <a id=__codelineno-0-32 name=__codelineno-0-32 href=#__codelineno-0-32></a>        <span class=n>ip</span><span class=p>,</span> <span class=n>port</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>server_address</span>
 <a id=__codelineno-0-33 name=__codelineno-0-33 href=#__codelineno-0-33></a>        <span class=n>logging</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=sa>f</span><span class=s2>&quot;Server started on </span><span class=si>{</span><span class=n>ip</span><span class=si>}</span><span class=s2>:</span><span class=si>{</span><span class=n>port</span><span class=si>}</span><span class=s2>&quot;</span><span class=p>)</span>
 <a id=__codelineno-0-34 name=__codelineno-0-34 href=#__codelineno-0-34></a>
 <a id=__codelineno-0-35 name=__codelineno-0-35 href=#__codelineno-0-35></a>
-<a id=__codelineno-0-36 name=__codelineno-0-36 href=#__codelineno-0-36></a><span class=k>class</span> <span class=nc>ForkingClient</span><span class=p>:</span>
+<a id=__codelineno-0-36 name=__codelineno-0-36 href=#__codelineno-0-36></a><span class=k>class</span><span class=w> </span><span class=nc>ForkingClient</span><span class=p>:</span>
 <a id=__codelineno-0-37 name=__codelineno-0-37 href=#__codelineno-0-37></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;用于测试forking服务器的客户端&quot;&quot;&quot;</span>
 <a id=__codelineno-0-38 name=__codelineno-0-38 href=#__codelineno-0-38></a>
-<a id=__codelineno-0-39 name=__codelineno-0-39 href=#__codelineno-0-39></a>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>ip</span><span class=p>,</span> <span class=n>port</span><span class=p>):</span>
+<a id=__codelineno-0-39 name=__codelineno-0-39 href=#__codelineno-0-39></a>    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>ip</span><span class=p>,</span> <span class=n>port</span><span class=p>):</span>
 <a id=__codelineno-0-40 name=__codelineno-0-40 href=#__codelineno-0-40></a>        <span class=bp>self</span><span class=o>.</span><span class=n>sock</span> <span class=o>=</span> <span class=n>socket</span><span class=o>.</span><span class=n>socket</span><span class=p>(</span><span class=n>socket</span><span class=o>.</span><span class=n>AF_INET</span><span class=p>,</span> <span class=n>socket</span><span class=o>.</span><span class=n>SOCK_STREAM</span><span class=p>)</span>
 <a id=__codelineno-0-41 name=__codelineno-0-41 href=#__codelineno-0-41></a>        <span class=bp>self</span><span class=o>.</span><span class=n>sock</span><span class=o>.</span><span class=n>connect</span><span class=p>((</span><span class=n>ip</span><span class=p>,</span> <span class=n>port</span><span class=p>))</span>
 <a id=__codelineno-0-42 name=__codelineno-0-42 href=#__codelineno-0-42></a>
-<a id=__codelineno-0-43 name=__codelineno-0-43 href=#__codelineno-0-43></a>    <span class=k>def</span> <span class=nf>run</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-0-43 name=__codelineno-0-43 href=#__codelineno-0-43></a>    <span class=k>def</span><span class=w> </span><span class=nf>run</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-0-44 name=__codelineno-0-44 href=#__codelineno-0-44></a>        <span class=n>message</span> <span class=o>=</span> <span class=s2>&quot;Hello echo server!&quot;</span>
 <a id=__codelineno-0-45 name=__codelineno-0-45 href=#__codelineno-0-45></a>        <span class=bp>self</span><span class=o>.</span><span class=n>sock</span><span class=o>.</span><span class=n>sendall</span><span class=p>(</span><span class=n>message</span><span class=o>.</span><span class=n>encode</span><span class=p>())</span>
 <a id=__codelineno-0-46 name=__codelineno-0-46 href=#__codelineno-0-46></a>        <span class=n>response</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>sock</span><span class=o>.</span><span class=n>recv</span><span class=p>(</span><span class=n>BUF_SIZE</span><span class=p>)</span><span class=o>.</span><span class=n>decode</span><span class=p>()</span><span class=o>.</span><span class=n>strip</span><span class=p>()</span>
 <a id=__codelineno-0-47 name=__codelineno-0-47 href=#__codelineno-0-47></a>        <span class=n>logging</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=sa>f</span><span class=s2>&quot;Received from server: </span><span class=si>{</span><span class=n>response</span><span class=si>}</span><span class=s2>&quot;</span><span class=p>)</span>
 <a id=__codelineno-0-48 name=__codelineno-0-48 href=#__codelineno-0-48></a>        <span class=bp>self</span><span class=o>.</span><span class=n>shutdown</span><span class=p>()</span>
 <a id=__codelineno-0-49 name=__codelineno-0-49 href=#__codelineno-0-49></a>
-<a id=__codelineno-0-50 name=__codelineno-0-50 href=#__codelineno-0-50></a>    <span class=k>def</span> <span class=nf>shutdown</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-0-50 name=__codelineno-0-50 href=#__codelineno-0-50></a>    <span class=k>def</span><span class=w> </span><span class=nf>shutdown</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-0-51 name=__codelineno-0-51 href=#__codelineno-0-51></a>        <span class=bp>self</span><span class=o>.</span><span class=n>sock</span><span class=o>.</span><span class=n>close</span><span class=p>()</span>
 <a id=__codelineno-0-52 name=__codelineno-0-52 href=#__codelineno-0-52></a>        <span class=n>logging</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=s2>&quot;Client socket closed.&quot;</span><span class=p>)</span>
 <a id=__codelineno-0-53 name=__codelineno-0-53 href=#__codelineno-0-53></a>
 <a id=__codelineno-0-54 name=__codelineno-0-54 href=#__codelineno-0-54></a>
-<a id=__codelineno-0-55 name=__codelineno-0-55 href=#__codelineno-0-55></a><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<a id=__codelineno-0-55 name=__codelineno-0-55 href=#__codelineno-0-55></a><span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
 <a id=__codelineno-0-56 name=__codelineno-0-56 href=#__codelineno-0-56></a>    <span class=c1># 启动服务器</span>
 <a id=__codelineno-0-57 name=__codelineno-0-57 href=#__codelineno-0-57></a>    <span class=n>server</span> <span class=o>=</span> <span class=n>ForkingServer</span><span class=p>((</span><span class=n>SERVER_HOST</span><span class=p>,</span> <span class=n>SERVER_PORT</span><span class=p>),</span> <span class=n>ForkingServerRequestHandler</span><span class=p>)</span>
 <a id=__codelineno-0-58 name=__codelineno-0-58 href=#__codelineno-0-58></a>    <span class=n>server_thread</span> <span class=o>=</span> <span class=n>threading</span><span class=o>.</span><span class=n>Thread</span><span class=p>(</span><span class=n>target</span><span class=o>=</span><span class=n>server</span><span class=o>.</span><span class=n>serve_forever</span><span class=p>)</span>
@@ -75,7 +75,7 @@
 <a id=__codelineno-0-75 name=__codelineno-0-75 href=#__codelineno-0-75></a>
 <a id=__codelineno-0-76 name=__codelineno-0-76 href=#__codelineno-0-76></a>
 <a id=__codelineno-0-77 name=__codelineno-0-77 href=#__codelineno-0-77></a><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s1>&#39;__main__&#39;</span><span class=p>:</span>
-<a id=__codelineno-0-78 name=__codelineno-0-78 href=#__codelineno-0-78></a>    <span class=kn>import</span> <span class=nn>logging</span>
+<a id=__codelineno-0-78 name=__codelineno-0-78 href=#__codelineno-0-78></a>    <span class=kn>import</span><span class=w> </span><span class=nn>logging</span>
 <a id=__codelineno-0-79 name=__codelineno-0-79 href=#__codelineno-0-79></a>
 <a id=__codelineno-0-80 name=__codelineno-0-80 href=#__codelineno-0-80></a>    <span class=n>logging</span><span class=o>.</span><span class=n>basicConfig</span><span class=p>(</span><span class=n>level</span><span class=o>=</span><span class=n>logging</span><span class=o>.</span><span class=n>INFO</span><span class=p>,</span> <span class=nb>format</span><span class=o>=</span><span class=s1>&#39;</span><span class=si>%(asctime)s</span><span class=s1> - </span><span class=si>%(levelname)s</span><span class=s1> - </span><span class=si>%(message)s</span><span class=s1>&#39;</span><span class=p>)</span>
 <a id=__codelineno-0-81 name=__codelineno-0-81 href=#__codelineno-0-81></a>    <span class=n>main</span><span class=p>()</span>
@@ -92,16 +92,16 @@
 <a id=__codelineno-2-3 name=__codelineno-2-3 href=#__codelineno-2-3></a><span class=c1># This program is optimized for Python 2.7.</span>
 <a id=__codelineno-2-4 name=__codelineno-2-4 href=#__codelineno-2-4></a><span class=c1># It may run on any other version with/without modifications.</span>
 <a id=__codelineno-2-5 name=__codelineno-2-5 href=#__codelineno-2-5></a>
-<a id=__codelineno-2-6 name=__codelineno-2-6 href=#__codelineno-2-6></a><span class=kn>import</span> <span class=nn>socket</span>
-<a id=__codelineno-2-7 name=__codelineno-2-7 href=#__codelineno-2-7></a><span class=kn>import</span> <span class=nn>threading</span>
-<a id=__codelineno-2-8 name=__codelineno-2-8 href=#__codelineno-2-8></a><span class=kn>import</span> <span class=nn>socketserver</span>
+<a id=__codelineno-2-6 name=__codelineno-2-6 href=#__codelineno-2-6></a><span class=kn>import</span><span class=w> </span><span class=nn>socket</span>
+<a id=__codelineno-2-7 name=__codelineno-2-7 href=#__codelineno-2-7></a><span class=kn>import</span><span class=w> </span><span class=nn>threading</span>
+<a id=__codelineno-2-8 name=__codelineno-2-8 href=#__codelineno-2-8></a><span class=kn>import</span><span class=w> </span><span class=nn>socketserver</span>
 <a id=__codelineno-2-9 name=__codelineno-2-9 href=#__codelineno-2-9></a>
 <a id=__codelineno-2-10 name=__codelineno-2-10 href=#__codelineno-2-10></a><span class=n>SERVER_HOST</span> <span class=o>=</span> <span class=s1>&#39;localhost&#39;</span>
 <a id=__codelineno-2-11 name=__codelineno-2-11 href=#__codelineno-2-11></a><span class=n>SERVER_PORT</span> <span class=o>=</span> <span class=mi>0</span>  <span class=c1># 使用0端口可以让系统自动分配一个可用端口</span>
 <a id=__codelineno-2-12 name=__codelineno-2-12 href=#__codelineno-2-12></a><span class=n>BUF_SIZE</span> <span class=o>=</span> <span class=mi>1024</span>
 <a id=__codelineno-2-13 name=__codelineno-2-13 href=#__codelineno-2-13></a>
 <a id=__codelineno-2-14 name=__codelineno-2-14 href=#__codelineno-2-14></a>
-<a id=__codelineno-2-15 name=__codelineno-2-15 href=#__codelineno-2-15></a><span class=k>def</span> <span class=nf>client</span><span class=p>(</span><span class=n>ip</span><span class=p>,</span> <span class=n>port</span><span class=p>,</span> <span class=n>message</span><span class=p>):</span>
+<a id=__codelineno-2-15 name=__codelineno-2-15 href=#__codelineno-2-15></a><span class=k>def</span><span class=w> </span><span class=nf>client</span><span class=p>(</span><span class=n>ip</span><span class=p>,</span> <span class=n>port</span><span class=p>,</span> <span class=n>message</span><span class=p>):</span>
 <a id=__codelineno-2-16 name=__codelineno-2-16 href=#__codelineno-2-16></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;一个用于测试线程混合服务器的客户端&quot;&quot;&quot;</span>
 <a id=__codelineno-2-17 name=__codelineno-2-17 href=#__codelineno-2-17></a>    <span class=n>sock</span> <span class=o>=</span> <span class=n>socket</span><span class=o>.</span><span class=n>socket</span><span class=p>(</span><span class=n>socket</span><span class=o>.</span><span class=n>AF_INET</span><span class=p>,</span> <span class=n>socket</span><span class=o>.</span><span class=n>SOCK_STREAM</span><span class=p>)</span>
 <a id=__codelineno-2-18 name=__codelineno-2-18 href=#__codelineno-2-18></a>    <span class=k>try</span><span class=p>:</span>
@@ -115,10 +115,10 @@
 <a id=__codelineno-2-26 name=__codelineno-2-26 href=#__codelineno-2-26></a>        <span class=n>sock</span><span class=o>.</span><span class=n>close</span><span class=p>()</span>
 <a id=__codelineno-2-27 name=__codelineno-2-27 href=#__codelineno-2-27></a>
 <a id=__codelineno-2-28 name=__codelineno-2-28 href=#__codelineno-2-28></a>
-<a id=__codelineno-2-29 name=__codelineno-2-29 href=#__codelineno-2-29></a><span class=k>class</span> <span class=nc>ThreadedTCPRequestHandler</span><span class=p>(</span><span class=n>socketserver</span><span class=o>.</span><span class=n>BaseRequestHandler</span><span class=p>):</span>
+<a id=__codelineno-2-29 name=__codelineno-2-29 href=#__codelineno-2-29></a><span class=k>class</span><span class=w> </span><span class=nc>ThreadedTCPRequestHandler</span><span class=p>(</span><span class=n>socketserver</span><span class=o>.</span><span class=n>BaseRequestHandler</span><span class=p>):</span>
 <a id=__codelineno-2-30 name=__codelineno-2-30 href=#__codelineno-2-30></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;线程化TCP请求处理程序的示例&quot;&quot;&quot;</span>
 <a id=__codelineno-2-31 name=__codelineno-2-31 href=#__codelineno-2-31></a>
-<a id=__codelineno-2-32 name=__codelineno-2-32 href=#__codelineno-2-32></a>    <span class=k>def</span> <span class=nf>handle</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-2-32 name=__codelineno-2-32 href=#__codelineno-2-32></a>    <span class=k>def</span><span class=w> </span><span class=nf>handle</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-2-33 name=__codelineno-2-33 href=#__codelineno-2-33></a>        <span class=k>try</span><span class=p>:</span>
 <a id=__codelineno-2-34 name=__codelineno-2-34 href=#__codelineno-2-34></a>            <span class=n>data</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>recv</span><span class=p>(</span><span class=n>BUF_SIZE</span><span class=p>)</span><span class=o>.</span><span class=n>decode</span><span class=p>()</span>
 <a id=__codelineno-2-35 name=__codelineno-2-35 href=#__codelineno-2-35></a>            <span class=n>cur_thread</span> <span class=o>=</span> <span class=n>threading</span><span class=o>.</span><span class=n>current_thread</span><span class=p>()</span>
@@ -128,7 +128,7 @@
 <a id=__codelineno-2-39 name=__codelineno-2-39 href=#__codelineno-2-39></a>            <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&quot;处理请求时发生错误: </span><span class=si>{</span><span class=n>e</span><span class=si>}</span><span class=s2>&quot;</span><span class=p>)</span>
 <a id=__codelineno-2-40 name=__codelineno-2-40 href=#__codelineno-2-40></a>
 <a id=__codelineno-2-41 name=__codelineno-2-41 href=#__codelineno-2-41></a>
-<a id=__codelineno-2-42 name=__codelineno-2-42 href=#__codelineno-2-42></a><span class=k>class</span> <span class=nc>ThreadedTCPServer</span><span class=p>(</span><span class=n>socketserver</span><span class=o>.</span><span class=n>ThreadingMixIn</span><span class=p>,</span> <span class=n>socketserver</span><span class=o>.</span><span class=n>TCPServer</span><span class=p>):</span>
+<a id=__codelineno-2-42 name=__codelineno-2-42 href=#__codelineno-2-42></a><span class=k>class</span><span class=w> </span><span class=nc>ThreadedTCPServer</span><span class=p>(</span><span class=n>socketserver</span><span class=o>.</span><span class=n>ThreadingMixIn</span><span class=p>,</span> <span class=n>socketserver</span><span class=o>.</span><span class=n>TCPServer</span><span class=p>):</span>
 <a id=__codelineno-2-43 name=__codelineno-2-43 href=#__codelineno-2-43></a><span class=w>    </span><span class=sd>&quot;&quot;&quot;从父类继承所有必要的功能，无需添加额外内容&quot;&quot;&quot;</span>
 <a id=__codelineno-2-44 name=__codelineno-2-44 href=#__codelineno-2-44></a>    <span class=k>pass</span>
 <a id=__codelineno-2-45 name=__codelineno-2-45 href=#__codelineno-2-45></a>
@@ -161,19 +161,19 @@
 <a id=__codelineno-4-3 name=__codelineno-4-3 href=#__codelineno-4-3></a><span class=c1># This program is optimized for Python 2.7.</span>
 <a id=__codelineno-4-4 name=__codelineno-4-4 href=#__codelineno-4-4></a><span class=c1># It may run on any other version with/without modifications.</span>
 <a id=__codelineno-4-5 name=__codelineno-4-5 href=#__codelineno-4-5></a>
-<a id=__codelineno-4-6 name=__codelineno-4-6 href=#__codelineno-4-6></a><span class=kn>import</span> <span class=nn>select</span>
-<a id=__codelineno-4-7 name=__codelineno-4-7 href=#__codelineno-4-7></a><span class=kn>import</span> <span class=nn>socket</span>
-<a id=__codelineno-4-8 name=__codelineno-4-8 href=#__codelineno-4-8></a><span class=kn>import</span> <span class=nn>sys</span>
-<a id=__codelineno-4-9 name=__codelineno-4-9 href=#__codelineno-4-9></a><span class=kn>import</span> <span class=nn>signal</span>
-<a id=__codelineno-4-10 name=__codelineno-4-10 href=#__codelineno-4-10></a><span class=kn>import</span> <span class=nn>pickle</span>
-<a id=__codelineno-4-11 name=__codelineno-4-11 href=#__codelineno-4-11></a><span class=kn>import</span> <span class=nn>struct</span>
-<a id=__codelineno-4-12 name=__codelineno-4-12 href=#__codelineno-4-12></a><span class=kn>import</span> <span class=nn>argparse</span>
+<a id=__codelineno-4-6 name=__codelineno-4-6 href=#__codelineno-4-6></a><span class=kn>import</span><span class=w> </span><span class=nn>select</span>
+<a id=__codelineno-4-7 name=__codelineno-4-7 href=#__codelineno-4-7></a><span class=kn>import</span><span class=w> </span><span class=nn>socket</span>
+<a id=__codelineno-4-8 name=__codelineno-4-8 href=#__codelineno-4-8></a><span class=kn>import</span><span class=w> </span><span class=nn>sys</span>
+<a id=__codelineno-4-9 name=__codelineno-4-9 href=#__codelineno-4-9></a><span class=kn>import</span><span class=w> </span><span class=nn>signal</span>
+<a id=__codelineno-4-10 name=__codelineno-4-10 href=#__codelineno-4-10></a><span class=kn>import</span><span class=w> </span><span class=nn>pickle</span>
+<a id=__codelineno-4-11 name=__codelineno-4-11 href=#__codelineno-4-11></a><span class=kn>import</span><span class=w> </span><span class=nn>struct</span>
+<a id=__codelineno-4-12 name=__codelineno-4-12 href=#__codelineno-4-12></a><span class=kn>import</span><span class=w> </span><span class=nn>argparse</span>
 <a id=__codelineno-4-13 name=__codelineno-4-13 href=#__codelineno-4-13></a>
 <a id=__codelineno-4-14 name=__codelineno-4-14 href=#__codelineno-4-14></a><span class=n>SERVER_HOST</span> <span class=o>=</span> <span class=s1>&#39;localhost&#39;</span>
 <a id=__codelineno-4-15 name=__codelineno-4-15 href=#__codelineno-4-15></a><span class=n>CHAT_SERVER_NAME</span> <span class=o>=</span> <span class=s1>&#39;server&#39;</span>
 <a id=__codelineno-4-16 name=__codelineno-4-16 href=#__codelineno-4-16></a>
 <a id=__codelineno-4-17 name=__codelineno-4-17 href=#__codelineno-4-17></a>
-<a id=__codelineno-4-18 name=__codelineno-4-18 href=#__codelineno-4-18></a><span class=k>def</span> <span class=nf>send</span><span class=p>(</span><span class=n>channel</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>):</span>
+<a id=__codelineno-4-18 name=__codelineno-4-18 href=#__codelineno-4-18></a><span class=k>def</span><span class=w> </span><span class=nf>send</span><span class=p>(</span><span class=n>channel</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>):</span>
 <a id=__codelineno-4-19 name=__codelineno-4-19 href=#__codelineno-4-19></a>    <span class=n>buffer</span> <span class=o>=</span> <span class=n>pickle</span><span class=o>.</span><span class=n>dumps</span><span class=p>(</span><span class=n>args</span><span class=p>)</span>
 <a id=__codelineno-4-20 name=__codelineno-4-20 href=#__codelineno-4-20></a>    <span class=n>value</span> <span class=o>=</span> <span class=n>socket</span><span class=o>.</span><span class=n>htonl</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>buffer</span><span class=p>))</span>
 <a id=__codelineno-4-21 name=__codelineno-4-21 href=#__codelineno-4-21></a>    <span class=n>size</span> <span class=o>=</span> <span class=n>struct</span><span class=o>.</span><span class=n>pack</span><span class=p>(</span><span class=s2>&quot;L&quot;</span><span class=p>,</span> <span class=n>value</span><span class=p>)</span>
@@ -181,7 +181,7 @@
 <a id=__codelineno-4-23 name=__codelineno-4-23 href=#__codelineno-4-23></a>    <span class=n>channel</span><span class=o>.</span><span class=n>sendall</span><span class=p>(</span><span class=n>buffer</span><span class=p>)</span>
 <a id=__codelineno-4-24 name=__codelineno-4-24 href=#__codelineno-4-24></a>
 <a id=__codelineno-4-25 name=__codelineno-4-25 href=#__codelineno-4-25></a>
-<a id=__codelineno-4-26 name=__codelineno-4-26 href=#__codelineno-4-26></a><span class=k>def</span> <span class=nf>receive</span><span class=p>(</span><span class=n>channel</span><span class=p>):</span>
+<a id=__codelineno-4-26 name=__codelineno-4-26 href=#__codelineno-4-26></a><span class=k>def</span><span class=w> </span><span class=nf>receive</span><span class=p>(</span><span class=n>channel</span><span class=p>):</span>
 <a id=__codelineno-4-27 name=__codelineno-4-27 href=#__codelineno-4-27></a>    <span class=n>size</span> <span class=o>=</span> <span class=n>struct</span><span class=o>.</span><span class=n>calcsize</span><span class=p>(</span><span class=s2>&quot;L&quot;</span><span class=p>)</span>
 <a id=__codelineno-4-28 name=__codelineno-4-28 href=#__codelineno-4-28></a>    <span class=n>size_bytes</span> <span class=o>=</span> <span class=n>channel</span><span class=o>.</span><span class=n>recv</span><span class=p>(</span><span class=n>size</span><span class=p>)</span>
 <a id=__codelineno-4-29 name=__codelineno-4-29 href=#__codelineno-4-29></a>    <span class=k>if</span> <span class=ow>not</span> <span class=n>size_bytes</span><span class=p>:</span>
@@ -196,8 +196,8 @@
 <a id=__codelineno-4-38 name=__codelineno-4-38 href=#__codelineno-4-38></a>    <span class=k>return</span> <span class=n>pickle</span><span class=o>.</span><span class=n>loads</span><span class=p>(</span><span class=n>buf</span><span class=p>)[</span><span class=mi>0</span><span class=p>]</span>
 <a id=__codelineno-4-39 name=__codelineno-4-39 href=#__codelineno-4-39></a>
 <a id=__codelineno-4-40 name=__codelineno-4-40 href=#__codelineno-4-40></a>
-<a id=__codelineno-4-41 name=__codelineno-4-41 href=#__codelineno-4-41></a><span class=k>class</span> <span class=nc>ChatServer</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
-<a id=__codelineno-4-42 name=__codelineno-4-42 href=#__codelineno-4-42></a>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>port</span><span class=p>,</span> <span class=n>backlog</span><span class=o>=</span><span class=mi>5</span><span class=p>):</span>
+<a id=__codelineno-4-41 name=__codelineno-4-41 href=#__codelineno-4-41></a><span class=k>class</span><span class=w> </span><span class=nc>ChatServer</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
+<a id=__codelineno-4-42 name=__codelineno-4-42 href=#__codelineno-4-42></a>    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>port</span><span class=p>,</span> <span class=n>backlog</span><span class=o>=</span><span class=mi>5</span><span class=p>):</span>
 <a id=__codelineno-4-43 name=__codelineno-4-43 href=#__codelineno-4-43></a>        <span class=bp>self</span><span class=o>.</span><span class=n>clients</span> <span class=o>=</span> <span class=mi>0</span>
 <a id=__codelineno-4-44 name=__codelineno-4-44 href=#__codelineno-4-44></a>        <span class=bp>self</span><span class=o>.</span><span class=n>clientmap</span> <span class=o>=</span> <span class=p>{}</span>
 <a id=__codelineno-4-45 name=__codelineno-4-45 href=#__codelineno-4-45></a>        <span class=bp>self</span><span class=o>.</span><span class=n>outputs</span> <span class=o>=</span> <span class=p>[]</span>
@@ -209,7 +209,7 @@
 <a id=__codelineno-4-51 name=__codelineno-4-51 href=#__codelineno-4-51></a>        <span class=c1># Catch keyboard interrupts</span>
 <a id=__codelineno-4-52 name=__codelineno-4-52 href=#__codelineno-4-52></a>        <span class=n>signal</span><span class=o>.</span><span class=n>signal</span><span class=p>(</span><span class=n>signal</span><span class=o>.</span><span class=n>SIGINT</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>sighandler</span><span class=p>)</span>
 <a id=__codelineno-4-53 name=__codelineno-4-53 href=#__codelineno-4-53></a>
-<a id=__codelineno-4-54 name=__codelineno-4-54 href=#__codelineno-4-54></a>    <span class=k>def</span> <span class=nf>sighandler</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>signum</span><span class=p>,</span> <span class=n>frame</span><span class=p>):</span>
+<a id=__codelineno-4-54 name=__codelineno-4-54 href=#__codelineno-4-54></a>    <span class=k>def</span><span class=w> </span><span class=nf>sighandler</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>signum</span><span class=p>,</span> <span class=n>frame</span><span class=p>):</span>
 <a id=__codelineno-4-55 name=__codelineno-4-55 href=#__codelineno-4-55></a><span class=w>        </span><span class=sd>&quot;&quot;&quot; Clean up client outputs &quot;&quot;&quot;</span>
 <a id=__codelineno-4-56 name=__codelineno-4-56 href=#__codelineno-4-56></a>        <span class=c1># Close the server</span>
 <a id=__codelineno-4-57 name=__codelineno-4-57 href=#__codelineno-4-57></a>        <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;Shutting down server...&#39;</span><span class=p>)</span>
@@ -218,13 +218,13 @@
 <a id=__codelineno-4-60 name=__codelineno-4-60 href=#__codelineno-4-60></a>            <span class=n>output</span><span class=o>.</span><span class=n>close</span><span class=p>()</span>
 <a id=__codelineno-4-61 name=__codelineno-4-61 href=#__codelineno-4-61></a>        <span class=bp>self</span><span class=o>.</span><span class=n>server</span><span class=o>.</span><span class=n>close</span><span class=p>()</span>
 <a id=__codelineno-4-62 name=__codelineno-4-62 href=#__codelineno-4-62></a>
-<a id=__codelineno-4-63 name=__codelineno-4-63 href=#__codelineno-4-63></a>    <span class=k>def</span> <span class=nf>get_client_name</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>client</span><span class=p>):</span>
+<a id=__codelineno-4-63 name=__codelineno-4-63 href=#__codelineno-4-63></a>    <span class=k>def</span><span class=w> </span><span class=nf>get_client_name</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>client</span><span class=p>):</span>
 <a id=__codelineno-4-64 name=__codelineno-4-64 href=#__codelineno-4-64></a><span class=w>        </span><span class=sd>&quot;&quot;&quot; Return the name of the client &quot;&quot;&quot;</span>
 <a id=__codelineno-4-65 name=__codelineno-4-65 href=#__codelineno-4-65></a>        <span class=n>info</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>clientmap</span><span class=p>[</span><span class=n>client</span><span class=p>]</span>
 <a id=__codelineno-4-66 name=__codelineno-4-66 href=#__codelineno-4-66></a>        <span class=n>host</span><span class=p>,</span> <span class=n>name</span> <span class=o>=</span> <span class=n>info</span><span class=p>[</span><span class=mi>0</span><span class=p>][</span><span class=mi>0</span><span class=p>],</span> <span class=n>info</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span>
 <a id=__codelineno-4-67 name=__codelineno-4-67 href=#__codelineno-4-67></a>        <span class=k>return</span> <span class=sa>f</span><span class=s1>&#39;</span><span class=si>{</span><span class=n>name</span><span class=si>}</span><span class=s1>@</span><span class=si>{</span><span class=n>host</span><span class=si>}</span><span class=s1>&#39;</span>
 <a id=__codelineno-4-68 name=__codelineno-4-68 href=#__codelineno-4-68></a>
-<a id=__codelineno-4-69 name=__codelineno-4-69 href=#__codelineno-4-69></a>    <span class=k>def</span> <span class=nf>run</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-4-69 name=__codelineno-4-69 href=#__codelineno-4-69></a>    <span class=k>def</span><span class=w> </span><span class=nf>run</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-4-70 name=__codelineno-4-70 href=#__codelineno-4-70></a>        <span class=n>inputs</span> <span class=o>=</span> <span class=p>[</span><span class=bp>self</span><span class=o>.</span><span class=n>server</span><span class=p>,</span> <span class=n>sys</span><span class=o>.</span><span class=n>stdin</span><span class=p>]</span>
 <a id=__codelineno-4-71 name=__codelineno-4-71 href=#__codelineno-4-71></a>        <span class=bp>self</span><span class=o>.</span><span class=n>outputs</span> <span class=o>=</span> <span class=p>[]</span>
 <a id=__codelineno-4-72 name=__codelineno-4-72 href=#__codelineno-4-72></a>        <span class=n>running</span> <span class=o>=</span> <span class=kc>True</span>
@@ -278,8 +278,8 @@
 <a id=__codelineno-4-120 name=__codelineno-4-120 href=#__codelineno-4-120></a>        <span class=bp>self</span><span class=o>.</span><span class=n>server</span><span class=o>.</span><span class=n>close</span><span class=p>()</span>
 <a id=__codelineno-4-121 name=__codelineno-4-121 href=#__codelineno-4-121></a>
 <a id=__codelineno-4-122 name=__codelineno-4-122 href=#__codelineno-4-122></a>
-<a id=__codelineno-4-123 name=__codelineno-4-123 href=#__codelineno-4-123></a><span class=k>class</span> <span class=nc>ChatClient</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
-<a id=__codelineno-4-124 name=__codelineno-4-124 href=#__codelineno-4-124></a>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>name</span><span class=p>,</span> <span class=n>port</span><span class=p>,</span> <span class=n>host</span><span class=o>=</span><span class=n>SERVER_HOST</span><span class=p>):</span>
+<a id=__codelineno-4-123 name=__codelineno-4-123 href=#__codelineno-4-123></a><span class=k>class</span><span class=w> </span><span class=nc>ChatClient</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
+<a id=__codelineno-4-124 name=__codelineno-4-124 href=#__codelineno-4-124></a>    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>name</span><span class=p>,</span> <span class=n>port</span><span class=p>,</span> <span class=n>host</span><span class=o>=</span><span class=n>SERVER_HOST</span><span class=p>):</span>
 <a id=__codelineno-4-125 name=__codelineno-4-125 href=#__codelineno-4-125></a>        <span class=bp>self</span><span class=o>.</span><span class=n>name</span> <span class=o>=</span> <span class=n>name</span>
 <a id=__codelineno-4-126 name=__codelineno-4-126 href=#__codelineno-4-126></a>        <span class=bp>self</span><span class=o>.</span><span class=n>connected</span> <span class=o>=</span> <span class=kc>False</span>
 <a id=__codelineno-4-127 name=__codelineno-4-127 href=#__codelineno-4-127></a>        <span class=bp>self</span><span class=o>.</span><span class=n>host</span> <span class=o>=</span> <span class=n>host</span>
@@ -302,7 +302,7 @@
 <a id=__codelineno-4-144 name=__codelineno-4-144 href=#__codelineno-4-144></a>            <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s1>&#39;Failed to connect to chat server @ port </span><span class=si>{</span><span class=bp>self</span><span class=o>.</span><span class=n>port</span><span class=si>}</span><span class=s1>&#39;</span><span class=p>)</span>
 <a id=__codelineno-4-145 name=__codelineno-4-145 href=#__codelineno-4-145></a>            <span class=n>sys</span><span class=o>.</span><span class=n>exit</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>
 <a id=__codelineno-4-146 name=__codelineno-4-146 href=#__codelineno-4-146></a>
-<a id=__codelineno-4-147 name=__codelineno-4-147 href=#__codelineno-4-147></a>    <span class=k>def</span> <span class=nf>run</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-4-147 name=__codelineno-4-147 href=#__codelineno-4-147></a>    <span class=k>def</span><span class=w> </span><span class=nf>run</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-4-148 name=__codelineno-4-148 href=#__codelineno-4-148></a>        <span class=k>while</span> <span class=bp>self</span><span class=o>.</span><span class=n>connected</span><span class=p>:</span>
 <a id=__codelineno-4-149 name=__codelineno-4-149 href=#__codelineno-4-149></a>            <span class=k>try</span><span class=p>:</span>
 <a id=__codelineno-4-150 name=__codelineno-4-150 href=#__codelineno-4-150></a>                <span class=n>sys</span><span class=o>.</span><span class=n>stdout</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>prompt</span><span class=p>)</span>
@@ -367,9 +367,9 @@
 <a id=__codelineno-6-4 name=__codelineno-6-4 href=#__codelineno-6-4></a><span class=c1># It may run on any other version with/without modifications.</span>
 <a id=__codelineno-6-5 name=__codelineno-6-5 href=#__codelineno-6-5></a>
 <a id=__codelineno-6-6 name=__codelineno-6-6 href=#__codelineno-6-6></a>
-<a id=__codelineno-6-7 name=__codelineno-6-7 href=#__codelineno-6-7></a><span class=kn>import</span> <span class=nn>socket</span>
-<a id=__codelineno-6-8 name=__codelineno-6-8 href=#__codelineno-6-8></a><span class=kn>import</span> <span class=nn>select</span>
-<a id=__codelineno-6-9 name=__codelineno-6-9 href=#__codelineno-6-9></a><span class=kn>import</span> <span class=nn>argparse</span>
+<a id=__codelineno-6-7 name=__codelineno-6-7 href=#__codelineno-6-7></a><span class=kn>import</span><span class=w> </span><span class=nn>socket</span>
+<a id=__codelineno-6-8 name=__codelineno-6-8 href=#__codelineno-6-8></a><span class=kn>import</span><span class=w> </span><span class=nn>select</span>
+<a id=__codelineno-6-9 name=__codelineno-6-9 href=#__codelineno-6-9></a><span class=kn>import</span><span class=w> </span><span class=nn>argparse</span>
 <a id=__codelineno-6-10 name=__codelineno-6-10 href=#__codelineno-6-10></a>
 <a id=__codelineno-6-11 name=__codelineno-6-11 href=#__codelineno-6-11></a><span class=n>SERVER_HOST</span> <span class=o>=</span> <span class=s1>&#39;localhost&#39;</span>
 <a id=__codelineno-6-12 name=__codelineno-6-12 href=#__codelineno-6-12></a>
@@ -379,10 +379,10 @@
 <a id=__codelineno-6-16 name=__codelineno-6-16 href=#__codelineno-6-16></a><span class=s2>text/plain</span><span class=se>\r\n</span><span class=s2>Content-Length: 25</span><span class=se>\r\n\r\n</span><span class=s2> Hello from Epoll Server!&quot;&quot;&quot;</span>
 <a id=__codelineno-6-17 name=__codelineno-6-17 href=#__codelineno-6-17></a>
 <a id=__codelineno-6-18 name=__codelineno-6-18 href=#__codelineno-6-18></a>
-<a id=__codelineno-6-19 name=__codelineno-6-19 href=#__codelineno-6-19></a><span class=k>class</span> <span class=nc>EpollServer</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
+<a id=__codelineno-6-19 name=__codelineno-6-19 href=#__codelineno-6-19></a><span class=k>class</span><span class=w> </span><span class=nc>EpollServer</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
 <a id=__codelineno-6-20 name=__codelineno-6-20 href=#__codelineno-6-20></a><span class=w>    </span><span class=sd>&quot;&quot;&quot; A socket server using Epoll&quot;&quot;&quot;</span>
 <a id=__codelineno-6-21 name=__codelineno-6-21 href=#__codelineno-6-21></a>
-<a id=__codelineno-6-22 name=__codelineno-6-22 href=#__codelineno-6-22></a>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>host</span><span class=o>=</span><span class=n>SERVER_HOST</span><span class=p>,</span> <span class=n>port</span><span class=o>=</span><span class=mi>0</span><span class=p>):</span>
+<a id=__codelineno-6-22 name=__codelineno-6-22 href=#__codelineno-6-22></a>    <span class=k>def</span><span class=w> </span><span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>host</span><span class=o>=</span><span class=n>SERVER_HOST</span><span class=p>,</span> <span class=n>port</span><span class=o>=</span><span class=mi>0</span><span class=p>):</span>
 <a id=__codelineno-6-23 name=__codelineno-6-23 href=#__codelineno-6-23></a>        <span class=bp>self</span><span class=o>.</span><span class=n>sock</span> <span class=o>=</span> <span class=n>socket</span><span class=o>.</span><span class=n>socket</span><span class=p>(</span><span class=n>socket</span><span class=o>.</span><span class=n>AF_INET</span><span class=p>,</span> <span class=n>socket</span><span class=o>.</span><span class=n>SOCK_STREAM</span><span class=p>)</span>
 <a id=__codelineno-6-24 name=__codelineno-6-24 href=#__codelineno-6-24></a>        <span class=bp>self</span><span class=o>.</span><span class=n>sock</span><span class=o>.</span><span class=n>setsockopt</span><span class=p>(</span><span class=n>socket</span><span class=o>.</span><span class=n>SOL_SOCKET</span><span class=p>,</span> <span class=n>socket</span><span class=o>.</span><span class=n>SO_REUSEADDR</span><span class=p>,</span> <span class=mi>1</span><span class=p>)</span>
 <a id=__codelineno-6-25 name=__codelineno-6-25 href=#__codelineno-6-25></a>        <span class=bp>self</span><span class=o>.</span><span class=n>sock</span><span class=o>.</span><span class=n>bind</span><span class=p>((</span><span class=n>host</span><span class=p>,</span> <span class=n>port</span><span class=p>))</span>
@@ -393,7 +393,7 @@
 <a id=__codelineno-6-30 name=__codelineno-6-30 href=#__codelineno-6-30></a>        <span class=bp>self</span><span class=o>.</span><span class=n>epoll</span> <span class=o>=</span> <span class=n>select</span><span class=o>.</span><span class=n>epoll</span><span class=p>()</span>
 <a id=__codelineno-6-31 name=__codelineno-6-31 href=#__codelineno-6-31></a>        <span class=bp>self</span><span class=o>.</span><span class=n>epoll</span><span class=o>.</span><span class=n>register</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>sock</span><span class=o>.</span><span class=n>fileno</span><span class=p>(),</span> <span class=n>select</span><span class=o>.</span><span class=n>EPOLLIN</span><span class=p>)</span>
 <a id=__codelineno-6-32 name=__codelineno-6-32 href=#__codelineno-6-32></a>
-<a id=__codelineno-6-33 name=__codelineno-6-33 href=#__codelineno-6-33></a>    <span class=k>def</span> <span class=nf>run</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-6-33 name=__codelineno-6-33 href=#__codelineno-6-33></a>    <span class=k>def</span><span class=w> </span><span class=nf>run</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-6-34 name=__codelineno-6-34 href=#__codelineno-6-34></a><span class=w>        </span><span class=sd>&quot;&quot;&quot;Executes epoll server operation&quot;&quot;&quot;</span>
 <a id=__codelineno-6-35 name=__codelineno-6-35 href=#__codelineno-6-35></a>        <span class=k>try</span><span class=p>:</span>
 <a id=__codelineno-6-36 name=__codelineno-6-36 href=#__codelineno-6-36></a>            <span class=n>connections</span> <span class=o>=</span> <span class=p>{};</span>
@@ -467,14 +467,14 @@
 <a id=__codelineno-9-4 name=__codelineno-9-4 href=#__codelineno-9-4></a><span class=c1># It may run on any other version with/without modifications.</span>
 <a id=__codelineno-9-5 name=__codelineno-9-5 href=#__codelineno-9-5></a><span class=c1># You alos need diesel library 3.0 or any later version</span>
 <a id=__codelineno-9-6 name=__codelineno-9-6 href=#__codelineno-9-6></a>
-<a id=__codelineno-9-7 name=__codelineno-9-7 href=#__codelineno-9-7></a><span class=kn>import</span> <span class=nn>datetime</span>
-<a id=__codelineno-9-8 name=__codelineno-9-8 href=#__codelineno-9-8></a><span class=kn>import</span> <span class=nn>tornado.ioloop</span>
-<a id=__codelineno-9-9 name=__codelineno-9-9 href=#__codelineno-9-9></a><span class=kn>import</span> <span class=nn>tornado.web</span>
-<a id=__codelineno-9-10 name=__codelineno-9-10 href=#__codelineno-9-10></a><span class=kn>import</span> <span class=nn>argparse</span>
-<a id=__codelineno-9-11 name=__codelineno-9-11 href=#__codelineno-9-11></a><span class=kn>import</span> <span class=nn>logging</span>
+<a id=__codelineno-9-7 name=__codelineno-9-7 href=#__codelineno-9-7></a><span class=kn>import</span><span class=w> </span><span class=nn>datetime</span>
+<a id=__codelineno-9-8 name=__codelineno-9-8 href=#__codelineno-9-8></a><span class=kn>import</span><span class=w> </span><span class=nn>tornado.ioloop</span>
+<a id=__codelineno-9-9 name=__codelineno-9-9 href=#__codelineno-9-9></a><span class=kn>import</span><span class=w> </span><span class=nn>tornado.web</span>
+<a id=__codelineno-9-10 name=__codelineno-9-10 href=#__codelineno-9-10></a><span class=kn>import</span><span class=w> </span><span class=nn>argparse</span>
+<a id=__codelineno-9-11 name=__codelineno-9-11 href=#__codelineno-9-11></a><span class=kn>import</span><span class=w> </span><span class=nn>logging</span>
 <a id=__codelineno-9-12 name=__codelineno-9-12 href=#__codelineno-9-12></a>
-<a id=__codelineno-9-13 name=__codelineno-9-13 href=#__codelineno-9-13></a><span class=k>class</span> <span class=nc>BaseRequestHandler</span><span class=p>(</span><span class=n>tornado</span><span class=o>.</span><span class=n>web</span><span class=o>.</span><span class=n>RequestHandler</span><span class=p>):</span>
-<a id=__codelineno-9-14 name=__codelineno-9-14 href=#__codelineno-9-14></a>    <span class=k>def</span> <span class=nf>log_request</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>method</span><span class=p>):</span>
+<a id=__codelineno-9-13 name=__codelineno-9-13 href=#__codelineno-9-13></a><span class=k>class</span><span class=w> </span><span class=nc>BaseRequestHandler</span><span class=p>(</span><span class=n>tornado</span><span class=o>.</span><span class=n>web</span><span class=o>.</span><span class=n>RequestHandler</span><span class=p>):</span>
+<a id=__codelineno-9-14 name=__codelineno-9-14 href=#__codelineno-9-14></a>    <span class=k>def</span><span class=w> </span><span class=nf>log_request</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>method</span><span class=p>):</span>
 <a id=__codelineno-9-15 name=__codelineno-9-15 href=#__codelineno-9-15></a>        <span class=n>data</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>body</span>
 <a id=__codelineno-9-16 name=__codelineno-9-16 href=#__codelineno-9-16></a>        <span class=n>ip_address</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>remote_ip</span>
 <a id=__codelineno-9-17 name=__codelineno-9-17 href=#__codelineno-9-17></a>        <span class=n>request_time</span> <span class=o>=</span> <span class=n>datetime</span><span class=o>.</span><span class=n>datetime</span><span class=o>.</span><span class=n>now</span><span class=p>()</span><span class=o>.</span><span class=n>strftime</span><span class=p>(</span><span class=s2>&quot;%Y-%m-</span><span class=si>%d</span><span class=s2> %H:%M:%S&quot;</span><span class=p>)</span>
@@ -482,35 +482,35 @@
 <a id=__codelineno-9-19 name=__codelineno-9-19 href=#__codelineno-9-19></a>        <span class=n>logging</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=sa>f</span><span class=s2>&quot;Received </span><span class=si>{</span><span class=n>method</span><span class=si>}</span><span class=s2> request from </span><span class=si>{</span><span class=n>ip_address</span><span class=si>}</span><span class=s2> at </span><span class=si>{</span><span class=n>request_time</span><span class=si>}</span><span class=s2>: </span><span class=si>{</span><span class=n>data</span><span class=si>}</span><span class=s2>&quot;</span><span class=p>)</span>
 <a id=__codelineno-9-20 name=__codelineno-9-20 href=#__codelineno-9-20></a>        <span class=n>logging</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=sa>f</span><span class=s2>&quot;Headers: </span><span class=si>{</span><span class=n>headers</span><span class=si>}</span><span class=s2>&quot;</span><span class=p>)</span>
 <a id=__codelineno-9-21 name=__codelineno-9-21 href=#__codelineno-9-21></a>
-<a id=__codelineno-9-22 name=__codelineno-9-22 href=#__codelineno-9-22></a>    <span class=k>def</span> <span class=nf>post</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-9-22 name=__codelineno-9-22 href=#__codelineno-9-22></a>    <span class=k>def</span><span class=w> </span><span class=nf>post</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-9-23 name=__codelineno-9-23 href=#__codelineno-9-23></a>        <span class=bp>self</span><span class=o>.</span><span class=n>log_request</span><span class=p>(</span><span class=s2>&quot;POST&quot;</span><span class=p>)</span>
 <a id=__codelineno-9-24 name=__codelineno-9-24 href=#__codelineno-9-24></a>        <span class=bp>self</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>body</span><span class=p>)</span>
 <a id=__codelineno-9-25 name=__codelineno-9-25 href=#__codelineno-9-25></a>
 <a id=__codelineno-9-26 name=__codelineno-9-26 href=#__codelineno-9-26></a>
-<a id=__codelineno-9-27 name=__codelineno-9-27 href=#__codelineno-9-27></a><span class=k>class</span> <span class=nc>EchoHandler</span><span class=p>(</span><span class=n>BaseRequestHandler</span><span class=p>):</span>
-<a id=__codelineno-9-28 name=__codelineno-9-28 href=#__codelineno-9-28></a>    <span class=k>async</span> <span class=k>def</span> <span class=nf>post</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-9-27 name=__codelineno-9-27 href=#__codelineno-9-27></a><span class=k>class</span><span class=w> </span><span class=nc>EchoHandler</span><span class=p>(</span><span class=n>BaseRequestHandler</span><span class=p>):</span>
+<a id=__codelineno-9-28 name=__codelineno-9-28 href=#__codelineno-9-28></a>    <span class=k>async</span> <span class=k>def</span><span class=w> </span><span class=nf>post</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-9-29 name=__codelineno-9-29 href=#__codelineno-9-29></a>        <span class=bp>self</span><span class=o>.</span><span class=n>log_request</span><span class=p>(</span><span class=s2>&quot;POST&quot;</span><span class=p>)</span>
 <a id=__codelineno-9-30 name=__codelineno-9-30 href=#__codelineno-9-30></a>        <span class=bp>self</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>body</span><span class=p>)</span>
 <a id=__codelineno-9-31 name=__codelineno-9-31 href=#__codelineno-9-31></a>
 <a id=__codelineno-9-32 name=__codelineno-9-32 href=#__codelineno-9-32></a>
-<a id=__codelineno-9-33 name=__codelineno-9-33 href=#__codelineno-9-33></a><span class=k>class</span> <span class=nc>JSONHandler</span><span class=p>(</span><span class=n>BaseRequestHandler</span><span class=p>):</span>
-<a id=__codelineno-9-34 name=__codelineno-9-34 href=#__codelineno-9-34></a>    <span class=k>async</span> <span class=k>def</span> <span class=nf>get</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-9-33 name=__codelineno-9-33 href=#__codelineno-9-33></a><span class=k>class</span><span class=w> </span><span class=nc>JSONHandler</span><span class=p>(</span><span class=n>BaseRequestHandler</span><span class=p>):</span>
+<a id=__codelineno-9-34 name=__codelineno-9-34 href=#__codelineno-9-34></a>    <span class=k>async</span> <span class=k>def</span><span class=w> </span><span class=nf>get</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-9-35 name=__codelineno-9-35 href=#__codelineno-9-35></a>        <span class=bp>self</span><span class=o>.</span><span class=n>log_request</span><span class=p>(</span><span class=s2>&quot;GET&quot;</span><span class=p>)</span>
 <a id=__codelineno-9-36 name=__codelineno-9-36 href=#__codelineno-9-36></a>        <span class=n>json_data</span> <span class=o>=</span> <span class=p>{</span><span class=s2>&quot;message&quot;</span><span class=p>:</span> <span class=s2>&quot;Hello, World!&quot;</span><span class=p>}</span>
 <a id=__codelineno-9-37 name=__codelineno-9-37 href=#__codelineno-9-37></a>        <span class=bp>self</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=n>json_data</span><span class=p>)</span>
 <a id=__codelineno-9-38 name=__codelineno-9-38 href=#__codelineno-9-38></a>
-<a id=__codelineno-9-39 name=__codelineno-9-39 href=#__codelineno-9-39></a>    <span class=k>async</span> <span class=k>def</span> <span class=nf>post</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-9-39 name=__codelineno-9-39 href=#__codelineno-9-39></a>    <span class=k>async</span> <span class=k>def</span><span class=w> </span><span class=nf>post</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-9-40 name=__codelineno-9-40 href=#__codelineno-9-40></a>        <span class=bp>self</span><span class=o>.</span><span class=n>log_request</span><span class=p>(</span><span class=s2>&quot;POST&quot;</span><span class=p>)</span>
 <a id=__codelineno-9-41 name=__codelineno-9-41 href=#__codelineno-9-41></a>        <span class=bp>self</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>body</span><span class=p>)</span>
 <a id=__codelineno-9-42 name=__codelineno-9-42 href=#__codelineno-9-42></a>
 <a id=__codelineno-9-43 name=__codelineno-9-43 href=#__codelineno-9-43></a>
-<a id=__codelineno-9-44 name=__codelineno-9-44 href=#__codelineno-9-44></a><span class=k>class</span> <span class=nc>HTMLHandler</span><span class=p>(</span><span class=n>BaseRequestHandler</span><span class=p>):</span>
-<a id=__codelineno-9-45 name=__codelineno-9-45 href=#__codelineno-9-45></a>    <span class=k>async</span> <span class=k>def</span> <span class=nf>get</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+<a id=__codelineno-9-44 name=__codelineno-9-44 href=#__codelineno-9-44></a><span class=k>class</span><span class=w> </span><span class=nc>HTMLHandler</span><span class=p>(</span><span class=n>BaseRequestHandler</span><span class=p>):</span>
+<a id=__codelineno-9-45 name=__codelineno-9-45 href=#__codelineno-9-45></a>    <span class=k>async</span> <span class=k>def</span><span class=w> </span><span class=nf>get</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
 <a id=__codelineno-9-46 name=__codelineno-9-46 href=#__codelineno-9-46></a>        <span class=bp>self</span><span class=o>.</span><span class=n>log_request</span><span class=p>(</span><span class=s2>&quot;GET&quot;</span><span class=p>)</span>
 <a id=__codelineno-9-47 name=__codelineno-9-47 href=#__codelineno-9-47></a>        <span class=bp>self</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=s2>&quot;&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello, World!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;&quot;</span><span class=p>)</span>
 <a id=__codelineno-9-48 name=__codelineno-9-48 href=#__codelineno-9-48></a>
 <a id=__codelineno-9-49 name=__codelineno-9-49 href=#__codelineno-9-49></a>
-<a id=__codelineno-9-50 name=__codelineno-9-50 href=#__codelineno-9-50></a><span class=k>def</span> <span class=nf>make_app</span><span class=p>():</span>
+<a id=__codelineno-9-50 name=__codelineno-9-50 href=#__codelineno-9-50></a><span class=k>def</span><span class=w> </span><span class=nf>make_app</span><span class=p>():</span>
 <a id=__codelineno-9-51 name=__codelineno-9-51 href=#__codelineno-9-51></a>    <span class=k>return</span> <span class=n>tornado</span><span class=o>.</span><span class=n>web</span><span class=o>.</span><span class=n>Application</span><span class=p>([</span>
 <a id=__codelineno-9-52 name=__codelineno-9-52 href=#__codelineno-9-52></a>        <span class=p>(</span><span class=sa>r</span><span class=s2>&quot;/echo&quot;</span><span class=p>,</span> <span class=n>EchoHandler</span><span class=p>),</span>
 <a id=__codelineno-9-53 name=__codelineno-9-53 href=#__codelineno-9-53></a>        <span class=p>(</span><span class=sa>r</span><span class=s2>&quot;/json&quot;</span><span class=p>,</span> <span class=n>JSONHandler</span><span class=p>),</span>
@@ -519,7 +519,7 @@
 <a id=__codelineno-9-56 name=__codelineno-9-56 href=#__codelineno-9-56></a>        <span class=n>template_path</span><span class=o>=</span><span class=s1>&#39;templates&#39;</span><span class=p>)</span>
 <a id=__codelineno-9-57 name=__codelineno-9-57 href=#__codelineno-9-57></a>
 <a id=__codelineno-9-58 name=__codelineno-9-58 href=#__codelineno-9-58></a>
-<a id=__codelineno-9-59 name=__codelineno-9-59 href=#__codelineno-9-59></a><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+<a id=__codelineno-9-59 name=__codelineno-9-59 href=#__codelineno-9-59></a><span class=k>def</span><span class=w> </span><span class=nf>main</span><span class=p>():</span>
 <a id=__codelineno-9-60 name=__codelineno-9-60 href=#__codelineno-9-60></a>    <span class=n>parser</span> <span class=o>=</span> <span class=n>argparse</span><span class=o>.</span><span class=n>ArgumentParser</span><span class=p>(</span><span class=n>description</span><span class=o>=</span><span class=s1>&#39;Echo server example with Tornado&#39;</span><span class=p>)</span>
 <a id=__codelineno-9-61 name=__codelineno-9-61 href=#__codelineno-9-61></a>    <span class=n>parser</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=s1>&#39;--port&#39;</span><span class=p>,</span> <span class=n>action</span><span class=o>=</span><span class=s2>&quot;store&quot;</span><span class=p>,</span> <span class=n>dest</span><span class=o>=</span><span class=s2>&quot;port&quot;</span><span class=p>,</span> <span class=nb>type</span><span class=o>=</span><span class=nb>int</span><span class=p>,</span> <span class=n>required</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
 <a id=__codelineno-9-62 name=__codelineno-9-62 href=#__codelineno-9-62></a>
