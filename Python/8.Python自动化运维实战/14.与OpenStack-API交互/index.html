@@ -32,11 +32,11 @@
 </code></pre></div> <p>如果您不想将凭证存储在 Python 脚本中，可以将它们存储在 ini 文件中，并使用 configparser 模块加载它们。首先，在自动化服务器上创建一个 creds.ini 文件，并赋予适当的 Linux 权限，以便只能使用您自己的帐户打开它。</p> <div class=highlight><pre><span></span><code><a id=__codelineno-3-1 name=__codelineno-3-1 href=#__codelineno-3-1></a><span class=c1>#vim /root/creds.ini</span>
 <a id=__codelineno-3-2 name=__codelineno-3-2 href=#__codelineno-3-2></a><span class=k>[os_creds]</span>
 <a id=__codelineno-3-3 name=__codelineno-3-3 href=#__codelineno-3-3></a><span class=na>auth_url</span><span class=o>=</span><span class=s>&quot;http://10.10.10.150:5000/v3&quot;</span>
-<a id=__codelineno-3-4 name=__codelineno-3-4 href=#__codelineno-3-4></a><span class=s>username=&quot;admin&quot;</span>
-<a id=__codelineno-3-5 name=__codelineno-3-5 href=#__codelineno-3-5></a><span class=s>password=&quot;access123&quot;</span>
-<a id=__codelineno-3-6 name=__codelineno-3-6 href=#__codelineno-3-6></a><span class=s>project_name=&quot;admin&quot;</span>
-<a id=__codelineno-3-7 name=__codelineno-3-7 href=#__codelineno-3-7></a><span class=s>user_domain_name=&quot;Default&quot;</span>
-<a id=__codelineno-3-8 name=__codelineno-3-8 href=#__codelineno-3-8></a><span class=s>project_domain_name=&quot;Default&quot;</span>
+<a id=__codelineno-3-4 name=__codelineno-3-4 href=#__codelineno-3-4></a><span class=na>username</span><span class=o>=</span><span class=s>&quot;admin&quot;</span>
+<a id=__codelineno-3-5 name=__codelineno-3-5 href=#__codelineno-3-5></a><span class=na>password</span><span class=o>=</span><span class=s>&quot;access123&quot;</span>
+<a id=__codelineno-3-6 name=__codelineno-3-6 href=#__codelineno-3-6></a><span class=na>project_name</span><span class=o>=</span><span class=s>&quot;admin&quot;</span>
+<a id=__codelineno-3-7 name=__codelineno-3-7 href=#__codelineno-3-7></a><span class=na>user_domain_name</span><span class=o>=</span><span class=s>&quot;Default&quot;</span>
+<a id=__codelineno-3-8 name=__codelineno-3-8 href=#__codelineno-3-8></a><span class=na>project_domain_name</span><span class=o>=</span><span class=s>&quot;Default&quot;</span>
 </code></pre></div> <p>修改后的脚本如下：</p> <div class=highlight><pre><span></span><code><a id=__codelineno-4-1 name=__codelineno-4-1 href=#__codelineno-4-1></a><span class=kn>from</span><span class=w> </span><span class=nn>keystoneauth1.identity</span><span class=w> </span><span class=kn>import</span> <span class=n>v3</span>
 <a id=__codelineno-4-2 name=__codelineno-4-2 href=#__codelineno-4-2></a><span class=kn>from</span><span class=w> </span><span class=nn>keystoneauth1</span><span class=w> </span><span class=kn>import</span> <span class=n>session</span>
 <a id=__codelineno-4-3 name=__codelineno-4-3 href=#__codelineno-4-3></a><span class=kn>import</span><span class=w> </span><span class=nn>ConfigParser</span>
