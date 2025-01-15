@@ -648,6 +648,7 @@ nav:
     - Openstack/3.Openstack通用技术/14.oslo-service.md
     - Openstack/3.Openstack通用技术/15.cookiecutter.md
     - Openstack/3.Openstack通用技术/16.stevedore.md
+    - Openstack/3.Openstack通用技术/17.oslo-concurrency.md
     - Openstack/3.Openstack通用技术/附-编译-打包总结.md
     - Openstack/3.Openstack通用技术/附-模仿OpenStack写自己的RPC.md
     - Openstack/3.Openstack通用技术/附-模仿Openstack写Restful-API.md
