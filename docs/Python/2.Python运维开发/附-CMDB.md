@@ -54,30 +54,38 @@ request.post("http://127.0.0.1:8000/api/",data=json.dumps(res))
 - 优点为采集速度快，适合服务器较多的情况
 - 缺点为需要在每个待采集的服务器上部署一个 agent
 
-#### python实现
+#### python 实现
 
-Linux远程主机及进程状态监测系统 - 客户端
+Linux 远程主机及进程状态监测系统 - 客户端
+
 - https://github.com/Watch-Dogs-HIT/Watch_Dogs-Client.git
 
+CMDB 客户端组件，采集服务器信息
 
-CMDB客户端组件，采集服务器信息
 - https://github.com/hanqianops/agentd.git
 
-
 cmdb 客户端部分待更新
+
 - https://github.com/shaoxiaUdropUUNshort/cmdb_clinent.git
 
+agent520
 
-#### golang实现
+- https://gitee.com/k8s-devops/agent520
 
-cmdb 客户端Agent 采集信息agent
+参考开源项目：
+
+- https://github.com/plesk/agent360
+- https://github.com/NIXStats/nixstatsagent
+
+#### golang 实现
+
+cmdb 客户端 Agent 采集信息 agent
+
 - https://github.com/kevin19890/cmdb_agent.git
 
-
 主机信息监控客户端，用来向服务端推送当前主机信息
+
 - https://github.com/Hopetree/GoMonitor.git
-
-
 
 ### 2.2 ssh 类方式
 
@@ -391,7 +399,27 @@ https://www.cnblogs.com/liuqingzheng/p/14527292.html
 
 ### CMDB 运维平台参考
 
-代码仓库
+[一款开源好用的 cmdb 资产管理平台](https://mp.weixin.qq.com/s/hKxMwEfeJS69FGwNZa5Ieg)
+
+项目地址: https://github.com/myide/open-cmdb
+
+[PgoOps 运维平台](https://github.com/yanshicheng/pgoops)
+
+PgoOps 运维平台部署文档: https://www.cnblogs.com/yanshicheng/p/16214938.html
+
+以 `Python` 语言，采用 django-rest-framework 框架实现后端 API 开发
+
+[lightning-ops](https://github.com/zhengyansheng/lightning-ops)
+
+CMDB 配置管理系统 资产管理系统
+
+- https://github.com/open-cmdb/cmdb.git
+
+OPMS_v3：项目地址:
+
+- https://github.com/goer3/OPMS_v3/tree/dev3.1
+
+以 `Python` 语言，采用 django-rest-framework 框架实现后端 API 开发。其他代码仓库
 
 - https://gitee.com/scajy/cmdb
 
@@ -400,36 +428,6 @@ https://www.cnblogs.com/liuqingzheng/p/14527292.html
 - https://github.com/open-cmdb/cmdb-web.git
 
 - https://github.com/hequan2017/autoops
-
-[一款开源好用的 cmdb 资产管理平台](https://mp.weixin.qq.com/s/hKxMwEfeJS69FGwNZa5Ieg)
-
-
-
-项目地址:
-
-- https://github.com/myide/open-cmdb
-
-[PgoOps 运维平台](https://github.com/yanshicheng/pgoops)
-
-- [PgoOps 运维平台部署文档](https://www.cnblogs.com/yanshicheng/p/16214938.html)
-
-以 `Python` 语言，采用 django-rest-framework 框架实现后端 API 开发
-
-[lightning-ops](https://github.com/zhengyansheng/lightning-ops)
-
-
-CMDB 配置管理系统 资产管理系统
-
-- https://github.com/open-cmdb/cmdb.git
-- 
-
-OPMS_v3
-
-项目地址:
-
-- https://github.com/goer3/OPMS_v3/tree/dev3.1
-
-以 `Python` 语言，采用 django-rest-framework 框架实现后端 API 开发
 
 - https://github.com/zhengyansheng/lightning-ops
 
