@@ -610,9 +610,8 @@ nav:
     - Python/11.Tornado框架/6.用户认证.md
     - Python/11.Tornado框架/7.模板语法.md
     - Python/11.Tornado框架/8.数据库.md
-    - Python/11.Tornado框架/附1-pyadmin源码学习.md
-    - Python/11.Tornado框架/附2-kerrigan源码学习.md
-    - Python/11.Tornado框架/附3-codo-cmdb源码学习.md
+    - Python/11.Tornado框架/附录1-pyadmin源码学习.md
+    - Python/11.Tornado框架/附录2-opendevops源码学习.md
 
 - Openstack:
   - 0.学习线路:
