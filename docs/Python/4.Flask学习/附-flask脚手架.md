@@ -61,3 +61,10 @@ flask 应用通用脚手架
 Flask 项目脚手架 -- Flask-Application 正式发布
 
 - https://github.com/five3/Flask-App.git
+
+
+Flask 项目模板
+- https://furina.org.cn/2024/05/07/flask-template/
+
+github
+- https://github.com/HuTa0kj/flask-template 
