@@ -58,6 +58,10 @@ flask 应用通用脚手架
 
 - https://www.bookstack.cn/read/the-way-to-flask/book-docs-chapter007.md
 
+- https://github.com/barry-ran/flask-scaffolding
+
+
+
 Flask 项目脚手架 -- Flask-Application 正式发布
 
 - https://github.com/five3/Flask-App.git
