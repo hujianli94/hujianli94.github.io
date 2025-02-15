@@ -598,9 +598,25 @@ nav:
     - Python/9.源码解读/附录1-Ansible核心源码剖析-1.md
     - Python/9.源码解读/附录2-Ansible-1.1的基本使用.md
   - 10.Python进阶:
-    - Python/10.Python进阶/1.理解与使用单例模式.md
-    - Python/10.Python进阶/2.argparse解析命令行参数.md
-    - Python/10.Python进阶/3.utils-强大的工具箱.md
+    - Python/10.Python进阶/1.装饰器.md
+    - Python/10.Python进阶/2.上下文管理器.md
+    - Python/10.Python进阶/3.生成器.md
+    - Python/10.Python进阶/4.魔术方法.md
+    - Python/10.Python进阶/5.元类.md
+    - Python/10.Python进阶/6.类工厂.md
+    - Python/10.Python进阶/7.抽象基类.md
+    - Python/10.Python进阶/8.字符串与unicode.md
+    - Python/10.Python进阶/9.正则表达式.md
+    - Python/10.Python进阶/10.python2与python3.md
+    - Python/10.Python进阶/11.单元测试.md
+    - Python/10.Python进阶/12.1.optparse.md
+    - Python/10.Python进阶/12.2.argparse.md
+    - Python/10.Python进阶/13.asyncio模块.md
+    - Python/10.Python进阶/14.代码风格.md
+    - Python/10.Python进阶/附.单例模式.md
+    - Python/10.Python进阶/附.多进程多线程.md
+    - Python/10.Python进阶/附.utils-强大的工具箱.md
+
   - 11.Tornado框架:
     - Python/11.Tornado框架/1.快速入门.md
     - Python/11.Tornado框架/2.请求与响应.md
