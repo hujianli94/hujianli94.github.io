@@ -35,10 +35,7 @@
   "editor.fontSize": 16, // 编辑器中的字体
   "editor.lineHeight": 17, // 设置编辑器的行高为17。
   "editor.lineNumbers": "on", //开启行数提示
-  "editor.rulers": [
-    79,
-    120
-  ], // 设置编辑器标尺
+  "editor.rulers": [79, 120], // 设置编辑器标尺
   "editor.renderLineHighlight": "all", //当前行高亮方式
   "editor.hover.delay": 300, // 显示缩进指南。
   "editor.indentGuides": "none", //缩进参考线显示
@@ -103,10 +100,7 @@
   "[python]": {
     "editor.tabSize": 4, // Python文件的Tab大小
     "editor.insertSpaces": true, // 插入空格而不是Tab
-    "editor.rulers": [
-      79,
-      120
-    ], // 显示80和140字符的参考线
+    "editor.rulers": [79, 120], // 显示80和140字符的参考线
     "editor.renderWhitespace": "all", // 显示所有空白字符
     "editor.wordWrap": "off", // 关闭单词换行
     "editor.formatOnSave": true, // 在保存时自动格式化代码
@@ -226,9 +220,7 @@
   },
   "python.analysis.autoImportCompletions": true,
   "workbench.tree.renderIndentGuides": "always",
-  "workbench.settings.applyToAllProfiles": [
-    "editor.guides.indentation"
-  ],
+  "workbench.settings.applyToAllProfiles": ["editor.guides.indentation"],
   "editor.guides.indentation": true,
   // 文件夹紧凑模式显示
   "explorer.compactFolders": false,
@@ -266,15 +258,8 @@
     // 控制Completions Panel中建议个数，默认为 10
     "listCount": 10,
     "stops": {
-      "*": [
-        "\n\n\n"
-      ],
-      "python": [
-        "\ndef ",
-        "\nclass ",
-        "\nif ",
-        "\n\n#"
-      ]
+      "*": ["\n\n\n"],
+      "python": ["\ndef ", "\nclass ", "\nif ", "\n\n#"]
     },
     "debug.showScores": true,
     "indentationMode": {
