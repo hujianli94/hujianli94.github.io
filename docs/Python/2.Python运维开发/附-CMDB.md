@@ -399,9 +399,16 @@ https://www.cnblogs.com/liuqingzheng/p/14527292.html
 
 ### CMDB 运维平台参考
 
-[一款开源好用的 cmdb 资产管理平台](https://mp.weixin.qq.com/s/hKxMwEfeJS69FGwNZa5Ieg)
+open-cmdb
+- 项目地址: https://github.com/myide/open-cmdb
+- 相关文献：[一款开源好用的 cmdb 资产管理平台](https://mp.weixin.qq.com/s/hKxMwEfeJS69FGwNZa5Ieg)
 
-项目地址: https://github.com/myide/open-cmdb
+
+维易CMDB
+- 项目地址：https://github.com/veops/cmdb
+
+
+
 
 [PgoOps 运维平台](https://github.com/yanshicheng/pgoops)
 
