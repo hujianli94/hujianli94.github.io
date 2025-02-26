@@ -14,41 +14,98 @@
 
 ```json
 {
+  // 创建 shebang
+  "shebang": {
+    "prefix": "shebang",
+    "body": [
+      "#!/bin/bash",
+      "# ${1:filename}: ",
+      "# ${2:description}: ",
+      "# ${3:author}: ",
+      "# ${4:version}: ",
+    ],
+    "description": "Shebang"
+  },
+  // 获取当前时间
+  "Get current time": {
+    "prefix": "gettime",
+    "body": [
+      "TIME=\"$(date +%Y-%m-%d_%H:%M:%S)\"",
+      "echo $TIME"
+    ],
+    "description": "Get the current time"
+  },
+  // 获取脚本目录
+  "get script directory": {
+    "prefix": "getscriptdir",
+    "body": [
+      "SCRIPT_DIR=\"$( cd \"$( dirname \"${BASH_SOURCE[0]}\" )\" && pwd )\"",
+      "echo $SCRIPT_DIR"
+    ],
+    "description": "get the directory of the script"
+  },
+  // 创建临时目录
+  "Create temporary directory": {
+    "prefix": "mktempdir",
+    "body": [
+      "TMP_DIR=\"$(mktemp -d)\"",
+      "echo $TMP_DIR"
+    ],
+    "description": "Create a temporary directory"
+  },
+  // 创建临时文件
+  "Create temporary file": {
+    "prefix": "mktempfile",
+    "body": [
+      "TMP_FILE=\"$(mktemp)\"",
+      "echo $TMP_FILE"
+    ],
+    "description": "Create a temporary file"
+  },
+  // 创建随机字符串
+  "Create random string": {
+    "prefix": "randstr",
+    "body": [
+      "RAND_STR=\"$(openssl rand -hex ${1:16})\"",
+      "echo $RAND_STR"
+    ],
+    "description": "Create a random string"
+  },
+  // 创建目录并进入
   "Create and enter directory": {
     "prefix": "mkcd",
-    "body": ["mkdir -p ${1:directory_name}", "cd ${1}"],
-    "description": "Create a directory and enter it"
-  },
-  "Create and enter directory with git init": {
-    "prefix": "mkcdgit",
-    "body": ["mkdir -p ${1:directory_name}", "cd ${1}", "git init"],
-    "description": "Create a directory, enter it, and initialize a git repository"
-  },
-  "Create and enter directory with git init and README.md": {
-    "prefix": "mkcdgitreadme",
     "body": [
       "mkdir -p ${1:directory_name}",
-      "cd ${1}",
-      "git init",
-      "echo '# ${1}' >> README.md",
-      "git add .",
-      "git commit -m 'Initial commit'"
+      "cd ${1}"
     ],
-    "description": "Create a directory, enter it, initialize a git repository, and create a README.md"
+    "description": "Create a directory and enter it"
   },
-
+  // 创建文件并写入内容
+  "Create file and write content": {
+    "prefix": "cat",
+    "body": [
+      "cat <<-EOF ${1:>/path/to/file}",
+      "\t$2",
+      "EOF"
+    ],
+    "description": "cat... EOF"
+  },
+  // 打印变量
   "Print variable": {
     "prefix": "pv",
-    "body": ["echo \"${1:variable_name}=${!1}\""],
+    "body": [
+      "echo \"${1:variable_name}=${!1}\""
+    ],
     "description": "Print a variable with its value"
   },
-
+  // 打印变量带双引号
   "Print variable with quotes": {
     "prefix": "pvq",
-    "body": ["echo \"${1:variable_name}='${!1}'\""],
+    "body": [
+      "echo \"${1:variable_name}='${!1}'\""
+    ],
     "description": "Print a variable with its value in single quotes"
   },
-
   // 字符串截取
   "Extract substring": {
     "prefix": "substr",
@@ -58,7 +115,6 @@
     ],
     "description": "Extract a substring from a string"
   },
-
   // 字符串替换
   "String replacement": {
     "prefix": "strrep",
@@ -68,7 +124,188 @@
     ],
     "description": "Replace a pattern in a string"
   },
-
+  // 字符串拼接
+  "String concatenation": {
+    "prefix": "strcat",
+    "body": [
+      "${1:new_string}=${2:original_string}${3:additional_string}",
+      "echo \"${1}\""
+    ],
+    "description": "Concatenate two strings"
+  },
+  // 字符串长度
+  "String length": {
+    "prefix": "strlen",
+    "body": [
+      "${1:variable_name}=${#${2:original_string}}",
+      "echo \"${1}\""
+    ],
+    "description": "Get the length of a string"
+  },
+  // 字符串分割
+  "String split": {
+    "prefix": "strsplit",
+    "body": [
+      "IFS='${1:delimiter}' read -ra ${2:array_name} <<< \"${3:original_string}\"",
+      "for item in \"${${2}[@]}\"",
+      "do",
+      "    echo \"$item\"",
+      "done"
+    ],
+    "description": "Split a string into an array"
+  },
+  // 字符串转小写
+  "String to lowercase": {
+    "prefix": "strtolower",
+    "body": [
+      "${1:new_string}=${2:original_string,,}",
+      "echo \"${1}\""
+    ],
+    "description": "Convert a string to lowercase"
+  },
+  // 字符串转大写
+  "String to uppercase": {
+    "prefix": "strtoupper",
+    "body": [
+      "${1:new_string}=${2:original_string^^}",
+      "echo \"${1}\""
+    ],
+    "description": "Convert a string to uppercase"
+  },
+  // 字符串去空格
+  "String trim": {
+    "prefix": "strtrim",
+    "body": [
+      "${1:new_string}=${2:original_string}",
+      "${1:new_string}=${1// /}",
+      "echo \"${1}\""
+    ],
+    "description": "Trim whitespace from a string"
+  },
+  // 字符串反转
+  "String reverse": {
+    "prefix": "strrev",
+    "body": [
+      "${1:new_string}=${2:original_string}",
+      "${1:new_string}=${1: -1:1}${1:0:-1}",
+      "echo \"${1}\""
+    ],
+    "description": "Reverse a string"
+  },
+  // 字符串转为数组
+  "String to array": {
+    "prefix": "strtoarray",
+    "body": [
+      "IFS='${1:delimiter}' read -ra ${2:array_name} <<< \"${3:original_string}\"",
+      "for item in \"${${2}[@]}\"",
+      "do",
+      "    echo \"$item\"",
+      "done"
+    ],
+    "description": "Convert a string to an array"
+  },
+  // 检查字符串是否包含子串
+  "check if a string contains a substring": {
+    "prefix": "ifsubstring",
+    "body": [
+      "if [[ ${1:string} == *${2:substring}* ]]; then",
+      "\t$0",
+      "fi"
+    ],
+    "description": "if statement for checking if a string contains a substring"
+  },
+  // 检查字符串是否相等
+  "check if a string is equal to another string": {
+    "prefix": "ifequal",
+    "body": [
+      "if [[ ${1:string} == ${2:other_string} ]]; then",
+      "\t$0",
+      "fi"
+    ],
+    "description": "if statement for checking if a string is equal to another string"
+  },
+  // 检查字符串是否为空
+  "check if a string is empty": {
+    "prefix": "ifempty",
+    "body": [
+      "if [[ -z ${1:string} ]]; then",
+      "\t$0",
+      "fi"
+    ],
+    "description": "if statement for checking if a string is empty"
+  },
+  // 检查字符串是否为数字
+  "check if a string is a number": {
+    "prefix": "ifnumber",
+    "body": [
+      "if [[ ${1:string} =~ ^[0-9]+$ ]]; then",
+      "\t$0",
+      "fi"
+    ],
+    "description": "if statement for checking if a string is a number"
+  },
+  // 检查字符串是否为字母
+  "check if a string is a letter": {
+    "prefix": "ifletter",
+    "body": [
+      "if [[ ${1:string} =~ ^[a-zA-Z]+$ ]]; then",
+      "\t$0",
+      "fi"
+    ],
+    "description": "if statement for checking if a string is a letter"
+  },
+  // 检查字符串是否为字母或数字
+  "check if a string is a letter or number": {
+    "prefix": "ifletterornumber",
+    "body": [
+      "if [[ ${1:string} =~ ^[a-zA-Z0-9]+$ ]]; then",
+      "\t$0",
+      "fi"
+    ],
+    "description": "if statement for checking if a string is a letter or number"
+  },
+  // 检查字符串是否为字母或数字或下划线
+  "check if a string is a letter, number, or underscore": {
+    "prefix": "ifletterornumberorunderscore",
+    "body": [
+      "if [[ ${1:string} =~ ^[a-zA-Z0-9_]+$ ]]; then",
+      "\t$0",
+      "fi"
+    ],
+    "description": "if statement for checking if a string is a letter, number, or underscore"
+  },
+  // 检查字符串 是否以某个前缀开头
+  "check if a string starts with a prefix": {
+    "prefix": "ifstartswith",
+    "body": [
+      "if [[ ${1:string} == ${2:prefix}* ]]; then",
+      "\t$0",
+      "fi"
+    ],
+    "description": "if statement for checking if a string starts with a prefix"
+  },
+  // 检查字符串 是否以某个后缀结尾
+  "check if a string ends with a suffix": {
+    "prefix": "ifendswith",
+    "body": [
+      "if [[ ${1:string} == *${2:suffix} ]]; then",
+      "\t$0",
+      "fi"
+    ],
+    "description": "if statement for checking if a string ends with a suffix"
+  },
+  // 检查是否有命令
+  "check if a command exists": {
+    "prefix": "chkcmd",
+    "body": [
+      "if command -v ${1:command_name} >/dev/null 2>&1; then",
+      "    echo \"Command exists.\"",
+      "else",
+      "    echo \"Command does not exist.\"",
+      "fi"
+    ],
+    "description": "check if a command exists"
+  },
   // 检查文件
   "Check file existence": {
     "prefix": "chkfile",
@@ -81,7 +318,6 @@
     ],
     "description": "Check if a file exists"
   },
-
   // 检查目录
   "Check directory existence": {
     "prefix": "chkdir",
@@ -94,14 +330,15 @@
     ],
     "description": "Check if a directory exists"
   },
-
   // 读取文件
   "Read file content": {
     "prefix": "readfile",
-    "body": ["file_content=$(cat ${1:file_path})", "echo \"$file_content\""],
+    "body": [
+      "file_content=$(cat ${1:file_path})",
+      "echo \"$file_content\""
+    ],
     "description": "Read and print the content of a file"
   },
-
   // 读取文件行
   "Read file line by line": {
     "prefix": "readfilelines",
@@ -113,7 +350,15 @@
     ],
     "description": "Read and print each line of a file"
   },
-
+  "while read < file": {
+    "prefix": "while_read_file",
+    "body": [
+      "while read -r line; do",
+      "\techo \"\\$line\"",
+      "done < ${1:/path/to/file}"
+    ],
+    "description": "While loop to read file"
+  },
   // 读取数组
   "Read file into array": {
     "prefix": "readfilearray",
@@ -126,13 +371,245 @@
     ],
     "description": "Read and print each line of a file into an array"
   },
-
   // 多行注释
   "multiline_comments": {
     "prefix": "meof",
-    "body": [": '", "This is a", "multi line", "comment", "'", ""],
+    "body": [
+      ": '",
+      "This is a",
+      "multi line",
+      "comment",
+      "'",
+      ""
+    ],
     "description": "multiline_comments"
-  }
+  },
+  // 函数带参数
+  "function with parameters": {
+    "prefix": "fnparam",
+    "body": [
+      "function ${1:function_name}() {",
+      "\tlocal ${2:param1}=${3:-default_value}",
+      "\tlocal ${4:param2}=${5:-default_value}",
+      "\t$0",
+      "}"
+    ],
+    "description": "function with parameters and default values"
+  },
+  // 初始化git仓库
+  "Create and enter directory with git init": {
+    "prefix": "mkcdgit",
+    "body": [
+      "mkdir -p ${1:directory_name}",
+      "cd ${1}",
+      "git init"
+    ],
+    "description": "Create a directory, enter it, and initialize a git repository"
+  },
+  // 创建git仓库并创建README.md
+  "Create and enter directory with git init and README.md": {
+    "prefix": "mkcdgitreadme",
+    "body": [
+      "mkdir -p ${1:directory_name}",
+      "cd ${1}",
+      "git init",
+      "echo '# ${1}' >> README.md",
+      "git add .",
+      "git commit -m 'Initial commit'"
+    ],
+    "description": "Create a directory, enter it, initialize a git repository, and create a README.md"
+  },
+  // 简单的while getopts
+  "Getopts simple": {
+    "prefix": "getopts",
+    "body": [
+      "while getopts :${1:?}h arg",
+      "do",
+      "\tcase \\$arg in",
+      "\t\t${1})",
+      "\t\t\t${0:: #statements}",
+      "\t\t\t;;",
+      "\t\t:|?|h)",
+      "\t\t\t[[ \\$arg == \\? ]] && print_error \"L'option -\\$OPTARG n'est pas prise en charge !\"",
+      "\t\t\t[[ \\$arg == : ]] && print_error \"L'option -\\$OPTARG requiert un argument !\"",
+      "\t\t\tusage",
+      "\t\t\texit \\$([[ \\$arg == h ]] && echo 0 || echo 2)",
+      "\t\t\t;;",
+      "\tesac",
+      "done"
+    ],
+    "description": "while getopts … done (simple)"
+  },
+  // 完整的while getopts
+  "Getopts full": {
+    "prefix": "getopts",
+    "body": [
+      "while getopts :${1:?}a-:fqvh arg",
+      "do",
+      "\tcase \\$arg in",
+      "\t\t-)",
+      "\t\t\tif [[ \\${!OPTIND} == -* ]]; then",
+      "\t\t\t\tunset -v value",
+      "\t\t\telse",
+      "\t\t\t\tvalue=\"\\${!OPTIND}\"",
+      "\t\t\t\t((OPTIND++))",
+      "\t\t\tfi",
+      "\t\t\tcase \\$OPTARG in",
+      "\t\t\t\thost)",
+      "\t\t\t\t\tHOST=\\$value",
+      "\t\t\t\t\t;;",
+      "\t\t\t\tport)",
+      "\t\t\t\t\tif [[ ! \\$value =~ ^[0-9]+\\$ ]]; then",
+      "\t\t\t\t\t\tprint_error \"L'option --\\$OPTARG a besoin d'un entier en parametre. \\\"\\$value\\\" n'est pas un entier.\"",
+      "\t\t\t\t\t\tusage",
+      "\t\t\t\t\t\texit 2",
+      "\t\t\t\t\tfi",
+      "\t\t\t\t\t;;",
+      "\t\t\t\t*)",
+      "\t\t\t\t\tprint_error \"Le parametre '--\\$OPTARG' n'est pas reconnu !\"",
+      "\t\t\t\t\tusage",
+      "\t\t\t\t\texit 2",
+      "\t\t\t\t\t;;",
+      "\t\t\t\tesac",
+      "\t\t\t;;",
+      "\t\ta)",
+      "\t\t\t[[ \\$OPTARG == -* ]] && print_error \"L'option -\\$arg requiert un argument !\" && usage && exit 2",
+      "\t\t\t;;",
+      "\t\t${1})",
+      "\t\t\t${0:: #statements}",
+      "\t\t\t;;",
+      "\t\tf) FORCE=1 ;;",
+      "\t\tq) QUIET=1 ;;",
+      "\t\tv) VERBOSE=1 ;;",
+      "\t\t:|?|h)",
+      "\t\t\t[[ \\$arg == \\? ]] && print_error \"L'option -\\$OPTARG n'est pas prise en charge !\"",
+      "\t\t\t[[ \\$arg == : ]] && print_error \"L'option -\\$OPTARG requiert un argument !\"",
+      "\t\t\tusage",
+      "\t\t\texit \\$([[ \\$arg == h ]] && echo 0 || echo 2)",
+      "\t\t\t;;",
+      "\tesac",
+      "done"
+    ],
+    "description": "while getopts … done"
+  },
+  "Usage function": {
+    "prefix": "usage",
+    "body": [
+      "function usage() {",
+      "\tcat <<-EOF",
+      "\tUsage: pgihadmin ${1:tache} <CIBLE> [-f] [-q] [-h]",
+      "\tCette tache permet de ${2:bla bla}",
+      "\tPARAMETRES:",
+      "\t===========",
+      "\t    CIBLE    Serveur cible : <vide> ou all, aps, ts, lb, ord, apsN, tsN, lbN, ordN (avec N un nombre)",
+      "\tOPTIONS:",
+      "\t========",
+      "\t    -f    Mode force",
+      "\t    -q    Mode silencieux",
+      "\t    -h    Affiche ce message",
+      "EOF",
+      "}"
+    ],
+    "description": "Usage fonction template"
+  },
+  "New task": {
+    "prefix": "newtask",
+    "body": [
+      "#!/bin/bash",
+      "#",
+      "# @version \t\t14.4.0-SNAPSHOT",
+      "# @script\t\tt_${1:TODO}.sh",
+      "# @description\t${2:TODO : Description detaillee du script}",
+      "#",
+      "##",
+      "source p_common.sh",
+      "function usage() {",
+      "\tcat <<-EOF",
+      "\tUsage: pgihadmin ${1} <CIBLE> [-f] [-q] [-h]",
+      "\tCette tache permet de ${2}",
+      "\tPARAMETRES:",
+      "\t===========",
+      "\t    CIBLE    Serveur cible : <vide> ou all, aps, ts, lb, ord, apsN, tsN, lbN, ordN (avec N un nombre)",
+      "\tOPTIONS:",
+      "\t========",
+      "\t    -f    Mode force",
+      "\t    -q    Mode silencieux",
+      "\t    -h    Affiche ce message",
+      "EOF",
+      "}",
+      "#   __             _   _",
+      "#  / _|___ _ _  __| |_(_)___ _ _  ___",
+      "# |  _/ _ \\ ' \\/ _|  _| / _ \\ ' \\(_-<",
+      "# |_| \\___/_||_\\__|\\__|_\\___/_||_/__/",
+      "#",
+      "#",
+      "# TODO Function '${5}' description",
+      "# @param\tTODO The first parameter",
+      "# @return\tTODO",
+      "#",
+      "${5:function_name}() {",
+      "\tlocal firstParam=\\$1; shift",
+      "\tlocal secondParam=\\$1; shift",
+      "\t${6:echo \"Function '${5}' not yet implemented!\" # TODO}",
+      "}",
+      "#             _",
+      "#  _ __  __ _(_)_ _",
+      "# | '  \\/ _` | | ' \\",
+      "# |_|_|_\\__,_|_|_||_|",
+      "#",
+      "main() {",
+      "\twhile getopts :${3:?}a-:fqvh arg",
+      "\tdo",
+      "\t\tcase \\$arg in",
+      "\t\t\t-)",
+      "\t\t\t\tif [[ \\${!OPTIND} == -* ]]; then",
+      "\t\t\t\t\tunset -v value",
+      "\t\t\t\telse",
+      "\t\t\t\t\tvalue=\"\\${!OPTIND}\"",
+      "\t\t\t\t\t((OPTIND++))",
+      "\t\t\t\tfi",
+      "\t\t\t\tcase \\$OPTARG in",
+      "\t\t\t\t\thost)",
+      "\t\t\t\t\t\tHOST=\\$value",
+      "\t\t\t\t\t\t;;",
+      "\t\t\t\t\tport)",
+      "\t\t\t\t\t\tif [[ ! \\$value =~ ^[0-9]+\\$ ]]; then",
+      "\t\t\t\t\t\t\tprint_error \"L'option --\\$OPTARG a besoin d'un entier en parametre. \\\"\\$value\\\" n'est pas un entier.\"",
+      "\t\t\t\t\t\t\tusage",
+      "\t\t\t\t\t\t\texit 2",
+      "\t\t\t\t\t\tfi",
+      "\t\t\t\t\t\t;;",
+      "\t\t\t\t\t*)",
+      "\t\t\t\t\t\tprint_error \"Le parametre '--\\$OPTARG' n'est pas reconnu !\"",
+      "\t\t\t\t\t\tusage",
+      "\t\t\t\t\t\texit 2",
+      "\t\t\t\t\t\t;;",
+      "\t\t\t\t\tesac",
+      "\t\t\t\t;;",
+      "\t\t\ta)",
+      "\t\t\t\t[[ \\$OPTARG == -* ]] && print_error \"L'option -\\$arg requiert un argument !\" && usage && exit 2",
+      "\t\t\t\t;;",
+      "\t\t\t${3})",
+      "\t\t\t\t${4:: #statements}",
+      "\t\t\t\t;;",
+      "\t\t\tf) FORCE=1 ;;",
+      "\t\t\tq) QUIET=1 ;;",
+      "\t\t\tv) VERBOSE=1 ;;",
+      "\t\t\t:|?|h)",
+      "\t\t\t\t[[ \\$arg == \\? ]] && print_error \"L'option -\\$OPTARG n'est pas prise en charge !\"",
+      "\t\t\t\t[[ \\$arg == : ]] && print_error \"L'option -\\$OPTARG requiert un argument !\"",
+      "\t\t\t\tusage",
+      "\t\t\t\texit \\$([[ \\$arg == h ]] && echo 0 || echo 2)",
+      "\t\t\t\t;;",
+      "\t\tesac",
+      "\tdone",
+      "\t$7",
+      "}",
+      "main \"\\$@\""
+    ],
+    "description": "New task template"
+  },
+  // 添加更多代码片段
 }
 ```
 
