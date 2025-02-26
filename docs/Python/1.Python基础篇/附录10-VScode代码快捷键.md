@@ -192,6 +192,55 @@
 
 ```json
 {
+  // Place your ansible 工作区 snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Example:
+  // "Print to console": {
+  // 	"scope": "javascript,typescript",
+  // 	"prefix": "log",
+  // 	"body": [
+  // 		"console.log('$1');",
+  // 		"$2"
+  // 	],
+  // 	"description": "Log output to console"
+  // }
+  "ansible_playbook_snippets_base": {
+    "prefix": "asb_playbook_snippets_base",
+    "body": [
+      "---",
+      "- hosts: all",
+      "  become: true",
+      "  roles:",
+      "    - role: role_name",
+      "  tasks:",
+      "    - name: this is simple shell task",
+      "      shell:",
+      "        echo \"$1\"",
+    ],
+    "description": "asb_playbook_snippets_base",
+  },
+  "ansible_playbook_snippets_base_serial": {
+    "prefix": "asb_playbook_snippets_base_serial",
+    "body": [
+      "---",
+      "- hosts: all",
+      "  become: true",
+      "  # 通过设置 serial 来控制并发执行的任务数",
+      "  strategy: linear",
+      "  serial: 1",
+      "  roles:",
+      "    - role: role_name",
+      "  tasks:",
+      "    - name: this is sample task",
+      "      ping:",
+      "    $0"
+    ],
+    "description": "asb_playbook_snippets_base_serial",
+  },
   "ansible_group_var_all_task1": {
     "prefix": "asb_group_var_all_task1",
     "body": [
@@ -254,7 +303,7 @@
       "- hosts: $1",
       "  gather_facts: false",
       "  become: true",
-      "  serial: 1  # 一般情况下, ansible 会同时在所有服务器上执行用户定义的操作，因此可以通过设置 serial 来控制并发执行的任务数。",
+      "  serial: 1  # 一般情况下, ansible 会同时在所有服务器上执行用户定义的操作,因此可以通过设置 serial 来控制并发执行的任务数。",
       "  any_errors_fatal: true",
       "  tasks:",
       "    - import_role:",
@@ -435,8 +484,40 @@
     ],
     "description": "asb_set_fact_task4",
   },
+  "ansible_set_fact_task5": {
+    "prefix": "asb_set_fact_task5",
+    "body": [
+      "- set_fact: ipaddress=\"{{ hostvars[groups['webservers'][0]]['ansible_eth0']['ipv4']['address'] }}\"",
+      "- set_fact: headnode=\"{{ groups[['webservers'][0]] }}\"",
+      "",
+      "- debug: msg={{ headnode }}",
+      "- debug: msg={{ ipaddress }}"
+    ],
+    "description": "asb_set_fact_task5"
+  },
   "ansible_common_modules_command_task1": {
     "prefix": "asb_common_modules_command_task1",
+    "body": [
+      "- name: Checking docker SDK version",
+      "  command: \"/usr/bin/python -c \"import docker; print docker.__version__\"\"",
+      "  # 将执行的结果赋值给 result 变量",
+      "  register: result",
+      "  # 因为这个模块不会更改目标主机上的任何设置,所以change_when是false,无论执行结果如何,都不会去改变这个当然任务的changed属性",
+      "  # 我们可以通过changed_when来手动更改changed响应状态。",
+      "  changed_when: false",
+      "  # 判断目标主机inventory_hostname是否属于主机清单中的baremetal组",
+      "  when: inventory_hostname in groups['baremetal']",
+      "  # 将result变量传递给failed函数,判断命令是否执行成功",
+      "  # 如果命令执行成功,将result中的输出结果,传递给version_compare函数,判断版本是否符合要求",
+      "  # 如果failed_when判断结果为失败,则设置任务状态为失败,停止执行此playbook",
+      "  # 复杂判断",
+      "  failed_when: result | failed or",
+      "               result.stdout | version_compare(docker_py_version_min, '<')"
+    ],
+    "description": "asb_common_modules_command_task1"
+  },
+  "ansible_common_modules_command_task2": {
+    "prefix": "asb_common_modules_command_task2",
     "body": [
       "---",
       "- name: generate cluster fsid",
@@ -446,10 +527,10 @@
       "  delegate_to: \"{{ groups[mon_group_name][0] }}\"",
       "  run_once: true",
     ],
-    "description": "asb_common_modules_command_task1",
+    "description": "asb_common_modules_command_task2",
   },
-  "ansible_common_modules_command_task2": {
-    "prefix": "asb_common_modules_command_task2",
+  "ansible_common_modules_command_task3": {
+    "prefix": "asb_common_modules_command_task3",
     "body": [
       "- name: generate monitor initial keyring",
       "  command: >",
@@ -464,7 +545,7 @@
       "    - initial_mon_key.skipped is defined",
       "    - ceph_current_status.fsid is undefined",
     ],
-    "description": "asb_common_modules_command_task2",
+    "description": "asb_common_modules_command_task3",
   },
   "ansible_common_modules_shell_task1": {
     "prefix": "asb_common_modules_shell_task1",
@@ -485,7 +566,7 @@
       "    creates: /path/to/somefile",
       "    #args 用于指定额外的参数：",
       "    #chdir: 指定命令执行的目录。",
-      "    #creates: 如果指定的文件存在，则不执行命令。",
+      "    #creates: 如果指定的文件存在,则不执行命令。",
     ],
     "description": "asb_common_modules_shell_task2",
   },
@@ -522,6 +603,21 @@
     ],
     "description": "asb_common_modules_shell_task5",
   },
+  "ansible_common_modules_shell_task6": {
+    "prefix": "asb_common_modules_shell_task6",
+    "body": [
+      "- name: find running processes",
+      "  ignore_errors: yes",
+      "  shell: \"ps -ef | grep -v grep | grep sshd | awk '{print $2}'\"",
+      "  register: running_processes",
+      "",
+      "- name: Kill running processes",
+      "  ignore_errors: yes",
+      "  shell: \"kill {{ item }}\"",
+      "  with_items: \"{{ running_processes.stdout_lines }}\""
+    ],
+    "description": "asb_common_modules_shell_task6"
+  },
   "ansible_common_modules_debug_task1": {
     "prefix": "asb_common_modules_debug_task1",
     "body": [
@@ -543,6 +639,19 @@
       "  run_once: true",
     ],
     "description": "asb_common_modules_debug_task2",
+  },
+  "ansible_common_modules_debug_task3": {
+    "prefix": "asb_common_modules_debug_task3",
+    "body": [
+      "- name: debug inventory_hostname",
+      "  debug:",
+      "    var: inventory_hostname",
+      "",
+      "- name: debug groups[hosts_src_ctl][0]",
+      "  debug:",
+      "    var: groups[hosts_src_ctl][0]"
+    ],
+    "description": "asb_common_modules_debug_task3"
   },
   "ansible_common_modules_copy_task1": {
     "prefix": "asb_common_modules_copy_task1",
@@ -774,7 +883,7 @@
       "    path: \"/etc/systemd/system/ceph-mon@.service.d/\"",
       "  when:",
       "    - not containerized_deployment | bool",
-      "    # 默认ceph_mon_systemd_overrides没有设置，所以该任务不会执行",
+      "    # 默认ceph_mon_systemd_overrides没有设置,所以该任务不会执行",
       "    - ceph_mon_systemd_overrides is defined",
       "    - ansible_service_mgr == 'systemd'",
     ],
@@ -803,6 +912,53 @@
       "    group: \"root\"",
     ],
     "description": "asb_common_modules_file_task5",
+  },
+  "ansible_common_modules_file_task6": {
+    "prefix": "asb_common_modules_file_task6",
+    "body": [
+      "- name: absent logs",
+      "  file:",
+      "    path: \"{{ item }}\"",
+      "    state: absent",
+      "  with_items:",
+      "    - /tmp/log1.log",
+      "    - /tmp/log1.log"
+    ],
+    "description": "asb_common_modules_file_task6"
+  },
+  "ansible_common_modules_stat_task1": {
+    "prefix": "asb_common_modules_stat_task1",
+    "body": [
+      "- name: Get stats of the FS object",
+      "  stat:",
+      "    path: /path/to/something",
+      "  register: p",
+      "- name: Print a debug message",
+      "  debug:",
+      "    msg: \"Path exists and is a directory\"",
+      "  when: p.stat.isdir is defined and p.stat.isdir"
+    ],
+    "description": "asb_common_modules_stat_task1"
+  },
+  "ansible_common_modules_stat_task2": {
+    "prefix": "asb_common_modules_stat_task2",
+    "body": [
+      "- name: Get stats of the FS object",
+      "  stat:",
+      "    path: /path/to/something",
+      "  register: sym",
+      "",
+      "- name: Print a debug message",
+      "  debug:",
+      "    msg: \"islnk isn't defined (path doesn't exist)\"",
+      "  when: sym.stat.islnk is not defined",
+      "",
+      "- name: Print a debug message",
+      "  debug:",
+      "    msg: \"islnk is defined (path must exist)\"",
+      "  when: sym.stat.islnk is defined"
+    ],
+    "description": "asb_common_modules_stat_task2"
   },
   "ansible_common_modules_service_task1": {
     "prefix": "asb_common_modules_service_task1",
@@ -891,6 +1047,38 @@
     ],
     "description": "asb_common_modules_synchronize_task2"
   },
+  "ansible_common_modules_synchronize_task3": {
+    "prefix": "asb_common_modules_synchronize_task3",
+    "body": [
+      "#只同步远程目录没有的文件",
+      "- name: sync the upsync config",
+      "  synchronize:",
+      "    src: /data/.jenkins/jobs/ops-prod/jobs/ops-nginx-config/workspace/prod-nginx/upsync/",
+      "    dest: /etc/nginx/upsync/",
+      "    mode: push",
+      "    rsync_opts: \"--ignore-existing\"",
+      "    delete: yes",
+      "    rsync_timeout: 30",
+      "  tags:",
+      "    - prod-nginx"
+    ],
+    "description": "asb_common_modules_synchronize_task3"
+  },
+  "ansible_common_modules_fetch_task1": {
+    "prefix": "asb_common_modules_fetch_task1",
+    "body": [
+      "- name: get files in /path/",
+      "  shell: ls /path/*",
+      "  register: path_files",
+      "",
+      "- name: fetch these back to the local Ansible host for backup purposes",
+      "  fetch:",
+      "    src: /path/\"{{item}}\"",
+      "    dest: /path/to/backups/",
+      "  with_items: \"{{ path_files.stdout_lines }}\""
+    ],
+    "description": "asb_common_modules_fetch_task1"
+  },
   "ansible_modules_mysql_db_task1": {
     "prefix": "asb_modules_mysql_db_task1",
     "body": [
@@ -965,6 +1153,17 @@
     ],
     "description": "asb_when_task3",
   },
+  "ansible_when_task4": {
+    "prefix": "asb_when_task4",
+    "body": [
+      "- name: shut down centos8 systems",
+      "  command: /sbin/shutdown -t now",
+      "  when:",
+      "    - ansible_facts['distribution'] == \"CentOS",
+      "    - ansible_facts['distribution_major_version'] == \"8\"",
+    ],
+    "description": "asb_when_task4"
+  },
   "ansible_common_modules_lineinfile_task1": {
     "prefix": "asb_common_modules_lineinfile_task1",
     "body": [
@@ -999,7 +1198,304 @@
       "     prefix: myfile_"
     ],
     "description": "asb_common_modules_tempfile_task1"
-  }
+  },
+  "ansible_common_modules_find_task1": {
+    "prefix": "asb_common_modules_find_task1",
+    "body": [
+      "- name: find to delete logs",
+      "  find:",
+      "    paths: /var/log/",
+      "    patterns: *.log",
+      "    # age: 3d 查找3天前的文件",
+      "  register: files_to_absent"
+    ],
+    "description": "asb_common_modules_find_task1"
+  },
+  "ansible_common_modules_find_task2": {
+    "prefix": "asb_common_modules_find_task2",
+    "body": [
+      "- name: Find /var/log files equal or greater than 10 megabytes ending with .old or .log.gz",
+      "  find:",
+      "    paths: /var/log",
+      "    patterns: '*.old,*.log.gz'",
+      "    size: 10m"
+    ],
+    "description": "asb_common_modules_find_task2"
+  },
+  "ansible_common_modules_find_task3": {
+    "prefix": "asb_common_modules_find_task3",
+    "body": [
+      "- name: Find /var/log all directories, exclude nginx and mysql",
+      "  find:",
+      "    paths: /var/log",
+      "    recurse: no",
+      "    file_type: directory",
+      "    excludes: 'nginx,mysql'"
+    ],
+    "description": "asb_common_modules_find_task3"
+  },
+  "ansible_with_items_task1": {
+    "prefix": "asb_with_items_task1",
+    "body": [
+      "- name: test list",
+      "  command: echo {{ item }}",
+      "  with_items: [0, 2, 4, 6, 8, 10]",
+      "  when: item > 5",
+      "",
+      "# 等效与上面的with_items",
+      "- name: Run with items greater than 5",
+      "  command: echo {{ item }}",
+      "  loop: [ 0, 2, 4, 6, 8, 10 ]",
+      "  when: item > 5",
+      "",
+      "# 迭代列表子项",
+      "- name: Setting sysctl values",
+      "  sysctl: name={{ item.name }} value={{ item.value }} sysctl_set=yes",
+      "  with_items:",
+      "    - { name: \"net.bridge.bridge-nf-call-iptables\", value: 1 }",
+      "    - { name: \"net.bridge.bridge-nf-call-ip6tables\", value: 1 }",
+      "    - { name: \"net.ipv4.conf.all.rp_filter\", value: 0 }",
+      "    - { name: \"net.ipv4.conf.default.rp_filter\", value: 0 }",
+      "  when:",
+      "    - set_sysctl | bool",
+      "    - inventory_hostname in groups['compute']"
+    ],
+    "description": "asb_with_items_task1"
+  },
+  "ansible_with_items_task2": {
+    "prefix": "asb_with_items_task2",
+    "body": [
+      "- name: with_items",
+      "  debug:",
+      "    msg: \"{{ item }}\"",
+      "  with_items: \"{{ items }}\"",
+      "",
+      "# with_items可以使用loop和flatten过滤器代替。",
+      "- name: with_items -> loop",
+      "  debug:",
+      "    msg: \"{{ item }}\"",
+      "  loop: \"{{ items|flatten(levels=1) }}\""
+    ],
+    "description": "asb_with_items_task2"
+  },
+  "ansible_with_items_task3": {
+    "prefix": "asb_with_items_task3",
+    "body": [
+      "- name: with_list",
+      "  debug:",
+      "    msg: \"{{ item }}\"",
+      "  with_list:",
+      "    - one",
+      "    - two",
+      "",
+      "# with_list可以直接使用loop代替。",
+      "- name: with_list -> loop",
+      "  debug:",
+      "    msg: \"{{ item }}\"",
+      "  loop:",
+      "    - one",
+      "    - two"
+    ],
+    "description": "asb_with_items_task3"
+  },
+  "ansible_with_flattened_task1": {
+    "prefix": "asb_with_flattened_task1",
+    "body": [
+      "- name: Example with_flattened loop",
+      "  hosts: localhost",
+      "  gather_facts: false",
+      "  # 循环还支持列表,语句实现",
+      "  vars:",
+      "    my_list:",
+      "      - [1, 2, 3]",
+      "      - [4, 5, 6]",
+      "      - [7, 8, 9]",
+      "  tasks:",
+      "    - name: Print item",
+      "      debug:",
+      "        msg: \"{{ item }}\"",
+      "      with_flattened:",
+      "        - \"{{ my_list }}\""
+    ],
+    "description": "asb_with_flattened_task1"
+  },
+  "ansible_with_dict_task1": {
+    "prefix": "asb_with_dict_task1",
+    "body": [
+      "- name: Print phone records",
+      "  # 现在需要输出每个用户的用户名和手机号：",
+      "  debug: msg=\"User {{ item.key }} is {{ item.value.name }} ({{ item.value.telephone }})\"",
+      "  with_dict: \"{{ users }}\"",
+      "  # 假如有如下变量内容：",
+      "  vars:",
+      "    users:",
+      "      alice:",
+      "        name: Alice Appleworth",
+      "        telephone: 123-456-7890",
+      "      bob:",
+      "        name: Bob Bananarama",
+      "        telephone: 987-654-3210"
+    ],
+    "description": "asb_with_dict_task1"
+  },
+  "ansible_with_fileglob_task1": {
+    "prefix": "asb_with_fileglob_task1",
+    "body": [
+      "# 循环指定目录中的所有文件,支持通配符",
+      "- hosts: test",
+      "  tasks:",
+      "    - name: Make key directory     ",
+      "      file: ",
+      "        path: /root/.sshkeys ",
+      "        state: directory ",
+      "        mode: 0700 ",
+      "        owner: root ",
+      "        group: root ",
+      "        ",
+      "    - name: Upload public keys     ",
+      "      copy: ",
+      "        src: \"{{ item }}\"",
+      "        dest: /root/.sshkeys",
+      "        mode: 0600 ",
+      "        owner: root ",
+      "        group: root  ",
+      "      with_fileglob:",
+      "        - /root/.ssh/*.pub ",
+      ""
+    ],
+    "description": "asb_with_fileglob_task1"
+  },
+  "ansible_with_together_task1": {
+    "prefix": "asb_with_together_task1",
+    "body": [
+      "# with_together迭代两个列表的元素,遍历数据并行集合",
+      "- name: with_together task",
+      "  debug: msg=\"{{ item.0 }} and {{ item.1 }}\"    # 输出：a and 1, b and 2, c and 3, d and 4",
+      "  with_together:",
+      "      - \"{{ alpha }}\"",
+      "      - \"{{ numbers }}\"",
+      "  vars:",
+      "    alpha: [ 'a','b','c','d']",
+      "    numbers: [ 1,2,3,4 ]"
+    ],
+    "description": "asb_with_together_task1"
+  },
+  "ansible_with_nested_task1": {
+    "prefix": "asb_with_nested_task1",
+    "body": [
+      "# 嵌套循环 with_nested",
+      "- name: debug loops",
+      "  debug: msg=\"name is {{ item[0] }}  vaule is {{ item[1] }} num is {{ item[2] }}\" ",
+      "  with_nested:",
+      "    - ['alice','bob']",
+      "    - ['a','b','c']",
+      "    - ['1','2','3']"
+    ],
+    "description": "asb_with_nested_task1"
+  },
+  "ansible_loop_task1": {
+    "prefix": "asb_loop_task1",
+    "body": [
+      "- name: Add several users",
+      "  user:",
+      "    name: \"{{ item }}\"",
+      "    state: present",
+      "    groups: \"wheel\"",
+      "  loop:",
+      "     - testuser1",
+      "     - testuser2"
+    ],
+    "description": "asb_loop_task1"
+  },
+  "ansible_loop_task2": {
+    "prefix": "asb_loop_task2",
+    "body": [
+      "# 迭代列表子项",
+      "- name: Add several users",
+      "  user:",
+      "    name: \"{{ item.name }}\"",
+      "    state: present",
+      "    groups: \"{{ item.groups }}\"",
+      "  loop:",
+      "    - { name: 'testuser1', groups: 'wheel' }",
+      "    - { name: 'testuser2', groups: 'root' }"
+    ],
+    "description": "asb_loop_task2"
+  },
+  "ansible_loop_task3": {
+    "prefix": "asb_loop_task3",
+    "body": [
+      "# 迭代字典",
+      "- name: Using dict2items",
+      "  debug:",
+      "    msg: \"{{ item.key }} - {{ item.value }}\"",
+      "  loop: \"{{ tag_data | dict2items }}\"",
+      "  vars:",
+      "    tag_data:",
+      "      Environment: dev",
+      "      Application: payment"
+    ],
+    "description": "asb_loop_task3"
+  },
+  "ansible_loop_task4": {
+    "prefix": "asb_loop_task4",
+    "body": [
+      "- hosts: node1",
+      "  tasks:",
+      "    # 在循环中注册变量",
+      "    - name: Register loop output as a variable",
+      "      ansible.builtin.shell: \"echo {{ item }}\"",
+      "      loop:",
+      "        - \"one\"",
+      "        - \"two\"",
+      "      register: ECHO",
+      "",
+      "    - name: print variable ECHO",
+      "      ansible.builtin.debug:",
+      "        msg: \"The ECHO value is: {{ ECHO }}\""
+    ],
+    "description": "asb_loop_task4"
+  },
+  "ansible_loop_index_task5": {
+    "prefix": "asb_loop_index_task5",
+    "body": [
+      "- hosts: node1",
+      "  tasks:",
+      "    # 设置索引",
+      "    - name: Count our fruit",
+      "      ansible.builtin.debug:",
+      "        msg: \"{{ item }} with index {{ my_idx }}\"",
+      "      loop:",
+      "        - apple",
+      "        - banana",
+      "        - pear",
+      "      loop_control:",
+      "        index_var: my_idx"
+    ],
+    "description": "asb_loop_index_task5"
+  },
+  "ansible_loop_item2dict_nested_task6": {
+    "prefix": "asb_loop_item2dict_nested_task6",
+    "body": [
+      "---",
+      "- hosts: all",
+      "  vars:",
+      "    cars:",
+      "      mustang:",
+      "        color: yellow",
+      "        year: 2020",
+      "      ferrari:",
+      "        color: red",
+      "        year: 2021",
+      "",
+      "  tasks:",
+      "    - name: Iterate over dictionary",
+      "      debug:",
+      "        msg: \"The car is {{ item.key }}, color is {{ item.value.color }} and year is {{ item.value.year }}.\"",
+      "      loop: \"{{ cars | dict2items }}\"",
+    ],
+    "description": "asb_loop_item2dict_nested_task6"
+  },
 }
 ```
 
