@@ -22,17 +22,14 @@
       "# ${1:filename}: ",
       "# ${2:description}: ",
       "# ${3:author}: ",
-      "# ${4:version}: ",
+      "# ${4:version}: "
     ],
     "description": "Shebang"
   },
   // 获取当前时间
   "Get current time": {
     "prefix": "gettime",
-    "body": [
-      "TIME=\"$(date +%Y-%m-%d_%H:%M:%S)\"",
-      "echo $TIME"
-    ],
+    "body": ["TIME=\"$(date +%Y-%m-%d_%H:%M:%S)\"", "echo $TIME"],
     "description": "Get the current time"
   },
   // 获取脚本目录
@@ -47,63 +44,43 @@
   // 创建临时目录
   "Create temporary directory": {
     "prefix": "mktempdir",
-    "body": [
-      "TMP_DIR=\"$(mktemp -d)\"",
-      "echo $TMP_DIR"
-    ],
+    "body": ["TMP_DIR=\"$(mktemp -d)\"", "echo $TMP_DIR"],
     "description": "Create a temporary directory"
   },
   // 创建临时文件
   "Create temporary file": {
     "prefix": "mktempfile",
-    "body": [
-      "TMP_FILE=\"$(mktemp)\"",
-      "echo $TMP_FILE"
-    ],
+    "body": ["TMP_FILE=\"$(mktemp)\"", "echo $TMP_FILE"],
     "description": "Create a temporary file"
   },
   // 创建随机字符串
   "Create random string": {
     "prefix": "randstr",
-    "body": [
-      "RAND_STR=\"$(openssl rand -hex ${1:16})\"",
-      "echo $RAND_STR"
-    ],
+    "body": ["RAND_STR=\"$(openssl rand -hex ${1:16})\"", "echo $RAND_STR"],
     "description": "Create a random string"
   },
   // 创建目录并进入
   "Create and enter directory": {
     "prefix": "mkcd",
-    "body": [
-      "mkdir -p ${1:directory_name}",
-      "cd ${1}"
-    ],
+    "body": ["mkdir -p ${1:directory_name}", "cd ${1}"],
     "description": "Create a directory and enter it"
   },
   // 创建文件并写入内容
   "Create file and write content": {
     "prefix": "cat",
-    "body": [
-      "cat <<-EOF ${1:>/path/to/file}",
-      "\t$2",
-      "EOF"
-    ],
+    "body": ["cat <<-EOF ${1:>/path/to/file}", "\t$2", "EOF"],
     "description": "cat... EOF"
   },
   // 打印变量
   "Print variable": {
     "prefix": "pv",
-    "body": [
-      "echo \"${1:variable_name}=${!1}\""
-    ],
+    "body": ["echo \"${1:variable_name}=${!1}\""],
     "description": "Print a variable with its value"
   },
   // 打印变量带双引号
   "Print variable with quotes": {
     "prefix": "pvq",
-    "body": [
-      "echo \"${1:variable_name}='${!1}'\""
-    ],
+    "body": ["echo \"${1:variable_name}='${!1}'\""],
     "description": "Print a variable with its value in single quotes"
   },
   // 字符串截取
@@ -136,10 +113,7 @@
   // 字符串长度
   "String length": {
     "prefix": "strlen",
-    "body": [
-      "${1:variable_name}=${#${2:original_string}}",
-      "echo \"${1}\""
-    ],
+    "body": ["${1:variable_name}=${#${2:original_string}}", "echo \"${1}\""],
     "description": "Get the length of a string"
   },
   // 字符串分割
@@ -157,19 +131,13 @@
   // 字符串转小写
   "String to lowercase": {
     "prefix": "strtolower",
-    "body": [
-      "${1:new_string}=${2:original_string,,}",
-      "echo \"${1}\""
-    ],
+    "body": ["${1:new_string}=${2:original_string,,}", "echo \"${1}\""],
     "description": "Convert a string to lowercase"
   },
   // 字符串转大写
   "String to uppercase": {
     "prefix": "strtoupper",
-    "body": [
-      "${1:new_string}=${2:original_string^^}",
-      "echo \"${1}\""
-    ],
+    "body": ["${1:new_string}=${2:original_string^^}", "echo \"${1}\""],
     "description": "Convert a string to uppercase"
   },
   // 字符串去空格
@@ -207,91 +175,55 @@
   // 检查字符串是否包含子串
   "check if a string contains a substring": {
     "prefix": "ifsubstring",
-    "body": [
-      "if [[ ${1:string} == *${2:substring}* ]]; then",
-      "\t$0",
-      "fi"
-    ],
+    "body": ["if [[ ${1:string} == *${2:substring}* ]]; then", "\t$0", "fi"],
     "description": "if statement for checking if a string contains a substring"
   },
   // 检查字符串是否相等
   "check if a string is equal to another string": {
     "prefix": "ifequal",
-    "body": [
-      "if [[ ${1:string} == ${2:other_string} ]]; then",
-      "\t$0",
-      "fi"
-    ],
+    "body": ["if [[ ${1:string} == ${2:other_string} ]]; then", "\t$0", "fi"],
     "description": "if statement for checking if a string is equal to another string"
   },
   // 检查字符串是否为空
   "check if a string is empty": {
     "prefix": "ifempty",
-    "body": [
-      "if [[ -z ${1:string} ]]; then",
-      "\t$0",
-      "fi"
-    ],
+    "body": ["if [[ -z ${1:string} ]]; then", "\t$0", "fi"],
     "description": "if statement for checking if a string is empty"
   },
   // 检查字符串是否为数字
   "check if a string is a number": {
     "prefix": "ifnumber",
-    "body": [
-      "if [[ ${1:string} =~ ^[0-9]+$ ]]; then",
-      "\t$0",
-      "fi"
-    ],
+    "body": ["if [[ ${1:string} =~ ^[0-9]+$ ]]; then", "\t$0", "fi"],
     "description": "if statement for checking if a string is a number"
   },
   // 检查字符串是否为字母
   "check if a string is a letter": {
     "prefix": "ifletter",
-    "body": [
-      "if [[ ${1:string} =~ ^[a-zA-Z]+$ ]]; then",
-      "\t$0",
-      "fi"
-    ],
+    "body": ["if [[ ${1:string} =~ ^[a-zA-Z]+$ ]]; then", "\t$0", "fi"],
     "description": "if statement for checking if a string is a letter"
   },
   // 检查字符串是否为字母或数字
   "check if a string is a letter or number": {
     "prefix": "ifletterornumber",
-    "body": [
-      "if [[ ${1:string} =~ ^[a-zA-Z0-9]+$ ]]; then",
-      "\t$0",
-      "fi"
-    ],
+    "body": ["if [[ ${1:string} =~ ^[a-zA-Z0-9]+$ ]]; then", "\t$0", "fi"],
     "description": "if statement for checking if a string is a letter or number"
   },
   // 检查字符串是否为字母或数字或下划线
   "check if a string is a letter, number, or underscore": {
     "prefix": "ifletterornumberorunderscore",
-    "body": [
-      "if [[ ${1:string} =~ ^[a-zA-Z0-9_]+$ ]]; then",
-      "\t$0",
-      "fi"
-    ],
+    "body": ["if [[ ${1:string} =~ ^[a-zA-Z0-9_]+$ ]]; then", "\t$0", "fi"],
     "description": "if statement for checking if a string is a letter, number, or underscore"
   },
   // 检查字符串 是否以某个前缀开头
   "check if a string starts with a prefix": {
     "prefix": "ifstartswith",
-    "body": [
-      "if [[ ${1:string} == ${2:prefix}* ]]; then",
-      "\t$0",
-      "fi"
-    ],
+    "body": ["if [[ ${1:string} == ${2:prefix}* ]]; then", "\t$0", "fi"],
     "description": "if statement for checking if a string starts with a prefix"
   },
   // 检查字符串 是否以某个后缀结尾
   "check if a string ends with a suffix": {
     "prefix": "ifendswith",
-    "body": [
-      "if [[ ${1:string} == *${2:suffix} ]]; then",
-      "\t$0",
-      "fi"
-    ],
+    "body": ["if [[ ${1:string} == *${2:suffix} ]]; then", "\t$0", "fi"],
     "description": "if statement for checking if a string ends with a suffix"
   },
   // 检查是否有命令
@@ -333,10 +265,7 @@
   // 读取文件
   "Read file content": {
     "prefix": "readfile",
-    "body": [
-      "file_content=$(cat ${1:file_path})",
-      "echo \"$file_content\""
-    ],
+    "body": ["file_content=$(cat ${1:file_path})", "echo \"$file_content\""],
     "description": "Read and print the content of a file"
   },
   // 读取文件行
@@ -374,14 +303,7 @@
   // 多行注释
   "multiline_comments": {
     "prefix": "meof",
-    "body": [
-      ": '",
-      "This is a",
-      "multi line",
-      "comment",
-      "'",
-      ""
-    ],
+    "body": [": '", "This is a", "multi line", "comment", "'", ""],
     "description": "multiline_comments"
   },
   // 函数带参数
@@ -399,11 +321,7 @@
   // 初始化git仓库
   "Create and enter directory with git init": {
     "prefix": "mkcdgit",
-    "body": [
-      "mkdir -p ${1:directory_name}",
-      "cd ${1}",
-      "git init"
-    ],
+    "body": ["mkdir -p ${1:directory_name}", "cd ${1}", "git init"],
     "description": "Create a directory, enter it, and initialize a git repository"
   },
   // 创建git仓库并创建README.md
@@ -608,7 +526,7 @@
       "main \"\\$@\""
     ],
     "description": "New task template"
-  },
+  }
   // 添加更多代码片段
 }
 ```
@@ -696,9 +614,9 @@
       "  tasks:",
       "    - name: this is simple shell task",
       "      shell:",
-      "        echo \"$1\"",
+      "        echo \"$1\""
     ],
-    "description": "asb_playbook_snippets_base",
+    "description": "asb_playbook_snippets_base"
   },
   "ansible_playbook_snippets_base_serial": {
     "prefix": "asb_playbook_snippets_base_serial",
@@ -716,7 +634,7 @@
       "      ping:",
       "    $0"
     ],
-    "description": "asb_playbook_snippets_base_serial",
+    "description": "asb_playbook_snippets_base_serial"
   },
   "ansible_group_var_all_task1": {
     "prefix": "asb_group_var_all_task1",
@@ -733,9 +651,9 @@
       "configure_firewall: False",
       "osd_objectstore: bluestore",
       "devices:",
-      "  - /dev/sdb",
+      "  - /dev/sdb"
     ],
-    "description": "asb_group_var_all_task1",
+    "description": "asb_group_var_all_task1"
   },
   "ansible_playbook_snippets_task1": {
     "prefix": "asb_playbook_snippets_task1",
@@ -796,9 +714,9 @@
       "      debug:",
       "        msg: \"{{ ceph_status.stdout_lines }}\"",
       "      delegate_to: \"{{ groups[mon_group_name][0] }}\"",
-      "      run_once: true",
+      "      run_once: true"
     ],
-    "description": "asb_playbook_snippets_task2",
+    "description": "asb_playbook_snippets_task2"
   },
   "ansible_playbook_snippets_task3": {
     "prefix": "asb_playbook_snippets_task3",
@@ -837,9 +755,9 @@
       "      until: ansible_facts['hostname'] in (ceph_health_raw.stdout | trim | from_json)[\"quorum_names\"]",
       "      changed_when: false",
       "      retries: \"{{ health_mon_check_retries }}\"",
-      "      delay: \"{{ health_mon_check_delay }}\"",
+      "      delay: \"{{ health_mon_check_delay }}\""
     ],
-    "description": "asb_playbook_snippets_task3",
+    "description": "asb_playbook_snippets_task3"
   },
   "ansible_include_role_task1": {
     "prefix": "asb_include_role_tsak1",
@@ -861,9 +779,9 @@
       "    - name: 设置服务开机自启动",
       "      shell: echo \"/bin/bash /usr/local/bin/serviceshost.sh\" >> /etc/rc.local && chmod +x /etc/rc.local && chmod +x /etc/rc.d/rc.local",
       "      become: yes",
-      "      become_method: sudo",
+      "      become_method: sudo"
     ],
-    "description": "asb_include_role_tsak1",
+    "description": "asb_include_role_tsak1"
   },
   "ansible_include_role_task2": {
     "prefix": "asb_include_role_tsak2",
@@ -872,9 +790,9 @@
       "",
       "- include: redis.yml",
       "- include: db.yml",
-      "- include: license-gitignore.yml",
+      "- include: license-gitignore.yml"
     ],
-    "description": "asb_include_role_tsak2",
+    "description": "asb_include_role_tsak2"
   },
   "ansible_include_role_task3": {
     "prefix": "asb_include_role_tsak3",
@@ -897,17 +815,14 @@
       "      include_tasks: mon.yml",
       "",
       "    - name: include mgr.yml",
-      "      include_tasks: mgr.yml",
+      "      include_tasks: mgr.yml"
     ],
-    "description": "asb_include_role_tsak3",
+    "description": "asb_include_role_tsak3"
   },
   "ansible_add_task1": {
     "prefix": "asb_add_task1",
-    "body": [
-      "- name: $1",
-      "  $2"
-    ],
-    "description": "asb_add_task1",
+    "body": ["- name: $1", "  $2"],
+    "description": "asb_add_task1"
   },
   "ansible_set_fact_task1": {
     "prefix": "asb_set_fact_task1",
@@ -915,9 +830,9 @@
       "- name: set_fact fsid",
       "  set_fact:",
       "    fsid: \"{{ cluster_uuid.stdout }}\"",
-      "  when: cluster_uuid.stdout is defined",
+      "  when: cluster_uuid.stdout is defined"
     ],
-    "description": "ansible_set_fact_task1",
+    "description": "ansible_set_fact_task1"
   },
   "ansible_set_fact_task2": {
     "prefix": "asb_set_fact_task2",
@@ -932,9 +847,9 @@
       "  - name: set ntp service name for Red Hat family",
       "    set_fact:",
       "      ntp_service_name: ntpd",
-      "    when: ansible_os_family in ['RedHat', 'Suse']",
+      "    when: ansible_os_family in ['RedHat', 'Suse']"
     ],
-    "description": "asb_set_fact_task2",
+    "description": "asb_set_fact_task2"
   },
   "ansible_set_fact_task3": {
     "prefix": "asb_set_fact_task3",
@@ -942,9 +857,9 @@
       "- name: set_fact _monitor_address to monitor_interface - ipv4",
       "  set_fact:",
       "    monitor_addresses: \"{{ _monitor_addresses | default([]) + [{ ''name'': item, ''addr'': hostvars[item][''monitor_ipv4''] }] }}\"",
-      "  with_items: \"{{ groups.get(mon_group_name, []) }}\"",
+      "  with_items: \"{{ groups.get(mon_group_name, []) }}\""
     ],
-    "description": "asb_set_fact_task3",
+    "description": "asb_set_fact_task3"
   },
   "ansible_set_fact_task4": {
     "prefix": "asb_set_fact_task4",
@@ -957,9 +872,9 @@
       "",
       "- name: set_fact ceph_version",
       "  set_fact:",
-      "    ceph_version: \"{{ ceph_version.stdout.split('' '')[2] }}\"",
+      "    ceph_version: \"{{ ceph_version.stdout.split('' '')[2] }}\""
     ],
-    "description": "asb_set_fact_task4",
+    "description": "asb_set_fact_task4"
   },
   "ansible_set_fact_task5": {
     "prefix": "asb_set_fact_task5",
@@ -1002,9 +917,9 @@
       "  #command: \"{{ hostvars[groups[mon_group_name][0]][''discovered_interpreter_python''] }} -c ''import uuid; print(str(uuid.uuid4()))''\"",
       "  register: cluster_uuid",
       "  delegate_to: \"{{ groups[mon_group_name][0] }}\"",
-      "  run_once: true",
+      "  run_once: true"
     ],
-    "description": "asb_common_modules_command_task2",
+    "description": "asb_common_modules_command_task2"
   },
   "ansible_common_modules_command_task3": {
     "prefix": "asb_common_modules_command_task3",
@@ -1020,18 +935,18 @@
       "  delegate_to: \"{{ groups[mon_group_name][0] if running_mon is undefined else running_mon }}\"",
       "  when:",
       "    - initial_mon_key.skipped is defined",
-      "    - ceph_current_status.fsid is undefined",
+      "    - ceph_current_status.fsid is undefined"
     ],
-    "description": "asb_common_modules_command_task3",
+    "description": "asb_common_modules_command_task3"
   },
   "ansible_common_modules_shell_task1": {
     "prefix": "asb_common_modules_shell_task1",
     "body": [
       "- name: Configure timezone",
       "  shell: ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shanghai' >/etc/timezone",
-      "",
+      ""
     ],
-    "description": "asb_common_modules_shell_task1",
+    "description": "asb_common_modules_shell_task1"
   },
   "ansible_common_modules_shell_task2": {
     "prefix": "asb_common_modules_shell_task2",
@@ -1043,9 +958,9 @@
       "    creates: /path/to/somefile",
       "    #args 用于指定额外的参数：",
       "    #chdir: 指定命令执行的目录。",
-      "    #creates: 如果指定的文件存在,则不执行命令。",
+      "    #creates: 如果指定的文件存在,则不执行命令。"
     ],
-    "description": "asb_common_modules_shell_task2",
+    "description": "asb_common_modules_shell_task2"
   },
   "ansible_common_modules_shell_task3": {
     "prefix": "asb_common_modules_shell_task3",
@@ -1053,9 +968,9 @@
       "- name: get monitor ipv4 address",
       "  shell: \"cat /etc/hosts | grep {{ inventory_hostname }} | awk '{print \\$1}'\"",
       "  register: shell_out",
-      "",
+      ""
     ],
-    "description": "asb_common_modules_shell_task3",
+    "description": "asb_common_modules_shell_task3"
   },
   "ansible_common_modules_shell_task4": {
     "prefix": "asb_common_modules_shell_task4",
@@ -1066,9 +981,9 @@
       "  when:",
       "    - opriation == \"create\"",
       "    - rc_result.rc == 0",
-      "",
+      ""
     ],
-    "description": "asb_common_modules_shell_task4",
+    "description": "asb_common_modules_shell_task4"
   },
   "ansible_common_modules_shell_task5": {
     "prefix": "asb_common_modules_shell_task5",
@@ -1076,9 +991,9 @@
       "- name: 初始化数据库 1",
       "  shell: \"chdir=/app/gitee bundle exec rake db:migrate RAILS_ENV=production\"",
       "  run_once: true",
-      "  delegate_to: backend1",
+      "  delegate_to: backend1"
     ],
-    "description": "asb_common_modules_shell_task5",
+    "description": "asb_common_modules_shell_task5"
   },
   "ansible_common_modules_shell_task6": {
     "prefix": "asb_common_modules_shell_task6",
@@ -1101,9 +1016,9 @@
       "",
       "- name: \"show ceph status for cluster {{ cluster }}\"",
       "  debug:",
-      "    msg: \"{{ ceph_status.stdout_lines }}\"",
+      "    msg: \"{{ ceph_status.stdout_lines }}\""
     ],
-    "description": "asb_common_modules_debug_task1",
+    "description": "asb_common_modules_debug_task1"
   },
   "ansible_common_modules_debug_task2": {
     "prefix": "asb_common_modules_debug_task2",
@@ -1113,9 +1028,9 @@
       "  debug:",
       "    msg: \"{{ ceph_status.stdout_lines }}\"",
       "    delegate_to: \"{{ groups[mon_group_name][0] }}\"",
-      "  run_once: true",
+      "  run_once: true"
     ],
-    "description": "asb_common_modules_debug_task2",
+    "description": "asb_common_modules_debug_task2"
   },
   "ansible_common_modules_debug_task3": {
     "prefix": "asb_common_modules_debug_task3",
@@ -1137,9 +1052,9 @@
       "  copy:",
       "    src: sources.list",
       "    dest: /etc/apt/",
-      "    backup: yes",
+      "    backup: yes"
     ],
-    "description": "asb_common_modules_copy_task1",
+    "description": "asb_common_modules_copy_task1"
   },
   "ansible_common_modules_copy_task2": {
     "prefix": "asb_common_modules_copy_task2",
@@ -1157,9 +1072,9 @@
       "  notify:",
       "    - Start systemd-modules-load.service",
       "    - Reboot OS",
-      "",
+      ""
     ],
-    "description": "asb_common_modules_copy_task2",
+    "description": "asb_common_modules_copy_task2"
   },
   "ansible_common_modules_copy_task3": {
     "prefix": "asb_common_modules_copy_task3",
@@ -1174,9 +1089,9 @@
       "    remote_src: \"{{ dashboard_tls_external | bool }}\"",
       "  when:",
       "    - grafana_crt | length > 0",
-      "    - dashboard_protocol == \"https\"",
+      "    - dashboard_protocol == \"https\""
     ],
-    "description": "asb_common_modules_copy_task3",
+    "description": "asb_common_modules_copy_task3"
   },
   "ansible_common_modules_template_task1": {
     "prefix": "asb_common_modules_template_task1",
@@ -1186,9 +1101,9 @@
       "    src: keepalived/frontend/keepalived.conf",
       "    dest: /etc/keepalived/keepalived.conf",
       "  become: yes",
-      "  become_method: sudo",
+      "  become_method: sudo"
     ],
-    "description": "asb_common_modules_template_task1",
+    "description": "asb_common_modules_template_task1"
   },
   "ansible_common_modules_template_task2": {
     "prefix": "asb_common_modules_template_task2",
@@ -1218,9 +1133,9 @@
       "    - frontendhost.sh",
       "    - check_server.sh",
       "  become: yes",
-      "  become_method: sudo",
+      "  become_method: sudo"
     ],
-    "description": "asb_common_modules_template_task3",
+    "description": "asb_common_modules_template_task3"
   },
   "ansible_common_modules_unarchive_task1": {
     "prefix": "asb_common_modules_unarchive_task1",
@@ -1232,9 +1147,9 @@
       "    copy: no",
       "  when:",
       "    - containerd_version is defined",
-      "    - containerd_version != \"\"",
+      "    - containerd_version != \"\""
     ],
-    "description": "asb_common_modules_unarchive_task1",
+    "description": "asb_common_modules_unarchive_task1"
   },
   "ansible_common_modules_apt_tsak1": {
     "prefix": "asb_common_modules_apt_tsak1",
@@ -1266,9 +1181,9 @@
       "      - ceph-common",
       "      - ceph-mon",
       "      - ceph-mgr",
-      "  become: true",
+      "  become: true"
     ],
-    "description": "asb_common_modules_yum_tsak1",
+    "description": "asb_common_modules_yum_tsak1"
   },
   "ansible_common_modules_package_tsak1": {
     "prefix": "asb_common_modules_package_tsak1",
@@ -1278,9 +1193,9 @@
       "    name: \"{{ redhat_ceph_pkgs | unique }}\"",
       "    state: \"{{ (upgrade_ceph_packages|bool) | ternary(''latest'',''present'') }}\"",
       "  register: result",
-      "  until: result is succeeded",
+      "  until: result is succeeded"
     ],
-    "description": "asb_common_modules_package_tsak1",
+    "description": "asb_common_modules_package_tsak1"
   },
   "ansible_common_modules_package_tsak2": {
     "prefix": "asb_common_modules_package_tsak2",
@@ -1291,9 +1206,9 @@
       "    state: present",
       "  register: result",
       "  until: result is succeeded",
-      "  when: ansible_distribution == 'RedHat'",
+      "  when: ansible_distribution == 'RedHat'"
     ],
-    "description": "ansible_apb_task_package1",
+    "description": "ansible_apb_task_package1"
   },
   "ansible_common_modules_cron_tsak1": {
     "prefix": "asb_common_modules_cron_tsak1",
@@ -1304,9 +1219,9 @@
       "    minute: \"*/5\"",
       "    job: /usr/sbin/ntpdate {{ ntp_server }} &>/dev/null",
       "  when: ntp_server is defined",
-      "  become: yes",
+      "  become: yes"
     ],
-    "description": "asb_common_modules_cron_tsak1",
+    "description": "asb_common_modules_cron_tsak1"
   },
   "ansible_common_modules_user_task1": {
     "prefix": "asb_common_modules_user_task1",
@@ -1322,9 +1237,9 @@
       "  with_items:",
       "    - \"admin#123\"",
       "  become: yes",
-      "  become_method: sudo",
+      "  become_method: sudo"
     ],
-    "description": "asb_common_modules_user_task1",
+    "description": "asb_common_modules_user_task1"
   },
   "ansible_common_modules_file_task1": {
     "prefix": "asb_common_modules_file_task1",
@@ -1333,9 +1248,9 @@
       "  file:",
       "    path: /etc/containerd",
       "    state: directory",
-      "",
+      ""
     ],
-    "description": "asb_common_modules_file_task1",
+    "description": "asb_common_modules_file_task1"
   },
   "ansible_common_modules_file_task2": {
     "prefix": "asb_common_modules_file_task2",
@@ -1347,9 +1262,9 @@
       "   state: directory",
       "   owner: \"ceph\"",
       "   group: \"ceph\"",
-      "   mode: \"{{ ceph_directories_mode | default(''0755'') }}\"",
+      "   mode: \"{{ ceph_directories_mode | default(''0755'') }}\""
     ],
-    "description": "asb_common_modules_file_task2",
+    "description": "asb_common_modules_file_task2"
   },
   "ansible_common_modules_file_task3": {
     "prefix": "asb_common_modules_file_task3",
@@ -1362,9 +1277,9 @@
       "    - not containerized_deployment | bool",
       "    # 默认ceph_mon_systemd_overrides没有设置,所以该任务不会执行",
       "    - ceph_mon_systemd_overrides is defined",
-      "    - ansible_service_mgr == 'systemd'",
+      "    - ansible_service_mgr == 'systemd'"
     ],
-    "description": "asb_common_modules_file_task3",
+    "description": "asb_common_modules_file_task3"
   },
   "ansible_common_modules_file_task4": {
     "prefix": "asb_common_modules_file_task4",
@@ -1373,9 +1288,9 @@
       "  file:",
       "    src: /data/archive",
       "    dest: /app/gitee/tmp/repositories",
-      "    state: link",
+      "    state: link"
     ],
-    "description": "asb_common_modules_file_task4",
+    "description": "asb_common_modules_file_task4"
   },
   "ansible_common_modules_file_task5": {
     "prefix": "asb_common_modules_file_task5",
@@ -1386,9 +1301,9 @@
       "    state: touch",
       "    mode: \"0666\"",
       "    owner: \"root\"",
-      "    group: \"root\"",
+      "    group: \"root\""
     ],
-    "description": "asb_common_modules_file_task5",
+    "description": "asb_common_modules_file_task5"
   },
   "ansible_common_modules_file_task6": {
     "prefix": "asb_common_modules_file_task6",
@@ -1444,9 +1359,9 @@
       "   service:",
       "    name: kubelet.service",
       "    state: started",
-      "    enabled: yes",
+      "    enabled: yes"
     ],
-    "description": "asb_common_modules_service_task1",
+    "description": "asb_common_modules_service_task1"
   },
   "ansible_common_modules_system_task1": {
     "prefix": "asb_common_modules_system_task1",
@@ -1457,9 +1372,9 @@
       "    state: started",
       "    enabled: yes",
       "    masked: no",
-      "    daemon_reload: yes",
+      "    daemon_reload: yes"
     ],
-    "description": "asb_common_modules_system_task1",
+    "description": "asb_common_modules_system_task1"
   },
   "ansible_common_modules_system_task2": {
     "prefix": "asb_common_modules_system_task2",
@@ -1469,9 +1384,9 @@
       "    name: containerd.service",
       "    state: started",
       "    daemon_reload: yes",
-      "    enabled: yes",
+      "    enabled: yes"
     ],
-    "description": "asb_common_modules_system_task2",
+    "description": "asb_common_modules_system_task2"
   },
   "ansible_common_modules_get_url_task1": {
     "prefix": "asb_common_modules_get_url_task1",
@@ -1482,9 +1397,9 @@
       "    dest: /tmp",
       "    mode: 0755",
       "    force: yes ",
-      "",
+      ""
     ],
-    "description": "asb_common_modules_get_url_task1",
+    "description": "asb_common_modules_get_url_task1"
   },
   "ansible_common_modules_get_url_task2": {
     "prefix": "asb_common_modules_get_url_task2",
@@ -1498,9 +1413,9 @@
       "  with_items:",
       "    - http://{{ download_address }}/kubeadm-install/{{ kubeadm }}/kubeadm",
       "    - http://{{ download_address }}/kubeadm-install/{{ kubelet }}/kubelet",
-      "    - http://{{ download_address }}/kubeadm-install/{{ kubectl }}/kubectl",
+      "    - http://{{ download_address }}/kubeadm-install/{{ kubectl }}/kubectl"
     ],
-    "description": "asb_common_modules_get_url_task2",
+    "description": "asb_common_modules_get_url_task2"
   },
   "ansible_common_modules_synchronize_task1": {
     "prefix": "asb_common_modules_synchronize_task1",
@@ -1570,9 +1485,9 @@
       "    login_user: root",
       "    login_password: \"{{mysql_root_password}}\"",
       "  run_once: true",
-      "  delegate_to: backend1",
+      "  delegate_to: backend1"
     ],
-    "description": "asb_modules_mysql_db_task1",
+    "description": "asb_modules_mysql_db_task1"
   },
   "ansible_modules_mysql_user_task1": {
     "prefix": "asb_modules_mysql_user_task1",
@@ -1589,9 +1504,9 @@
       "    login_user: root",
       "    login_password: \"{{mysql_root_password}}\"",
       "  run_once: true",
-      "  delegate_to: backend1",
+      "  delegate_to: backend1"
     ],
-    "description": "asb_modules_mysql_user_task1",
+    "description": "asb_modules_mysql_user_task1"
   },
   "ansible_when_task1": {
     "prefix": "asb_when_task1",
@@ -1604,9 +1519,9 @@
       "  include_tasks: secure_cluster.yml",
       "  when:",
       "    - secure_cluster | bool",
-      "    - inventory_hostname == groups[mon_group_name] | first",
+      "    - inventory_hostname == groups[mon_group_name] | first"
     ],
-    "description": "asb_when_task1",
+    "description": "asb_when_task1"
   },
   "ansible_when_task2": {
     "prefix": "asb_when_task2",
@@ -1616,9 +1531,9 @@
       "  when:",
       "    - (ceph_tcmalloc_max_total_thread_cache | int) > 0",
       "    - osd_objectstore == 'filestore'",
-      "    - (ceph_origin == 'repository' or ceph_origin == 'distro')",
+      "    - (ceph_origin == 'repository' or ceph_origin == 'distro')"
     ],
-    "description": "asb_when_task2",
+    "description": "asb_when_task2"
   },
   "ansible_when_task3": {
     "prefix": "asb_when_task3",
@@ -1626,9 +1541,9 @@
       "- name: include release-rhcs.yml",
       "  include_tasks: release-rhcs.yml",
       "  when: ceph_repository in ['rhcs', 'dev'] or ceph_origin == 'distro'",
-      "  tags: always",
+      "  tags: always"
     ],
-    "description": "asb_when_task3",
+    "description": "asb_when_task3"
   },
   "ansible_when_task4": {
     "prefix": "asb_when_task4",
@@ -1637,7 +1552,7 @@
       "  command: /sbin/shutdown -t now",
       "  when:",
       "    - ansible_facts['distribution'] == \"CentOS",
-      "    - ansible_facts['distribution_major_version'] == \"8\"",
+      "    - ansible_facts['distribution_major_version'] == \"8\""
     ],
     "description": "asb_when_task4"
   },
@@ -1969,10 +1884,10 @@
       "    - name: Iterate over dictionary",
       "      debug:",
       "        msg: \"The car is {{ item.key }}, color is {{ item.value.color }} and year is {{ item.value.year }}.\"",
-      "      loop: \"{{ cars | dict2items }}\"",
+      "      loop: \"{{ cars | dict2items }}\""
     ],
     "description": "asb_loop_item2dict_nested_task6"
-  },
+  }
 }
 ```
 
