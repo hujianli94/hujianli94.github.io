@@ -541,36 +541,89 @@
 
 ```json
 {
-  "Get current directory": {
-    "prefix": "cdir",
+  "#!/usr/bin/env python 2": {
+    "prefix": "env",
+    "body": ["#!/usr/bin/env python2", "# -*- coding: utf-8 -*-\n$0"],
+    "description": "Adds shebang line for default python 2 interpreter."
+  },
+  "#!/usr/bin/env python3": {
+    "prefix": "env3",
+    "body": ["#!/usr/bin/env python3", "# -*- coding: utf-8 -*-\n$0"],
+    "description": "Adds shebang line for default python 3 interpreter."
+  },
+  "from future import ...": {
+    "prefix": "fenc",
+    "body": [
+      "from __future__ import absolute_import, division, print_function, unicode_literals"
+    ],
+    "description": "Import future statement definitions for python2.x scripts using utf-8 as encoding."
+  },
+  "Python 2": {
+    "prefix": "py2base",
+    "body": [
+      "#!/usr/bin/env python",
+      "# -*- coding: utf-8 -*-",
+      "",
+      "import sys",
+      "",
+      "def main():",
+      "    pass",
+      "",
+      "if __name__ == '__main__':"
+    ]
+  },
+  "Python 3": {
+    "prefix": "py3base",
+    "body": [
+      "#!/usr/bin/env python3",
+      "# -*- coding: utf-8 -*-",
+      "",
+      "import sys",
+      "",
+      "def main():",
+      "    pass",
+      "",
+      "if __name__ == '__main__':",
+      "    main()"
+    ]
+  },
+  "import": {
+    "prefix": "im",
+    "body": "import ${1:package/module}$0",
+    "description": "Import a package or module"
+  },
+  "from ... import ...": {
+    "prefix": "fim",
+    "body": "from ${1:package/module} import ${2:names}$0",
+    "description": "Import statement that allows individual objects from the module to be imported directly into the caller’s symbol table."
+  },
+  "Get current file path": {
+    "prefix": "cpath",
     "body": [
       "import os",
-      "current_directory = os.path.dirname(os.path.abspath(__file__))",
-      "print(f'Current directory: {current_directory}')"
+      "current_file_path = os.path.abspath(__file__)",
+      "print('Current file path: {}'.format(current_file_path))"
     ],
-    "description": "Get the current directory"
+    "description": "Get the current file path"
   },
-
-  "Get current file name": {
-    "prefix": "cfile",
-    "body": [
-      "import os",
-      "current_file_name = os.path.basename(__file__)",
-      "print(f'Current file name: {current_file_name}')"
-    ],
-    "description": "Get the current file name"
-  },
-
   "Get current time": {
     "prefix": "ctime",
     "body": [
       "from datetime import datetime",
       "current_time = datetime.now()",
-      "print(f'Current time: {current_time}')"
+      "print('Current time: {}'.format(current_time))"
     ],
     "description": "Get the current time"
   },
-
+  "Get current date and time": {
+    "prefix": "cdatetime",
+    "body": [
+      "from datetime import datetime",
+      "current_date_and_time = datetime.now()",
+      "print('Current date and time: {}'.format(current_date_and_time))"
+    ],
+    "description": "Get the current date and time"
+  },
   "Loop through list": {
     "prefix": "listloop",
     "body": [
@@ -579,6 +632,90 @@
       "    print(item)"
     ],
     "description": "Loop through a list and print items"
+  },
+  "lambda": {
+    "prefix": "lam",
+    "body": "lambda ${1:args}: ${2:expr}",
+    "description": "Create template for lambda function"
+  },
+  "PDB set trace": {
+    "prefix": "pdb",
+    "body": "import pdb; pdb.set_trace()$0"
+  },
+  "iPDB set trace": {
+    "prefix": "ipdb",
+    "body": "import ipdb; ipdb.set_trace()$0"
+  },
+  "rPDB set trace": {
+    "prefix": "rpdb",
+    "body": "import rpdb2; rpdb2.start_embedded_debugger('${1:debug_password}')$0"
+  },
+  "PuDB set trace": {
+    "prefix": "pudb",
+    "body": "import pudb; pudb.set_trace()$0"
+  },
+  "IPython set trace": {
+    "prefix": "ipydb",
+    "body": "from IPython import embed; embed()$0"
+  },
+  // file
+  "Get current directory": {
+    "prefix": "cdir",
+    "body": [
+      "import os",
+      "current_directory = os.path.dirname(os.path.abspath(__file__))",
+      "print('Current directory: {}'.format(current_directory))"
+    ],
+    "description": "Get the current directory"
+  },
+  "Get current file name": {
+    "prefix": "cfile",
+    "body": [
+      "import os",
+      "current_file_name = os.path.basename(__file__)",
+      "print('Current file name: {}'.format(current_file_name))"
+    ],
+    "description": "Get the current file name"
+  },
+  "file.listFiles": {
+    "prefix": "withFile-listFiles",
+    "body": "for item in os.listdir(\"${1:path/*.py}\"):  # import os\n\t# Comment: $0\n\tprint(item)\n# end file item",
+    "description": "List files in that path"
+  },
+  "file.listFilesWithPath": {
+    "prefix": "withFile-listFilesWithPath",
+    "body": "for item in glob.glob(\"${1:path\\*.py}\"):  # import glob\n\t# Comment: $0\n\tprint(item)\n# end file item with path",
+    "description": "List files with path"
+  },
+  "file.openFile": {
+    "prefix": "withFile-openFile",
+    "body": "with open('${1:pyfile.txt}', '${2:r}') as f:\n\t# Comment: $0\n\tprint(f.read())\n# end open file",
+    "description": "open a file"
+  },
+  "file.openFileReadLine": {
+    "prefix": "withFile-openFileReadLine",
+    "body": "with open('${1:pyfile.txt}', '${2:r}') as f:\n\t# Comment: $1\n\tfor line in f:\n\t\t# process each line here, remove \\n using strip\n\t\tline = line.replace(\"    \", \"\\t\").strip()\n\t\tprint(line, end=\",\\n\")$0\n\t# end for\n# end readline file",
+    "description": "Read one line of the file"
+  },
+  "file.openFileReadSingleLine": {
+    "prefix": "withFile-openFileReadSingleLine",
+    "body": "with open('${1:pyfile.txt}', '${2:r}') as f:\n\t# Comment: $0\n\tprint(f.readline())\n# end readline file",
+    "description": "Read one line of the file"
+  },
+  "file.appendFile": {
+    "prefix": "withFile-appendFile",
+    "body": "with open('${1:pyfile.txt}', '${2:a}') as f:\n\t# Comment: $0\n\tf.write(${2:\"text here\"})\n# end append file",
+    "description": "Write to an Existing File"
+  },
+  "file.overwriteFile": {
+    "prefix": "withFile-overwriteFile - can clear",
+    "body": "with open('${1:pyfile.txt}', '${2:w}') as f:\n\t# Comment: $0\n\tf.write(${2:\"new text\"})\n# end overwrite file",
+    "description": "Open a file and overwrite the content"
+  },
+  "file.deleteFile": {
+    "prefix": "withFile-deleteFile - need check exist",
+    "body": "if os.path.isfile('${1:pyfile.txt}'):\n\t# Comment: $0\n\tos.remove('${1:pyfile.txt}')  # import os\n# end del-file",
+    "description": "delete a file"
   }
 }
 ```
@@ -613,7 +750,7 @@
       "    - role: role_name",
       "  tasks:",
       "    - name: this is simple shell task",
-      "      shell:",
+      "      shell: |",
       "        echo \"$1\""
     ],
     "description": "asb_playbook_snippets_base"
