@@ -1080,7 +1080,9 @@
     "prefix": "asb_common_modules_shell_task1",
     "body": [
       "- name: Configure timezone",
-      "  shell: ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shanghai' >/etc/timezone",
+      "  shell: |",
+      "    set -eux; set -o pipefail",
+      "    ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shanghai' >/etc/timezone",
       ""
     ],
     "description": "asb_common_modules_shell_task1"
