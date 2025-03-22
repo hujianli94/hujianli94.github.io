@@ -453,15 +453,15 @@ nav:
   - 0.学习线路:
     - Python/0.学习线路/0.Pythjon-auto-ops.md
   - 1.Python基础篇:
-    - Python/1.Python基础篇/1.Python生态工具.md
-    - Python/1.Python基础篇/2.Python第三方库安装.md
-    - Python/1.Python基础篇/3.Python工作环境管理.md
-    - Python/1.Python基础篇/4.Python开发环境.md
-    - Python/1.Python基础篇/5.Python数据结构.md
-    - Python/1.Python基础篇/6.Python项目结构.md
-    - Python/1.Python基础篇/7.Python代码规范.md
-    - Python/1.Python基础篇/8.Python基础知识.md
-    - Python/1.Python基础篇/9.Python字符串.md
+    - Python/1.Python基础篇/01.Python生态工具.md
+    - Python/1.Python基础篇/02.Python第三方库安装.md
+    - Python/1.Python基础篇/03.Python工作环境管理.md
+    - Python/1.Python基础篇/04.Python开发环境.md
+    - Python/1.Python基础篇/05.Python数据结构.md
+    - Python/1.Python基础篇/06.Python项目结构.md
+    - Python/1.Python基础篇/07.Python代码规范.md
+    - Python/1.Python基础篇/08.Python基础知识.md
+    - Python/1.Python基础篇/09.Python字符串.md
     - Python/1.Python基础篇/10.Python数据类型.md
     - Python/1.Python基础篇/11.Python运算符和流程控制.md
     - Python/1.Python基础篇/12.Python文件操作.md
@@ -489,15 +489,15 @@ nav:
     - Python/1.Python基础篇/附录8-Python-rpm编译.md
     - Python/1.Python基础篇/附录9-IPython的使用.md
   - 2.Python运维开发:
-    - Python/2.Python运维开发/1.命令行工具.md
-    - Python/2.Python运维开发/2.文本处理.md
-    - Python/2.Python运维开发/3.Linux系统管理.md
-    - Python/2.Python运维开发/4.监控Linux.md
-    - Python/2.Python运维开发/5.文档与报告.md
-    - Python/2.Python运维开发/6.网络.md
-    - Python/2.Python运维开发/7.自动化管理.md
-    - Python/2.Python运维开发/8.常用模块.md
-    - Python/2.Python运维开发/9.Python打造MySQL专家系统.md
+    - Python/2.Python运维开发/01.命令行工具.md
+    - Python/2.Python运维开发/02.文本处理.md
+    - Python/2.Python运维开发/03.Linux系统管理.md
+    - Python/2.Python运维开发/04.监控Linux.md
+    - Python/2.Python运维开发/05.文档与报告.md
+    - Python/2.Python运维开发/06.网络.md
+    - Python/2.Python运维开发/07.自动化管理.md
+    - Python/2.Python运维开发/08.常用模块.md
+    - Python/2.Python运维开发/09.Python打造MySQL专家系统.md
     - Python/2.Python运维开发/10.自动化运维系统的开发.md
     - Python/2.Python运维开发/11.华为云Python演示代码.md
     - Python/2.Python运维开发/12.华为云Go演示代码.md
@@ -510,15 +510,15 @@ nav:
     - Python/2.Python运维开发/附-Kubernetes管理平台.md
     - Python/2.Python运维开发/附-varnish管理平台.md
   - 3.Python测试开发:
-    - Python/3.Python测试开发/1.Python2与Python3区别.md
-    - Python/3.Python测试开发/2.Windows环境安装Python.md
-    - Python/3.Python测试开发/3.Linux多版本Python安装.md
-    - Python/3.Python测试开发/4.Python虚拟环境安装.md
-    - Python/3.Python测试开发/5.Pycharm安装与使用.md
-    - Python/3.Python测试开发/6.Python间接定义常量.md
-    - Python/3.Python测试开发/7.Python运算符与表达式.md
-    - Python/3.Python测试开发/8.逻辑控制语句.md
-    - Python/3.Python测试开发/9.数据结构介绍.md
+    - Python/3.Python测试开发/01.Python2与Python3区别.md
+    - Python/3.Python测试开发/02.Windows环境安装Python.md
+    - Python/3.Python测试开发/03.Linux多版本Python安装.md
+    - Python/3.Python测试开发/04.Python虚拟环境安装.md
+    - Python/3.Python测试开发/05.Pycharm安装与使用.md
+    - Python/3.Python测试开发/06.Python间接定义常量.md
+    - Python/3.Python测试开发/07.Python运算符与表达式.md
+    - Python/3.Python测试开发/08.逻辑控制语句.md
+    - Python/3.Python测试开发/09.数据结构介绍.md
     - Python/3.Python测试开发/10.函数介绍.md
     - Python/3.Python测试开发/11.类与对象.md
     - Python/3.Python测试开发/12.打包与发布.md
@@ -530,15 +530,15 @@ nav:
     - Python/3.Python测试开发/附录-前后端代码仓库汇总.md
     - Python/3.Python测试开发/附录-Nginx完整配置样例.md
   - 4.Flask学习:
-    - Python/4.Flask学习/1.Flask前奏.md
-    - Python/4.Flask学习/2.项目配置.md
-    - Python/4.Flask学习/3.URL与视图.md
-    - Python/4.Flask学习/4.Jinja2模板.md
-    - Python/4.Flask学习/5.数据库.md
-    - Python/4.Flask学习/6.表单.md
-    - Python/4.Flask学习/7.Flask进阶.md
-    - Python/4.Flask学习/8.缓存系统.md
-    - Python/4.Flask学习/9.Flask_Restful.md
+    - Python/4.Flask学习/01.Flask前奏.md
+    - Python/4.Flask学习/02.项目配置.md
+    - Python/4.Flask学习/03.URL与视图.md
+    - Python/4.Flask学习/04.Jinja2模板.md
+    - Python/4.Flask学习/05.数据库.md
+    - Python/4.Flask学习/06.表单.md
+    - Python/4.Flask学习/07.Flask进阶.md
+    - Python/4.Flask学习/08.缓存系统.md
+    - Python/4.Flask学习/09.Flask_Restful.md
     - Python/4.Flask学习/10.Flask项目实战.md
     - Python/4.Flask学习/11.WebSock实战.md
     - Python/4.Flask学习/12.Flask异步编程.md
@@ -578,15 +578,15 @@ nav:
     - Python/7.Python网络编程攻略/3.IPv6-Unix域套接字和网络接口.md
     - Python/7.Python网络编程攻略/4.HTTP协议网络编程.md
   - 8.Python自动化运维实战:
-    - Python/8.Python自动化运维实战/1.搭建Python环境.md
-    - Python/8.Python自动化运维实战/2.常用的自动化库.md
-    - Python/8.Python自动化运维实战/3.搭建网络实验室环境.md
-    - Python/8.Python自动化运维实战/4.使用Python管理网络设备.md
-    - Python/8.Python自动化运维实战/5.从网络设备中提取数据.md
-    - Python/8.Python自动化运维实战/6.Python和Jinja2配置生成器.md
-    - Python/8.Python自动化运维实战/7.并行执行Python脚本.md
-    - Python/8.Python自动化运维实战/8.准备实验室环境.md
-    - Python/8.Python自动化运维实战/9.使用Subprocess模块.md
+    - Python/8.Python自动化运维实战/01.搭建Python环境.md
+    - Python/8.Python自动化运维实战/02.常用的自动化库.md
+    - Python/8.Python自动化运维实战/03.搭建网络实验室环境.md
+    - Python/8.Python自动化运维实战/04.使用Python管理网络设备.md
+    - Python/8.Python自动化运维实战/05.从网络设备中提取数据.md
+    - Python/8.Python自动化运维实战/06.Python和Jinja2配置生成器.md
+    - Python/8.Python自动化运维实战/07.并行执行Python脚本.md
+    - Python/8.Python自动化运维实战/08.准备实验室环境.md
+    - Python/8.Python自动化运维实战/09.使用Subprocess模块.md
     - Python/8.Python自动化运维实战/10.使用Fabric管理任务.md
     - Python/8.Python自动化运维实战/11.生成系统报告和系统监控.md
     - Python/8.Python自动化运维实战/12.与数据库交互.md
