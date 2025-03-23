@@ -19,3 +19,13 @@
 通过 demo 学习 OpenStack 开发所需的基础知识 -- 单元测试
 
 - https://segmentfault.com/a/1190000004595130#item-3-11
+
+## pecan demo
+
+Python pecan web demo
+
+本项目是基于 pecan 搭建的 web 框架，涉及 sqlalchemy 操作数据库，实现了增删改查的所有功能.
+
+- https://github.com/Luckylau/python-web-frame.git
+
+- https://github.com/luohaixiannz/pecan_test_project

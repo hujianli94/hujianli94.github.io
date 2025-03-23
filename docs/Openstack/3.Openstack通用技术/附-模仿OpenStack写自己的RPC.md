@@ -4,13 +4,7 @@
 
 - https://www.cnblogs.com/wongbingming/p/11086773.html
 
-## 基于 Rabbit 实现的 RPC
-
-- https://www.cnblogs.com/goldsunshine/p/8665456.html
-
 ## 模仿 OpenStack 写自己的 RPC
-
-- https://www.cnblogs.com/goldsunshine/p/10205058.html
 
 - https://www.bmabk.com/index.php/post/194295.html
 
