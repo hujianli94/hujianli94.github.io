@@ -382,22 +382,23 @@ nav:
     - Golang/8.Go标准库/49.函数工具库.md
     - Golang/8.Go标准库/50.Go语言在运维开发中的应用.md
   - 9.Go三方库:
-    - Golang/9.Go三方库/0.开源自己的Go库.md
-    - Golang/9.Go三方库/1.cobra.md
-    - Golang/9.Go三方库/2.viper.md
-    - Golang/9.Go三方库/3.Zap.md
-    - Golang/9.Go三方库/4.mahonia.md
-    - Golang/9.Go三方库/5.ssh.md
-    - Golang/9.Go三方库/6.fsnotify.md
-    - Golang/9.Go三方库/7.yaml.md
-    - Golang/9.Go三方库/8.tail.md
-    - Golang/9.Go三方库/9.gRPC.md
+    - Golang/9.Go三方库/00.开源自己的Go库.md
+    - Golang/9.Go三方库/01.cobra.md
+    - Golang/9.Go三方库/02.viper.md
+    - Golang/9.Go三方库/03.Zap.md
+    - Golang/9.Go三方库/04.mahonia.md
+    - Golang/9.Go三方库/05.ssh.md
+    - Golang/9.Go三方库/06.fsnotify.md
+    - Golang/9.Go三方库/07.yaml.md
+    - Golang/9.Go三方库/08.tail.md
+    - Golang/9.Go三方库/09.gRPC.md
     - Golang/9.Go三方库/10.gopsutil.md
     - Golang/9.Go三方库/11.go-awesome.md
     - Golang/9.Go三方库/12.dmidecode.md
     - Golang/9.Go三方库/13.toml.md
     - Golang/9.Go三方库/14.cli.md
     - Golang/9.Go三方库/15.goconfig.md
+    - Golang/9.Go三方库/16.GoFrame框架.md
     - Golang/9.Go三方库/附-其他三方库.md
   - 10.Go-RESTful-API接口开发:
     - Golang/10.Go-RESTful-API接口开发/1.什么是RESTful-API.md
