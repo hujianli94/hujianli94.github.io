@@ -755,15 +755,15 @@ nav:
 - Shell:
   - Shell实践:
     - Shell/Shell简介.md
-    - Shell/1.第一个shell程序.md
-    - Shell/2.Shell变量和字符串.md
-    - Shell/3.Shell参数.md
-    - Shell/4.Shell数组.md
-    - Shell/5.Shell运算符.md
-    - Shell/6.Shell-echo_printf命令.md
-    - Shell/7.Shell条件表达式.md
-    - Shell/8.Shell流程控制.md
-    - Shell/9.Shell函数.md
+    - Shell/01.第一个shell程序.md
+    - Shell/02.Shell变量和字符串.md
+    - Shell/03.Shell参数.md
+    - Shell/04.Shell数组.md
+    - Shell/05.Shell运算符.md
+    - Shell/06.Shell-echo_printf命令.md
+    - Shell/07.Shell条件表达式.md
+    - Shell/08.Shell流程控制.md
+    - Shell/09.Shell函数.md
     - Shell/10.Shell重定向.md
     - Shell/11.Shell正则表达式.md
     - Shell/12.Shell三剑客之grep.md
