@@ -41,8 +41,6 @@ docker-registry-cli/
 #!/usr/bin/env python3
 # -*- coding:utf8 -*-
 import json
-import prettytable
-import six
 
 
 def print_json(data):
@@ -54,48 +52,115 @@ def pretty_choice_list(l):
     return ', '.join("'%s'" % i for i in l)
 
 
-def _print(pt, order):
-    print(pt.get_string(sortby=order))
-
-
-def print_list(objs, fields, formatters={}, order_by=None):
+def print_list(objs, fields, formatters={}, order_by=None, alignments=None):
     """
     Print a list of objects as a table.
     """
-    mixed_case_fields = ['serverId']
-    pt = prettytable.PrettyTable([f for f in fields], caching=False)
-    pt.aligns = ['l' for f in fields]
+    if not objs:
+        print("No data to display.")
+        return
 
+    if alignments is None:
+        alignments = ['l'] * len(fields)
+    # 确保 alignments 是一个列表
+    if isinstance(alignments, str):
+        alignments = [alignments] * len(fields)
+
+    mixed_case_fields = ['serverId']
+    # 计算每列的最大宽度
+    column_widths = [len(field) for field in fields]
     for o in objs:
-        row = []
-        for field in fields:
+        for i, field in enumerate(fields):
             if field in formatters:
-                row.append(formatters[field](o))
+                value = str(formatters[field](o))
             else:
                 if field in mixed_case_fields:
                     field_name = field.replace(' ', '_')
                 else:
                     field_name = field.lower().replace(' ', '_')
-                if type(o) == dict and field in o:
-                    data = o[field]
+                if isinstance(o, dict) and field in o:
+                    value = str(o[field])
                 else:
-                    data = getattr(o, field_name, '')
-                row.append(data)
-        pt.add_row(row)
+                    value = str(getattr(o, field_name, ''))
+            column_widths[i] = max(column_widths[i], len(value))
+
+    # 打印表头
+    header = '|'.join(
+        format_field(field, width, alignment) for field, width, alignment in zip(fields, column_widths, alignments))
+    separator = '+'.join('-' * width for width in column_widths)
+    print(f"+{separator}+")
+    print(f"|{header}|")
+    print(f"+{separator}+")
+
+    # 打印数据行
+    for o in objs:
+        row = []
+        for i, field in enumerate(fields):
+            if field in formatters:
+                value = str(formatters[field](o))
+            else:
+                if field in mixed_case_fields:
+                    field_name = field.replace(' ', '_')
+                else:
+                    field_name = field.lower().replace(' ', '_')
+                if isinstance(o, dict) and field in o:
+                    value = str(o[field])
+                else:
+                    value = str(getattr(o, field_name, ''))
+            row.append(format_field(value, column_widths[i], alignments[i]))
+        row_str = '|'.join(row)
+        print(f"|{row_str}|")
+    print(f"+{separator}+")
 
     if order_by is None:
         order_by = fields[0]
-    _print(pt, order_by)
 
 
-def print_dict(d, property="Property"):
+def print_dict(d, property="Property", alignments=None):
     """
     Print a dictionary as a table.
     """
-    pt = prettytable.PrettyTable([property, 'Value'], caching=False)
-    pt.aligns = ['l', 'l']
-    [pt.add_row(list(r)) for r in six.iteritems(d)]
-    _print(pt, property)
+    if not d:
+        print("No data to display.")
+        return
+
+    if alignments is None:
+        alignments = ['l', 'l']
+    # 确保 alignments 是一个列表
+    if isinstance(alignments, str):
+        alignments = [alignments] * 2
+
+    # 计算键和值的最大宽度
+    key_width = max(len(str(key)) for key in d.keys())
+    value_width = max(len(str(value)) for value in d.values())
+    key_width = max(key_width, len(property))
+    value_width = max(value_width, len('Value'))
+
+    # 打印表头
+    header = f"{format_field(property, key_width, alignments[0])}|{format_field('Value', value_width, alignments[1])}"
+    separator = '-' * key_width + '+' + '-' * value_width
+    print(f"+{separator}+")
+    print(f"|{header}|")
+    print(f"+{separator}+")
+
+    # 打印数据行
+    for key, value in d.items():
+        row = f"{format_field(str(key), key_width, alignments[0])}|{format_field(str(value), value_width, alignments[1])}"
+        print(f"|{row}|")
+    print(f"+{separator}+")
+
+
+def format_field(value, width, alignment):
+    """
+    根据对齐方式格式化字段
+    """
+    if alignment == 'l':
+        return f"{value:<{width}}"
+    elif alignment == 'c':
+        return f"{value:^{width}}"
+    elif alignment == 'r':
+        return f"{value:>{width}}"
+    return f"{value:<{width}}"
 ```
 
 
@@ -176,7 +241,8 @@ class RestClient:
 #!/usr/bin/env python3
 # -*- coding:utf8 -*-
 from utils.rest_client import RestClient
-from utils.output import print_json, print_dict, print_list
+from utils.output import print_json, print_list
+
 
 # 获取镜像仓库列表
 # curl -u username:password https://your-registry-url/v2/_catalog
@@ -209,7 +275,31 @@ def list_images(config_data, output_format):
         if output_format == 'json':
             print_json(images_with_tags)
         else:
-            print_list(images_with_tags, fields=["repository", "tags"])
+            print_list(images_with_tags, fields=["repository", "tags"], alignments="c")
+    except Exception as e:
+        print(f"Error: {str(e)}")
+
+
+# 新增函数，用于显示指定镜像的标签
+def show_image_tags(config_data, image_name, output_format):
+    try:
+        registry_url = config_data.get("registry", "http://127.0.0.1:5000")
+        client = RestClient(base_url=registry_url)
+
+        # 获取指定镜像的标签列表
+        tags_endpoint = f"/v2/{image_name}/tags/list"
+        tags_response = client.get(tags_endpoint)
+        tags = tags_response.get("tags", [])
+
+        image_info = {
+            "repository": image_name,
+            "tags": tags
+        }
+
+        if output_format == 'json':
+            print_json([image_info])
+        else:
+            print_list([image_info], fields=["repository", "tags"], alignments="c")
     except Exception as e:
         print(f"Error: {str(e)}")
 ```
@@ -246,11 +336,19 @@ def main():
     # 继承顶级参数
     list_parser.add_argument('--output', help='Output format (json/table)', default='table')
 
+    # 新增 name 子命令
+    name_parser = image_subparsers.add_parser('name', help='Show tags of a specific image')
+    name_parser.add_argument('image_name', help='Name of the image')
+    name_parser.add_argument('--output', help='Output format (json/table)', default='table')
+
     args = parser.parse_args()
 
     # Handle image list command
     if args.command == 'image' and args.image_command == 'list':
         image.list_images(config_data, args.output)
+    # 处理 name 子命令
+    elif args.command == 'image' and args.image_command == 'name':
+        image.show_image_tags(config_data, args.image_name, args.output)
     else:
         parser.print_help()
 
@@ -264,12 +362,7 @@ if __name__ == '__main__':
 
 ```shell
 requests
-prettytable
 ```
-
-
-
-
 
 
 
