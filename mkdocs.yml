@@ -667,6 +667,7 @@ nav:
           - Openstack/3.Openstack通用技术/17.oslo-concurrency.md
           - Openstack/3.Openstack通用技术/18.stevedore.md
           - Openstack/3.Openstack通用技术/19.oslo-serialization.md
+          - Openstack/3.Openstack通用技术/20.oslo-cache.md
           - Openstack/3.Openstack通用技术/附-编译-打包总结.md
           - Openstack/3.Openstack通用技术/附-模仿OpenStack写自己的RPC.md
           - Openstack/3.Openstack通用技术/附-模仿Openstack写CLI工具.md
