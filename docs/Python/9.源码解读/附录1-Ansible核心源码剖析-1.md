@@ -14,6 +14,8 @@
 
 - https://releases.ansible.com/ansible
 - https://releases.ansible.com/ansible/rpm/release/epel-7-x86_64/
+- https://repo.huaweicloud.com/ansible/
+
 
 > python 版本下载地址：https://mirrors.huaweicloud.com/python
 
