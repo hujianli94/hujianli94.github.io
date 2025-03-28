@@ -631,6 +631,12 @@ nav:
           - Python/11.Tornado框架/附录1-pyadmin源码学习.md
           - Python/11.Tornado框架/附录2-opendevops源码学习.md
 
+      - 12.GUI编程:
+          - Python/12.GUI编程/01.常用的GUI框架工具包.md
+          - Python/12.GUI编程/02.Tkinter.md
+          - Python/12.GUI编程/03.wxPython.md
+          - Python/12.GUI编程/04.PyQT.md
+
   - Openstack:
       - 0.学习线路:
           - Openstack/0.学习线路/0.OpenStack.md
