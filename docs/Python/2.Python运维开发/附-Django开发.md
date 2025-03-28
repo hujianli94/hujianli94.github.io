@@ -1,4 +1,4 @@
-# 附-Django-web 开发
+# 附-Django开发
 
 ## 1. MVC/MTV
 
@@ -3118,6 +3118,9 @@ https://github.com/jumploop/book_demo
 ## 9.Python+Django+Vue 图书管理系统开发全流程
 
 https://github.com/guosaike/dvtushu
+
+https://gitee.com/django-devops/dvtushu
+
 
 ## 10.基于 Python+Django+Vue 协同过滤电影推荐系统设计与实现
 

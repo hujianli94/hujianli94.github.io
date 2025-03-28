@@ -956,6 +956,23 @@
     ],
     "description": "asb_include_role_tsak3"
   },
+  "ansible_include_role_task4": {
+    "prefix": "asb_include_role_tsak4",
+    "body": [
+      "- hosts: all",
+      "  gather_facts: no",
+      "  remote_user: root",
+      "  vars:",
+      "    coredns_ip: 10.127.0.2",
+      "    dcregion: aa",
+      "",
+      "  roles:",
+      "  - mon_common",
+      "    #  - aliyun",
+      "    #  - timeline"
+    ],
+    "description": "ansible_include_role_task4"
+  },
   "ansible_add_task1": {
     "prefix": "asb_add_task1",
     "body": ["- name: $1", "  $2"],
