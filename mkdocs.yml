@@ -833,6 +833,9 @@ nav:
           - Linux/System/14.Linux下软件打包.md
           - Linux/System/15.Linux系统磁盘管理.md
           - Linux/System/16.Linux系统磁盘进阶.md
+          - Linux/System/17.常用的更换各种源的经验.md
+          - Linux/System/18.检查服务器端口的方法.md
+          - Linux/System/19.Linux上各种压缩比较.md
       - Ubuntu:
           - Linux/Ubuntu/1.Ubuntu桌面初始化安装配置.md
           - Linux/Ubuntu/2.ubuntu-desktop-vmware.md
