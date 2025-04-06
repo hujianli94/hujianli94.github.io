@@ -277,5 +277,6 @@
   "terminal.integrated.defaultProfile.windows": "Command Prompt",
   "files.autoSaveWhenNoErrors": true,
   "files.autoSaveWorkspaceFilesOnly": true,
-  "flake8.ignorePatterns": ["--max-line-length=248", "--ignore=E501"]
+  "flake8.ignorePatterns": ["--max-line-length=248", "--ignore=E501"],
+  "marscode.chatLanguage": "cn"
 }
