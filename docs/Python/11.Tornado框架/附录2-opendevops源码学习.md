@@ -22,11 +22,11 @@ https://github.com/opendevops-cn/opendevops
 
 CODO 项目我们是使用模块化、微服务化，以下为各个模块地址，同时也欢迎业界感兴趣各位大佬前来贡献
 
-前端代码：[codo](https://github.com/opendevops-cn/codo)
-管理后端：[codo-admin](https://github.com/opendevops-cn/codo-admin)
-定时任务：[codo-cron](https://github.com/opendevops-cn/codo-cron)
-任务调度：[codo-task](https://github.com/opendevops-cn/codo-task)
-资产管理：[codo-cmdb](https://github.com/opendevops-cn/codo-cmdb)
-配置中心：[codo-kerrigan](https://github.com/opendevops-cn/kerrigan)
-运维工具：[codo-tools](https://github.com/opendevops-cn/codo-tools)
-域名管理：[codo-dns](https://github.com/opendevops-cn/codo-dns)
+- 前端代码：[codo](https://github.com/opendevops-cn/codo)
+- 管理后端：[codo-admin](https://github.com/opendevops-cn/codo-admin)
+- 定时任务：[codo-cron](https://github.com/opendevops-cn/codo-cron)
+- 任务调度：[codo-task](https://github.com/opendevops-cn/codo-task)
+- 资产管理：[codo-cmdb](https://github.com/opendevops-cn/codo-cmdb)
+- 配置中心：[codo-kerrigan](https://github.com/opendevops-cn/kerrigan)
+- 运维工具：[codo-tools](https://github.com/opendevops-cn/codo-tools)
+- 域名管理：[codo-dns](https://github.com/opendevops-cn/codo-dns)
