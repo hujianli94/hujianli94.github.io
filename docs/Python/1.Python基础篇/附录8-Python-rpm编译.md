@@ -560,6 +560,16 @@ chmod -R 777 %{buildroot}/var/log/deltaclient.log
 - build for kylin 4
 ```
 
+
+## 整理工作中常用的RPM构建spec
+
+- https://github.com/eryajf/rpmbuild/tree/main
+
+## OpenStack rpm-packaging 介绍使用
+
+- https://www.xiexianbin.cn/linux/rpm/2017-03-25-openstack-rpm-packaging/index.html
+
+
 ## 使用 setup.py 制作 Python 安装包
 
 - https://www.xiexianbin.cn/python/pypi/python-setup_py-demo/index.html
@@ -568,6 +578,18 @@ chmod -R 777 %{buildroot}/var/log/deltaclient.log
 
 - https://www.xiexianbin.cn/python/pypi/python-setup_py/index.html
 
-## 常用 Linux RPM 下载地址和 RPM 下载方法
+
+
+
+## 参考文献
+
+- https://hlyani.github.io/notes/linux/rpm_build.html
+
+
+Linux rpmbuild 使用介绍及 OpenStack rpm 打包示例
+
+- https://www.xiexianbin.cn/linux/rpm/2015-08-04-linux-rpmbuild/index.html?to_index=1
+
+常用 Linux RPM 下载地址和 RPM 下载方法
 
 - https://www.xiexianbin.cn/linux/rpm/2015-01-03-linux-packages-download/index.html
