@@ -16,9 +16,18 @@
 - 云原生
 - 云架构
 
+
+- 梯子教程： https://www.tizi365.com/
+
+- 跟GPT学习全栈开发: https://www.studywithgpt.com/zh-cn?from=tizi365_index
+
+
+
 // todo 技术栈展示图
 
 !!! info "Mkdocs 教程"
+
+- [撰写技术文档](https://www.jieyu.ai/articles/python/best-practice-python/chap10/)
 
 - [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/getting-started/)
 
@@ -35,6 +44,8 @@
 - [快来美化你的 MKDocs 吧](https://juejin.cn/post/7066641709198737416)
 
 !!!info "他人 mkdocs 示例"
+
+- [advanced-python-techniques](https://github.com/baiyongan/advanced-python-techniques)
 
 - [Rook-Ceph](https://rook.io/docs/rook/latest/Getting-Started/quickstart/#create-a-ceph-cluster)
 

@@ -16,6 +16,13 @@
 - 云原生
 - 云架构
 
+
+- 梯子教程： https://www.tizi365.com/
+
+- 跟GPT学习全栈开发: https://www.studywithgpt.com/zh-cn?from=tizi365_index
+
+
+
 // todo 技术栈展示图
 
 !!! info "Mkdocs 教程"
