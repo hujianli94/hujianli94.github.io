@@ -383,8 +383,8 @@ nav:
           - Golang/8.Go标准库/49.md5.md
           - Golang/8.Go标准库/50.base64.md
           - Golang/8.Go标准库/51.rand.md
-          - Golang/8.Go标准库/49.函数工具库.md
-          - Golang/8.Go标准库/50.Go语言在运维开发中的应用.md
+          - Golang/8.Go标准库/60.函数工具库.md
+          - Golang/8.Go标准库/61.Go语言在运维开发中的应用.md
       - 9.Go三方库:
           - Golang/9.Go三方库/00.开源自己的Go库.md
           - Golang/9.Go三方库/01.cobra.md
